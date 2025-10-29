@@ -5,7 +5,12 @@ FAIR4AI Working Group repo for organization, planning, and development.
 
 - [FAIR4AI Working Definitions and Comments from Workshop 0.5](https://docs.google.com/document/d/1fLf9ZAhGEBTPgTCkOraE6H9G-2e2TDyBpPpXi2HoZ6k/edit?usp=sharing)
 - [DRAFT AI-Ready Checklist](https://docs.google.com/spreadsheets/d/16WuJzLLMpovZs_iyWflq_eMhykMRaw9tNvGXOEmsabU/edit?usp=sharing)
+    - Based on combining the Imageomics [Data Card](https://imageomics.github.io/Imageomics-guide/wiki-guide/Data-Checklist/) and [Metadata](https://imageomics.github.io/Imageomics-guide/wiki-guide/Metadata-Checklist/) checklists[^1] with the [ESIIP Checklist](https://esip.figshare.com/articles/online_resource/Checklist_to_Examine_AI-readiness_for_Open_Environmental_Datasets/19983722/1?file=35578457)[^2].
 - [AI-Readiness Defined Slides](https://docs.google.com/presentation/d/1FAXOJedUSOotnXn5984DOtGX62bLaR33PzgLOEDbUh4/edit?usp=sharing)
+
+[^1]: For context, the Imageomics metadata checklist is mostly a generalized version of the Data Card checklist. They fit in the [Imageomics Project Lifecycle](https://imageomics.github.io/Imageomics-guide/wiki-guide/Digital-Product-Lifecycle/) as part of the iterative process of filling out a dataset card and updating on GitHub with checklists in the GitHub project repo issue.
+
+[^2]: There is also a [newer version on GitHub](https://github.com/ESIPFed/data-readiness/blob/main/checklist-published/ai-ready-data-checklist-v.1.0.md). I believe we incorporated both.
 
 ## Guiding Questions and Considerations
 
