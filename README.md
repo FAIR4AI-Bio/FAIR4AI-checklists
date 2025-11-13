@@ -3,8 +3,10 @@ FAIR4AI Working Group repo for organization, planning, and development.
 
 ## Current Resources/Drafts:
 
-- [FAIR4AI Working Definitions](https://docs.google.com/document/d/1fLf9ZAhGEBTPgTCkOraE6H9G-2e2TDyBpPpXi2HoZ6k/edit?usp=sharing)
-    - Includes comments from Workshop 0.5 and notes for this group (see tabs on the sidebar).
+- [Definitions_FAIR4AI_AI-ready.md](Definitions_FAIR4AI_AI-ready.md)
+    - Living document for defining FAIR4AI and AI-ready. 
+    - Currently established as resource to help distinguish as we consider which elements of the [checklist](https://docs.google.com/spreadsheets/d/16WuJzLLMpovZs_iyWflq_eMhykMRaw9tNvGXOEmsabU/edit?gid=1026025652#gid=1026025652) are sufficient for FAIR, FAIR4AI, and AI-ready. 
+    - This is meant to build on the [FAIR4AI Working Definitions from 0.5 Workshop](https://docs.google.com/document/d/1fLf9ZAhGEBTPgTCkOraE6H9G-2e2TDyBpPpXi2HoZ6k/edit?usp=sharing), which includes comments from Workshop 0.5 and notes for this group (see tabs on the sidebar).
 - [DRAFT AI-Ready Checklist](https://docs.google.com/spreadsheets/d/16WuJzLLMpovZs_iyWflq_eMhykMRaw9tNvGXOEmsabU/edit?usp=sharing)
     - Based on combining the Imageomics [Data Card](https://imageomics.github.io/Imageomics-guide/wiki-guide/Data-Checklist/) and [Metadata](https://imageomics.github.io/Imageomics-guide/wiki-guide/Metadata-Checklist/) checklists[^1] with the [ESIIP Checklist](https://esip.figshare.com/articles/online_resource/Checklist_to_Examine_AI-readiness_for_Open_Environmental_Datasets/19983722/1?file=35578457)[^2].
 - [AI-Readiness Defined Slides](https://docs.google.com/presentation/d/1FAXOJedUSOotnXn5984DOtGX62bLaR33PzgLOEDbUh4/edit?usp=sharing)
