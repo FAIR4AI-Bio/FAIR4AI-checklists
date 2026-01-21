@@ -1,0 +1,1984 @@
+{
+  "formId": "1gz570yBe2zDJFI__iIhLkWjK69Yy7KIkmVYiWYTQMLw",
+  "info": {
+    "title": "AI-Ready Checklist",
+    "documentTitle": "AI-Ready Checklist"
+  },
+  "settings": {
+    "emailCollectionType": "DO_NOT_COLLECT"
+  },
+  "revisionId": "00000115",
+  "responderUri": "https://docs.google.com/forms/d/e/1FAIpQLSefp4VcF1_BJXINoHsFHiCIvUT6KGSF55OyfdoPQYmj_hGIPQ/viewform",
+  "items": [
+    {
+      "itemId": "16017079",
+      "textItem": {},
+      "title": "General Information"
+    },
+    {
+      "itemId": "4922d26a",
+      "textItem": {},
+      "title": "Acknowledgements",
+      "description": "Funding description, grants, non-author contributors"
+    },
+    {
+      "itemId": "589c98a9",
+      "title": "Funding Description and Grants",
+      "questionItem": {
+        "question": {
+          "questionId": "751f3446",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "240d61aa",
+      "title": "Non-author Contributions",
+      "questionItem": {
+        "question": {
+          "questionId": "2b29065e",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "5b61af9f",
+      "textItem": {},
+      "title": "Data Description",
+      "description": "Brief descriptions of data content, purpose, machine readiness (?)"
+    },
+    {
+      "itemId": "46113483",
+      "title": "Purpose of the data",
+      "questionItem": {
+        "question": {
+          "questionId": "216f03e5",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "57d5ddcd",
+      "title": "Content -- short description of the data types, etc.",
+      "questionItem": {
+        "question": {
+          "questionId": "0524b1a3",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "692b6d8c",
+      "title": "Is the data machine ready? (definition of machine ready)",
+      "questionItem": {
+        "question": {
+          "questionId": "31f0d0fd",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "54b4a02a",
+      "title": "Language -- what language or languages are the data?",
+      "questionItem": {
+        "question": {
+          "questionId": "140ece60",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "4bdddc58",
+      "title": "Summary -- short summary of the data, e.g., for API call",
+      "questionItem": {
+        "question": {
+          "questionId": "063b2495",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "2f6cd694",
+      "textItem": {},
+      "title": "Discovery",
+      "description": "List relevant keywords or tags that describe the dataset."
+    },
+    {
+      "itemId": "2c477c98",
+      "title": "Keywords/Tags",
+      "questionItem": {
+        "question": {
+          "questionId": "6e3b1be1",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "7fd27650",
+      "textItem": {},
+      "title": "Ontology"
+    },
+    {
+      "itemId": "3625c094",
+      "title": "Ontology: Data Dictionary/Codebook",
+      "questionItem": {
+        "question": {
+          "questionId": "4bb7f9c5",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "56f586b3",
+      "title": "Ontology: Example Code (could be link to section of repository)",
+      "questionItem": {
+        "question": {
+          "questionId": "21c549e4",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "23b69cd2",
+      "textItem": {},
+      "title": "References",
+      "description": "References for, or links to, any associated published artifacts (papers, models, code, webpages)"
+    },
+    {
+      "itemId": "1115a5ae",
+      "title": "Homepage (link to associated project page)",
+      "questionItem": {
+        "question": {
+          "questionId": "0ea2dbdd",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "27c83aff",
+      "title": "Repository (link to associated project repository)",
+      "questionItem": {
+        "question": {
+          "questionId": "2994e532",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "7ccd184f",
+      "title": "Example Code (could be link to this in the project repository)",
+      "questionItem": {
+        "question": {
+          "questionId": "17521ce3",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "218fa4b3",
+      "title": "Paper (title and link to associated paper)",
+      "questionItem": {
+        "question": {
+          "questionId": "6e027c36",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "43bffe6c",
+      "title": "Related Dataset and/or Model",
+      "questionItem": {
+        "question": {
+          "questionId": "538c76c9",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "15273e26",
+      "title": "Related Paper (cited by?)",
+      "questionItem": {
+        "question": {
+          "questionId": "181f7472",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "5d96e8bb",
+      "textItem": {},
+      "title": "Standard Metadata",
+      "description": "Basic citation metadata"
+    },
+    {
+      "itemId": "578ef5a9",
+      "title": "Creators",
+      "questionItem": {
+        "question": {
+          "questionId": "76877192",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "481ad037",
+      "title": "Title",
+      "questionItem": {
+        "question": {
+          "questionId": "46883012",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "77551ea5",
+      "title": "Summary or Abstract",
+      "questionItem": {
+        "question": {
+          "questionId": "399dc32b",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "11757fed",
+      "title": "Date Created",
+      "questionItem": {
+        "question": {
+          "questionId": "5f22c5fe",
+          "required": true,
+          "dateQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "4150c0fd",
+      "title": "Publisher",
+      "questionItem": {
+        "question": {
+          "questionId": "047e5123",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "3de59b26",
+      "pageBreakItem": {},
+      "title": "Data Structure (Matt)",
+      "description": "Data Format, Data organization, Features, Technical Specs"
+    },
+    {
+      "itemId": "3a316891",
+      "textItem": {},
+      "title": "Data Format"
+    },
+    {
+      "itemId": "1de7e284",
+      "title": "What file format(s) encode the data?",
+      "questionItem": {
+        "question": {
+          "questionId": "28b8f86f",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Tabular / delimited text (CSV, TSV, XLSX, etc.)"
+              },
+              {
+                "value": "Parquet/Arrow"
+              },
+              {
+                "value": "JSON/JSONL"
+              },
+              {
+                "value": "JPG/PNG/WebP/TIFF (etc.)"
+              },
+              {
+                "value": "Non-geospatial array-based scientific data container (NetCDF, HDF5, Zarr, etc.)"
+              },
+              {
+                "value": "Georeferenced raster data (GeoTIFF, COG, GRIB, NetCDF, Zarr, etc.)"
+              },
+              {
+                "value": "Georeferenced vector data (points, lines, polygons; GeoPackage, GeoJSON, Shapefile, etc.)"
+              },
+              {
+                "value": "WAV/FLAC/MP3 (etc.)"
+              },
+              {
+                "value": "MP4/MKV (etc.)"
+              },
+              {
+                "value": "Database file (embedded, e.g. SQLite)"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "62535650",
+      "title": "What is the dataset layout pattern?",
+      "questionItem": {
+        "question": {
+          "questionId": "4ec34708",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Single file"
+              },
+              {
+                "value": "Many independent files"
+              },
+              {
+                "value": "Partitioned dataset (by year, region, taxon, etc.)"
+              },
+              {
+                "value": "Database file"
+              },
+              {
+                "value": "API-only"
+              },
+              {
+                "value": "Mixed"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "7d9494fb",
+      "title": "What is the primary unit of data that is to be operated on?",
+      "description": "E.g., 'Each row is a species observation'; 'Each file is a satellite image'.",
+      "questionItem": {
+        "question": {
+          "questionId": "74741fcc",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "5da30379",
+      "textItem": {},
+      "title": "Data Organization"
+    },
+    {
+      "itemId": "510daebe",
+      "title": "What is the organizational structure of the dataset?",
+      "questionItem": {
+        "question": {
+          "questionId": "615f75cf",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Tabular"
+              },
+              {
+                "value": "Raster image"
+              },
+              {
+                "value": "Vector image"
+              },
+              {
+                "value": "Relational database"
+              },
+              {
+                "value": "Audio stream"
+              },
+              {
+                "value": "Video"
+              },
+              {
+                "value": "Time series"
+              },
+              {
+                "value": "Graph/network"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "1493512e",
+      "textItem": {},
+      "title": "Features"
+    },
+    {
+      "itemId": "60693837",
+      "title": "What features or attributes are included for each data instance?",
+      "description": "E.g., species name, location, date, observer ID, etc.",
+      "questionItem": {
+        "question": {
+          "questionId": "5261d567",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "4b3b2d35",
+      "textItem": {},
+      "title": "Technical Specifications"
+    },
+    {
+      "itemId": "5428ef19",
+      "title": "What are the technical specifications of the dataset?",
+      "description": "Include file sizes, total dataset size, resolution, bit depth, sampling rate, etc.",
+      "questionItem": {
+        "question": {
+          "questionId": "4d67c37c",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "733a7168",
+      "pageBreakItem": {},
+      "title": "Source Data",
+      "description": "Annotation, Collection, Instrumentation, Methods, Preparation This may have secondary questions for derived vs directly collected data, e.g., information about the source data vs collection method information (ex: sensors)."
+    },
+    {
+      "itemId": "17ef5f03",
+      "textItem": {},
+      "title": "Annotation"
+    },
+    {
+      "itemId": "5f02bdb0",
+      "title": "Annotation Types: What types of annotations or labels are included in the dataset (if any)? Select all that apply:",
+      "questionItem": {
+        "question": {
+          "questionId": "5103982e",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Categorical labels (e.g. species names or class IDs)"
+              },
+              {
+                "value": "Spatial annotations (e.g. bounding boxes, segmentation masks)"
+              },
+              {
+                "value": "Textual descriptors or tags"
+              },
+              {
+                "value": "No annotations"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "69d9a302",
+      "title": "Annotation Process: How were the annotations generated or obtained? Select all that apply:",
+      "questionItem": {
+        "question": {
+          "questionId": "036f7f14",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Manually by domain experts"
+              },
+              {
+                "value": "Crowdsourced by volunteers"
+              },
+              {
+                "value": "Automatically by an algorithm or sensor"
+              },
+              {
+                "value": "Mixed (human-reviewed automation)"
+              },
+              {
+                "value": "Not applicable (no annotations)"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "193cd4ea",
+      "title": "Annotators (Contributors): Who performed the data annotations? If available, provide a list of annotators (e.g., ORCiDs), or names/versions of automated tools or systems; or other relevant information.",
+      "questionItem": {
+        "question": {
+          "questionId": "2b22cc0b",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "6cee5061",
+      "textItem": {},
+      "title": "Collection"
+    },
+    {
+      "itemId": "016c1327",
+      "title": "Collection (Data Source Type): What type(s) of source data were collected or used to generate this dataset?",
+      "questionItem": {
+        "question": {
+          "questionId": "08c96f68",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Field observations or surveys by humans"
+              },
+              {
+                "value": "Sensor-based data collection"
+              },
+              {
+                "value": "Specimens, samples, and lab results"
+              },
+              {
+                "value": "Derived or processed data"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "54f57d0c",
+      "title": "Collection (Source Data / Data Source Citation(s)): If this is a derived dataset, list the original data source(s) used and provide citation/identifier information for each.",
+      "description": "Include: Title / dataset name Persistent identifier (DOI, URL, ARK, w3id, etc.) Relation to this dataset (e.g., Cites, IsDerivedFrom, IsPartOf, References) Publisher / data catalog (if applicable)",
+      "questionItem": {
+        "question": {
+          "questionId": "183a2c74",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "35c388e8",
+      "title": "Collection (Curation Rationale): What was the primary rationale for curating or assembling this dataset? Select one:",
+      "questionItem": {
+        "question": {
+          "questionId": "4c176720",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Consolidate distributed sources into a unified dataset"
+              },
+              {
+                "value": "Create ML‑ready structure for AI/analytics"
+              },
+              {
+                "value": "Improve data quality (cleaning, normalization, deduplication)"
+              },
+              {
+                "value": "Enhance discoverability/interoperability"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "1911a013",
+      "title": "Collection (Part of a Larger Collection): If this dataset part of a larger collection or series, provide the following information:",
+      "description": "Collection/series name Persistent identifier Relationship (IsPartOf, HasPart, IsPublishedIn) Catalog or repository name",
+      "questionItem": {
+        "question": {
+          "questionId": "57b7f3ae",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "187b8974",
+      "textItem": {},
+      "title": "Instrumentation"
+    },
+    {
+      "itemId": "44599cfe",
+      "title": "Instrumentation: Describe the instruments or sensors used to collect the data, including their specifications and configuration.",
+      "description": "Include as applicable: Instrument/sensor name and model Manufacturer Sensor type (e.g., microphone, camera, spectrometer) Key technical specs (resolution, sampling rate, spectral range, dynamic range) Deployment/operational configuration (height, orientation, settings) Calibration procedures Applicable to: bioacoustics, remote sensing, environmental sensors, imaging, lab equipment, etc.",
+      "questionItem": {
+        "question": {
+          "questionId": "1c8b5440",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "2190a437",
+      "textItem": {},
+      "title": "Methods"
+    },
+    {
+      "itemId": "7b60a0ef",
+      "title": "Methods (Collection Method Documentation): Describe the methods used to collect or generate the data.",
+      "description": "You may include: Field, laboratory, computational, or remote‑sensing protocols SOPs, manuals, workflow documents Genetic, acoustic, imaging, trait measurement, or phylogenetic inference procedures Links (URL/DOI) to method documentation Deviations or customizations compared to standard methods",
+      "questionItem": {
+        "question": {
+          "questionId": "23212a34",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "36196a19",
+      "title": "Methods (Spatial Resolution): Select all that apply",
+      "questionItem": {
+        "question": {
+          "questionId": "3ed90672",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Point location (single coordinates)"
+              },
+              {
+                "value": "Plot/transect/area-based"
+              },
+              {
+                "value": "Grid-based"
+              },
+              {
+                "value": "Pixel-based (remote sensing)"
+              },
+              {
+                "value": "Voxel/3D resolution (LiDAR)"
+              },
+              {
+                "value": "Not spatially explicit"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "1b4a7064",
+      "title": "Methods (Spatial Extent): Description of geographic coverage (region, bounding box, domain)",
+      "questionItem": {
+        "question": {
+          "questionId": "3778d03f",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "2ec996bb",
+      "title": "Methods (Temporal Resolution): Select all that apply",
+      "questionItem": {
+        "question": {
+          "questionId": "4d1f0327",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Instantaneous / event-based"
+              },
+              {
+                "value": "High-frequency (sub-second, acoustics, accelerometers)"
+              },
+              {
+                "value": "Hourly, daily, weekly, monthly, seasonal"
+              },
+              {
+                "value": "Annual"
+              },
+              {
+                "value": "Continuous / streaming"
+              },
+              {
+                "value": "Not time-explicit"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "2957e0d4",
+      "title": "Methods (Temporal Extent):",
+      "description": "Start date End date (or leave blank if ongoing) Optional description (e.g., “seasonal sampling 2010–2024”)",
+      "questionItem": {
+        "question": {
+          "questionId": "4ec2b868",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "3f0c36f4",
+      "textItem": {},
+      "title": "Preparation"
+    },
+    {
+      "itemId": "6a3d8e3a",
+      "title": "Preparation: Describe any data preparation, cleaning, transformation, or quality-control steps performed prior to generating the final dataset.",
+      "description": "Include as relevant: Filtering, trimming, or excluding records Merging or harmonizing multiple data sources Manual corrections or expert verification Gap filling, imputation, normalization Feature engineering or deriving new variables Conversion of raw formats (e.g., raw sensor → - calibrated values) Acoustic filtering, image preprocessing, sequence cleaning, trait standardization Software tools, scripts, or pipelines used (with links if available)",
+      "questionItem": {
+        "question": {
+          "questionId": "27d747df",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "70b79f7f",
+      "pageBreakItem": {},
+      "title": "Data Processing",
+      "description": "Correction/Standardization of values, Gaps filled, Labeling/re-labeling, Outlier removal, Splits"
+    },
+    {
+      "itemId": "302ccaff",
+      "textItem": {},
+      "title": "Correction / Standardization of Values",
+      "description": "Describe corrections applied to existing data values, and whether the data values have been standardized in any way."
+    },
+    {
+      "itemId": "4da26d86",
+      "title": "Were any of the following standardization or correction steps applied to the dataset?",
+      "questionItem": {
+        "question": {
+          "questionId": "32d5ba76",
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Data gridding (e.g., interpolation)"
+              },
+              {
+                "value": "Unit consistency (e.g., all in metric)"
+              },
+              {
+                "value": "Data anonymization (removing personal IDs)"
+              },
+              {
+                "value": "Standardizing categorical codes"
+              },
+              {
+                "value": "Standardizing image dimensions/color spaces"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "7f0b6ee8",
+      "textItem": {},
+      "title": "Gaps Filled",
+      "description": "Describe whether and how gapfilling procedures have been used to replace missing or removed values in the data."
+    },
+    {
+      "itemId": "580f7270",
+      "title": "Were missing values or data gaps filled in the dataset?",
+      "questionItem": {
+        "question": {
+          "questionId": "0ac94a79",
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not applicable"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "24d26b4a",
+      "title": "If gaps were filled, describe the method(s) used.",
+      "description": "Include interpolation, imputation, or model-based gap-filling approaches.",
+      "questionItem": {
+        "question": {
+          "questionId": "7a5f90ac",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "5245aafb",
+      "textItem": {},
+      "title": "Labeling / Relabeling",
+      "description": "Describe any labels or annotations applied to entities in the dataset and the methods used to apply them."
+    },
+    {
+      "itemId": "092e1653",
+      "title": "Were any labeling or relabeling steps applied to the dataset?",
+      "questionItem": {
+        "question": {
+          "questionId": "11bd70d5",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes – primary labeling applied"
+              },
+              {
+                "value": "Yes – relabeling/standardization applied"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not applicable"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "5b78766d",
+      "title": "If labeling or relabeling was performed, describe the process.",
+      "description": "Include label sources, standardization methods, and alignment with external taxonomies or ontologies.",
+      "questionItem": {
+        "question": {
+          "questionId": "5f2ab42e",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "352e8ad9",
+      "textItem": {},
+      "title": "Data Filtering and Outlier Removal",
+      "description": "Describe any removals of erroneous or unwanted data values, and how outlier data values were identified and removed."
+    },
+    {
+      "itemId": "69768469",
+      "title": "Were any outlier removal or filtering procedures applied to the dataset?",
+      "questionItem": {
+        "question": {
+          "questionId": "4716b290",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not applicable"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "4187914e",
+      "title": "If yes, describe the outlier detection and removal methods used.",
+      "description": "Include statistical thresholds, manual review, or algorithmic approaches for outlier removal.",
+      "questionItem": {
+        "question": {
+          "questionId": "153fdf16",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "029c27ca",
+      "textItem": {},
+      "title": "Splits",
+      "description": "Datasets are often split into training, validation, and/or test subsets. Describe whether and how this was done."
+    },
+    {
+      "itemId": "565d69f4",
+      "title": "Has the dataset been split into training, validation, and/or test sets?",
+      "questionItem": {
+        "question": {
+          "questionId": "681e1a45",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes – predefined splits provided"
+              },
+              {
+                "value": "No – users define their own splits"
+              },
+              {
+                "value": "Not applicable"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "5ee3ecd6",
+      "title": "If splits are provided, describe how they were created.",
+      "description": "Include whether splits were random, stratified, temporal, their proportions, and how data leakage was avoided.",
+      "questionItem": {
+        "question": {
+          "questionId": "5b624d85",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "74479e8c",
+      "pageBreakItem": {},
+      "title": "Data Quality",
+      "description": "Completeness, Consistency, Integrity, Timeliness"
+    },
+    {
+      "itemId": "79888a12",
+      "textItem": {},
+      "title": "Completeness",
+      "description": "The breadth of a dataset compared to an ideal 100% completion (spatial, temporal, demographic, etc.); important in avoiding bias"
+    },
+    {
+      "itemId": "082562f5",
+      "title": "Is this dataset complete (i.e., there are no plans for further updates to this data product)?",
+      "questionItem": {
+        "question": {
+          "questionId": "08e384a7",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "In progress"
+              },
+              {
+                "value": "Regularly updated"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "077c5978",
+      "title": "Have quality assurance checks been run and have they passed?",
+      "questionItem": {
+        "question": {
+          "questionId": "3d7f6acd",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes, and all passed."
+              },
+              {
+                "value": "Yes, but not all passed."
+              },
+              {
+                "value": "No (chance to explain next)"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "1e8f5f32",
+      "title": "What data processing steps have been completed?",
+      "questionItem": {
+        "question": {
+          "questionId": "36ac037d",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "0d4e3f66",
+      "textItem": {},
+      "title": "Data Quality: Timeliness",
+      "description": "the speed of data release, compared to when an event occurred or measurements were made; requirements will vary depending on the timeframe of the phenomenon (e.g., severe thunderstorms vs. climate change, or disease outbreaks vs. life expectancy trends)"
+    },
+    {
+      "itemId": "7b3e849b",
+      "title": "This dataset is ...",
+      "questionItem": {
+        "question": {
+          "questionId": "5660ba69",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "updated in real-time (raw)"
+              },
+              {
+                "value": "Quality-controlled (processed)"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "2e7a1c0e",
+      "textItem": {},
+      "title": "Quality Assurance Issues",
+      "description": "This should also be documented under Guidance and Recommendations."
+    },
+    {
+      "itemId": "00018e32",
+      "title": "Please describe the quality checks that have failed and provide context for downstream users to work with the data as-is or resolve the issues.",
+      "questionItem": {
+        "question": {
+          "questionId": "1f53dab0",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "65a344f7",
+      "textItem": {},
+      "title": "Quality Assurance checks not performed",
+      "description": "This should also be documented under Guidance and Recommendations."
+    },
+    {
+      "itemId": "7e89a667",
+      "title": "Please explain why quality checks were not performed and provide context for downstream users to work with the data as-is or resolve potential issues.",
+      "questionItem": {
+        "question": {
+          "questionId": "03aa07f1",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "61904cc6",
+      "title": "Describe any known gaps or limitations in the dataset’s completeness.",
+      "description": "Include known spatial, temporal, or content gaps and their potential impact.",
+      "questionItem": {
+        "question": {
+          "questionId": "66643f7a",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "7a6409c4",
+      "textItem": {},
+      "title": "Data Quality: Consistency",
+      "description": "uniformity within the entire dataset or compared with similar data collections; for example, no changes in units or data types over time; item measured against itself or its counterpart in another dataset or database"
+    },
+    {
+      "itemId": "4da47a7a",
+      "title": "Have all units been translated into compatible forms?",
+      "questionItem": {
+        "question": {
+          "questionId": "00c468d8",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Units are documented for compatibility"
+              },
+              {
+                "value": "Script is provided to standardize"
+              },
+              {
+                "value": "No units requiring standardization"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "5f5ac6a8",
+      "title": "Do data follow a controlled vocabulary?",
+      "questionItem": {
+        "question": {
+          "questionId": "3bbc184f",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "412ea305",
+      "title": "Provide a reference to the controlled vocabulary used.",
+      "questionItem": {
+        "question": {
+          "questionId": "765dbd23",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "42425757",
+      "title": "Describe any known consistency issues or steps taken to ensure consistency.",
+      "description": "Include examples of standardization and any remaining inconsistencies.",
+      "questionItem": {
+        "question": {
+          "questionId": "04962c48",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "7f5bb4f0",
+      "textItem": {},
+      "title": "Data Quality: Integrity",
+      "description": "verification that the data remains unchanged from the original; aka data fixity"
+    },
+    {
+      "itemId": "3fb99a74",
+      "title": "Have any quality assurance or peer review procedures been applied to the dataset?",
+      "questionItem": {
+        "question": {
+          "questionId": "6ea1e156",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Internal quality control"
+              },
+              {
+                "value": "External peer review"
+              },
+              {
+                "value": "Automated validation scripts"
+              },
+              {
+                "value": "Manual data checks"
+              },
+              {
+                "value": "None"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "1dd2bfc9",
+      "title": "Describe the procedures used to ensure data integrity.",
+      "description": "Include use of checksums, version control, or audit trails to ensure data remains unchanged.",
+      "questionItem": {
+        "question": {
+          "questionId": "37095b92",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "566bd94e",
+      "textItem": {},
+      "title": "Timeliness"
+    },
+    {
+      "itemId": "3f5831d8",
+      "title": "What is the timeliness of the data?",
+      "questionItem": {
+        "question": {
+          "questionId": "70293948",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Real-time or near real-time"
+              },
+              {
+                "value": "Periodically updated"
+              },
+              {
+                "value": "Static (not updated)"
+              },
+              {
+                "value": "Historical archive"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "63bf627f",
+      "title": "Describe the time lag between data collection and availability.",
+      "description": "E.g., 'published within 24 hours of collection' or 'released annually'.",
+      "questionItem": {
+        "question": {
+          "questionId": "444402cb",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "1d4b414e",
+      "pageBreakItem": {},
+      "title": "Guidance and Recommendations",
+      "description": "Bias, Experimental Design, Usage Recommendations"
+    },
+    {
+      "itemId": "14af11a7",
+      "textItem": {},
+      "title": "Bias",
+      "description": "Describe any potential sources of bias in the dataset."
+    },
+    {
+      "itemId": "72b8ad54",
+      "title": "Are there known sources of bias in the dataset?",
+      "questionItem": {
+        "question": {
+          "questionId": "405e7852",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Sampling bias"
+              },
+              {
+                "value": "Instrumentation bias"
+              },
+              {
+                "value": "Observer bias"
+              },
+              {
+                "value": "Processing bias"
+              },
+              {
+                "value": "No known bias"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "0bdd4870",
+      "title": "Describe any known risks or limitations associated with the dataset.",
+      "description": "Include limitations in scope, accuracy, representativeness, or potential misuse.",
+      "questionItem": {
+        "question": {
+          "questionId": "7643fb0d",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "74ba60c3",
+      "textItem": {},
+      "title": "Experimental Design"
+    },
+    {
+      "itemId": "51ad2d09",
+      "title": "Is the dataset based on experimental data?",
+      "questionItem": {
+        "question": {
+          "questionId": "03dd0f47",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "5b97bde4",
+      "title": "If yes, describe the experimental design.",
+      "description": "Include information about treatments, controls, replication, randomization, etc.",
+      "questionItem": {
+        "question": {
+          "questionId": "50dbbbee",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "430c931f",
+      "textItem": {},
+      "title": "Usage Recommendations"
+    },
+    {
+      "itemId": "572a138f",
+      "title": "What are the recommended or intended uses of this dataset?",
+      "description": "Include types of analyses, models, or applications this dataset is suited for.",
+      "questionItem": {
+        "question": {
+          "questionId": "157e16c4",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "1ac4a446",
+      "title": "Are there any known inappropriate or discouraged uses of this dataset?",
+      "description": "Include contexts where the dataset may be misleading or ethically problematic.",
+      "questionItem": {
+        "question": {
+          "questionId": "77d14010",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "13140f27",
+      "title": "Has this dataset been used in AI/ML applications previously?",
+      "questionItem": {
+        "question": {
+          "questionId": "41150635",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "5ac04785",
+      "title": "If yes, describe how the dataset has been used in AI/ML applications.",
+      "description": "Include references to models, benchmarks, or publications if available.",
+      "questionItem": {
+        "question": {
+          "questionId": "5486f13f",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "6c06349f",
+      "title": "Include references to models, benchmarks, or publications if available.",
+      "description": "Include documentation, licensing considerations, or community standards to follow.",
+      "questionItem": {
+        "question": {
+          "questionId": "790b0859",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "685f56fb",
+      "title": "How should users report issues or errors in the dataset?",
+      "description": "Provide contact email, issue tracker link, or other method for reporting problems.",
+      "questionItem": {
+        "question": {
+          "questionId": "50f38b34",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "6fa868af",
+      "pageBreakItem": {},
+      "title": "Data Access",
+      "description": "Delivery Options, Format Accessibility (open, proprietary, etc.), License/Usage Rights, Security/Privacy"
+    },
+    {
+      "itemId": "33d8ee3b",
+      "textItem": {},
+      "title": "Delivery Options"
+    },
+    {
+      "itemId": "1804e13f",
+      "title": "Is the dataset available for direct download?",
+      "questionItem": {
+        "question": {
+          "questionId": "020d4832",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "147fcd7c",
+      "title": "Is the dataset accessible via an API?",
+      "questionItem": {
+        "question": {
+          "questionId": "5758c370",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "3ef763e2",
+      "title": "If accessible via API, what type of API is provided?",
+      "description": "E.g., REST, GraphQL, OPeNDAP",
+      "questionItem": {
+        "question": {
+          "questionId": "0e66eb8c",
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "7bb6ff80",
+      "title": "Is the dataset accessible via a cloud platform?",
+      "questionItem": {
+        "question": {
+          "questionId": "4277b81d",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "611ddc53",
+      "textItem": {},
+      "title": "Format Accessibility"
+    },
+    {
+      "itemId": "513869c1",
+      "title": "Is the dataset provided in a machine-readable format?",
+      "questionItem": {
+        "question": {
+          "questionId": "374df499",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "227f0eef",
+      "title": "Is the dataset provided in an open (non-proprietary) format?",
+      "questionItem": {
+        "question": {
+          "questionId": "333cf3e6",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "6f37d4f9",
+      "title": "Is the dataset available in multiple formats?",
+      "questionItem": {
+        "question": {
+          "questionId": "21dbb94e",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "17699bb3",
+      "textItem": {},
+      "title": "License / Usage Rights"
+    },
+    {
+      "itemId": "5965d9f9",
+      "title": "What license applies to this dataset?",
+      "description": "Provide full name or URL of the license",
+      "questionItem": {
+        "question": {
+          "questionId": "6131da42",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "6331389c",
+      "title": "Is the license information provided in a standardized or machine-readable format?",
+      "questionItem": {
+        "question": {
+          "questionId": "50588f65",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "451f06ec",
+      "textItem": {},
+      "title": "Security / Privacy"
+    },
+    {
+      "itemId": "57e5f7fa",
+      "title": "Does the dataset contain personal or sensitive information?",
+      "questionItem": {
+        "question": {
+          "questionId": "5d4e396e",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "4dd0d34c",
+      "title": "Is access to the dataset restricted in any way?",
+      "questionItem": {
+        "question": {
+          "questionId": "454436ca",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "381da654",
+      "title": "Is secure access required to obtain or use the dataset?",
+      "questionItem": {
+        "question": {
+          "questionId": "5cd9d199",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              },
+              {
+                "value": "Not sure"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "17137813",
+      "pageBreakItem": {},
+      "title": "Provenance"
+    },
+    {
+      "itemId": "4a3dc347",
+      "textItem": {},
+      "title": "Citation for \"this dataset\"",
+      "description": "How should this dataset be referenced or cited by others using it in their work?"
+    },
+    {
+      "itemId": "07717118",
+      "title": "Author and Author ORCID",
+      "questionItem": {
+        "question": {
+          "questionId": "5fafa7f0",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "364f06c4",
+      "title": "Curators (list all curators)",
+      "questionItem": {
+        "question": {
+          "questionId": "27a666f4",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "33ec4a2d",
+      "title": "Dataset Card Author(s) (who is providing the description of the dataset?)",
+      "questionItem": {
+        "question": {
+          "questionId": "169e3d91",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "2639752a",
+      "title": "Dataset Card Contact or Expert Contact (who to contact with questions)",
+      "questionItem": {
+        "question": {
+          "questionId": "4ca721e7",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "5ea3cdb6",
+      "title": "Data Citation (provide the full citation to be used, preferable to include Bibtex format)",
+      "questionItem": {
+        "question": {
+          "questionId": "10d6f595",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "2d04f30e",
+      "title": "Is this dataset derived from other sources?",
+      "questionItem": {
+        "question": {
+          "questionId": "05ed2980",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              {
+                "value": "Yes"
+              },
+              {
+                "value": "No"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "37f4547e",
+      "pageBreakItem": {},
+      "title": "Provenance: Derived Dataset?",
+      "description": "These are questions to answer if the dataset is derived from existing data."
+    },
+    {
+      "itemId": "215aeb2f",
+      "title": "Provenance Tracking: Provide information about the source data from which this dataset was derived (e.g., titles, summaries, and links)",
+      "questionItem": {
+        "question": {
+          "questionId": "1dca8a3d",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "2211829d",
+      "title": "Source Data Producers (who created the source data?)",
+      "questionItem": {
+        "question": {
+          "questionId": "2490d2cc",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "24857dd5",
+      "title": "Citation of subsumed datasets (cite your sources)",
+      "questionItem": {
+        "question": {
+          "questionId": "5a0e01f1",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "0fda15cd",
+      "title": "Source data DOI (permalink for the sources)",
+      "questionItem": {
+        "question": {
+          "questionId": "5ba8350d",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "56638f2d",
+      "title": "Source data checksums: Provide completeness/component confirmation, e.g., checksum for a zip file or a list of image checksums to ensure downstream users can get the same data you did (sum-buddy can help with this if not provided by the source).",
+      "questionItem": {
+        "question": {
+          "questionId": "1decccb1",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "356601f8",
+      "pageBreakItem": {},
+      "title": "Identifier",
+      "description": "Does the dataset have a unique, persistent, machine-resolveable identifier? Note that the checksums requested might be included in a file, such as a CSV, alongside the unique identifiers for your data points."
+    },
+    {
+      "itemId": "0bacb042",
+      "title": "DOI (of this dataset)",
+      "questionItem": {
+        "question": {
+          "questionId": "08a5d155",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "753e75bb",
+      "title": "Checksums: Provide completeness/component confirmation, e.g., checksum for a zip file or a list of image checksums to ensure downstream users get the expected data (sum-buddy can help with this).",
+      "questionItem": {
+        "question": {
+          "questionId": "2e03c227",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "1204a276",
+      "pageBreakItem": {},
+      "title": "Processing Platform or Software"
+    },
+    {
+      "itemId": "3dbdf83d",
+      "title": "Describe any processing platform or software used in the creation of this dataset.",
+      "questionItem": {
+        "question": {
+          "questionId": "1101596b",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "0bcdd1f1",
+      "title": "Provide links to any software created for or used in the creation of the dataset.",
+      "questionItem": {
+        "question": {
+          "questionId": "35bdb50b",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    },
+    {
+      "itemId": "292b425c",
+      "pageBreakItem": {},
+      "title": "Other",
+      "description": "Is there other information that was not collected in earlier sections?"
+    },
+    {
+      "itemId": "40770cd5",
+      "title": "Other",
+      "questionItem": {
+        "question": {
+          "questionId": "7ddd515b",
+          "required": true,
+          "textQuestion": {}
+        }
+      }
+    }
+  ],
+  "publishSettings": {
+    "publishState": {}
+  }
+}

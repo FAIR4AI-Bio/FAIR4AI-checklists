@@ -1,10 +1,13 @@
-"""Download a Google Form via the Forms API and save question metadata as CSV.
+"""Download a Google Form via the Forms API and save question metadata as CSV and JSON.
 
 Usage:
     python download_google_form.py \
         --form-id=<FORM_ID> \
         --credentials=service_account.json \
         --output=form_questions.csv
+    
+    This will save both form_questions.csv and form_questions.json by default.
+    Use --json-output to specify a different JSON path.
 
 Prerequisites:
     1. Enable the Google Forms API in your Google Cloud project.
@@ -47,7 +50,20 @@ def parse_args() -> argparse.Namespace:
         required=True,
         help="Destination CSV path. Parent directories will be created if needed.",
     )
-    return parser.parse_args()
+    parser.add_argument(
+        "--json-output",
+        required=False,
+        default=None,
+        help="Path to save the raw JSON response from Google Forms API. Defaults to CSV path with .json extension.",
+    )
+    args = parser.parse_args()
+    
+    # Set default JSON output path if not provided
+    if args.json_output is None:
+        output_path = pathlib.Path(args.output)
+        args.json_output = str(output_path.with_suffix('.json'))
+    
+    return args
 
 
 def build_forms_client(credentials_path: str):
@@ -194,11 +210,26 @@ def write_csv(rows: List[Dict[str, Any]], output_path: str) -> None:
             writer.writerow(row)
 
 
+def write_json(form_data: Dict[str, Any], output_path: str) -> None:
+    """Write the raw form data to a JSON file."""
+    path = pathlib.Path(output_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    
+    with path.open("w", encoding="utf-8") as handle:
+        json.dump(form_data, handle, indent=2, ensure_ascii=False)
+
+
 def main() -> None:
     args = parse_args()
     try:
         client = build_forms_client(args.credentials)
         form = client.forms().get(formId=args.form_id).execute()
+        
+        # Save JSON (now always done by default)
+        write_json(form, args.json_output)
+        print(f"Saved raw JSON to {args.json_output}")
+        
+        # Save CSV
         rows = flatten_items(form.get("items", []))
         write_csv(rows, args.output)
         print(f"Saved {len(rows)} rows to {args.output}")

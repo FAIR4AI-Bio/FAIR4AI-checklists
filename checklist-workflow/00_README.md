@@ -99,9 +99,13 @@ Or uncomment and edit the USER CONFIGURATION section in each shell script.
 
 The script will:
 - Use environment variables for `FORM_ID` and `CREDS_PATH`
-- Default to outputting `form_download.csv`
+- Default to outputting `form_download.csv` and `form_download.json`
 - Display configuration before running
 - Validate required variables are set
+
+**Output files created:**
+- CSV file with form structure (default: `form_download.csv`)
+- JSON file with raw Google Forms API response (default: `form_download.json`)
 
 You can override defaults by:
 - Setting environment variables: `OUTPUT_PATH="my_output.csv" ./02_run_form_download.sh`
@@ -115,9 +119,13 @@ python download_google_form.py \
     --output=form_questions.csv
 ```
 
-- The `form-id` is the value between `/d/` and `/edit` in the form’s URL.
+This will create both `form_questions.csv` and `form_questions.json` by default.
+
+- The `form-id` is the value between `/d/` and `/edit` in the form's URL.
 - `service_account.json` should match the downloaded key file path.
 - `form_questions.csv` is any destination path; parent folders are created automatically.
+- JSON output path is automatically derived (same name with .json extension)
+- Use `--json-output=custom_path.json` to specify a different JSON path
 
 ## 8. Sanitize the Downloaded CSV
 
@@ -231,7 +239,8 @@ python update_google_form.py \
 - **`sanitize_form_csv.py`** - Removes newlines and formatting issues from CSV
 
 ### Data Files (examples)
-- **`form_download.csv`** - Output from download script
+- **`form_download.csv`** - CSV output from download script
+- **`form_download.json`** - JSON output from download script (raw API response)
 - **`form_upload.csv`** - Sanitized CSV ready for upload
 
 ## 12. Shell Script Configuration
@@ -265,6 +274,7 @@ checklist-workflow/00_my_local_notes.txt
 
 # Generated data files (optional)
 checklist-workflow/form_download.csv
+checklist-workflow/form_download.json
 checklist-workflow/form_upload.csv
 ```
 
