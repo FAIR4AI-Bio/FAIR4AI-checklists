@@ -258,7 +258,10 @@ def add_items(client, form_id: str, items: List[Dict[str, Any]], start_index: in
 
 
 def update_form_info(client, form_id: str, info: Dict[str, Any], *, dry_run: bool) -> None:
-    clean_info = {k: v for k, v in info.items() if v is not None}
+    # Filter out read-only fields that cannot be updated
+    # These fields can only be set on form creation, not on updates
+    read_only_fields = {"document_title", "documentTitle"}
+    clean_info = {k: v for k, v in info.items() if v is not None and k not in read_only_fields}
     if not clean_info:
         return
     update_mask = ",".join(clean_info.keys())
