@@ -1,0 +1,13 @@
+{
+  "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+  "description": "With nearly 214 million images representing 952,257 taxa across the tree of life, TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at re...",
+  "fb:app_id": "1321688464574422",
+  "twitter:card": "summary_large_image",
+  "twitter:site": "@huggingface",
+  "twitter:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/TreeOfLife-200M.png",
+  "og:title": "imageomics/TreeOfLife-200M · Datasets at Hugging Face",
+  "og:description": "With nearly 214 million images representing 952,257 taxa across the tree of life, TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at re...",
+  "og:type": "website",
+  "og:url": "https://huggingface.co/datasets/imageomics/TreeOfLife-200M",
+  "og:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/TreeOfLife-200M.png"
+}

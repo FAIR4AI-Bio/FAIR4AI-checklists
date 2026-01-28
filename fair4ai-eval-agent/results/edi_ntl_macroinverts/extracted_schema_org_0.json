@@ -1,0 +1,462 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#"
+  },
+  "@type": "Dataset",
+  "name": "North Temperate Lakes LTER Pelagic Macroinvertebrate Abundance 1983 - current (Reformatted to the ecocomDP Design Pattern)",
+  "description": "This data package is formatted as an ecocomDP (Ecological Community\n    Data Pattern). For more information on ecocomDP see\n    https://github.com/EDIorg/ecocomDP. This Level 1 data package was\n    derived from the Level 0 data package found here: https://pasta.lternet.edu/package/metadata/eml/knb-lter-ntl/13/32.\n    The abstract below was extracted from the Level 0 data package and\n    is included for context:\n  \n      Five vertical tows are done at the deepest point of each of the seven primary lakes in the Trout Lake area (Allequash, Big Muskellunge, Crystal, Sparkling, and Trout lakes and bog lakes 27-02 [Crystal Bog], and 12-15 [Trout Bog]) using a 1-mm mesh net with a 1-m wide mouth. On Trout Lake four additional sites are sampled, where depths are approximately at 10 m, 15 m, 20 m, and 25 m respectively, with three tows done at each site. Trout Lake was the only lake sampled in 2020. All samples are taken in darkness. Samples are preserved and counted, yielding numbers caught. These night tows target the large invertebrate planktivore component of the pelagic zooplankton community. Sampling Frequency: annually Number of sites: 11",
+  "url": "https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=285&revision=3",
+  "version": "3",
+  "isAccessibleForFree": true,
+  "keywords": [
+    "NTL Core Datasets",
+    "biological (all)",
+    "pelagic macroinvertebrates",
+    "chaoborus",
+    "leptodora",
+    "mysis",
+    "North Temperate Lakes - LTER",
+    "NTL LTER",
+    "pelagic",
+    "pelagic macroinvertebrates",
+    "species abundance",
+    "Populations",
+    "macroinvertebrates",
+    "species",
+    "species composition",
+    "species diversity",
+    "species richness",
+    "communities",
+    "community composition",
+    "community dynamics",
+    "community patterns",
+    "species composition",
+    "species diversity",
+    "species richness",
+    "ecocomDP",
+    "basisOfRecord: HumanObservation"
+  ],
+  "identifier": {
+    "@id": "https://doi.org/10.6073/pasta/54837cafa89a8b0d6a94b624421e9f34",
+    "@type": "PropertyValue",
+    "propertyID": "https://registry.identifiers.org/registry/doi",
+    "value": "10.6073/pasta/54837cafa89a8b0d6a94b624421e9f34",
+    "url": "https://doi.org/10.6073/pasta/54837cafa89a8b0d6a94b624421e9f34"
+  },
+  "citation": "Magnuson, J., S. Carpenter, and E. Stanley. 2021. North Temperate Lakes LTER Pelagic Macroinvertebrate Abundance 1983 - current (Reformatted to the ecocomDP Design Pattern) ver 3. Environmental Data Initiative. https://doi.org/10.6073/pasta/54837cafa89a8b0d6a94b624421e9f34.",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "observation_id",
+      "description": "Identifier assigned to each unique observation."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "event_id",
+      "description": "Identifier assigned to each unique sampling event. References the event_id field of the observation_ancillary table, if it exists."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "package_id",
+      "description": "Identifier of this data package. References the package_id field of the dataset_summary table."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "location_id",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002767",
+      "description": "A reference to a location. References the location_id field of the location table."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "datetime",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002043",
+      "description": "Date and time of the observation."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "taxon_id",
+      "description": "A reference to a taxon. References the taxon_id field of the taxon table."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "variable_name",
+      "propertyID": "http://rs.tdwg.org/dwc/terms/individualCount",
+      "description": "Name of the measured variable."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value",
+      "description": "Value of the measured variable.",
+      "unitText": "dimensionless"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "unit",
+      "description": "Unit of the measured variable."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "observation_ancillary_id",
+      "description": "Identifier of the observation ancillary information."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "observation_id",
+      "description": "A reference to an observation. References the observation_id field of the observation table."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "variable_name",
+      "propertyID": "http://rs.tdwg.org/dwc/terms/verbatimDepth",
+      "description": "Name of the measured variable."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value",
+      "description": "Value of the measured variable."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "unit",
+      "description": "Unit of the measured variable."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "location_id",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002767",
+      "description": "Identifier assigned to each unique location."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "location_name",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002768",
+      "description": "Sampling location full name."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "latitude",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002130",
+      "description": "Latitude of the sampling location in decimal degrees. Latitudes south of the equator are negative.",
+      "unitText": "degree"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "longitude",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002132",
+      "description": "Longitude of the sampling location in decimal degrees. Longitudes west of the prime meridian are negative.",
+      "unitText": "degree"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "elevation",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00001567",
+      "description": "Sampling location elevation relative to sea level. Above sea level is positive. Below sea level is negative.",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "parent_location_id",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002767",
+      "description": "Sampling location identifier (from this table) for the parent of this sampling location. Presence indicates nested locations."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "taxon_id",
+      "description": "Identifier assigned to each unique organism."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "taxon_rank",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002730",
+      "description": "Taxonomic rank of the organism."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "taxon_name",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002730",
+      "description": "Taxonomic name of the organism."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "authority_system",
+      "description": "Name of the system assigning the authority_taxon_id."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "authority_taxon_id",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002608",
+      "description": "Identifier in the authority system corresponding to the taxon_name."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "package_id",
+      "description": "Identifier of this data package."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "original_package_id",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00002744",
+      "description": "Identifier of source data package."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "length_of_survey_years",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00001636",
+      "description": "Number of years the study has been ongoing.",
+      "unitText": "nominalYear"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "number_of_years_sampled",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00001636",
+      "description": "Number of years within the period of the study that samples were taken.",
+      "unitText": "nominalYear"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "std_dev_interval_betw_years",
+      "description": "Standard deviation of the interval between sampling events.",
+      "unitText": "nominalYear"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "max_num_taxa",
+      "description": "Number of unique values in the taxon table.",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "geo_extent_bounding_box_m2",
+      "propertyID": "http://purl.dataone.org/odo/ECSO_00001152",
+      "description": "Area of the study location.",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "variable_mapping_id",
+      "description": "Identifier of the variable mapping information."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "table_name",
+      "description": "Name of the table containing this variable."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "variable_name",
+      "description": "Name of the measured variable."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mapped_system",
+      "description": "System defining variable_name."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mapped_id",
+      "description": "Identifier of the definition in mapped_system."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mapped_label",
+      "description": "Label for variable_name in mapped_system."
+    }
+  ],
+  "subjectOf": {
+    "@type": "DataDownload",
+    "name": "EML metadata for dataset",
+    "description": "EML metadata describing the dataset",
+    "encodingFormat": [
+      "application/xml",
+      "https://eml.ecoinformatics.org/eml-2.2.0"
+    ],
+    "contentUrl": "https://pasta.lternet.edu/package/metadata/eml/edi/285/3",
+    "dateModified": "2021-07-19"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "observation",
+      "description": "This is the core table, which holds the observations being analyzed (e.g. organism abundance or density). Observations must be linked to a taxon and to a location. Linking to ancillary observations (via observation_id) is optional. The event_id column is a placeholder that will link to a sampling events model in the future.",
+      "contentSize": "414126 bytes",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/285/3/e09491aee3bd9ec02e805ffdac0beb12",
+      "encodingFormat": "text/csv",
+      "spdx:checksum": null
+    },
+    {
+      "@type": "DataDownload",
+      "name": "observation_ancillary",
+      "description": "Ancillary information about an observational event for context, but that are not about the organism or sampling location (e.g. water depth, height of a tower, temperature of medium). These are very often environmental driver data in analyses.",
+      "contentSize": "561294 bytes",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/285/3/10324ae4aa6a0a67239e782c739fda7e",
+      "encodingFormat": "text/csv",
+      "spdx:checksum": null
+    },
+    {
+      "@type": "DataDownload",
+      "name": "location",
+      "description": "Identifying information about a place (lonitude, latitude, elevation). The table is self-referencing so that sites can be nested.",
+      "contentSize": "372 bytes",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/285/3/d5189de027922f81005951e6efe0efd5",
+      "encodingFormat": "text/csv",
+      "spdx:checksum": null
+    },
+    {
+      "@type": "DataDownload",
+      "name": "taxon",
+      "description": "Identifying information about a taxon (e.g. name, id and system).",
+      "contentSize": "286 bytes",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/285/3/cc5d33161352c025d0385ba6a7262983",
+      "encodingFormat": "text/csv",
+      "spdx:checksum": null
+    },
+    {
+      "@type": "DataDownload",
+      "name": "dataset_summary",
+      "description": "Summary info about the dataset.",
+      "contentSize": "212 bytes",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/285/3/8eba90ee8c1a2707f993d9cca5b352dc",
+      "encodingFormat": "text/csv",
+      "spdx:checksum": null
+    },
+    {
+      "@type": "DataDownload",
+      "name": "variable_mapping",
+      "description": "Information linking a variable_name used in a table to an external definition.",
+      "contentSize": "486 bytes",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/285/3/afb9b11828f813f17c18143618690322",
+      "encodingFormat": "text/csv",
+      "spdx:checksum": null
+    },
+    {
+      "@type": "DataDownload",
+      "name": "create_ecocomDP",
+      "description": "A function for converting knb-lter-ntl.13 to ecocomDP",
+      "contentSize": "11395 bytes",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/285/3/0e153e5174857545b0cd01f5d50bca85",
+      "encodingFormat": "application/octet-stream",
+      "spdx:checksum": null
+    }
+  ],
+  "dateModified": "2021-07-19",
+  "datePublished": "2021-07-19",
+  "temporalCoverage": "1983-08-20/2020-12-31",
+  "spatialCoverage": {
+    "@type": "Place",
+    "geo": [
+      {
+        "@type": "GeoShape",
+        "box": "46.0252 -89.6458 46.0481 -89.6124"
+      },
+      {
+        "@type": "GeoShape",
+        "box": "46.0051 -89.6335 46.0273 -89.5935"
+      },
+      {
+        "@type": "GeoShape",
+        "box": "46.0071 -89.6068 46.008 -89.6057"
+      },
+      {
+        "@type": "GeoShape",
+        "box": "45.9989 -89.6191 46.0047 -89.6082"
+      },
+      {
+        "@type": "GeoShape",
+        "box": "46.0024 -89.7045 46.0158 -89.6945"
+      },
+      {
+        "@type": "GeoShape",
+        "box": "46.0407 -89.6869 46.0417 -89.6854"
+      },
+      {
+        "@type": "GeoShape",
+        "box": "46.0131 -89.7038 46.079 -89.6464"
+      }
+    ]
+  },
+  "creator": {
+    "@list": [
+      {
+        "@type": "Person",
+        "givenName": "John",
+        "familyName": "Magnuson",
+        "url": "http://limnology.wisc.edu/john_magnuson.htm"
+      },
+      {
+        "@type": "Person",
+        "givenName": "Stephen",
+        "familyName": "Carpenter",
+        "url": "http://limnology.wisc.edu/steve_carpenter.htm",
+        "identifier": {
+          "@id": "http://orcid.org/0000-0001-8097-8700",
+          "@type": "PropertyValue",
+          "propertyID": "http://orcid.org",
+          "url": "http://orcid.org/0000-0001-8097-8700",
+          "value": "http://orcid.org/0000-0001-8097-8700"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Emily",
+        "familyName": "Stanley",
+        "url": "http://limnology.wisc.edu/personnel/emstan/",
+        "identifier": {
+          "@id": "http://orcid.org/0000-0003-4922-8121",
+          "@type": "PropertyValue",
+          "propertyID": "http://orcid.org",
+          "url": "http://orcid.org/0000-0003-4922-8121",
+          "value": "http://orcid.org/0000-0003-4922-8121"
+        }
+      }
+    ]
+  },
+  "contributor": {
+    "@list": [
+      {
+        "@type": "Role",
+        "roleName": "contact",
+        "contributor": {
+          "@type": "Person",
+          "givenName": "Kyle",
+          "familyName": "Zollo-Venecek"
+        }
+      },
+      {
+        "@type": "Role",
+        "roleName": "contact",
+        "contributor": {
+          "@type": "Person",
+          "givenName": "NTL",
+          "familyName": "Information Manager"
+        }
+      },
+      {
+        "@type": "Role",
+        "roleName": "contact",
+        "contributor": {
+          "@type": "Person",
+          "givenName": "NTL",
+          "familyName": "Lead PI"
+        }
+      }
+    ]
+  },
+  "provider": {
+    "@id": "https://edirepository.org"
+  },
+  "publisher": {
+    "@id": "https://edirepository.org"
+  },
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://pasta.lternet.edu/package/metadata/eml/knb-lter-ntl/13/32"
+    }
+  ],
+  "isBasedOn": [
+    {
+      "@id": "https://pasta.lternet.edu/package/metadata/eml/knb-lter-ntl/13/32"
+    }
+  ]
+}

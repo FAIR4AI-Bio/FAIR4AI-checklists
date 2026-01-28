@@ -1,0 +1,57 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": [
+    "Service",
+    "Organization",
+    "ResearchProject"
+  ],
+  "@id": "https://edirepository.org",
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "name": "Re3data DOI: 10.17616/R3D60K",
+      "propertyID": "https://registry.identifiers.org/registry/doi",
+      "value": "doi:10.17616/R3D60K",
+      "url": "https://doi.org/10.17616/R3D60K"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "FAIRsharing.org DOI: 10.25504/fairsharing.xd3wmy",
+      "propertyID": "https://registry.identifiers.org/registry/doi",
+      "value": "doi:10.25504/fairsharing.xd3wmy",
+      "url": "https://doi.org/10.25504/fairsharing.xd3wmy"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Global Research Identifier Database: grid.511300.6",
+      "propertyID": "https://registry.identifiers.org/registry/grid",
+      "value": "grid.511300.6",
+      "url": "https://www.grid.ac/institutes/grid.511300.6"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Research Organization Registry: ror.org/0330j0z60",
+      "propertyID": "https://ror.org",
+      "value": "ror.org/0330j0z60",
+      "url": "https://ror.org/0330j0z60"
+    }
+  ],
+  "name": "EDI",
+  "legalName": "Environmental Data Initiative",
+  "description": "The Environmental Data Initiative is an NSF-funded project accelerating curation and archive of environmental data, emphasizing data from projects funded by the NSF DEB.  Programs served include, but are not limited to, Long Term Research in Environmental Biology (LTREB), Organization for Biological Field Stations (OBFS), MacroSystems Biology (MSB), and Long Term Ecological Research (LTER).",
+  "url": "https://edirepository.org",
+  "email": "info@edirepository.org",
+  "logo": "https://raw.githubusercontent.com/EDIorg/EDI-miscellaneous/main/logos/EDI-logo-312x307.png",
+  "funder": {
+    "@type": "Organization",
+    "name": "U.S. National Science Foundation"
+  },
+  "sameAs": [
+    "https://doi.org/10.17616/R3D60K",
+    "https://www.re3data.org/repository/r3d100010272",
+    "https://isni.org/isni/0000000495505609",
+    "urn:node:EDI"
+  ]
+}

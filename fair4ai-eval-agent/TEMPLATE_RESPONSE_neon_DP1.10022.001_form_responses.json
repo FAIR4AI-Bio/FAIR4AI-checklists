@@ -1,0 +1,931 @@
+{
+  "metadata": {
+    "generated_date": "2026-01-25",
+    "dataset_evaluated": "NEON Ground beetles sampled from pitfall traps (DP1.10022.001)",
+    "evaluation_method": "Automated analysis of NEON API metadata and schema.org JSON-LD",
+    "source_files": [
+      "neon_DP1.10022.001_metadata.json",
+      "neon_DP1.10022.001_product_info.json",
+      "neon_DP1.10022.001_schema_org.json"
+    ]
+  },
+  "responses": [
+    {
+      "section": "Respondent Information",
+      "question": "My name",
+      "response_choices": "",
+      "response": "Automated FAIR4AI Evaluation",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "My affiliation",
+      "response_choices": "",
+      "response": "FAIR4AI Project",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "My email",
+      "response_choices": "",
+      "response": "fair4ai@example.org",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "Dataset title",
+      "response_choices": "",
+      "response": "Ground beetles sampled from pitfall traps",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "Please provide a link to the associated repository, if available.",
+      "response_choices": "",
+      "response": "https://data.neonscience.org/",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "Please provide a link to the dataset landing page/home page if available?",
+      "response_choices": "",
+      "response": "https://data.neonscience.org/data-products/DP1.10022.001",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "Please provide the citation, DOI, URL, or similar, if available.",
+      "response_choices": "",
+      "response": "NEON (National Ecological Observatory Network). Ground beetles sampled from pitfall traps (DP1.10022.001), provisional data. Dataset accessed from https://data.neonscience.org/data-products/DP1.10022.001 on January 26, 2026.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "As I am evaluating this dataset, I am considering it for",
+      "response_choices": "publishing for others to use | open-ended use (window shopping) | use in a specific project",
+      "response": "open-ended use (window shopping)",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "My relationship to this dataset",
+      "response_choices": "Data Provider/Producer | Processor | Host | Data User/Developer | Catalog Curator",
+      "response": "Data User/Developer: Built applications, APIs, or pipelines to discover, consume, or analyze the data, benefiting from the standardization.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "Provide a brief description of how you are evaluating this dataset.",
+      "response_choices": "",
+      "response": "Evaluating the dataset using NEON API metadata (JSON) and schema.org JSON-LD metadata extracted from the product page.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Respondent Information",
+      "question": "If available, please upload the metadata file that you are evaluating (placeholder - need to edit in the form).",
+      "response_choices": "",
+      "response": "Yes - three JSON files: NEON API metadata, product info, and schema.org JSON-LD",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Provenance",
+      "question": "Citation for \"this dataset\": The full citation is provided. Preferably the Bibtex format.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Citation is provided in schema.org metadata: 'NEON (National Ecological Observatory Network). Ground beetles sampled from pitfall traps (DP1.10022.001), provisional data. Dataset accessed from https://data.neonscience.org/data-products/DP1.10022.001 on January 26, 2026. Data archived at [your DOI].'",
+      "notes": "Citation provided but not in BibTeX format"
+    },
+    {
+      "section": "Provenance",
+      "question": "Summary or Abstract",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "productAbstract and productDescription fields provide comprehensive description",
+      "notes": "Abstract describes sampling methods, processing, identification procedures, and data latency"
+    },
+    {
+      "section": "Provenance",
+      "question": "Publisher",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "NEON (National Ecological Observatory Network) identified in schema.org metadata as publisher",
+      "notes": "Publisher URL: https://data.neonscience.org"
+    },
+    {
+      "section": "Provenance",
+      "question": "Date Created",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Temporal coverage spans 2013-07 to 2025-12 with detailed change logs showing issue and resolution dates",
+      "notes": "Initial data collection started in 2013"
+    },
+    {
+      "section": "Provenance",
+      "question": "An identifier for \"this dataset\": Does the dataset have a unique, persistent, machine-resolvable identifier (e.g., DOI)?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Product identifier: DP1.10022.001, with full identifier NEON.DOM.SITE.DP1.10022.001",
+      "notes": "Persistent URL provided but not a DOI. URL: https://data.neonscience.org/data-products/DP1.10022.001"
+    },
+    {
+      "section": "Provenance",
+      "question": "Author/creator information are provided (e.g., names, affiliations, ORCIDs)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No individual author names, affiliations, or ORCIDs are provided",
+      "notes": "NEON is listed as the organizational creator, but individual contributors are not named"
+    },
+    {
+      "section": "Provenance",
+      "question": "Curator information is provided (list all curator names, ORCIDs, etc.)",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Science team (Terrestrial Observation System - TOS) is identified, but no individual curator names or ORCIDs",
+      "notes": "External taxonomists mentioned (CMNH, ESSIG) but not individually identified"
+    },
+    {
+      "section": "Provenance",
+      "question": "Dataset Card Author(s) (who is providing the description of the dataset?)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No specific dataset card authors identified",
+      "notes": "Organizational attribution to NEON only"
+    },
+    {
+      "section": "Provenance",
+      "question": "Dataset Card Contact or Expert Contact (who to contact with questions)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No specific contact person or email provided in metadata",
+      "notes": "Organization URL provided but no direct contact information"
+    },
+    {
+      "section": "Provenance",
+      "question": "Other Non-author Contributions",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Field technicians, parataxonomists, and expert taxonomists (CMNH, ESSIG) are mentioned in the workflow",
+      "notes": "Contributions described but not attributed to specific individuals"
+    },
+    {
+      "section": "Provenance",
+      "question": "Acknowledgments: Funding Description and Grants",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No funding information or grant numbers provided in the metadata",
+      "notes": "NEON is NSF-funded but this is not documented in the metadata"
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Is this dataset derived from other sources?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "This is primary observational data collected through field sampling",
+      "notes": "Raw data with processing (sorting, identification) but not derived from other datasets"
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Provenance Tracking: Do the metadata provide information about the source data from which this dataset was derived (e.g., titles, summaries, and links)",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "Not a derived dataset",
+      "notes": ""
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Source data producers (who created the source data?)",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "Not a derived dataset",
+      "notes": ""
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Citation of subsumed datasets (cite your sources)",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "Not a derived dataset",
+      "notes": ""
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Source data DOI (permalink for the sources)",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "Not a derived dataset",
+      "notes": ""
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Source data checksums: E.g., checksum for a zip file or a list of image checksums to ensure downstream users can get the same data you did.",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "Not a derived dataset",
+      "notes": ""
+    },
+    {
+      "section": "Provenance",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": "",
+      "response": "The metadata includes extensive change logs documenting modifications to sampling design, processing pipelines, and data quality issues over time. Biorepository collections are documented with DarwinCore Archive links.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related paper (e.g., DOI, BIBTEX citation, link, etc.)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No specific research papers or DOIs referenced in the metadata",
+      "notes": "Protocol documents are provided but not peer-reviewed publications"
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related dataset and/or Model",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Biorepository collections linked with DarwinCore Archive downloads for specimen data",
+      "notes": "10 biorepository collections referenced (NEON-CARC-AP, NEON-CARC-DNA, etc.)"
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Purpose of the data",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Purpose described in abstract: sampling ground beetle abundance and diversity at NEON sites",
+      "notes": "Used for biodiversity monitoring, taxonomic identification, and understanding uncertainty in parataxonomist identification"
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Content - short description of the data types, etc.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Comprehensive description of data types: field data, sorting data, taxonomic identifications, archive information",
+      "notes": "Seven data tables described with expected latency for each"
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Are the data machine ready? (machine-actionable under the FAIR Principles)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Data available via API in JSON format with schema.org structured metadata",
+      "notes": "FAIR principles supported through structured metadata, persistent identifiers, and programmatic access"
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Language - what language or languages are the data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Language not explicitly stated in metadata",
+      "notes": "English is used but not formally documented"
+    },
+    {
+      "section": "General Information",
+      "question": "Discovery: Keywords/Tags provided to describe the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "22 keywords provided including: diversity, taxonomy, beetles, Carabidae, pitfall traps, biodiversity, etc.",
+      "notes": "Keywords are comprehensive and cover taxonomic, methodological, and thematic aspects"
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Does the dataset and its metadata make use of relevant ontologies?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Uses schema.org ontology for metadata. References taxonomic hierarchies and NEON taxon tables",
+      "notes": "DarwinCore archives indicate use of biodiversity standards"
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Is the data dictionary/codebook provided?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Schema.org metadata includes 'variablesMeasured' with 141+ variables listed",
+      "notes": "Variables listed but full data dictionary would be in separate user guide documents"
+    },
+    {
+      "section": "General Information",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": "",
+      "response": "The metadata references multiple protocol documents (SOPs) and a user guide, which likely contain additional detailed information not present in the structured metadata.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: File format(s) that encode the data",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Data tables implied to be tabular but specific file formats not explicitly stated in metadata",
+      "notes": "Likely CSV format based on NEON standards, but not confirmed in metadata reviewed"
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The dataset layout pattern",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Multiple data tables described: bet_fielddata, bet_sorting, bet_parataxonomistID, bet_expertTaxonomistID, bet_archivepooling, bet_identificationHistory",
+      "notes": "Partitioned by site (47 sites listed) and organized into related tables with documented relationships"
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The primary unit of data that is to be operated on",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "One record per trap per collection date (bet_fielddata), with child records for sorting and identification",
+      "notes": "Hierarchical structure with relationships between tables clearly described"
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are properly documented in the metadata",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "141+ variables documented in schema.org metadata with names and units",
+      "notes": "Includes fields for location, taxonomy, dates, counts, quality flags, identifiers"
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are included for each data instance",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Each record has associated metadata for location, date, taxonomy, quality flags",
+      "notes": "Complete metadata described for each trap/specimen record"
+    },
+    {
+      "section": "Data Structure",
+      "question": "Technical Specifications: What are the technical specifications of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Sampling specifications provided (trap size, preservative volume, number of traps), but file sizes not documented",
+      "notes": "Field method specifications detailed but digital file specifications missing"
+    },
+    {
+      "section": "Data Structure",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": "",
+      "response": "The data structure follows a hierarchical design with parent-child relationships between tables. Each trap collection can have multiple sorting records, each sorting can have multiple pinned specimens, and each specimen may have expert identification.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Data Source Type): Metadata record what type(s) of source data were collected or used to generate this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Field observations and specimens collected via pitfall traps, followed by lab processing and taxonomic identification",
+      "notes": "Combines field sampling with lab-based specimen processing and expert taxonomic identification"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Curation Rationale): Metadata record what was the primary rationale for curating or assembling this dataset",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Part of NEON's standardized long-term ecological monitoring program for biodiversity assessment",
+      "notes": "Quality-controlled, native sampling resolution data for ground beetle abundance and diversity"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Part of a Larger Collection): Metadata indicate if this dataset part of a larger collection or series, and provide the following information:",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Part of NEON Terrestrial Observation System (TOS), collected at all 47 terrestrial NEON sites",
+      "notes": "IncludedInDataCatalog: NEON Data Product Catalog (https://data.neonscience.org/data-products/explore)"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Instrumentation: Do the metadata describe the instruments or sensors used to collect the data, including their specifications and configuration.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Pitfall traps described: 16 oz deli containers with 150 or 250 mL propylene glycol",
+      "notes": "Trap configuration and deployment described (20m from plot center, cardinal directions)"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Collection Method Documentation): Do the metadata describe the methods used to collect or generate the data.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Detailed protocol documentation referenced (NEON.DOC.014050) with sampling and processing procedures",
+      "notes": "Biweekly sampling during growing season (temperatures >4°C), sorting, pinning, and expert identification procedures described"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Resolution): Do the metadata describe the spatial resolution?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Plot-based sampling with trap locations ~20m from plot center",
+      "notes": "Point locations with coordinates provided for each trap"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Extent): Do the metadata describe the geographic coverage (region, bounding box, domain)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "47 NEON sites across North America with bounding boxes and coordinates for each site",
+      "notes": "Continental-scale coverage from Alaska to Puerto Rico"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Resolution): Do the metadata describe the temporal resolution?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Biweekly sampling during growing season",
+      "notes": "Event-based sampling with collection dates recorded"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Extent): Do the metadata describe the temporal extent?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "2013-07 to 2025-12 (ongoing)",
+      "notes": "Long-term monitoring program with seasonal sampling"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Types: Do the metadata describe the types of annotations or labels are included in the dataset (if any)?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Taxonomic identifications (species/morphospecies), counts, quality flags",
+      "notes": "Categorical labels for species with hierarchical taxonomy"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Process: Do the metadata describe how annotations were generated or obtained?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Mixed process: NEON technician parataxonomists perform initial identification, subset sent to expert taxonomists for verification",
+      "notes": "Human expert identification with quality control through expert verification"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotators (Contributors): Do metadata indicate who performed the data annotations? If available, provide a list of annotators (e.g., ORCiDs), or names/versions of automated tools or systems; or other relevant information.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "NEON field technicians and parataxonomists, plus external expert taxonomists (CMNH, ESSIG)",
+      "notes": "Multiple taxonomist SOPs referenced but individual annotator names not provided"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": "",
+      "response": "Sampling design changed over time: 40 traps/site (2013-2017), reduced to 30 traps/site (2018-2022), then 18 traps/site (2023+) due to budget constraints.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Data Processing",
+      "question": "Preparation: Do the metadata provide a complete overall description of data preparation, cleaning, transformation, or quality-control steps performed prior to generating the final dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Data processing described: generic pipeline implemented in 2017, manual QA to rectify mismatches between field samples and downstream tables",
+      "notes": "Quality-controlled, native sampling resolution data with multiple processing steps documented in change logs"
+    },
+    {
+      "section": "Data Processing",
+      "question": "Processing Platform or Software: Metadata provide a description of and citations or links to any processing platform or software used in the creation of this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "References to 'generic code' and processing pipeline transitions documented",
+      "notes": "Generic processing pipeline referenced (OS_generic_transitions_vA) but specific software not named"
+    },
+    {
+      "section": "Data Processing",
+      "question": "Correction / Standardization of Values: Does the metadata describe corrections applied to existing data values and whether the data values have been standardized in any way?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Taxonomic standardization: higher taxonomy sourced from NEON taxon tables, synonymies reassigned to current valid names",
+      "notes": "State-level obfuscation applied for sensitive species; taxonomic determinations archived when updated"
+    },
+    {
+      "section": "Data Processing",
+      "question": "Gaps Filled: Does metadata indicate if missing values or data gaps filled in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "SamplingImpractical flag added to indicate when data are temporarily missing vs. permanently unavailable",
+      "notes": "Starting 2020, one record always generated per scheduled trap even if not collected"
+    },
+    {
+      "section": "Data Processing",
+      "question": "If gaps were filled, are the methods described?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Quality flags indicate missing data but gap-filling methods not described",
+      "notes": "Missing data flagged rather than filled/imputed"
+    },
+    {
+      "section": "Data Processing",
+      "question": "Labeling / Relabeling: Does the metadata indicate if any labeling or relabeling steps applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Taxonomic relabeling occurs when expert taxonomists provide updated identifications",
+      "notes": "Past determinations archived in bet_identificationHistory table when updated"
+    },
+    {
+      "section": "Data Processing",
+      "question": "Does the metadata sufficiently describe the labeling or relabeling process.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Initial identification by parataxonomists, subset verified by expert taxonomists, updates tracked in identification history",
+      "notes": "External taxonomist SOPs referenced for identification procedures"
+    },
+    {
+      "section": "Data Processing",
+      "question": "Data Filtering and Outlier Removal: Were any outlier removal or filtering procedures applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Quality control procedures mentioned but specific outlier removal methods not described",
+      "notes": "Manual QA performed but statistical outlier detection methods not documented"
+    },
+    {
+      "section": "Data Processing",
+      "question": "If yes, does the metadata sufficiently describe the outlier detection and removal methods used.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Quality control mentioned but outlier detection methods not specified",
+      "notes": "Manual review processes described but not algorithmic approaches"
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do metadata indicate if the dataset has been split into training, validation, and/or test sets?",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "Observational ecological data not designed for ML train/test splits",
+      "notes": "Users would need to create their own splits if using for ML"
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do the metadata provide information on how splits were created?",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "No predefined splits",
+      "notes": ""
+    },
+    {
+      "section": "Data Processing",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": "",
+      "response": "Extensive change logs document processing changes over time, including transitions in data pipeline, taxonomic consolidation, and updates to obfuscation procedures for sensitive species.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if this dataset is complete (i.e., there are no plans for further updates to this data product)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Provisional data, ongoing monitoring program through 2025-12 and beyond",
+      "notes": "Long-term monitoring program with regular updates"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Have quality assurance checks been run and have they passed?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Quality-controlled data product, manual QA performed, expert taxonomist verification for subset",
+      "notes": "Multiple quality control steps described"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the timeliness of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Data latency documented for each table (75-600 days from collection to publication)",
+      "notes": "bet_fielddata: 75 days, bet_sorting/parataxonomistID/archivepooling: 330 days, expert IDs: 600 days"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate quality checks on or evaluate dataset timeliness?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Sampling timing described (biweekly during growing season, >4°C), but formal timeliness QA not described",
+      "notes": "Temporal appropriateness implicit in sampling design"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Describe the time lag between data collection and availability.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Specific latency provided: 75-600 days depending on data table",
+      "notes": "Clear documentation of expected time from collection to publication"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the quality checks that have failed and provide context for downstream users to work with the data as-is or resolve the issues.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Change logs document issues and resolutions over time, including mismatches between field and lab data",
+      "notes": "12+ issues documented with dates and resolutions"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata explain why quality checks were not performed and provide context for downstream users to work with the data as-is or resolve potential issues.",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "Quality assurance is performed",
+      "notes": ""
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata any known gaps or limitations in the dataset's completeness.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "samplingImpractical flag indicates gaps; change logs document sampling reductions and site closures",
+      "notes": "COVID-19 impacts, flooding events, and budget-driven sampling reductions documented"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if all units have been translated into compatible forms?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Schema.org metadata shows standardized units (meter, decimalDegree, nominalDay)",
+      "notes": "Units provided for measurable variables"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do any of the data follow a controlled vocabulary?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Taxonomic names follow NEON taxon tables, quality flags use controlled terms",
+      "notes": "Taxonomic hierarchy and field codes standardized"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Is a reference provided for the controlled vocabulary used.",
+      "response_choices": "",
+      "response": "Partial",
+      "evidence": "NEON taxon tables referenced but not linked in metadata",
+      "notes": "External taxonomic authorities implied but not explicitly cited"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Describe any known consistency issues or steps taken to ensure consistency.",
+      "response_choices": "",
+      "response": "Change logs document consistency issues addressed over time, including transitions in data format (2017), consolidation of taxonomic tables (2021), and standardization of eventID calculation (2022). Higher taxonomy is consistently sourced from NEON taxon tables with synonym resolution.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if any quality assurance or peer review procedures been applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Internal quality control by NEON, external expert taxonomist verification for subset of specimens",
+      "notes": "Multi-level QA: field technicians, parataxonomists, expert taxonomists"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the procedures used to ensure data integrity?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Identification history tracked, data reprocessing documented in change logs",
+      "notes": "Version control implicit in releases but not explicitly described"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Does the dataset implement checksums?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No mention of checksums in metadata",
+      "notes": "File integrity verification not documented"
+    },
+    {
+      "section": "Data Quality",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": "",
+      "response": "The metadata includes 12 detailed change logs documenting data quality issues, resolutions, and improvements from 2017-2024. Taxonomic IDs of species of concern are 'fuzzed' for conservation purposes.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe known sources of bias in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Taxonomic uncertainty acknowledged through expert verification process; sampling design changes may affect temporal comparisons",
+      "notes": "Parataxonomist uncertainty estimated through expert re-identification, but broader bias not explicitly discussed"
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known risks or limitations associated with the dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Limitations documented: reduced sampling effort over time (budget constraints), species obfuscation for conservation, sampling gaps during COVID-19",
+      "notes": "Change logs provide extensive documentation of limitations and their impacts"
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate if the dataset is based on experimental data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Observational monitoring, not experimental",
+      "notes": "Standardized sampling design but not experimental with treatments/controls"
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, do the metadata describe the experimental design.",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "Not experimental data",
+      "notes": ""
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe recommended or intended uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Purpose described (biodiversity monitoring, abundance and diversity assessment) but specific analytical recommendations not provided",
+      "notes": "User guide referenced but not included in metadata"
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known inappropriate or discouraged uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No explicit guidance on inappropriate uses",
+      "notes": "Limitations described but not framed as use restrictions"
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate this dataset has been used in AI/ML applications previously?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No mention of ML/AI applications in metadata",
+      "notes": "Ecological monitoring data, likely not designed for ML"
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, is it described how the dataset has been used in AI/ML applications.",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "No ML use documented",
+      "notes": ""
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Are there references to models, benchmarks, or publications if available.",
+      "response_choices": "Yes | No",
+      "response": "Not applicable",
+      "evidence": "No ML references provided",
+      "notes": ""
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate how to report issues or errors in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No specific contact or issue reporting mechanism in metadata",
+      "notes": "Organization URL provided but not issue tracker or contact email"
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": "",
+      "response": "The extensive change logs serve as important guidance for users, documenting how sampling design, processing, and data structure have evolved over time. Users comparing data across years should be aware of these changes.",
+      "evidence": "",
+      "notes": ""
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available for direct download?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Data product available through NEON data portal",
+      "notes": "Download mechanism implied but specific download links not in metadata"
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via an API?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Metadata accessed via NEON API (https://data.neonscience.org/api/v0/products/DP1.10022.001)",
+      "notes": "RESTful API available"
+    },
+    {
+      "section": "Data Access",
+      "question": "If accessible via API, what type of API is provided?",
+      "response_choices": "",
+      "response": "REST",
+      "evidence": "NEON API is RESTful",
+      "notes": ""
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via a cloud platform?",
+      "response_choices": "Yes | No",
+      "response": "Unknown",
+      "evidence": "Not specified in metadata",
+      "notes": "May be available but not documented"
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in a machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "API returns JSON, schema.org structured metadata provided",
+      "notes": "FAIR-compliant structured metadata"
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in an open (non-proprietary) format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "JSON metadata, likely CSV data tables (NEON standard)",
+      "notes": "Non-proprietary formats"
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available in multiple formats?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Basic and expanded data packages available, DarwinCore archives for biorepository specimens",
+      "notes": "Multiple data product variants"
+    },
+    {
+      "section": "Data Access",
+      "question": "Do the metadata indicate what license applies to this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "License URL provided: https://www.neonscience.org/data-samples/data-policies-citation",
+      "notes": "NEON data policy linked in schema.org metadata"
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the license information provided in a standardized or machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "License URL included in schema.org JSON-LD",
+      "notes": "Structured metadata includes license field"
+    },
+    {
+      "section": "Data Access",
+      "question": "Does the dataset contain personal or sensitive information?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Species of concern have 'fuzzed' taxonomic IDs for conservation; state-level and federal-level obfuscation applied",
+      "notes": "Sensitive species information protected, not personal data"
+    },
+    {
+      "section": "Data Access",
+      "question": "Is access to the dataset restricted in any way?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "Sensitive species data obfuscated; National Park sites have additional restrictions",
+      "notes": "Data publicly accessible but some information masked for conservation"
+    },
+    {
+      "section": "Data Access",
+      "question": "Is secure access required to obtain or use the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "isAccessibleForFree: true in schema.org metadata",
+      "notes": "Publicly accessible data"
+    },
+    {
+      "section": "Data Access",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": "",
+      "response": "Data available as 'basic' and 'expanded' packages. Basic includes field sampling and parataxonomist IDs; expanded includes external taxonomist nomenclature. Biorepository collections available as DarwinCore archives.",
+      "evidence": "",
+      "notes": ""
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "Comprehensive structured metadata using schema.org vocabulary",
+      "Detailed documentation of methods, protocols, and sampling design",
+      "Extensive temporal and spatial coverage (47 sites, 2013-2025)",
+      "Quality control with expert taxonomist verification",
+      "Transparent documentation of data quality issues and changes over time",
+      "Machine-readable metadata via API",
+      "Free and open access with clear licensing",
+      "Integration with biorepository specimens and DarwinCore archives"
+    ],
+    "weaknesses": [
+      "No individual author/contributor names or ORCIDs",
+      "No direct contact information for questions or issues",
+      "No funding or grant information in metadata",
+      "File format specifications not explicitly stated",
+      "No checksums for data integrity verification",
+      "Language of data not formally documented",
+      "No BibTeX citation format provided",
+      "Specific software/platform names for processing not provided"
+    ],
+    "overall_assessment": "The NEON Ground beetles dataset has excellent metadata documentation with strong coverage of provenance, methods, quality control, and data structure. The use of schema.org vocabulary and API access makes it highly FAIR-compliant. Main gaps are in attribution (individual contributors) and some technical specifications (file formats, checksums). The extensive change logs demonstrate exceptional transparency in documenting data quality issues and limitations.",
+    "fair_score_estimate": {
+      "findable": "9/10 - Persistent identifier, rich metadata, comprehensive keywords",
+      "accessible": "9/10 - API access, free/open, clear license, but no DOI",
+      "interoperable": "8/10 - Schema.org and DarwinCore standards, but some format details missing",
+      "reusable": "8/10 - Excellent methods documentation and provenance, but limited attribution and no checksums"
+    }
+  }
+}
