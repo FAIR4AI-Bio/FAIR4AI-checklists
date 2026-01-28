@@ -1,0 +1,30 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "ml": "http://mlcommons.org/croissant/"
+  },
+  "@type": "sc:Dataset",
+  "@id": "",
+  "name": "",
+  "description": "",
+  "creator": [],
+  "datePublished": "",
+  "publisher": {},
+  "keywords": [],
+  "license": "",
+  "url": "",
+  "distribution": [],
+  "recordSet": [],
+  "field": [],
+  "codeRepository": "[From form question: Ontology: Example Code (could be link to section of repository)]",
+  "@name": "[From form question: Paper (title and link to associated paper)]",
+  "encodingFormat": "[From form question: What file format(s) encode the data?]",
+  "field/@name": "[From form question: What is the primary unit of data that is to be operated on?]",
+  "annotation": "[From form question: Annotation]",
+  "conditionsOfAccess": "[From form question: Collection]",
+  "measurementTechnique": "[From form question: Instrumentation]",
+  "RecordSet (splits)": "[From form question: Has the dataset been split into training, validation, and/or test sets?]",
+  "variableMeasured": "[From form question: Have quality assurance checks been run and have they passed?]"
+}
