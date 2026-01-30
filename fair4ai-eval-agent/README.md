@@ -440,25 +440,3 @@ Provenance,Summary or Abstract,Yes | No,Yes,productAbstract field contains...,""
 General Information,Dataset title,NA,NEON Ground Beetles Sampled...,Found in 'name' field of JSON-LD,""
 ...
 ```
-
----
-
-## Version and Updates
-
-**Current Version:** 2.0
-
-**Recent Updates:**
-- ✅ URL metadata extraction with BeautifulSoup
-- ✅ Output directory organization
-- ✅ GUI with input mode selection
-- ✅ Automatic FAIR score estimates and summaries
-- ✅ Enhanced error handling and validation
-- ✅ Progress tracking improvements
-
-**Last Updated:** January 2026
-
----
-
-## License
-
-This agent is part of the FAIR4AI project. See project documentation for licensing information.
