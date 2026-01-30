@@ -42,31 +42,20 @@ pip install anthropic pandas requests beautifulsoup4  # For Anthropic Claude
 
 ### 2. Set Up API Keys
 
-**Option A: Azure OpenAI (Recommended for Enterprise)**
-
-```powershell
-$env:OPENAI_SUBSCRIPTION_KEY="your-azure-key"
-$env:OPENAI_ENDPOINT="https://your-resource.openai.azure.com/"
-$env:OPENAI_DEPLOYMENT="gpt-4o-mini"
-$env:OPENAI_API_VERSION="2025-01-01-preview"
-```
-
-**Option B: Standard OpenAI**
-
-```powershell
-$env:OPENAI_API_KEY="sk-your-key-here"
-```
-
-**Option C: Anthropic Claude**
-
-```powershell
-$env:ANTHROPIC_API_KEY="your-anthropic-key"
-```
+Get the API key(s) from your preferred provider(s) through the links below. Note that Azure OpenAI  is recommended for enterprise.
 
 **Get API Keys:**
 - OpenAI: https://platform.openai.com/api-keys
 - Azure OpenAI: https://portal.azure.com
 - Anthropic: https://console.anthropic.com/
+
+Now that you have at least one agent API key, it's time to set up the rest of your environment:
+
+1. Make a copy of the [example environment file](.env.example) file and name it `.env`.
+2. Paste the API key(s) that you got into the appropriate constant definitions (e.g., `OPENAI_API_KEY=sk-your-openai-key-here`).
+3. Remove or comment out unused constants.
+
+More details on API keys and setup, including options for setting up your environment without a `.env` file, are provided in [docs/agent-api-setup](docs/agent-api-setup.md).
 
 ### 3. Run the Agent
 
