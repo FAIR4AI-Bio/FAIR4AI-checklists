@@ -17,13 +17,24 @@ import sys
 import traceback
 
 
-def evaluate_single_dataset(row_dict, form_csv_path):
+# ============================================================================
+# CONFIGURATION - Edit these paths as needed
+# ============================================================================
+DATASET_LIST_CSV = "FAIROS_biodata_dataset_list_v1.csv"  # Input CSV with dataset list
+FORM_CSV = "form_ai_checklist_automated.csv"              # FAIR4AI evaluation form
+OUTPUT_DIR = "results_v1"                                 # Base output directory
+MAX_WORKERS = 4                                           # Max parallel workers
+# ============================================================================
+
+
+def evaluate_single_dataset(row_dict, form_csv_path, output_base_dir):
     """
     Evaluate a single dataset from the CSV.
     
     Args:
         row_dict: Dictionary containing row data from CSV
         form_csv_path: Path to the form CSV file
+        output_base_dir: Base directory for output files
         
     Returns:
         Dictionary with results and status
@@ -37,7 +48,7 @@ def evaluate_single_dataset(row_dict, form_csv_path):
     print(f"{'='*70}")
     
     # Create output directory
-    output_dir = Path("results_v1") / dataset_name
+    output_dir = Path(output_base_dir) / dataset_name
     output_dir.mkdir(parents=True, exist_ok=True)
     
     try:
@@ -116,7 +127,7 @@ def main():
         sys.exit(1)
     
     # Load the dataset list
-    csv_path = Path("FAIROS_biodata_dataset_list_v1.csv")
+    csv_path = Path(DATASET_LIST_CSV)
     if not csv_path.exists():
         print(f"ERROR: Dataset list not found: {csv_path}")
         sys.exit(1)
@@ -125,20 +136,20 @@ def main():
     print(f"Found {len(df)} datasets to process\n")
     
     # Check for form CSV
-    form_csv = Path("form_ai_checklist_automated.csv")
+    form_csv = Path(FORM_CSV)
     if not form_csv.exists():
         print(f"ERROR: Form CSV not found: {form_csv}")
         sys.exit(1)
     
     # Create results directory
-    results_dir = Path("results_v1")
+    results_dir = Path(OUTPUT_DIR)
     results_dir.mkdir(exist_ok=True)
     
     # Convert DataFrame rows to dictionaries for parallel processing
     datasets_to_process = df.to_dict('records')
     
     # Process datasets in parallel
-    max_workers = min(4, len(datasets_to_process))  # Limit concurrent jobs
+    max_workers = min(MAX_WORKERS, len(datasets_to_process))  # Limit concurrent jobs
     print(f"Processing with {max_workers} parallel workers\n")
     
     results = []
@@ -148,7 +159,7 @@ def main():
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
         # Submit all tasks
         future_to_dataset = {
-            executor.submit(evaluate_single_dataset, row_dict, str(form_csv)): row_dict['dataset_short_name']
+            executor.submit(evaluate_single_dataset, row_dict, str(form_csv), OUTPUT_DIR): row_dict['dataset_short_name']
             for row_dict in datasets_to_process
         }
         
