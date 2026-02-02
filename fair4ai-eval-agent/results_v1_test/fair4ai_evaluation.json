@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "generated_date": "2026-02-01",
+    "dataset_evaluated": "NEON (National Ecological Observatory Network) Ground beetles sampled from pitfall traps (DP1.10022.001)",
+    "evaluation_method": "Automated analysis using FAIR4AI Agent with LLM",
+    "source_files": [
+      "extracted_schema_org_0.json",
+      "extracted_meta_tags.json"
+    ],
+    "llm_provider": "azure",
+    "llm_model": "gpt-4o"
+  },
+  "responses": [
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    },
+    {
+      "section": "",
+      "question": "",
+      "response_choices": "",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 401 - {'statusCode': 401, 'message': 'Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.'}"
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "Automated JSON summary generation failed; see overall_assessment for raw summary text."
+    ],
+    "weaknesses": [
+      "Summary JSON could not be parsed or generated reliably; FAIR sub-scores are set to N/A."
+    ],
+    "overall_assessment": "Summary could not be generated due to an error.",
+    "fair_score_estimate": {
+      "findable": "N/A",
+      "accessible": "N/A",
+      "interoperable": "N/A",
+      "reusable": "N/A"
+    }
+  }
+}

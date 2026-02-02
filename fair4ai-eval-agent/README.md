@@ -5,7 +5,7 @@ An AI-powered system that automatically evaluates datasets against the FAIR4AI c
 ## Overview
 
 **What it does:**
-- Reads dataset metadata (JSON files or extracts from URLs)
+- Reads dataset metadata (JSON, JSON-LD, Markdown, XML files or extracts from URLs)
 - Uses AI (OpenAI GPT, Azure OpenAI, or Anthropic Claude) to answer 135 FAIR4AI evaluation questions
 - Provides evidence-based responses with citations from metadata
 - Generates structured outputs in JSON and CSV formats with FAIR score estimates
@@ -87,12 +87,16 @@ That's it! Your evaluation results will be saved as JSON and CSV files.
 #### Basic Usage
 
 ```bash
+# Using JSON metadata files
 python fair4ai_agent.py --metadata metadata_downloads/*.json --output my_evaluation
+
+# Using mixed metadata formats (JSON, Markdown, XML)
+python fair4ai_agent.py --metadata metadata/*.json metadata/*.md metadata/*.xml --output my_evaluation
 ```
 
 This will:
 - Use default form questions from `form_ai_checklist_automated.csv`
-- Process all JSON files in `metadata_downloads/`
+- Process all specified metadata files (JSON, Markdown, XML supported)
 - Use OpenAI GPT-4o-mini (default, most cost-effective)
 - Generate `my_evaluation.json` and `my_evaluation.csv` in current directory
 
@@ -111,7 +115,7 @@ The agent will:
 1. Fetch the landing page HTML
 2. Extract JSON-LD/Schema.org metadata from `<script>` tags
 3. Extract meta tags (Open Graph, Dublin Core, etc.)
-4. Download linked JSON files
+4. Download linked metadata files (JSON, JSON-LD, Markdown, XML)
 5. Save all extracted metadata to output directory
 6. Run the evaluation using extracted metadata
 
@@ -122,7 +126,7 @@ Supported URLs include NEON, DataONE, Zenodo, Dryad, and other repositories with
 | Option | Description | Default | Example |
 |--------|-------------|---------|---------|
 | `--form` | Path to form questions CSV | `form_ai_checklist_automated.csv` | `--form custom_form.csv` |
-| `--metadata` | Metadata file(s) (JSON) | None | `--metadata *.json` |
+| `--metadata` | Metadata file(s) (JSON, MD, XML) | None | `--metadata *.json *.md` |
 | `--url` | Dataset landing page URL | None | `--url "https://..."` |
 | `--output` | Output file prefix | `fair4ai_evaluation` | `--output neon_beetles` |
 | `--output-dir` | Output directory | Current directory | `--output-dir results/` |
@@ -317,14 +321,12 @@ Default form: `form_ai_checklist_automated.csv` (135 questions across 9 sections
 
 ### Input: Metadata Files
 
-Any JSON-formatted metadata files. The agent supports:
-- Schema.org JSON-LD
-- NEON API metadata
-- EML (Ecological Metadata Language)
-- ML Croissant
-- Custom metadata formats
+The agent supports multiple metadata formats:
+- **JSON/JSON-LD**: Schema.org, NEON API metadata, ML Croissant, custom JSON formats
+- **Markdown** (.md, .markdown): Natural language metadata, README files, documentation
+- **XML**: EML (Ecological Metadata Language), ISO 19115, DataCite, Dublin Core
 
-The agent loads all provided JSON files and presents them to the LLM as context.
+The agent loads all provided files and presents them to the LLM as context for answering evaluation questions.
 
 ### Input: URL Metadata Extraction
 
@@ -332,17 +334,20 @@ When using `--url`, the agent extracts:
 
 1. **JSON-LD Scripts**: `<script type="application/ld+json">` tags
    - Schema.org Dataset/DataCatalog markup
-   - Saved as `url_metadata_jsonld_0.json`, `url_metadata_jsonld_1.json`, etc.
+   - Saved as `extracted_schema_org_0.json`, `extracted_schema_org_1.json`, etc.
 
 2. **Meta Tags**: Dataset information from HTML meta tags
    - Open Graph: `og:title`, `og:description`, `og:image`, etc.
    - Dublin Core: `dc.title`, `dc.creator`, `dc.date`, etc.
    - Twitter Cards: `twitter:title`, `twitter:description`, etc.
    - Standard: `description`, `keywords`, `author`, etc.
-   - Saved as `url_metadata_extracted.json`
+   - Saved as `extracted_meta_tags.json`
 
-3. **Linked JSON Files**: Downloads files linked with `<a href="*.json">`
-   - Saved with original filename or as `url_metadata_linked_*.json`
+3. **Linked Metadata Files**: Downloads files linked with extensions:
+   - JSON/JSON-LD: `.json`, `.jsonld`
+   - Markdown: `.md`, `.markdown` (README, documentation)
+   - XML: `.xml` (EML, ISO 19115, DataCite)
+   - Saved as `downloaded_metadata_0.json`, `downloaded_metadata_1.md`, etc.
 
 ### Output Files
 
@@ -358,10 +363,12 @@ output_directory/
 **From URL:**
 ```
 output_directory/
-├── url_metadata_extracted.json      # Extracted meta tags
-├── url_metadata_jsonld_0.json       # Schema.org JSON-LD
-├── url_metadata_jsonld_1.json       # Additional JSON-LD (if present)
-├── url_metadata_linked_*.json       # Downloaded linked files
+├── extracted_meta_tags.json         # Extracted meta tags
+├── extracted_schema_org_0.json      # Schema.org JSON-LD
+├── extracted_schema_org_1.json      # Additional JSON-LD (if present)
+├── downloaded_metadata_0.json       # Downloaded JSON files
+├── downloaded_metadata_1.md         # Downloaded markdown files
+├── downloaded_metadata_2.xml        # Downloaded XML files
 ├── {prefix}.json                    # FAIR4AI evaluation results
 └── {prefix}.csv                     # FAIR4AI evaluation results
 ```
@@ -378,8 +385,9 @@ output_directory/
     "llm_model": "gpt-4o-mini",
     "form_file": "form_ai_checklist_automated.csv",
     "metadata_files_analyzed": [
-      "url_metadata_jsonld_0.json",
-      "url_metadata_extracted.json"
+      "extracted_schema_org_0.json",
+      "extracted_meta_tags.json",
+      "downloaded_metadata_0.md"
     ],
     "evaluation_tool_version": "2.0"
   },

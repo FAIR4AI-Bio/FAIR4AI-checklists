@@ -2,15 +2,22 @@
 FAIR4AI Evaluation Agent
 
 This script automates the evaluation of datasets against the FAIR4AI checklist.
-It reads metadata files, uses an LLM to answer evaluation questions, and generates
-both JSON and CSV outputs.
+It reads metadata files (JSON, JSON-LD, Markdown, XML), uses an LLM to answer 
+evaluation questions, and generates both JSON and CSV outputs.
 
 Usage:
     python fair4ai_agent.py --metadata metadata_downloads/*.json --output neon_evaluation
+    python fair4ai_agent.py --url https://dataset-url.com --output evaluation
+
+Supported metadata formats:
+    - JSON and JSON-LD (schema.org, croissant)
+    - Markdown (.md, .markdown) for natural language metadata
+    - XML for structured metadata
 
 Requirements:
     - openai (or anthropic) library for LLM access
     - pandas for data manipulation
+    - requests and beautifulsoup4 for URL extraction
     - API key set in environment variable (OPENAI_API_KEY or ANTHROPIC_API_KEY)
 """
 
@@ -162,11 +169,12 @@ class FAIR4AIAgent:
             metadata_links = []
             for link in soup.find_all('a', href=True):
                 href = link['href']
-                if any(ext in href.lower() for ext in ['.json', 'metadata', 'schema']):
+                # Search for JSON, JSON-LD, markdown, and XML metadata files
+                if any(ext in href.lower() for ext in ['.json', '.jsonld', '.md', '.markdown', '.xml', 'metadata', 'schema', 'readme']):
                     metadata_links.append(href)
             
             # Download linked metadata files
-            for idx, link in enumerate(metadata_links[:5]):  # Limit to 5 files
+            for idx, link in enumerate(metadata_links[:10]):  # Increased limit to 10 files
                 try:
                     # Make absolute URL
                     if link.startswith('/'):
@@ -179,19 +187,52 @@ class FAIR4AIAgent:
                     link_response = requests.get(link, timeout=15)
                     link_response.raise_for_status()
                     
-                    # Try to parse as JSON
-                    try:
-                        data = link_response.json()
-                        filename = f"downloaded_metadata_{idx}.json"
-                        extracted_metadata[filename] = data
-                        
-                        if output_dir:
-                            output_path = output_dir / filename
-                            with open(output_path, 'w', encoding='utf-8') as f:
-                                json.dump(data, f, indent=2, ensure_ascii=False)
-                            print(f"  Saved to: {output_path}")
-                    except:
-                        continue
+                    # Determine file type and process accordingly
+                    content_type = link_response.headers.get('content-type', '').lower()
+                    link_lower = link.lower()
+                    
+                    # Try to parse as JSON first
+                    if '.json' in link_lower or 'application/json' in content_type or 'application/ld+json' in content_type:
+                        try:
+                            data = link_response.json()
+                            filename = f"downloaded_metadata_{idx}.json"
+                            extracted_metadata[filename] = data
+                            
+                            if output_dir:
+                                output_path = output_dir / filename
+                                with open(output_path, 'w', encoding='utf-8') as f:
+                                    json.dump(data, f, indent=2, ensure_ascii=False)
+                                print(f"  Saved to: {output_path}")
+                        except:
+                            continue
+                    # Handle markdown files
+                    elif '.md' in link_lower or 'markdown' in link_lower or 'text/markdown' in content_type:
+                        try:
+                            text_content = link_response.text
+                            filename = f"downloaded_metadata_{idx}.md"
+                            extracted_metadata[filename] = text_content
+                            
+                            if output_dir:
+                                output_path = output_dir / filename
+                                with open(output_path, 'w', encoding='utf-8') as f:
+                                    f.write(text_content)
+                                print(f"  Saved to: {output_path}")
+                        except:
+                            continue
+                    # Handle XML files
+                    elif '.xml' in link_lower or 'application/xml' in content_type or 'text/xml' in content_type:
+                        try:
+                            text_content = link_response.text
+                            filename = f"downloaded_metadata_{idx}.xml"
+                            extracted_metadata[filename] = text_content
+                            
+                            if output_dir:
+                                output_path = output_dir / filename
+                                with open(output_path, 'w', encoding='utf-8') as f:
+                                    f.write(text_content)
+                                print(f"  Saved to: {output_path}")
+                        except:
+                            continue
                 except:
                     continue
             
@@ -210,20 +251,44 @@ class FAIR4AIAgent:
             return {}
     
     def load_metadata_files(self, metadata_paths: List[str]) -> Dict[str, Any]:
-        """Load metadata files (JSON format)."""
+        """Load metadata files (JSON, markdown, or XML format)."""
         for path in metadata_paths:
             file_path = Path(path)
             if not file_path.exists():
                 print(f"Warning: File not found: {path}")
                 continue
-                
-            with open(file_path, 'r', encoding='utf-8') as f:
-                try:
-                    content = json.load(f)
-                    self.metadata_content[file_path.name] = content
-                    print(f"Loaded metadata: {file_path.name}")
-                except json.JSONDecodeError as e:
-                    print(f"Error loading {path}: {e}")
+            
+            file_ext = file_path.suffix.lower()
+            
+            # Handle JSON files
+            if file_ext in ['.json', '.jsonld']:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    try:
+                        content = json.load(f)
+                        self.metadata_content[file_path.name] = content
+                        print(f"Loaded JSON metadata: {file_path.name}")
+                    except json.JSONDecodeError as e:
+                        print(f"Error loading JSON {path}: {e}")
+            # Handle markdown files
+            elif file_ext in ['.md', '.markdown']:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    try:
+                        content = f.read()
+                        self.metadata_content[file_path.name] = content
+                        print(f"Loaded Markdown metadata: {file_path.name}")
+                    except Exception as e:
+                        print(f"Error loading Markdown {path}: {e}")
+            # Handle XML files
+            elif file_ext == '.xml':
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    try:
+                        content = f.read()
+                        self.metadata_content[file_path.name] = content
+                        print(f"Loaded XML metadata: {file_path.name}")
+                    except Exception as e:
+                        print(f"Error loading XML {path}: {e}")
+            else:
+                print(f"Warning: Unsupported file format: {file_path.name} (supported: .json, .jsonld, .md, .markdown, .xml)")
         
         return self.metadata_content
     
@@ -233,9 +298,28 @@ class FAIR4AIAgent:
         
         for filename, content in self.metadata_content.items():
             context += f"## {filename}\n\n"
-            context += "```json\n"
-            context += json.dumps(content, indent=2)[:10000]  # Limit size
-            context += "\n```\n\n"
+            
+            # Format based on content type
+            if isinstance(content, dict) or isinstance(content, list):
+                # JSON content
+                context += "```json\n"
+                context += json.dumps(content, indent=2)[:10000]  # Limit size
+                context += "\n```\n\n"
+            elif isinstance(content, str):
+                # Text content (markdown or XML)
+                if filename.endswith('.md') or filename.endswith('.markdown'):
+                    context += "```markdown\n"
+                elif filename.endswith('.xml'):
+                    context += "```xml\n"
+                else:
+                    context += "```\n"
+                context += content[:10000]  # Limit size
+                context += "\n```\n\n"
+            else:
+                # Fallback for unknown types
+                context += "```\n"
+                context += str(content)[:10000]
+                context += "\n```\n\n"
         
         return context
 
