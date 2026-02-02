@@ -4,7 +4,8 @@ Batch evaluation script for FAIR4AI datasets.
 This script processes all datasets listed in FAIROS_biodata_dataset_list_v1.csv,
 evaluating each one in parallel using the FAIR4AI agent.
 
-Results are stored in results_v1/<dataset_short_name>/ directories.
+Results are stored in OUTPUT_DIR/<dataset_short_name>/ directories.
+Configure the OUTPUT_DIR variable at the top of this script.
 """
 
 import pandas as pd
@@ -22,8 +23,8 @@ import traceback
 # ============================================================================
 DATASET_LIST_CSV = "FAIROS_biodata_dataset_list_v1.csv"  # Input CSV with dataset list
 FORM_CSV = "form_ai_checklist_automated.csv"              # FAIR4AI evaluation form
-OUTPUT_DIR = "results_v1"                                 # Base output directory
-MAX_WORKERS = 4                                           # Max parallel workers
+OUTPUT_DIR = "results_v1.1"                                 # Base output directory
+MAX_WORKERS = 8                                           # Max parallel workers
 # ============================================================================
 
 
@@ -45,6 +46,7 @@ def evaluate_single_dataset(row_dict, form_csv_path, output_base_dir):
     print(f"\n{'='*70}")
     print(f"Processing: {dataset_name}")
     print(f"URL: {url}")
+    print(f"Output: {Path(output_base_dir).absolute() / dataset_name}")
     print(f"{'='*70}")
     
     # Create output directory
@@ -144,6 +146,7 @@ def main():
     # Create results directory
     results_dir = Path(OUTPUT_DIR)
     results_dir.mkdir(exist_ok=True)
+    print(f"Output directory: {results_dir.absolute()}\n")
     
     # Convert DataFrame rows to dictionaries for parallel processing
     datasets_to_process = df.to_dict('records')
