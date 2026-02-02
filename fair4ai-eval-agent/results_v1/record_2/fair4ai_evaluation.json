@@ -1,0 +1,982 @@
+{
+  "metadata": {
+    "generated_date": "2026-02-01",
+    "dataset_evaluated": "record_2",
+    "evaluation_method": "Automated analysis using FAIR4AI Agent with LLM",
+    "source_files": [
+      "extracted_meta_tags.json",
+      "extracted_page_content.md"
+    ],
+    "llm_provider": "azure",
+    "llm_model": "gpt-4o"
+  },
+  "responses": [
+    {
+      "section": "Form Root",
+      "question": "My name",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not contain any fields or values related to personal names.",
+      "notes": "The metadata provided is about a dataset description and details related to its publication and access, not personal information."
+    },
+    {
+      "section": "Form Root",
+      "question": "My affiliation",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not contain any information regarding affiliations related to the dataset.",
+      "notes": "The metadata focuses on the dataset's content, access information, and publication details but does not mention any specific affiliations other than the Department of the Interior and the National Park Service as the publisher."
+    },
+    {
+      "section": "Form Root",
+      "question": "My email",
+      "response_choices": NaN,
+      "response": "nrss_datastore@nps.gov",
+      "evidence": "extracted_page_content.md: Email: nrss_datastore@nps.gov",
+      "notes": "The email provided is listed under the 'Contact' section in the metadata."
+    },
+    {
+      "section": "Form Root",
+      "question": "Dataset title",
+      "response_choices": NaN,
+      "response": "Great Smoky Mountains National Park Vital Signs Forest and Soils Monitoring Data Package 2015 - 2024",
+      "evidence": "The title is found both in the 'og:title' in extracted_meta_tags.json and at the top of the extracted_page_content.md.",
+      "notes": "This dataset title is clearly indicated in multiple sections of the metadata provided, ensuring consistency and accuracy."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the associated repository, if available.",
+      "response_choices": NaN,
+      "response": "https://irma.nps.gov/DataStore/Reference/Profile/2307453",
+      "evidence": "The 'landingPage' field in the metadata contains the URL 'https://irma.nps.gov/DataStore/Reference/Profile/2307453'.",
+      "notes": "This link is provided as the landing page for the dataset, which can be considered the associated repository in this context."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the dataset landing page/home page if available.",
+      "response_choices": NaN,
+      "response": "https://irma.nps.gov/DataStore/Reference/Profile/2307453",
+      "evidence": "landingPage: https://irma.nps.gov/DataStore/Reference/Profile/2307453",
+      "notes": "The link to the dataset landing page is explicitly mentioned in the metadata under the 'landingPage' field."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide the citation, DOI, URL, or similar, if available.",
+      "response_choices": NaN,
+      "response": "http://datainventory.doi.gov/id/dataset/NPS_DataStore_2307453",
+      "evidence": "\"identifier\": \"http://datainventory.doi.gov/id/dataset/NPS_DataStore_2307453\"",
+      "notes": "The identifier field provides the URL to the dataset, which can serve as a citation or reference URL. No DOI was found in the metadata."
+    },
+    {
+      "section": "Form Root",
+      "question": "As I am evaluating this dataset, I am considering it for",
+      "response_choices": "publishing for others to use | open-ended use (window shopping) | use in a specific project",
+      "response": "publishing for others to use",
+      "evidence": "Access Level: public",
+      "notes": "The metadata specifies that the dataset has an access level marked as 'public', indicating it is intended for use by the public, which aligns with publishing it for others to use. Additionally, there are 12 resources available, supporting broader use and access."
+    },
+    {
+      "section": "Form Root",
+      "question": "My relationship to this dataset",
+      "response_choices": "Data Provider/Producer (metadata author) | Data User/Consumer (metadata reader)",
+      "response": "Data User/Consumer (metadata reader)",
+      "evidence": "The metadata provides a detailed description of the dataset contents, access information, and metadata publication details, which are typical for metadata aimed at users or consumers of the dataset.",
+      "notes": "The metadata is structured in a way that supports individuals seeking to understand or utilize the data, rather than indicating direct involvement in the dataset's creation or management."
+    },
+    {
+      "section": "Form Root",
+      "question": "Provide a brief description of how you are evaluating this dataset. ",
+      "response_choices": NaN,
+      "response": "Evaluating the dataset using metadata available through the dataset landing page and supplementary metadata files (e.g., JSON and Markdown).",
+      "evidence": "The metadata files provided include 'extracted_meta_tags.json' and 'extracted_page_content.md', which give details about the dataset, its description, contact information, spatial and temporal coverage, and resource availability. The landing page URL is specified as 'https://irma.nps.gov/DataStore/Reference/Profile/2307453'.",
+      "notes": "The metadata files given are used to describe key aspects of the dataset, including its scope, objectives, and available resources. However, specific schema like Schema.org or EML are not mentioned, indicating that this evaluation relies primarily on custom metadata formats and the landing page information."
+    },
+    {
+      "section": "Form Root",
+      "question": "Metadata Upload",
+      "response_choices": NaN,
+      "response": "Not applicable",
+      "evidence": "Not found in metadata",
+      "notes": "The question appears to pertain to uploading a file, which is a placeholder instruction in the form, not related to evaluating metadata content. The metadata files provided do not indicate any action of uploading a file or information about a file to upload."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Citation for “this dataset”: The full citation is provided (preferably in Bibtex format).",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not include a full citation for the dataset in any format, including Bibtex. The provided metadata includes a detailed description of the dataset but lacks citation information. Relevant fields such as identifier and landingPage could potentially be used in a citation, but they are not formatted as such here."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Summary or Abstract",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md provides a summary of the dataset: 'This data package is the authoritative dataset for the Great Smoky Mountains National Park (GRSM) Forest Communities and Soil Quality Vital Signs Protocol...Objectives of the monitoring program are to capture status and trends of forest health and soil quality as they relate to environmental stressors, and how these metrics influence each other.'",
+      "notes": "The metadata includes a detailed description of the dataset, its purpose, and the data collection methods, which serves as an abstract or summary for the dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Publisher",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Published by\n\nNational Park Service\n\n|\n\nDepartment of the Interior",
+      "notes": "The metadata specifies that the dataset is published by the National Park Service, part of the Department of the Interior."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Date Created",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include a field or value that explicitly states the 'Date Created' for the dataset. The 'issued' field provides a date (2025-01-06T00:00:00Z), but this usually refers to when the metadata was issued, not necessarily when the dataset itself was created."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "An identifier for “this dataset”: Does the dataset have a unique, persistent, machine-resolvable identifier (e.g., DOI)? ",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides the following identifier: http://datainventory.doi.gov/id/dataset/NPS_DataStore_2307453",
+      "notes": "The identifier appears to be a URL, which suggests it is persistent and machine-resolvable, typically indicating a form of unique identification within the context of a data inventory system."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Author/creator information are provided (e.g., names, affiliations, ORCIDs)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata mentions that the dataset is published by the National Park Service, Department of the Interior, but it does not provide specific names, affiliations, or ORCIDs for individual authors or creators."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Curator information is provided (all curator names, ORCIDs, etc. are listed)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Contact Name: NPS IRMA Help\nEmail: nrss_datastore@nps.gov",
+      "notes": "The metadata provides a contact name and email but does not list specific curator names or ORCIDs. The field is labeled as a general contact for assistance rather than specific curator details."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Author(s) (person providing the description of the dataset) listed",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide information about the author(s) who provided the dataset description. The only contact information available is for 'NPS IRMA Help' with an email address for dataset-related inquiries."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Contact or Expert Contact (who to contact with questions) is provided",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Contact Name: NPS IRMA Help, Email: nrss_datastore@nps.gov",
+      "notes": "The metadata provides a contact name and email for inquiries related to the dataset, fulfilling the requirement for a Dataset Card Contact or Expert Contact."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Other Non-author Contributions",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention any non-author contributions explicitly. It only lists the National Park Service and the Department of the Interior but does not provide details about other contributors."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Acknowledgments: Funding Description and Grants",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not include any information on funding descriptions or grants. The available sections describe the dataset contents, publication details, and access information, but do not mention funding sources or specific grants associated with this dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Is this dataset derived from other sources?",
+      "response_choices": "Yes | No (skip to \"Additional information\" question)",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not explicitly state if the dataset is derived from other sources.",
+      "notes": "The metadata description focuses on the data collection methods and the contents of the dataset without mentioning any derivation from external datasets."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Provenance Tracking: Do the metadata provide information about the source data from which this dataset was derived (e.g., titles, summaries, and links)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files included did not contain any explicit information regarding the source data from which the dataset was derived, such as specific titles, summaries, or links to the original datasets."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data producers (who created the source data?)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not explicitly mention the source data producers or who created the source data. It provides the name of the publisher as the National Park Service and the Department of the Interior, but does not specify individual or organizational creators of the original data."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Citation of subsumed datasets (cite your sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any citations or references to subsumed datasets. It only describes the dataset content, temporal coverage, and resource files without mentioning sources or other datasets that it may be derived from."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data DOI (permalink for the sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "There is no DOI or permalink specific to source datasets mentioned in the provided metadata. The metadata does provide an identifier field with a URL (http://datainventory.doi.gov/id/dataset/NPS_DataStore_2307453), but this does not explicitly reference a DOI for source data."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data checksums: E.g., checksum for a zip file or a list of image checksums to ensure downstream users can get the same data you did.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not include any information about checksums for the dataset or its resources. Checking for file integrity through checksums is a critical aspect for ensuring that the dataset used by downstream users remains consistent with the original, but this information is missing in the metadata provided."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not include any sections or fields specifically related to the provenance of the dataset or detailed historical documentation.",
+      "notes": "The metadata describes the datasets and includes temporal coverage, spatial extent, and general dataset information but lacks detailed provenance or history information. It focuses on dataset descriptions, resources, and access information without capturing provenance-specific details."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related paper (e.g., DOI, BIBTEX citation, link, etc.)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any references to related papers, DOI, BIBTEX citations, or links to external publications."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related dataset and/or Model",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata contains a section with the heading 'Find Related Datasets', followed by tags such as 'Forest Health', 'GRSM', 'Great Smoky Mountains National Park', 'Soil Quality', 'Vegetation', and 'Vital Signs'.",
+      "notes": "These tags indicate there are related datasets or that users can search for similar datasets using these tags."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Purpose of the data",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The purpose of the data is described in the extracted_page_content.md where it states: 'Objectives of the monitoring program are to capture status and trends of forest health and soil quality as they relate to environmental stressors, and how these metrics influence each other.'",
+      "notes": "The purpose of monitoring the dataset is clearly outlined in the metadata."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Content - short description of the data types, etc.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata includes a description of the dataset contents: 'Data collected as part of this protocol include Live and Standing Dead Tree species, size, and health; Woody Stem species, size and abundance (tree saplings and true shrubs); Seedling species and abundance (tree seedlings and true shrubs); overall Species Diversity, and herbaceous species cover classes, Downed Deadwood abundance, size, and decay class; Vegetation Community type and vertical forest structure; Soil chemical and physical properties.'",
+      "notes": "The metadata provides a detailed enumeration of the types of data collected, making it clear what the dataset contains."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Are the data machine ready? (machine-actionable under the FAIR Principles)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata lists multiple resources in machine-readable formats such as CSV (e.g., Deadwood.csv, Events.csv, Trees.csv, Locations.csv, etc.).",
+      "notes": "The presence of CSV files indicates that the dataset is structured in a machine-readable format, which is a key aspect of being machine-actionable under the FAIR principles."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Language - what language or languages are the data?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not mention the language in which the data is prepared.",
+      "notes": "Information on the language of the data is missing from the provided metadata files. Generally, datasets published by the Department of the Interior are expected to be in English, but there is no specific mention in the extracted metadata."
+    },
+    {
+      "section": "General Information",
+      "question": "Discovery: Are keywords/tags provided to describe the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Tags provided under 'Find Related Datasets': Forest Health, GRSM, Great Smoky Mountains National Park, Soil Quality, Vegetation, Vegetation Monitoring, Vital Signs.",
+      "notes": "The presence of keywords/tags helps improve the discoverability of the dataset by enabling it to be found via relevant search queries."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Does the dataset and its metadata make use of relevant ontologies?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not mention the use of any relevant ontologies such as Environment Ontology (ENVO), Darwin Core, Units Ontology (UO), or Gene Ontology (GO). Ontologies are typically specified explicitly in metadata to align data with widely accepted standards, and there is no evidence in the provided metadata that any such ontologies are used."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Is the data dictionary/codebook provided?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not mention a data dictionary or codebook being available as part of the dataset resources."
+    },
+    {
+      "section": "General Information",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files 'extracted_meta_tags.json' and 'extracted_page_content.md' do not include additional fields except those related to document properties, publication/last modified dates, dataset description, and available resources.",
+      "notes": "The metadata contains detailed information about the dataset description, metadata last checked, publication date, spatial/temporal coverage, and available resources but does not have a designated section for additional information unrelated to these areas."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: File format(s) that encode the data are described",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Resources section lists file formats including XML and multiple CSV files such as Deadwood.csv, Events.csv, Trees.csv, Locations.csv, Photopoints.csv, Seedlings.csv, Soils.csv, Spp_Richness_Cover.csv, Tree_Cores.csv, veg_comm_struct.csv, Woody_Stems.csv.",
+      "notes": "The metadata specifies multiple CSV files, which are tabular / delimited text formats, as well as an XML file."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The dataset layout pattern is provided or explained",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata lists multiple CSV files under 'Resources': Deadwood.csv, Events.csv, Trees.csv, Locations.csv, Photopoints.csv, Seedlings.csv, Soils.csv, Spp_Richness_Cover.csv, Tree_Cores.csv, veg_comm_struct.csv, Woody_Stems.csv.",
+      "notes": "The metadata provides a list of multiple CSV files indicating a dataset layout pattern consisting of many independent files."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The primary unit of data that is to be operated on is explained",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata lists resources like 'Deadwood.csv', 'Events.csv', 'Trees.csv', 'Locations.csv', 'Photopoints.csv', 'Seedlings.csv', etc., indicating that each file relates to specific observations or measurements such as 'species', 'abundance', or 'soil properties'.",
+      "notes": "The metadata provides specific file names suggesting the type of data they contain, implying that the primary unit of data is explained through these file names and descriptions in the content."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are properly documented in the metadata",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata mentions dataset contents in general terms, such as 'Live and Standing Dead Tree species, size, and health;' but does not provide specific documentation of features or attributes for each dataset file like 'Trees.csv' or 'Soils.csv'.",
+      "notes": "While the metadata gives some overview about the types of data collected, it lacks explicit documentation of the attributes or fields within each CSV file or how these relate to database columns or data structures."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are included for each data instance",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata from extracted_page_content.md lists multiple CSV files such as Deadwood.csv, Events.csv, Trees.csv, Locations.csv, etc. This suggests that features or attributes are included for each data instance in tabular form.",
+      "notes": "The presence of individual CSV files indicates that relevant attributes are likely included for each record, assuming typical structure of tabular datasets."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Technical Specifications: Are the technical specifications of the dataset indicated?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not include information about file sizes, total dataset size, resolution, bit depth, or sampling rate.",
+      "notes": "The metadata provides details about the dataset description and resources available but does not include specific technical specifications like file sizes or resolution. The 'Resources' section lists various CSV files associated with the dataset, but no technical specifications are provided for these files."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes data on forest and soil monitoring with information on live and standing dead tree species, woody stem species, size and abundance, seedling species and abundance, overall species diversity, herbaceous species cover classes, downed deadwood abundance, size, and decay class, vegetation community type and vertical forest structure, soil chemical and physical properties.",
+      "evidence": "The information on the dataset content is found in the extracted_page_content.md: 'Data collected as part of this protocol include Live and Standing Dead Tree species, size, and health; Woody Stem species, size and abundance (tree saplings and true shrubs); Seedling species and abundance (tree seedlings and true shrubs); overall Species Diveristy, and herbaceous species cover classes, Downed Deadwood abundance, size, and decay class; Vegetation Community type and vertical forest structure; Soil chemical and physical properties.'",
+      "notes": "The metadata provides comprehensive information on the components of the dataset, which can be used to understand the data structure and the types of data included."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Data Source Type): Metadata record what type(s) of source data were collected or used to generate this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes data collected as part of a protocol including 'Live and Standing Dead Tree species, size, and health; Woody Stem species, size and abundance; Seedling species and abundance; overall Species Diveristy, and herbaceous species cover classes, Downed Deadwood abundance, size, and decay class; Soil chemical and physical properties.' This implies field observations or surveys by humans and measurements of samples.",
+      "notes": "The dataset includes comprehensive ecological observations indicative of field data collection methods involving human observation and potentially sample analysis in a lab for soil properties."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Curation Rationale):  Metadata record the primary rationale for curating or assembling this dataset",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes the dataset as capturing status and trends of forest health and soil quality, using a distributed plot network. The objectives include capturing how these metrics influence each other which implies a focus on improving data quality and enhancing discoverability/interoperability.",
+      "notes": "The metadata indicates the dataset is authoritative and forms part of a monitoring protocol, suggesting a strong rationale for its curation and assembly."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Part of a Larger Collection): Metadata indicate if this dataset part of a larger collection or series, and provide the following information:",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide information indicating that this dataset is part of a larger collection or series. There is no mention of a collection/series name, persistent identifier, or specific relationship such as IsPartOf, HasPart, or IsPublishedIn related to being part of a larger collection."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Instrumentation: Do the metadata describe the instruments or sensors used to collect the data, including their specifications and configuration?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention any details about instruments or sensors used for data collection, including specifications or configurations."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Collection Method Documentation): Do the metadata describe the methods used to collect or generate the data?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describe that data collection includes 'Live and Standing Dead Tree species, size, and health; Woody Stem species, size and abundance; Seedling species and abundance; overall Species Diversity, and herbaceous species cover classes, Downed Deadwood abundance, size, and decay class; Vegetation Community type and vertical forest structure; Soil chemical and physical properties.'",
+      "notes": "The metadata provide a brief overview of the types of data collected under the protocol, indicating that methods for vegetation and soil data collection are documented, though specific SOPs or URLs are not provided in the metadata."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Resolution): Do the metadata describe the spatial resolution?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes data being collected through a distributed plot network of 160 plots throughout six primary watersheds of the Vital Signs program. This indicates a plot/transect/area-based spatial resolution.",
+      "notes": "The metadata specifically mention the use of plots which implies an area-based spatial resolution methodologically related to field studies rather than remote sensing or point-based measurements."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Extent): Do the metadata describe the geographic coverage (region, bounding box, domain)?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "\"spatial\": \"-84.0139,35.4269,-82.998,35.8414\"",
+      "notes": "The metadata provides specific geographic coordinates that define the spatial extent of the dataset."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Resolution): Do the metadata describe the temporal resolution?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes that the dataset includes data from 'one year (2015) of 16 prototype plots', 'one full cycle of vegetation data (2016-2020)', 'one full cycle of soils data (2017-2021)', and mentions the data collection years 2021, 2023, and 2024 for vegetation data and 2023, 2024 for soils data. This indicates an annual resolution for these cycles.",
+      "notes": "The metadata explicitly mentions cycles spanning multiple years, indicating that the temporal resolution can be considered annual for most of the data collection described."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Extent): Do the metadata describe the temporal extent?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata specifies 'temporal': '2015-06-09/2024-08-28'",
+      "notes": "The metadata clearly defines the temporal extent from June 9, 2015, to August 28, 2024."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Types: Do the metadata describe the types of annotations or labels are included in the dataset (if any)?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes various types of data collected which can be interpreted as annotations or labels: 'Live and Standing Dead Tree species, size, and health; Woody Stem species, size and abundance (tree saplings and true shrubs); Seedling species and abundance (tree seedlings and true shrubs); overall Species Diversity, and herbaceous species cover classes, Downed Deadwood abundance, size, and decay class; Vegetation Community type and vertical forest structure; Soil chemical and physical properties.'",
+      "notes": "These data points or variables suggest that there are categorical labels (such as species names) and textual descriptors related to the dataset. The metadata does not specifically use the term 'annotations' but the information provided can be considered as such."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Process: Do the metadata describe how annotations were generated or obtained?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide information about how annotations were generated or obtained. The dataset description focuses on what data is collected and its purpose but does not mention any annotation process."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotators (Contributors): Do metadata indicate who performed the data annotations? \nPreferably, a list of annotators (e.g., ORCiDs), or names/versions of automated tools or systems; or other relevant information.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not indicate who performed the data annotations. There are no mentions of ORCiDs, names, or versions of automated tools, systems, or contributors listed in the metadata."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided does not explicitly mention additional origin-related information beyond the affiliation with the National Park Service and the Department of the Interior as well as the location and program codes.",
+      "notes": "The metadata includes some basic origin information such as the publisher, spatial extent, and identifiers, but there is no explicit section or additional details specifically focused on data origin."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Preparation: Do the metadata provide a complete overall description of data preparation, cleaning, transformation, or quality-control steps performed prior to generating the final dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the objectives and content of the dataset, such as the types of data collected (e.g., species diversity, soil properties) and the monitoring program cycles. However, there is no mention of specific data preparation, cleaning, transformation, or quality-control steps performed.",
+      "notes": "While the metadata provides comprehensive details about the dataset's scope and content, it lacks information about specific processing or quality control methodologies that might have been applied to the data."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Processing Platform or Software: Metadata provide a description of and citations or links to any processing platform or software used in the creation of this dataset.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information about the processing platform or software used for this dataset. The focus is on the dataset description, the spatial and temporal coverage, and resource types."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Correction / Standardization of Values: Does the metadata describe corrections applied to existing data values and whether the data values have been standardized in any way?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not mention any data processing activities such as correction or standardization of values, data gridding, unit consistency, anonymization, standardizing categorical codes or standardizing image dimensions/color spaces.",
+      "notes": "While the dataset description provides detailed information on the types of data collected and the variables involved, there is no specific mention in the metadata of corrections or standardizations applied to these data values."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Gaps Filled: Does metadata indicate if missing values or data gaps filled in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata content provided does not mention any processes or techniques used to fill missing values or data gaps in the dataset.",
+      "notes": "The metadata describes the dataset comprehensively but does not detail any data processing steps regarding gap filling or treatment of missing values. The section on data collection does note specific years where data were collected, and acknowledges a year (2022) where no data were collected, but doesn't specify any gap-filling procedures."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If gaps were filled, are the methods described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain information on whether gaps were filled using any specific methods such as interpolation, imputation, or model-based approaches. The descriptions focus on the dataset's contents and collection protocols but provide no details on data processing techniques for handling gaps."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Labeling / Relabeling: Does the metadata indicate if any labeling or relabeling steps were applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not mention any labeling or relabeling processes applied to the dataset. The description in both extracted_meta_tags.json and extracted_page_content.md focuses on the data collection and monitoring efforts, but does not specify any steps related to labeling or relabeling.",
+      "notes": "While the metadata provides a comprehensive overview of the type of data collected and the scope of the monitoring project, it lacks specific details on data processing procedures such as labeling or relabeling. The absence of such information indicates that it was likely not a documented process in the available metadata."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Does the metadata sufficiently describe the labeling or relabeling process?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information regarding the labeling or relabeling process, including label sources, standardization methods, or alignment with external taxonomies or ontologies."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Data Filtering and Outlier Removal: Were any outlier removal or filtering procedures applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not provide any information about outlier removal or filtering procedures applied to the dataset.",
+      "notes": "While the dataset's content and objectives are well described in the metadata, specific data processing methods, such as outlier removal or filtering, are not mentioned."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If yes, does the metadata sufficiently describe the outlier detection and removal methods used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any description of outlier detection and removal methods. No details on statistical thresholds, manual review, or algorithmic approaches are mentioned."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do metadata indicate if the dataset has been split into training, validation, and/or test sets?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files list various CSV files such as Deadwood.csv, Events.csv, Trees.csv, etc., but do not mention any splits into training, validation, or test sets.",
+      "notes": "The dataset appears to be raw observational data without predefined splits for machine learning purposes."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do the metadata provide information on how splits were created?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not contain specific information on how splits were created, such as Random, stratified, temporal, their proportions, and how data leakage was avoided.",
+      "notes": "The metadata focuses on the description, temporal coverage, spatial extent, and available resources related to the dataset without detailing the data splitting methodologies."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes detailed monitoring data of forest and soil, with various resources available for download in CSV format.",
+      "evidence": "The metadata section 'Resources' lists multiple CSV files such as 'Deadwood.csv', 'Events.csv', 'Trees.csv', 'Locations.csv', etc., which provide specific datasets related to forest and soil monitoring.",
+      "notes": "The dataset covers a range of information from tree species and health to soil chemical and physical properties, with data collection periods detailed in the metadata."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if this dataset is complete (i.e., there are no plans for further updates to this data product)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The extracted_page_content.md file states 'The second cycle of data is in progress with 3/5 years of vegetation data complete (2021, 2023, 2024) and 2/5 years of soils data (2023, 2024)'.",
+      "notes": "The metadata indicate that the dataset is still being updated, as data collection is ongoing with cycles in progress for specific years."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if quality assurance checks been run and if they passed?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files provided, including `extracted_meta_tags.json` and `extracted_page_content.md`, do not contain any mention of quality assurance checks.",
+      "notes": "The metadata only describes the dataset content, publication, and available resources without indicating if quality assurance checks have been performed or their results."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the timeliness of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'This dataset includes one year (2015) of 16 prototype plots that have not been resampled, one full cycle of vegetation data on the 160 plot network (2016-2020) and one full cycle of soils data (2017-2021). The second cycle of data is in progress with 3/5 years of vegetation data complete (2021, 2023, 2024) and 2/5 years of soils data (2023, 2024). No data were collected in 2022.'",
+      "notes": "The dataset is periodically updated with specific cycles mentioned for data collection, indicating its timeliness."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate quality checks on or evaluate dataset timeliness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files do not mention quality checks related to the timeliness of the dataset or evaluations of whether data collection occurred at a time that fits the study's objectives.",
+      "notes": "While the metadata mention the temporal coverage and some collection timelines, there is no specific discussion or evaluation of the appropriateness of these times in relation to the study objectives."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the time lag between data collection and availability?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not specifically describe the time lag between data collection and availability. It mentions data collection years and modifications, such as 'one year (2015) of 16 prototype plots,' 'one full cycle of vegetation data (2016-2020),' and 'metadata last checked: January 25, 2026,' but it does not specify a publication timeline related to data collection.",
+      "notes": "While the metadata provides details about the collection phases and cycles, it lacks explicit information on how soon after collection the data is made available to the public or internal users."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the quality checks that have failed and provide context for downstream users to work with the data as-is or resolve the issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files do not include any mention of quality checks or failures. The provided content focuses on description, temporal and spatial coverage, data resources, and contact information but does not detail any quality checks or issues.",
+      "notes": "The metadata does not contain sections or fields that specifically address quality control measures or any failed checks, which are crucial for assessing data reliability and usability."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata explain why quality checks were not performed and provide context for downstream users to work with the data as-is or resolve potential issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any specific explanation about why quality checks were not performed or guidance for downstream users. The focus is on dataset contents and publication."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe any known gaps or limitations in the dataset’s completeness?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'The second cycle of data is in progress with 3/5 years of vegetation data complete (2021, 2023, 2024) and 2/5 years of soils data (2023, 2024). No data were collected in 2022.'",
+      "notes": "The metadata clearly mentions temporal gaps where no data were collected in 2022, as well as the fact that the second cycle of data is still in progress with incomplete datasets for the specified periods."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if all units have been translated into compatible forms?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not specify whether units have been translated into compatible forms. There is extensive information on the dataset's content and structure, but nothing specific about unit standardization."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do any of the data follow a controlled vocabulary?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "There is no mention of a controlled vocabulary being used in the data description or any of the metadata fields provided.",
+      "notes": "The metadata describes various data points collected such as tree species, size, health, etc., but does not specify if these follow a controlled vocabulary. Lack of explicit mention implies it is not evident from the provided metadata."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Is a reference provided for the controlled vocabulary used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in extracted_meta_tags.json or extracted_page_content.md",
+      "notes": "The metadata files do not mention any controlled vocabulary or provide references for such. The dataset description and resource listings do not include this information either."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are any known consistency issues or steps taken to ensure consistency described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any information about consistency issues or steps taken to ensure consistency in the dataset. The focus is on the scope and content of the dataset rather than its data quality measures."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if any quality assurance or peer review procedures been applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not mention any quality assurance or peer review procedures that have been applied to the dataset. Specific information on quality control processes is absent from the extracted metadata and page content."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the procedures used to ensure data integrity?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention any procedures used to ensure data integrity such as checksums, version control, or audit trails."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are data checksums included? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include information about data checksums. There is no mention of checksums in the extracted_meta_tags.json or extracted_page_content.md files."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes a description of data collection methods, objectives, and temporal coverage.",
+      "evidence": "This data package is the authoritative dataset for the Great Smoky Mountains National Park (GRSM) Forest Communities and Soil Quality Vital Signs Protocol. Objectives of the monitoring program are to capture status and trends of forest health and soil quality as they relate to environmental stressors, and how these metrics influence each other. This dataset includes one year (2015) of 16 prototype plots that have not been resampled, one full cycle of vegetation data on the 160 plot network (2016-2020) and one full cycle of soils data (2017-2021). The second cycle of data is in progress with 3/5 years of vegetation data complete (2021, 2023, 2024) and 2/5 years of soils data (2023, 2024).",
+      "notes": "The dataset covers a range of years (2015-2024) and includes various details about methodology and objectives pertinent to data quality. However, specific quality metrics or validation methods are not detailed in the metadata excerpts provided."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe known sources of bias in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information about known sources of bias in the dataset. It provides details about the dataset's content, coverage, and publication but does not address potential biases."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known risks or limitations associated with the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not include any explicit mention of risks, limitations, or potential issues associated with the dataset. The description mainly focuses on the general scope and purpose of the dataset, monitoring objectives, and the types of data collected."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate if the dataset is based on experimental data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as being part of a 'Vital Signs monitoring program' and mentions 'monitoring', 'protocol', and 'data collected as part of this protocol', which implies observational rather than experimental data.",
+      "notes": "The description and context provided in the metadata suggest the dataset results from a structured monitoring program, which typically characterizes observational studies rather than controlled experiments."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, do the metadata describe the experimental design?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provides detailed descriptions of the data collected, the objectives of the monitoring program, and mentions the plot network. However, it does not include specific information about treatments, controls, replication, or randomization.",
+      "notes": "While the metadata describes the objectives and scope of data collection, such as monitoring forest health and soil quality, it lacks specifics on the experimental design elements like treatments or randomization."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe recommended or intended uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided does not include any information about recommended or intended uses, analyses, models, or applications for this dataset.",
+      "notes": "The metadata focuses on the description of the dataset contents, its collection methodology, and its temporal and spatial coverage but does not provide specific guidance or recommendations for its use."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known inappropriate or discouraged uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not contain any information regarding inappropriate or discouraged uses of the dataset. The 'Access & Use' section only provides information about the license and access level.",
+      "notes": "While the metadata provides extensive information on the dataset's contents, purposes, and access rights, it lacks any details or guidance about inappropriate, misleading, or ethically problematic uses of the dataset."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate this dataset has been used in AI/ML applications previously?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not include any references to the dataset being used in AI or ML applications. There is no mention of AI, machine learning, ML, or related terminology in both the extracted meta tags or the extracted page content."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, is it described how the dataset has been used in AI/ML applications?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata contains information about the dataset content, access, and resources but does not mention any applications, models, benchmarks, or publications related to AI/ML use."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Are there references to models, benchmarks, or publications if available?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No references to models, benchmarks, or publications are provided in the metadata files extracted_meta_tags.json or extracted_page_content.md.",
+      "notes": "The metadata includes information about the dataset description, collection, and usage, but there are no specific references to models, benchmarks, or publications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate how to report issues or errors in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Contact section includes Email: nrss_datastore@nps.gov",
+      "notes": "The metadata provides an email address for contacting with questions or suggestions, which can be used for reporting issues."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No specific section in the metadata files labeled as 'Guidance and Recommendations' or containing explicit guidance or recommendations for dataset usage.",
+      "notes": "The metadata provided does not include a section titled 'Guidance and Recommendations'. The existing content primarily describes the dataset, its collection methodology, and thematic elements. If guidance or recommendations are needed, they may be found in other metadata files or documents not included here."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available for direct download?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata lists several CSV files under 'Resources' such as Deadwood.csv, Events.csv, Trees.csv indicating the dataset is available for direct download.",
+      "notes": "The presence of downloadable CSV files implies that the dataset is available for direct access."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via an API?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No mention of an API endpoint or access method is found in the provided metadata.",
+      "notes": "The metadata provides details about the dataset and available resources, but it does not mention or provide an API. The access level is public, and datasets are provided as downloadable files in various formats (CSV, XML), suggesting access is via direct download rather than an API."
+    },
+    {
+      "section": "Data Access",
+      "question": "If accessible via API, is the type of API specified?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention any API access or specify the type of API (e.g., REST, GraphQL, OPeNDAP) for the dataset."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is API documentation provided (e.g., linked to)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any reference to API documentation or links to such documentation."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via a cloud platform?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any information about the dataset being accessible via a cloud platform. The metadata includes URLs for landing pages and mentions data in CSV and XML format but does not specify cloud access."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in a machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Resources section lists multiple resources with file types, all of which are in CSV format: Deadwood.csv, Events.csv, Trees.csv, Locations.csv, Photopoints.csv, Seedlings.csv, Soils.csv, Spp_Richness_Cover.csv, Tree_Cores.csv, veg_comm_struct.csv, Woody_Stems.csv",
+      "notes": "CSV is a widely recognized machine-readable format, indicating that the dataset is indeed provided in such a format."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in an open (non-proprietary) format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset resources are available in non-proprietary formats such as CSV and XML, as indicated by the listed resources: 'Deadwood.csv', 'Events.csv', 'Trees.csv', 'Locations.csv', 'Photopoints.csv', 'Seedlings.csv', 'Soils.csv', 'Spp_Richness_Cover.csv', 'Tree_Cores.csv', 'veg_comm_struct.csv', 'Woody_Stems.csv', and 'GRSM_VS_Forest_Soils_Data_Package_metadata.xml'.",
+      "notes": "CSV and XML formats are widely recognized as open and non-proprietary, ensuring broad accessibility and usability."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available in multiple formats?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata lists multiple resources available in different formats such as 'CSV' for files like Deadwood.csv, Events.csv, Trees.csv, and 'XML' for GRSM_VS_Forest_Soils_Data_Package_metadata.xml.",
+      "notes": "The metadata specifies that there are 12 resources available, indicating multiple dataset formats including CSV and XML."
+    },
+    {
+      "section": "Data Access",
+      "question": "Do the metadata indicate what license applies to this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "License\n\nhttp://www.usa.gov/publicdomain/label/1.0/",
+      "notes": "The metadata specifies the license URL indicating the dataset is under public domain according to USA regulations."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the license information provided in a standardized or machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "License: http://www.usa.gov/publicdomain/label/1.0/",
+      "notes": "The license information provided is in the form of a URL to a standardized and machine-readable format, which indicates it is accessible for machine processing."
+    },
+    {
+      "section": "Data Access",
+      "question": "Does the dataset contain personal or sensitive information?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The dataset description and metadata outline data related to forest communities, soil quality, tree species, woody stems, seedlings, species diversity, deadwood, and soil properties but do not indicate any collection of personal or sensitive information.",
+      "notes": "The metadata focuses on environmental and ecological data collection, and there is no mention of personal data being part of the dataset."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is access to the dataset restricted in any way?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "\"accessLevel\": \"public\"",
+      "notes": "The metadata specifies that the access level is public, indicating that access to the dataset is not restricted."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is secure access required to obtain or use the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Access Level: public",
+      "notes": "The metadata explicitly states that the access level is 'public', which indicates that secure access is not required to obtain or use the dataset."
+    },
+    {
+      "section": "Data Access",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes monitoring data specifically from the Great Smoky Mountains National Park, spanning from 2015 to 2024, capturing forest health and soil quality metrics. Various sub-datasets in CSV format are listed, such as Deadwood.csv, Events.csv, Trees.csv, and others, providing insight into different aspects of the park's ecology. A landing page and a DOI identifier are also provided for further reference.",
+      "evidence": "Metadata describes the dataset as covering the temporal range of 2015-06-09 to 2024-08-28, listing various CSV files like 'Deadwood.csv', 'Events.csv', and providing a landingPage URL 'https://irma.nps.gov/DataStore/Reference/Profile/2307453' for more details.",
+      "notes": "The dataset provides granular ecological data, best suited for research on forest and soil conditions in the park. Additional metadata elements indicate the dataset's public access level and contact information for further assistance."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Is this form sufficient to evaluate if a dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata primarily describes the scope and contents of the dataset but lacks specific information regarding interoperability standards or formats that firmly establish machine-readability. Additionally, there is no reference to ontology or standards that would support AI readiness.",
+      "notes": "While the dataset is clearly described and accessible, the fairness for AI specifically requires more information on data formats, standards compliance, and structured metadata that aligns with AI interoperability requirements."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from this form?",
+      "response_choices": NaN,
+      "response": "Information about data interoperability and standard formats is missing.",
+      "evidence": "The metadata does not include any specific mention of interoperability standards or formats that facilitate AI readiness. It only lists available CSV files without detailing whether they comply with standards that enhance interoperability.",
+      "notes": "While the dataset includes multiple CSV files, which are a common format for data exchange, the metadata lacks specific information about adherence to interoperability standards or the use of ontologies that would ensure data can be easily integrated with other datasets. This is crucial for assessing FAIRness, particularly for machine readability and AI applications."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Should sections or items from this form be edited or deleted? If so, how and/or why?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not include specific guidance on form sections or items to be edited or deleted.",
+      "notes": "The metadata files provide detailed information about the dataset and its attributes but do not directly address modifications to other forms or suggest changes."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Did the metadata you evaluated provide sufficient information to determine if the dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provides information on the dataset's description, spatial and temporal coverage, contact, and license, but lacks details on interoperability (e.g., schema or ontology used) and reusability (e.g., documentation of data processing or provenance).",
+      "notes": "For the dataset to be considered FAIR4AI, it would require more comprehensive metadata detailing aspects such as the data standards, formats, detailed documentation, and examples of machine readability or suitability for AI processing."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from the metadata? ",
+      "response_choices": NaN,
+      "response": "Information about data format, standards used, and detailed data encoding",
+      "evidence": "While the metadata specifies resource formats like CSV and XML, it does not provide detailed documentation on data formats, standards used, or data encoding practices which are crucial for interoperability and reuse.",
+      "notes": "The metadata lacks explicit mentions of standards adherence (e.g., ISO standards for metadata), encoding schemes, or data dictionaries necessary for AI-readiness. These elements are important for ensuring data interoperability and understanding across systems. Also, versioning information of the dataset is absent, which can be crucial for reuse and citation."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Use this space to provide any other feedback",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata provides extensive information about the dataset's content, publication, and access details, but no specific section for open-ended feedback or additional notes is provided.",
+      "notes": "The metadata focus is on describing the dataset, including its content, access, and logistical information. A feedback section is not explicitly mentioned or identifiable in the provided metadata."
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "The dataset is publicly accessible and available for direct download.",
+      "Keywords/tags are provided to enhance discoverability.",
+      "The metadata includes a detailed description of the dataset content, purpose, and collection methods.",
+      "Spatial and temporal extents of the collection are well documented.",
+      "Data is available in machine-readable and open formats such as CSV and XML."
+    ],
+    "weaknesses": [
+      "The metadata lacks specific author/creator information and does not provide detailed contact information for data curators.",
+      "There is no information on data processing steps such as data cleaning, standardization, or quality control procedures.",
+      "No known standards or ontologies are mentioned to aid in interoperability.",
+      "There is no indication of API access, which limits programmatic access and integration capabilities.",
+      "Data quality checks and assurance practices are not documented."
+    ],
+    "overall_assessment": "The Great Smoky Mountains National Park Vital Signs Forest and Soils Monitoring Data Package is readily accessible and well-documented in terms of its spatial and temporal scope. However, it lacks detailed information concerning data standards, processing, and interoperability, essential for its full utilization in AI/ML applications. Although the dataset is structured in machine-readable formats, there is no API access or use of controlled vocabularies, which affects its interoperability and integration with other datasets. Improvements in metadata comprehensiveness, specifically in elements regarding data quality assurance and processing details, would enhance the dataset's FAIRness significantly.",
+    "fair_score_estimate": {
+      "findable": "7/10 - The dataset has a clear title, landing page, and keywords, but lacks a DOI and comprehensive author information.",
+      "accessible": "6/10 - The dataset is available for direct download in open formats, but there is no API or cloud access mentioned.",
+      "interoperable": "4/10 - There is no mention of standards or ontologies used, which impacts the potential for data integration and interoperability.",
+      "reusable": "5/10 - The dataset is well-documented regarding content and purpose, yet lacks sufficient details on quality control, author contributions, and processing steps, impacting its reusability."
+    }
+  }
+}

@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isotc211.org/2005/gmx https://schemas.isotc211.org/schemas/19139/-/gmx/1.0/gmx.xsd http://www.isotc211.org/2005/srv http://inspire.ec.europa.eu/draft-schemas/inspire-md-schemas/srv/1.0/srv.xsd">
+<gmd:fileIdentifier><gco:CharacterString>2636c7e1-ec8c-4b77-9f4e-f731781191ca</gco:CharacterString></gmd:fileIdentifier>
+<gmd:language>
+<gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">English</gmd:LanguageCode>
+</gmd:language>
+<gmd:characterSet>
+<gmd:MD_CharacterSetCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="8859part1">ISO/IEC 8859-1 (also known as Latin 1)</gmd:MD_CharacterSetCode>
+</gmd:characterSet>
+<gmd:hierarchyLevel>
+<gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</gmd:MD_ScopeCode>
+</gmd:hierarchyLevel>
+<gmd:hierarchyLevelName>
+<gco:CharacterString>dataset</gco:CharacterString>
+</gmd:hierarchyLevelName>
+<gmd:contact>
+<gmd:CI_ResponsibleParty>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/04xw4m193" xlink:actuate="onRequest" xlink:title="RoR">NERC EDS Environmental Information Data Centre</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:deliveryPoint><gco:CharacterString>Lancaster Environment Centre, Library Avenue, Bailrigg</gco:CharacterString></gmd:deliveryPoint>
+<gmd:city><gco:CharacterString>Lancaster</gco:CharacterString></gmd:city>
+<gmd:postalCode><gco:CharacterString>LA1 4AP</gco:CharacterString></gmd:postalCode>
+<gmd:country><gco:CharacterString>UK</gco:CharacterString></gmd:country>
+<gmd:electronicMailAddress><gco:CharacterString>info@eidc.ac.uk</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+<gmd:onlineResource>
+<gmd:CI_OnlineResource>
+<gmd:linkage>
+<gmd:URL>https://eidc.ac.uk/</gmd:URL>
+</gmd:linkage>
+<gmd:name>
+<gco:CharacterString>EIDC website</gco:CharacterString>
+</gmd:name>
+<gmd:description>
+<gco:CharacterString>The Environmental Information Data Centre (EIDC) is the UK's national data centre for terrestrial and freshwater sciences.</gco:CharacterString>
+</gmd:description>
+<gmd:function>
+<gmd:CI_OnLineFunctionCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+</gmd:function>
+</gmd:CI_OnlineResource>
+</gmd:onlineResource>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact">pointOfContact</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:contact>
+<gmd:dateStamp>
+<gco:DateTime>2025-11-13T16:17:39</gco:DateTime>
+</gmd:dateStamp>
+<gmd:metadataStandardName>
+<gmx:Anchor xlink:href="http://vocab.nerc.ac.uk/collection/MD1/current/GEMINI/">UK GEMINI</gmx:Anchor>
+</gmd:metadataStandardName>
+<gmd:metadataStandardVersion>
+<gco:CharacterString>2.3</gco:CharacterString>
+</gmd:metadataStandardVersion>
+<gmd:referenceSystemInfo>
+<gmd:MD_ReferenceSystem>
+<gmd:referenceSystemIdentifier>
+<gmd:RS_Identifier>
+<gmd:code>
+<gmx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/4326">WGS 84</gmx:Anchor>
+</gmd:code>
+</gmd:RS_Identifier>
+</gmd:referenceSystemIdentifier>
+</gmd:MD_ReferenceSystem>
+</gmd:referenceSystemInfo>
+<gmd:referenceSystemInfo>
+<gmd:MD_ReferenceSystem>
+<gmd:referenceSystemIdentifier>
+<gmd:RS_Identifier>
+<gmd:code>
+<gmx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/27700">OSGB 1936 / British National Grid</gmx:Anchor>
+</gmd:code>
+</gmd:RS_Identifier>
+</gmd:referenceSystemIdentifier>
+</gmd:MD_ReferenceSystem>
+</gmd:referenceSystemInfo>
+<gmd:identificationInfo>
+<gmd:MD_DataIdentification>
+<gmd:citation>
+<gmd:CI_Citation>
+<gmd:title>
+<gco:CharacterString>Earthworm species identification and counts at three long-term grassland-to-woodland land use contrasts across England</gco:CharacterString>
+</gmd:title>
+<gmd:date>
+<gmd:CI_Date>
+<gmd:date>
+<gco:Date>2023-10-27</gco:Date>
+</gmd:date>
+<gmd:dateType>
+<gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication">publication</gmd:CI_DateTypeCode>
+</gmd:dateType>
+</gmd:CI_Date>
+</gmd:date>
+<gmd:identifier>
+<gmd:MD_Identifier>
+<gmd:code>
+<gco:CharacterString>https://catalogue.ceh.ac.uk/id/2636c7e1-ec8c-4b77-9f4e-f731781191ca</gco:CharacterString>
+</gmd:code>
+</gmd:MD_Identifier>
+</gmd:identifier>
+<gmd:identifier>
+<gmd:RS_Identifier>
+<gmd:code><gco:CharacterString>10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca</gco:CharacterString></gmd:code>
+<gmd:codeSpace><gco:CharacterString>doi:</gco:CharacterString></gmd:codeSpace>
+</gmd:RS_Identifier>
+</gmd:identifier>
+<gmd:otherCitationDetails>
+<gco:CharacterString>Keith, A., Reinsch, S., Cagnarini, C., Emmett, B.A., Cosby, B.J. (2023). Earthworm species identification and counts at three long-term grassland-to-woodland land use contrasts across England. NERC EDS Environmental Information Data Centre 10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca</gco:CharacterString>
+</gmd:otherCitationDetails>
+</gmd:CI_Citation>
+</gmd:citation>
+<gmd:abstract>
+<gco:CharacterString>This dataset contains earthworm counts and identification from three long-term grassland-to-woodland land use contrasts across England between 2018 and 2021. Each land use contrast was assigned one grassland and one woodland plot, respectively. Each of the plots was further divided into three grids (grassland grids 1 to 3 / woodland grids 4 to 6) with grids 1 and 6 being the furthest apart. The contrast boundary is between grids 3 and 4. The three grassland-to-woodland contrasts were sampled once: Gisburn (Gisburn-1, Gisburn-2), and Kielder Forest. The earthworms were counted in 25 cm3 soil cubes and were identified to a species level. These measurements are co-located with estimates aboveground biomass production and litter layer depth, soil physical, chemical and biological properties (0-1 m), and soil hydraulic measurements (soil water release curves and hydraulic conductivity). A file is provided to connect all co-located measurements. This project was part of the UK-SCAPE programme which started in 2018 and was funded by the Natural Environment Research Council as National Capability (award number NE/R016429/1). Full details about this dataset can be found at https://doi.org/10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca</gco:CharacterString>
+</gmd:abstract>
+<gmd:pointOfContact>
+<gmd:CI_ResponsibleParty>
+<gmd:individualName>
+<gmx:Anchor xlink:href="https://orcid.org/0000-0001-9619-1320" xlink:actuate="onRequest" xlink:title="orcid">Keith, A.</gmx:Anchor>
+</gmd:individualName>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/00pggkr55" xlink:actuate="onRequest" xlink:title="RoR">UK Centre for Ecology &amp; Hydrology</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>
+enquiries@ceh.ac.uk
+</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+<gmd:onlineResource>
+<gmd:CI_OnlineResource>
+<gmd:linkage>
+<gmd:URL>https://orcid.org/0000-0001-9619-1320</gmd:URL>
+</gmd:linkage>
+<gmd:name>
+<gco:CharacterString>ORCID record</gco:CharacterString>
+</gmd:name>
+<gmd:description>
+<gco:CharacterString>ORCID is an open, non-profit, community-driven effort to create and maintain a registry of unique researcher identifiers and a transparent method of linking research activities and outputs to these identifiers.</gco:CharacterString>
+</gmd:description>
+<gmd:function>
+<gmd:CI_OnLineFunctionCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+</gmd:function>
+</gmd:CI_OnlineResource>
+</gmd:onlineResource>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="author">author</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:pointOfContact>
+<gmd:pointOfContact>
+<gmd:CI_ResponsibleParty>
+<gmd:individualName>
+<gmx:Anchor xlink:href="https://orcid.org/0000-0003-4649-0677" xlink:actuate="onRequest" xlink:title="orcid">Reinsch, S.</gmx:Anchor>
+</gmd:individualName>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/00pggkr55" xlink:actuate="onRequest" xlink:title="RoR">UK Centre for Ecology &amp; Hydrology</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>
+enquiries@ceh.ac.uk
+</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+<gmd:onlineResource>
+<gmd:CI_OnlineResource>
+<gmd:linkage>
+<gmd:URL>https://orcid.org/0000-0003-4649-0677</gmd:URL>
+</gmd:linkage>
+<gmd:name>
+<gco:CharacterString>ORCID record</gco:CharacterString>
+</gmd:name>
+<gmd:description>
+<gco:CharacterString>ORCID is an open, non-profit, community-driven effort to create and maintain a registry of unique researcher identifiers and a transparent method of linking research activities and outputs to these identifiers.</gco:CharacterString>
+</gmd:description>
+<gmd:function>
+<gmd:CI_OnLineFunctionCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+</gmd:function>
+</gmd:CI_OnlineResource>
+</gmd:onlineResource>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="author">author</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:pointOfContact>
+<gmd:pointOfContact>
+<gmd:CI_ResponsibleParty>
+<gmd:individualName>
+<gmx:Anchor xlink:href="https://orcid.org/0000-0001-5106-2429" xlink:actuate="onRequest" xlink:title="orcid">Cagnarini, C.</gmx:Anchor>
+</gmd:individualName>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/00pggkr55" xlink:actuate="onRequest" xlink:title="RoR">UK Centre for Ecology &amp; Hydrology</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>
+enquiries@ceh.ac.uk
+</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+<gmd:onlineResource>
+<gmd:CI_OnlineResource>
+<gmd:linkage>
+<gmd:URL>https://orcid.org/0000-0001-5106-2429</gmd:URL>
+</gmd:linkage>
+<gmd:name>
+<gco:CharacterString>ORCID record</gco:CharacterString>
+</gmd:name>
+<gmd:description>
+<gco:CharacterString>ORCID is an open, non-profit, community-driven effort to create and maintain a registry of unique researcher identifiers and a transparent method of linking research activities and outputs to these identifiers.</gco:CharacterString>
+</gmd:description>
+<gmd:function>
+<gmd:CI_OnLineFunctionCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+</gmd:function>
+</gmd:CI_OnlineResource>
+</gmd:onlineResource>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="author">author</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:pointOfContact>
+<gmd:pointOfContact>
+<gmd:CI_ResponsibleParty>
+<gmd:individualName>
+<gmx:Anchor xlink:href="https://orcid.org/0000-0002-2713-4389" xlink:actuate="onRequest" xlink:title="orcid">Emmett, B.A.</gmx:Anchor>
+</gmd:individualName>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/00pggkr55" xlink:actuate="onRequest" xlink:title="RoR">UK Centre for Ecology &amp; Hydrology</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>
+enquiries@ceh.ac.uk
+</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+<gmd:onlineResource>
+<gmd:CI_OnlineResource>
+<gmd:linkage>
+<gmd:URL>https://orcid.org/0000-0002-2713-4389</gmd:URL>
+</gmd:linkage>
+<gmd:name>
+<gco:CharacterString>ORCID record</gco:CharacterString>
+</gmd:name>
+<gmd:description>
+<gco:CharacterString>ORCID is an open, non-profit, community-driven effort to create and maintain a registry of unique researcher identifiers and a transparent method of linking research activities and outputs to these identifiers.</gco:CharacterString>
+</gmd:description>
+<gmd:function>
+<gmd:CI_OnLineFunctionCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+</gmd:function>
+</gmd:CI_OnlineResource>
+</gmd:onlineResource>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="author">author</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:pointOfContact>
+<gmd:pointOfContact>
+<gmd:CI_ResponsibleParty>
+<gmd:individualName>
+<gmx:Anchor xlink:href="https://orcid.org/0000-0001-5645-3373" xlink:actuate="onRequest" xlink:title="orcid">Cosby, B.J.</gmx:Anchor>
+</gmd:individualName>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/00pggkr55" xlink:actuate="onRequest" xlink:title="RoR">UK Centre for Ecology &amp; Hydrology</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>
+enquiries@ceh.ac.uk
+</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+<gmd:onlineResource>
+<gmd:CI_OnlineResource>
+<gmd:linkage>
+<gmd:URL>https://orcid.org/0000-0001-5645-3373</gmd:URL>
+</gmd:linkage>
+<gmd:name>
+<gco:CharacterString>ORCID record</gco:CharacterString>
+</gmd:name>
+<gmd:description>
+<gco:CharacterString>ORCID is an open, non-profit, community-driven effort to create and maintain a registry of unique researcher identifiers and a transparent method of linking research activities and outputs to these identifiers.</gco:CharacterString>
+</gmd:description>
+<gmd:function>
+<gmd:CI_OnLineFunctionCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+</gmd:function>
+</gmd:CI_OnlineResource>
+</gmd:onlineResource>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="author">author</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:pointOfContact>
+<gmd:pointOfContact>
+<gmd:CI_ResponsibleParty>
+<gmd:individualName>
+<gco:CharacterString>Reinsch, S.</gco:CharacterString>
+</gmd:individualName>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/00pggkr55" xlink:actuate="onRequest" xlink:title="RoR">UK Centre for Ecology &amp; Hydrology</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>
+enquiries@ceh.ac.uk
+</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact">pointOfContact</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:pointOfContact>
+<gmd:pointOfContact>
+<gmd:CI_ResponsibleParty>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/00pggkr55" xlink:actuate="onRequest" xlink:title="RoR">UK Centre for Ecology &amp; Hydrology</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>
+enquiries@ceh.ac.uk
+</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="owner">owner</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:pointOfContact>
+<gmd:pointOfContact>
+<gmd:CI_ResponsibleParty>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/04xw4m193" xlink:actuate="onRequest" xlink:title="RoR">NERC EDS Environmental Information Data Centre</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>
+info@eidc.ac.uk
+</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="custodian">custodian</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:pointOfContact>
+<gmd:pointOfContact>
+<gmd:CI_ResponsibleParty>
+<gmd:organisationName>
+<gmx:Anchor xlink:href="https://ror.org/04xw4m193" xlink:actuate="onRequest" xlink:title="RoR">NERC EDS Environmental Information Data Centre</gmx:Anchor>
+</gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>
+info@eidc.ac.uk
+</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:pointOfContact>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Soil</gco:CharacterString>
+</gmd:keyword>
+<gmd:type>
+<gmd:MD_KeywordTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme">theme</gmd:MD_KeywordTypeCode>
+</gmd:type>
+<gmd:thesaurusName>
+<gmd:CI_Citation>
+<gmd:title>
+<gco:CharacterString>GEMET - INSPIRE themes, version 1.0</gco:CharacterString>
+</gmd:title>
+<gmd:date>
+<gmd:CI_Date>
+<gmd:date>
+<gco:Date>2008-06-01</gco:Date>
+</gmd:date>
+<gmd:dateType>
+<gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication">publication</gmd:CI_DateTypeCode>
+</gmd:dateType>
+</gmd:CI_Date>
+</gmd:date>
+</gmd:CI_Citation>
+</gmd:thesaurusName>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gmx:Anchor xlink:href="http://www.eionet.europa.eu/gemet/concept/2408" xlink:actuate="onRequest">earthworm</gmx:Anchor>
+</gmd:keyword>
+<gmd:keyword>
+<gmx:Anchor xlink:href="http://www.eionet.europa.eu/gemet/concept/7843" xlink:actuate="onRequest">soil</gmx:Anchor>
+</gmd:keyword>
+<gmd:keyword>
+<gmx:Anchor xlink:href="http://www.eionet.europa.eu/gemet/concept/3733" xlink:actuate="onRequest">grassland</gmx:Anchor>
+</gmd:keyword>
+<gmd:thesaurusName>
+<gmd:CI_Citation>
+<gmd:title><gco:CharacterString>GEMET - Concepts, version 4.1.3</gco:CharacterString></gmd:title>
+<gmd:date>
+<gmd:CI_Date>
+<gmd:date><gco:Date>2019-01-28</gco:Date></gmd:date>
+<gmd:dateType>
+<gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation">creation</gmd:CI_DateTypeCode>
+</gmd:dateType>
+</gmd:CI_Date>
+</gmd:date>
+</gmd:CI_Citation>
+</gmd:thesaurusName>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gmx:Anchor xlink:href="http://onto.nerc.ac.uk/CEHMD/topic/17" xlink:actuate="onRequest">Soil</gmx:Anchor>
+</gmd:keyword>
+<gmd:keyword>
+<gmx:Anchor xlink:href="http://onto.nerc.ac.uk/CAST/270" xlink:actuate="onRequest">carbon</gmx:Anchor>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>SOC</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>woodland</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>topsoil</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>soil biology</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>co-located measurements</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>UK-SCAPE</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>SOC-D</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:resourceConstraints>
+<gmd:MD_LegalConstraints>
+<gmd:accessConstraints>
+<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+</gmd:accessConstraints>
+<gmd:otherConstraints>
+<gmx:Anchor xlink:href="http://purl.org/coar/access_right/c_abf2" xlink:actuate="onRequest">no limitations</gmx:Anchor>
+</gmd:otherConstraints>
+</gmd:MD_LegalConstraints>
+</gmd:resourceConstraints>
+<gmd:resourceConstraints>
+<gmd:MD_LegalConstraints>
+<gmd:useConstraints>
+<gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+</gmd:useConstraints>
+<gmd:otherConstraints>
+<gmx:Anchor xlink:title="This resource is available under the terms of the Open Government Licence" xlink:href="https://eidc.ac.uk/licences/ogl/plain">This resource is available under the terms of the Open Government Licence</gmx:Anchor>
+</gmd:otherConstraints>
+</gmd:MD_LegalConstraints>
+</gmd:resourceConstraints>
+<gmd:resourceConstraints>
+<gmd:MD_LegalConstraints>
+<gmd:useConstraints>
+<gmd:MD_RestrictionCode codeList='http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode' codeListValue='otherRestrictions'>otherRestrictions</gmd:MD_RestrictionCode>
+</gmd:useConstraints>
+<gmd:otherConstraints>
+<gco:CharacterString>If you reuse this data, you should cite: Keith, A., Reinsch, S., Cagnarini, C., Emmett, B.A., Cosby, B.J. (2023). Earthworm species identification and counts at three long-term grassland-to-woodland land use contrasts across England. NERC EDS Environmental Information Data Centre https://doi.org/10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca</gco:CharacterString>
+</gmd:otherConstraints>
+</gmd:MD_LegalConstraints>
+</gmd:resourceConstraints>
+<gmd:spatialRepresentationType>
+<gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="textTable">textTable</gmd:MD_SpatialRepresentationTypeCode>
+</gmd:spatialRepresentationType>
+<gmd:language>
+<gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">English</gmd:LanguageCode>
+</gmd:language>
+<gmd:characterSet>
+<gmd:MD_CharacterSetCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8">utf8</gmd:MD_CharacterSetCode>
+</gmd:characterSet>
+<gmd:topicCategory>
+<gmd:MD_TopicCategoryCode>environment</gmd:MD_TopicCategoryCode>
+</gmd:topicCategory>
+<gmd:topicCategory>
+<gmd:MD_TopicCategoryCode>biota</gmd:MD_TopicCategoryCode>
+</gmd:topicCategory>
+<gmd:extent>
+<gmd:EX_Extent>
+<gmd:temporalElement>
+<gmd:EX_TemporalExtent>
+<gmd:extent>
+<gml:TimePeriod gml:id="EIDC798540">
+<gml:beginPosition>2018-01-01</gml:beginPosition>
+<gml:endPosition>2021-12-31</gml:endPosition>
+</gml:TimePeriod>
+</gmd:extent>
+</gmd:EX_TemporalExtent>
+</gmd:temporalElement>
+</gmd:EX_Extent>
+</gmd:extent>
+<gmd:extent>
+<gmd:EX_Extent>
+<gmd:geographicElement>
+<gmd:EX_GeographicBoundingBox>
+<gmd:westBoundLongitude><gco:Decimal>-6.452</gco:Decimal></gmd:westBoundLongitude>
+<gmd:eastBoundLongitude><gco:Decimal>1.768</gco:Decimal></gmd:eastBoundLongitude>
+<gmd:southBoundLatitude><gco:Decimal>49.864</gco:Decimal></gmd:southBoundLatitude>
+<gmd:northBoundLatitude><gco:Decimal>55.812</gco:Decimal></gmd:northBoundLatitude>
+</gmd:EX_GeographicBoundingBox>
+</gmd:geographicElement>
+</gmd:EX_Extent>
+</gmd:extent>
+</gmd:MD_DataIdentification>
+</gmd:identificationInfo>
+<gmd:distributionInfo>
+<gmd:MD_Distribution>
+<gmd:distributionFormat>
+<gmd:MD_Format>
+<gmd:name><gco:CharacterString>Comma-separated values (CSV)</gco:CharacterString></gmd:name>
+<gmd:version gco:nilReason="unknown"/>
+</gmd:MD_Format>
+</gmd:distributionFormat>
+<gmd:distributor>
+<gmd:MD_Distributor>
+<gmd:distributorContact>
+<gmd:CI_ResponsibleParty>
+<gmd:organisationName><gco:CharacterString>NERC EDS Environmental Information Data Centre</gco:CharacterString></gmd:organisationName>
+<gmd:contactInfo>
+<gmd:CI_Contact>
+<gmd:address>
+<gmd:CI_Address>
+<gmd:electronicMailAddress><gco:CharacterString>info@eidc.ac.uk</gco:CharacterString></gmd:electronicMailAddress>
+</gmd:CI_Address>
+</gmd:address>
+</gmd:CI_Contact>
+</gmd:contactInfo>
+<gmd:role>
+<gmd:CI_RoleCode codeList="https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_RoleCode" codeListValue="distributor">distributor</gmd:CI_RoleCode>
+</gmd:role>
+</gmd:CI_ResponsibleParty>
+</gmd:distributorContact>
+</gmd:MD_Distributor>
+</gmd:distributor>
+<gmd:transferOptions>
+<gmd:MD_DigitalTransferOptions>
+<gmd:onLine>
+<gmd:CI_OnlineResource>
+<gmd:linkage><gmd:URL>https://data-package.ceh.ac.uk/data/2636c7e1-ec8c-4b77-9f4e-f731781191ca</gmd:URL></gmd:linkage>
+<gmd:name><gco:CharacterString>Download the data</gco:CharacterString></gmd:name>
+<gmd:description><gco:CharacterString>Download a copy of this data</gco:CharacterString></gmd:description>
+<gmd:function>
+<gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+</gmd:function>
+</gmd:CI_OnlineResource>
+</gmd:onLine>
+</gmd:MD_DigitalTransferOptions>
+</gmd:transferOptions>
+<gmd:transferOptions>
+<gmd:MD_DigitalTransferOptions>
+<gmd:onLine>
+<gmd:CI_OnlineResource>
+<gmd:linkage><gmd:URL>https://data-package.ceh.ac.uk/sd/2636c7e1-ec8c-4b77-9f4e-f731781191ca.zip</gmd:URL></gmd:linkage>
+<gmd:name><gco:CharacterString>Supporting information</gco:CharacterString></gmd:name>
+<gmd:description><gco:CharacterString>Supporting information available to assist in re-use of this dataset</gco:CharacterString></gmd:description>
+<gmd:function>
+<gmd:CI_OnLineFunctionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+</gmd:function>
+</gmd:CI_OnlineResource>
+</gmd:onLine>
+</gmd:MD_DigitalTransferOptions>
+</gmd:transferOptions>
+</gmd:MD_Distribution>
+</gmd:distributionInfo>
+<gmd:dataQualityInfo>
+<gmd:DQ_DataQuality>
+<gmd:scope>
+<gmd:DQ_Scope>
+<gmd:level>
+<gmd:MD_ScopeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</gmd:MD_ScopeCode>
+</gmd:level>
+<gmd:levelDescription>
+<gmd:MD_ScopeDescription>
+<gmd:other><gco:CharacterString>dataset</gco:CharacterString></gmd:other>
+</gmd:MD_ScopeDescription>
+</gmd:levelDescription>
+</gmd:DQ_Scope>
+</gmd:scope>
+<gmd:report>
+<gmd:DQ_DomainConsistency>
+<gmd:result>
+<gmd:DQ_ConformanceResult>
+<gmd:specification>
+<gmd:CI_Citation>
+<gmd:title>
+<gco:CharacterString>Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services</gco:CharacterString>
+</gmd:title>
+<gmd:date>
+<gmd:CI_Date>
+<gmd:date>
+<gco:Date>2010-12-08</gco:Date>
+</gmd:date>
+<gmd:dateType>
+<gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication"/>
+</gmd:dateType>
+</gmd:CI_Date>
+</gmd:date>
+</gmd:CI_Citation>
+</gmd:specification>
+<gmd:explanation gco:nilReason="inapplicable"/>
+<gmd:pass gco:nilReason="unknown"/>
+</gmd:DQ_ConformanceResult>
+</gmd:result>
+</gmd:DQ_DomainConsistency>
+</gmd:report>
+<gmd:lineage>
+<gmd:LI_Lineage>
+<gmd:statement><gco:CharacterString>Earthworm measurements were conducted in grids 2 and 5. The earthworms were counted in 25 cm x 25 cm x 25 cm soil cubes in grids 2 and 5. The earthworms were stored in the fridge until identified to species level in the lab. Earthworms were identified by a competent member of staff, and earthworm keys were used as additional resource. Earthworm counts were recorded on paper in the field and transferred to Microsoft Excel. Earthworm species numbers were recorded in a lab-book and transferred to the same Microsoft Excel. The file was then converted to csv.</gco:CharacterString></gmd:statement>
+</gmd:LI_Lineage>
+</gmd:lineage>
+</gmd:DQ_DataQuality>
+</gmd:dataQualityInfo>
+</gmd:MD_Metadata>

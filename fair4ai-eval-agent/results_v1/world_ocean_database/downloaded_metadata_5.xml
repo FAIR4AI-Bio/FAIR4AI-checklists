@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:schema="http://schema.org/" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" version="2.0" xml:base="https://www.ncei.noaa.gov/">
+  <channel>
+    <title>NCEI News Feed</title>
+    <link>https://www.ncei.noaa.gov/</link>
+    <description>The latest news from NCEI</description>
+    <language>en</language>
+    
+    <item>
+  <title>NOAA Releases Updated Model of Earth’s Geomagnetic Field
+</title>
+  <link>https://www.ncei.noaa.gov/news/upgraded-goemag-model-aids-energy-exploration
+</link>
+  <description>The High Definition Geomagnetic Model 2026 release provides enhanced resolution and reduces uncertainty in complex drilling environments.
+
+</description>
+  <pubDate>Tue, 27 Jan 2026 12:30:00 -0500</pubDate>
+    <dc:creator>madelyn.depodesta
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/upgraded-goemag-model-aids-energy-exploration
+</guid>
+    </item>
+<item>
+  <title>Assessing the Global Temperature and Precipitation Analysis in 2025
+</title>
+  <link>https://www.ncei.noaa.gov/news/global-climate-202513
+</link>
+  <description>2025 ranked as the third-warmest year in NOAA’s 176-year record, with a global surface temperature 2.11°F (1.17°C) higher than the 20th-century baseline.
+
+</description>
+  <pubDate>Wed, 14 Jan 2026 09:00:00 -0500</pubDate>
+    <dc:creator>lauren.carroll
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/global-climate-202513
+</guid>
+    </item>
+<item>
+  <title>Assessing the U.S. Temperature and Precipitation Analysis in 2025
+</title>
+  <link>https://www.ncei.noaa.gov/news/national-climate-202513
+</link>
+  <description>Annual temperatures across the contiguous U.S. (CONUS) averaged 54.6°F in 2025, which was 2.6°F above the 20th-century average and ranked as the fourth-warmest year in the 131-year record.
+
+</description>
+  <pubDate>Tue, 13 Jan 2026 11:00:00 -0500</pubDate>
+    <dc:creator>laura.ohlmann
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/national-climate-202513
+</guid>
+    </item>
+<item>
+  <title>2025 WMM Annual Report is Released
+</title>
+  <link>https://www.ncei.noaa.gov/news/2025-wmm-annual-report-released
+</link>
+  <description>2025 report of the World Magnetic Model has been released.
+
+</description>
+  <pubDate>Fri, 09 Jan 2026 12:00:00 -0500</pubDate>
+    <dc:creator>lukas.noguchi
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/2025-wmm-annual-report-released
+</guid>
+    </item>
+<item>
+  <title>New Jersey Seasonal Snowfall Record Discovered 30 Years Later
+</title>
+  <link>https://www.ncei.noaa.gov/news/new-jersey-seasonal-snowfall-record-discovered-30-years-later
+</link>
+  <description>New seasonal snowfall record for New Jersey verified 30 years later.
+
+</description>
+  <pubDate>Wed, 07 Jan 2026 13:00:00 -0500</pubDate>
+    <dc:creator>lauren.carroll
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/new-jersey-seasonal-snowfall-record-discovered-30-years-later
+</guid>
+    </item>
+<item>
+  <title>New 24-Hour Precipitation Record Confirmed for Wisconsin
+</title>
+  <link>https://www.ncei.noaa.gov/news/new-24-hour-precipitation-record-confirmed-wisconsin
+</link>
+  <description>New 24-hour precipitation record confirmed for the state of Wisconsin.
+
+</description>
+  <pubDate>Fri, 19 Dec 2025 10:00:00 -0500</pubDate>
+    <dc:creator>lauren.carroll
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/new-24-hour-precipitation-record-confirmed-wisconsin
+</guid>
+    </item>
+<item>
+  <title>Assessing the Global Temperature and Precipitation Analysis in November 2025
+</title>
+  <link>https://www.ncei.noaa.gov/news/global-climate-202511
+</link>
+  <description>November 2025 ranked as the third-warmest November in NOAA’s 176-year record, with a global surface temperature 2.12°F (1.18°C) higher than the 20th-century baseline.
+
+</description>
+  <pubDate>Thu, 11 Dec 2025 11:00:00 -0500</pubDate>
+    <dc:creator>laura.ohlmann
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/global-climate-202511
+</guid>
+    </item>
+<item>
+  <title>Assessing the U.S. Temperature and Precipitation Analysis in November 2025
+</title>
+  <link>https://www.ncei.noaa.gov/news/national-climate-202511
+</link>
+  <description>The average temperature of the contiguous U.S. in November was 46.8°F, 5.1°F above the 20th-century average, ranking as the fourth-warmest November in the 131-year record.
+
+</description>
+  <pubDate>Mon, 08 Dec 2025 11:00:00 -0500</pubDate>
+    <dc:creator>laura.ohlmann
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/national-climate-202511
+</guid>
+    </item>
+<item>
+  <title>Key NOAA Dataset Upgraded Using AI
+</title>
+  <link>https://www.ncei.noaa.gov/news/key-noaa-dataset-upgraded-using-ai
+</link>
+  <description>ERSSTv6 has been upgraded from ERSSTv5 by implementing an interpolation method using an artificial neural network.
+
+</description>
+  <pubDate>Thu, 04 Dec 2025 11:20:00 -0500</pubDate>
+    <dc:creator>laura.ohlmann
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/key-noaa-dataset-upgraded-using-ai
+</guid>
+    </item>
+<item>
+  <title>Assessing the U.S. Temperature and Precipitation Analysis in October 2025
+</title>
+  <link>https://www.ncei.noaa.gov/news/national-climate-202510
+</link>
+  <description>The average temperature for the contiguous U.S. (CONUS) in October was 56.9°F, 2.8°F above the 20th-century average, ranking as the eighth-warmest October in the 131-year record.
+
+</description>
+  <pubDate>Thu, 20 Nov 2025 11:00:00 -0500</pubDate>
+    <dc:creator>lauren.carroll
+</dc:creator>
+    <guid isPermaLink="true">https://www.ncei.noaa.gov/news/national-climate-202510
+</guid>
+    </item>
+
+  </channel>
+</rss>

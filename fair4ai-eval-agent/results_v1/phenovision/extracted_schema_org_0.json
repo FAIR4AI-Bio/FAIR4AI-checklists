@@ -1,0 +1,41 @@
+{
+  "@context": "http://schema.org",
+  "@id": "https://doi.org/10.5281/zenodo.15306421",
+  "@type": "https://schema.org/Dataset",
+  "author": [
+    {
+      "@type": "Organization",
+      "name": "Phenobase"
+    }
+  ],
+  "contentSize": "11.99 GB",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Phenobase"
+    }
+  ],
+  "dateCreated": "2025-04-30T20:03:32.416040+00:00",
+  "dateModified": "2026-01-29T00:02:01.851666+00:00",
+  "datePublished": "2025-04-29",
+  "description": "<p>Global phenology data on flower and fruit presence generated from machine labeling iNaturalist images through March 2024.&nbsp; This dataset contains key record level information from the iNaturalist observation needed for phenology analyses, along with data and metadata about fruit and flower detection, the model used to generate machine labeling of phenology presence, and record level classification quality metrics.</p>",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/15306421/files/annotations_all_w_headers_9cf8ad8.csv/content",
+      "encodingFormat": "text/csv"
+    }
+  ],
+  "identifier": "https://doi.org/10.5281/zenodo.15306421",
+  "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+  "name": "PhenoVision machine annotations of phenology for iNaturalist plant photos",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zenodo"
+  },
+  "size": "11.99 GB",
+  "temporal": [
+    "2025"
+  ],
+  "url": "https://zenodo.org/records/15306421"
+}

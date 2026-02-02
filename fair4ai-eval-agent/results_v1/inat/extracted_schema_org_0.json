@@ -1,0 +1,8 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Dataset",
+  "name": "iNaturalist Licensed Observation Images",
+  "description": "iNaturalist is a community science effort in which participants share observations of living organisms that they encounter and document with photographic evidence, location, and date. The community works together reviewing these images to identify these observations to species. This collection represents the licensed images accompanying iNaturalist observations.",
+  "license": "Creative Commons or Public Domain (CC0), varying by image. More information on how to query and properly treat licenses can be found in the <a href=\"https://github.com/inaturalist/inaturalist-open-data\">documentation</a>",
+  "sourceOrganization": "<a href=\"https://www.inaturalist.org/\">iNaturalist</a> is an independent, tax-exempt, 501(c)(3), not-for-profit organization based in the United States of America (EIN/Tax ID: 92-1296468)."
+}

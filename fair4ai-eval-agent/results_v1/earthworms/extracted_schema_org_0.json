@@ -1,0 +1,241 @@
+{
+  "@context": "http://schema.org/",
+  "@graph": [
+    {
+      "@type": "Dataset",
+      "name": "Earthworm species identification and counts at three long-term grassland-to-woodland land use contrasts across England",
+      "@id": "https://catalogue.ceh.ac.uk/id/2636c7e1-ec8c-4b77-9f4e-f731781191ca",
+      "identifier": {
+        "@id": "https://doi.org/10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca"
+      },
+      "creditText": "Keith, A., Reinsch, S., Cagnarini, C., Emmett, B.A., Cosby, B.J. (2023). Earthworm species identification and counts at three long-term grassland-to-woodland land use contrasts across England. NERC EDS Environmental Information Data Centre. (Dataset). https://doi.org/10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca",
+      "description": "This dataset contains earthworm counts and identification from three long-term grassland-to-woodland land use contrasts across England between 2018 and 2021. Each land use contrast was assigned one grassland and one woodland plot, respectively. Each of the plots was further divided into three grids (grassland grids 1 to 3 / woodland grids 4 to 6) with grids 1 and 6 being the furthest apart. The contrast boundary is between grids 3 and 4. The three grassland-to-woodland contrasts were sampled once: Gisburn (Gisburn-1, Gisburn-2), and Kielder Forest. The earthworms were counted in 25 cm3 soil cubes and were identified to a species level. These measurements are co-located with estimates aboveground biomass production and litter layer depth, soil physical, chemical and biological properties (0-1 m), and soil hydraulic measurements (soil water release curves and hydraulic conductivity). A file is provided to connect all co-located measurements. This project was part of the UK-SCAPE programme which started in 2018 and was funded by the Natural Environment Research Council as National Capability (award number NE/R016429/1).",
+      "isAccessibleForFree": true,
+      "datePublished": "2023-10-27",
+      "keywords": [
+        "co-located measurements",
+        "SOC",
+        "SOC-D",
+        "soil biology",
+        "topsoil",
+        "UK-SCAPE",
+        "woodland",
+        {
+          "@type": "DefinedTerm",
+          "@id": "http://onto.nerc.ac.uk/CAST/270",
+          "name": "carbon"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "http://onto.nerc.ac.uk/CEHMD/topic/17",
+          "name": "Soil"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "http://www.eionet.europa.eu/gemet/concept/2408",
+          "name": "earthworm",
+          "inDefinedTermSet": "https://www.eionet.europa.eu/gemet/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "http://www.eionet.europa.eu/gemet/concept/3733",
+          "name": "grassland",
+          "inDefinedTermSet": "https://www.eionet.europa.eu/gemet/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "http://www.eionet.europa.eu/gemet/concept/7843",
+          "name": "soil",
+          "inDefinedTermSet": "https://www.eionet.europa.eu/gemet/"
+        }
+      ],
+      "creator": [
+        {
+          "@id": "https://orcid.org/0000-0001-9619-1320"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-4649-0677"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-5106-2429"
+        },
+        {
+          "@id": "https://orcid.org/0000-0002-2713-4389"
+        },
+        {
+          "@id": "https://orcid.org/0000-0001-5645-3373"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@id": "#contact0"
+        }
+      ],
+      "@reverse": {
+        "citation": [
+          {
+            "@id": "https://doi.org/10.1038/s41597-024-03333-w"
+          }
+        ]
+      },
+      "temporalCoverage": [
+        "2018-01-01/2021-12-31"
+      ],
+      "spatialCoverage": [
+        {
+          "@id": "#bbox0"
+        }
+      ],
+      "funder": [
+        {
+          "@id": "#fund0"
+        }
+      ],
+      "license": {
+        "@id": "#oglLicence"
+      },
+      "distribution": [
+        {
+          "@id": "#distribution0"
+        }
+      ],
+      "publisher": {
+        "@id": "https://ror.org/04xw4m193"
+      },
+      "provider": {
+        "@id": "https://ror.org/04xw4m193"
+      },
+      "includedInDataCatalog": {
+        "@id": "#eidc-dataCatalogue"
+      }
+    },
+    {
+      "@id": "#eidc-dataCatalogue",
+      "@type": "DataCatalog",
+      "name": "Environmental Information Data Centre",
+      "alternateName": "EIDC",
+      "url": "https://catalogue.ceh.ac.uk/eidc/documents"
+    },
+    {
+      "@id": "https://ror.org/04xw4m193",
+      "@type": "Organization",
+      "name": "NERC EDS Environmental Information Data Centre",
+      "email": "info@eidc.ac.uk"
+    },
+    {
+      "@id": "#oglLicence",
+      "@type": "CreativeWork",
+      "name": "Open Government Licence v3",
+      "alternateName": "OGL-UK-3.0",
+      "license": "https://spdx.org/licenses/OGL-UK-3.0.html"
+    },
+    {
+      "@id": "https://doi.org/10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca",
+      "@type": "PropertyValue",
+      "propertyID": "https://registry.identifiers.org/registry/doi",
+      "value": "doi:10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca",
+      "url": "https://doi.org/10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca"
+    },
+    {
+      "@id": "#bbox0",
+      "@type": "Place",
+      "geo": {
+        "@id": "#geoshape0"
+      }
+    },
+    {
+      "@id": "#geoshape0",
+      "@type": "GeoShape",
+      "box": "-6.452 49.864, 1.768 55.812"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-9619-1320",
+      "@type": "Person",
+      "name": "Keith, A.",
+      "familyName": "Keith",
+      "givenName": "A.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@id": "https://ror.org/00pggkr55"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-4649-0677",
+      "@type": "Person",
+      "name": "Reinsch, S.",
+      "familyName": "Reinsch",
+      "givenName": "S.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@id": "https://ror.org/00pggkr55"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-5106-2429",
+      "@type": "Person",
+      "name": "Cagnarini, C.",
+      "familyName": "Cagnarini",
+      "givenName": "C.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@id": "https://ror.org/00pggkr55"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-2713-4389",
+      "@type": "Person",
+      "name": "Emmett, B.A.",
+      "familyName": "Emmett",
+      "givenName": "B.A.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@id": "https://ror.org/00pggkr55"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-5645-3373",
+      "@type": "Person",
+      "name": "Cosby, B.J.",
+      "familyName": "Cosby",
+      "givenName": "B.J.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@id": "https://ror.org/00pggkr55"
+      }
+    },
+    {
+      "@id": "#contact0",
+      "@type": "Person",
+      "name": "Reinsch, S.",
+      "familyName": "Reinsch",
+      "givenName": "S.",
+      "email": "enquiries@ceh.ac.uk",
+      "affiliation": {
+        "@id": "https://ror.org/00pggkr55"
+      }
+    },
+    {
+      "@id": "https://doi.org/10.1038/s41597-024-03333-w",
+      "@type": "CreativeWork",
+      "creditText": "Reinsch, S., Lebron, I., Brentegani, M. et al. Co-located ecological data for exploring top- and subsoil carbon dynamics across grassland-woodland contrasts. Sci Data 11, 478 (2024).",
+      "url": "https://doi.org/10.1038/s41597-024-03333-w"
+    },
+    {
+      "@id": "#fund0",
+      "@type": "Organization",
+      "name": "Natural Environment Research Council"
+    },
+    {
+      "@id": "#distribution0",
+      "@type": "DataDownload",
+      "contentUrl": "https://data-package.ceh.ac.uk/data/2636c7e1-ec8c-4b77-9f4e-f731781191ca",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@id": "https://ror.org/00pggkr55",
+      "@type": "Organization",
+      "name": "UK Centre for Ecology & Hydrology",
+      "identifier": "https://ror.org/00pggkr55"
+    }
+  ]
+}

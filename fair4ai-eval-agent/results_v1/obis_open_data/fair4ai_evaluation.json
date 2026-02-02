@@ -1,0 +1,982 @@
+{
+  "metadata": {
+    "generated_date": "2026-02-01",
+    "dataset_evaluated": "obis_open_data",
+    "evaluation_method": "Automated analysis using FAIR4AI Agent with LLM",
+    "source_files": [
+      "extracted_meta_tags.json",
+      "downloaded_metadata_0.md",
+      "downloaded_metadata_1.md",
+      "extracted_page_content.md"
+    ],
+    "llm_provider": "azure",
+    "llm_model": "gpt-4o"
+  },
+  "responses": [
+    {
+      "section": "Form Root",
+      "question": "My name",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No metadata section or field contains personal identity details related to your name.",
+      "notes": "The provided metadata focuses on dataset information and technical details for accessing the OBIS Open Data on GitHub and AWS, without personal identity information."
+    },
+    {
+      "section": "Form Root",
+      "question": "My affiliation",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata contains technical details about the repository, routes, and data structure, but does not provide any information related to personal identification or affiliations.",
+      "notes": "The metadata focuses mainly on the dataset's accessibility and structure, rather than user-specific details such as affiliation."
+    },
+    {
+      "section": "Form Root",
+      "question": "My email",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "None of the metadata files contain email information",
+      "notes": "The metadata files focus on technical and dataset-related information without any personal contact details such as an email address."
+    },
+    {
+      "section": "Form Root",
+      "question": "Dataset title",
+      "response_choices": NaN,
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 2 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the associated repository, if available.",
+      "response_choices": NaN,
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 1 second. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the dataset landing page/home page if available.",
+      "response_choices": NaN,
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 9 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide the citation, DOI, URL, or similar, if available.",
+      "response_choices": NaN,
+      "response": "Ocean Biodiversity Information System (OBIS) (25 March 2025) OBIS Occurrence Data. Intergovernmental Oceanographic Commission of UNESCO. https://doi.org/10.25607/obis.occurrence.b89117cd.",
+      "evidence": "extracted_page_content.md: 'Although most of the underlying data are licensed with open CC0 and CC BY licenses, the full OBIS dataset is licensed under CC BY-NC and can be cited as follows: Ocean Biodiversity Information System (OBIS) (25 March 2025) OBIS Occurrence Data. Intergovernmental Oceanographic Commission of UNESCO. https://doi.org/10.25607/obis.occurrence.b89117cd.'",
+      "notes": "The citation includes the name of the dataset, the publication date, the managing organization, and a DOI link."
+    },
+    {
+      "section": "Form Root",
+      "question": "As I am evaluating this dataset, I am considering it for",
+      "response_choices": "publishing for others to use | open-ended use (window shopping) | use in a specific project",
+      "response": "publishing for others to use",
+      "evidence": "The metadata describes the OBIS dataset as being available on AWS and specifies that it is licensed under CC BY-NC, with the full dataset able to be cited. Key phrases in the metadata include examples of how to access and query the dataset, indicating it's structured and intended for sharing and reuse. ('The OBIS dataset is built from source datasets that are licensed with CC0, CC BY, or CC BY-NC licenses... the full OBIS dataset is licensed under CC BY-NC')",
+      "notes": "The metadata provides detailed information on how the dataset can be accessed, cited, and used, focusing heavily on data sharing and interoperability, consistent with the principles of publishing for broader community use."
+    },
+    {
+      "section": "Form Root",
+      "question": "My relationship to this dataset",
+      "response_choices": "Data Provider/Producer (metadata author) | Data User/Consumer (metadata reader)",
+      "response": "Data User/Consumer (metadata reader)",
+      "evidence": "The metadata includes a description of how to access and use the OBIS open data, including examples of querying the dataset using SQL, Python, and R. It indicates that the metadata is intended for end-users who wish to download or query the dataset.",
+      "notes": "The metadata contains detailed usage instructions, typical of guidance provided to data consumers rather than the data's authors. There is no explicit statement of authorship, suggesting 'Data User/Consumer' as the appropriate category."
+    },
+    {
+      "section": "Form Root",
+      "question": "Provide a brief description of how you are evaluating this dataset. ",
+      "response_choices": NaN,
+      "response": "This evaluation is based on viewing a dataset landing page and related metadata files.",
+      "evidence": "The metadata files provided include 'extracted_meta_tags.json', 'downloaded_metadata_0.md', 'downloaded_metadata_1.md', and 'extracted_page_content.md'. These files contain information about dataset organization, access, and licensing, among other details.",
+      "notes": "No Schema.org, EML, or ML Croissant metadata files were provided. The evaluation relies on the structured metadata available within the provided files."
+    },
+    {
+      "section": "Form Root",
+      "question": "Metadata Upload",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files do not contain any 'Metadata Upload' form or related content.",
+      "notes": "The metadata files focus on details about the OBIS dataset on AWS and GitHub repository metadata. There is no reference to a 'Metadata Upload' question or section."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Citation for “this dataset”: The full citation is provided (preferably in Bibtex format).",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provides a citation for the OBIS dataset but not in Bibtex format. The citation given is: Ocean Biodiversity Information System (OBIS) (25 March 2025) OBIS Occurrence Data. Intergovernmental Oceanographic Commission of UNESCO. https://doi.org/10.25607/obis.occurrence.b89117cd.",
+      "notes": "While a citation is present in the metadata, it is not provided in Bibtex format as requested by the question."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Summary or Abstract",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides a summary and abstract of the dataset in the 'description' field: 'Contribute to iobis/obis-open-data development by creating an account on GitHub.' Additionally, 'extracted_page_content.md' provides a detailed description of the OBIS Open Data, its availability on AWS, licensing information, data organization, and usage examples.",
+      "notes": "While the abstract in 'extracted_meta_tags.json' is brief, the 'extracted_page_content.md' provides a thorough explanation of the dataset's organization, licenses, and usage, fulfilling the requirement for a summary/abstract."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Publisher",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions 'Intergovernmental Oceanographic Commission of UNESCO' as the publisher in the extracted_page_content.md section: 'Ocean Biodiversity Information System (OBIS) (25 March 2025) OBIS Occurrence Data. Intergovernmental Oceanographic Commission of UNESCO.'",
+      "notes": "The evidence is found in the extracted page content where the OBIS dataset is associated with the Intergovernmental Oceanographic Commission of UNESCO."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Date Created",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any specific information regarding the date the dataset was created."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "An identifier for “this dataset”: Does the dataset have a unique, persistent, machine-resolvable identifier (e.g., DOI)? ",
+      "response_choices": "Yes | No",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 1 second. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Author/creator information are provided (e.g., names, affiliations, ORCIDs)",
+      "response_choices": "Yes | No",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 2 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Curator information is provided (all curator names, ORCIDs, etc. are listed)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any specific information regarding curator names, ORCIDs, or any other curator-related details. Both the JSON and HTML metadata focus on technical details and dataset descriptions without mentioning any individual curator information."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Author(s) (person providing the description of the dataset) listed",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not include any specific field or information identifying the authors of the dataset card or the individuals responsible for documenting the dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Contact or Expert Contact (who to contact with questions) is provided",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not contain any explicit contact information or fields indicating a contact person or expert. Typically, such information would be found under a specific 'contact' or 'author' field, which is absent in the provided metadata."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Other Non-author Contributions",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include details about contributions from non-authors. There are no mentions of additional contributors outside of what is typically expected for a GitHub repository."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Acknowledgments: Funding Description and Grants",
+      "response_choices": "Yes | No",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 1 second. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Is this dataset derived from other sources?",
+      "response_choices": "Yes | No (skip to \"Additional information\" question)",
+      "response": "Yes",
+      "evidence": "The metadata in extracted_page_content.md states: 'The OBIS dataset is built from source datasets that are licensed with CC0, CC BY, or CC BY-NC licenses.'",
+      "notes": "The dataset is explicitly mentioned as being built from multiple source datasets, indicating it is a derived dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Provenance Tracking: Do the metadata provide information about the source data from which this dataset was derived (e.g., titles, summaries, and links)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md mentions that the OBIS dataset is built from source datasets that are licensed with CC0, CC BY, or CC BY-NC licenses. License and citation information for every source dataset is available at s3://obis-open-data/licenses.tsv. Additionally, the metadata states that source datasets are in Darwin Core Archives format and available from s3://obis-open-data/dwca.",
+      "notes": "The metadata provides comprehensive information about the source datasets, including links to the source data locations and the licensing terms."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data producers (who created the source data?)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not explicitly identify the original source data producers who created the source data for the OBIS dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Citation of subsumed datasets (cite your sources)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'The OBIS dataset is built from source datasets that are licensed with CC0, CC BY, or CC BY-NC licenses. License and citation information for every source dataset is available at s3://obis-open-data/licenses.tsv.'",
+      "notes": "The metadata provides a specific location where citation and licensing information for subsumed datasets can be found."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data DOI (permalink for the sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include a DOI or permalink for the source datasets. The only citation provided is for the OBIS dataset as a whole, but specific source DOI references are not mentioned."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data checksums: E.g., checksum for a zip file or a list of image checksums to ensure downstream users can get the same data you did.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not include any information about checksums for the source data or files. Checksum verification is essential for ensuring data integrity and provenance, but it is not mentioned in the metadata content given."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The available metadata provides details mainly on data access, data structure, citation, and some aspects of data quality control, but does not include additional provenance information or specific suggestions for other information to capture.",
+      "notes": "The metadata does include some provenance-related information, like data license and citation, but no explicit section or metadata entry dedicated to additional information that should be captured in the provenance section."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related paper (e.g., DOI, BIBTEX citation, link, etc.)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "In the extracted_page_content.md, the dataset is licensed under CC BY-NC and can be cited with a DOI: 'Ocean Biodiversity Information System (OBIS) (25 March 2025) OBIS Occurrence Data. Intergovernmental Oceanographic Commission of UNESCO. https://doi.org/10.25607/obis.occurrence.b89117cd'.",
+      "notes": "The DOI provides a direct reference to the related paper or dataset citation."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related dataset and/or Model",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md file mentions references like WoRMS (World Register of Marine Species) and Bio-Oracle for data validity and additional information.",
+      "notes": "The dataset mentions its construction from source datasets and references additional tools and services used for data validation and enrichment, indicating relations to other datasets and models."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Purpose of the data",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions that the dataset is the 'OBIS Open Data available on AWS' and provides documentation about its use for querying using tools like Amazon Athena, Python, and R. Furthermore, it describes the data organization and access methods.",
+      "notes": "While the metadata provides descriptions about how the dataset can be accessed and used, it does not explicitly state a specific 'purpose' but implies that it is for distributing and accessing Ocean Biodiversity Information System data."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Content - short description of the data types, etc.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata under 'Data organization' and 'interpreted field' sections in extracted_page_content.md details aspects such as GeoParquet format, specific fields like '_id', 'dataset_id', 'scientificName', 'decimalLatitude', etc., and explains that the data set includes additional attributes such as 'minimumDepthInMeters', 'maximumDepthInMeters', 'sst', etc.",
+      "notes": "The extracted_page_content.md provides a comprehensive description of the dataset structure, its fields, and types of data included, which aligns with the request for a data description with short descriptions of data types."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Are the data machine ready? (machine-actionable under the FAIR Principles)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is available in GeoParquet format from AWS S3 (s3://obis-open-data/occurrence) and is organized with detailed schema, making it machine-actionable. The metadata specifies that it can be queried using SQL (Amazon Athena) and provides examples for querying with Python and R.",
+      "notes": "The dataset's availability in a structured, standardized format like GeoParquet and the provision of specific schema and querying examples demonstrate that the data is machine ready and supports the interoperability aspect of the FAIR principles."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Language - what language or languages are the data?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not explicitly specify the language of the data.",
+      "notes": "While the documentation and text are in English, this does not necessarily indicate the language of the dataset itself, which isn't specified."
+    },
+    {
+      "section": "General Information",
+      "question": "Discovery: Are keywords/tags provided to describe the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not include any specific keywords or tags provided to describe the dataset."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Does the dataset and its metadata make use of relevant ontologies?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions the Darwin Core Archives: 'The source dataset Darwin Core Archives are available'.",
+      "notes": "The dataset makes use of the Darwin Core standard, which is relevant to biodiversity data."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Is the data dictionary/codebook provided?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md contains a section that describes the Parquet schema, listing top-level fields and their descriptions, which serves as a data dictionary.",
+      "notes": "The schema details provided in the extracted_page_content.md file function as a data dictionary by outlining the fields and their purposes in the dataset."
+    },
+    {
+      "section": "General Information",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 1 second. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: File format(s) that encode the data are described",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata specifies that the OBIS dataset is available as GeoParquet from AWS S3, mentioned in 'The OBIS dataset is available as GeoParquet from AWS S3 at s3://obis-open-data/occurrence.'",
+      "notes": "The dataset is clearly described as being encoded in the Parquet format, which aligns with the choice of file formats listed in the question."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The dataset layout pattern is provided or explained",
+      "response_choices": "Yes | No",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 3 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The primary unit of data that is to be operated on is explained",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'The OBIS dataset is available as GeoParquet from AWS S3 with one file per source dataset.' and 'The Parquet schema contains the following top level fields' with detailed descriptions of each field relevant to species observations.",
+      "notes": "The metadata provides comprehensive details about the structure and format of the dataset, explaining that each primary unit is a Parquet file representing source datasets with schema fields that correspond to observations."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are properly documented in the metadata",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides detailed documentation of the fields within the dataset. For example, it lists and describes fields like '_id', 'dataset_id', 'node_ids', 'decimalLongitude', 'decimalLatitude', 'eventDate', 'scientificName', and several taxonomic hierarchy fields from 'phylum' to 'subforma'. It also explains transformations and quality control measures applied to certain fields, such as 'decimalLongitude' and 'decimalLatitude'.",
+      "notes": "The metadata is thorough in detailing the dataset's structure and the functionality of key attributes, which aligns with proper documentation of features or attributes."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are included for each data instance",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides detailed attributes for each data instance within the dataset as seen in the extracted_page_content.md. The Parquet schema contains fields such as _id, dataset_id, node_ids, source, interpreted, extensions, missing, invalid, flags, dropped, absence, and geometry. Additionally, the 'interpreted' field includes terms like scientificName, decimalLatitude, decimalLongitude, etc.",
+      "notes": "The extracted_page_content.md file lists comprehensive attributes within the Parquet schema that are likely applicable to each data instance, suggesting that each record includes extensive metadata."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Technical Specifications: Are the technical specifications of the dataset indicated?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions that the size of the dataset is around 50 GB and it is stored in GeoParquet format on AWS S3. This is specified under the 'Data access' section, specifically in the 'Downloading the dataset' subsection.",
+      "notes": "While specific details such as file sizes, resolution, bit depth, and sampling rate are not explicitly mentioned, the overall size of the dataset and its format are provided, which are part of technical specifications. Further details might be available in the actual dataset files or other documentation not included in the metadata."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata provides detailed information about the dataset's structure and contents, such as fields, formats, and licenses, but does not specify additional information that should be captured in the data structure section beyond what is described.",
+      "notes": "The metadata comprehensively documents the dataset's structure and usage, including details on data fields, formats, and access methods. If further information is needed, it isn't specified in the provided metadata files."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Data Source Type): Metadata record what type(s) of source data were collected or used to generate this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md mentions that the OBIS dataset is built from source datasets and details about Darwin Core Archives which are typical for processed or derived data. This indicates types like 'Derived or processed data'.",
+      "notes": "The metadata does not explicitly categorize the source data types, but mentions the involvement of Darwin Core Archives and processed data, suggesting the data was likely derived or processed."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Curation Rationale):  Metadata record the primary rationale for curating or assembling this dataset",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The OBIS dataset is built from source datasets that are licensed with CC0, CC BY, or CC BY-NC licenses... the full OBIS dataset is licensed under CC BY-NC and can be cited as follows... The OBIS dataset is available as GeoParquet... The Parquet schema contains the following top level fields... Data access - Use the AWS CLI to download the dataset locally.",
+      "notes": "The metadata discusses the organization of data from distributed sources into a unified dataset, licensing, and mentions improvements made by OBIS quality control pipeline (e.g., parsed and validated fields), indicating aspects of curation for improved data quality and interoperability."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Part of a Larger Collection): Metadata indicate if this dataset part of a larger collection or series, and provide the following information:",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "The OBIS dataset is part of the Ocean Biodiversity Information System (OBIS) as indicated in the extracted_page_content.md where it states 'the Ocean Biodiversity Information System (OBIS) Open Data'. The persistent identifier for citation is 'https://doi.org/10.25607/obis.occurrence.b89117cd'. However, there is no explicit 'IsPartOf', 'HasPart', or 'IsPublishedIn' relationship mentioned, nor is a specific catalog or repository name given beyond mentioning it is part of OBIS.",
+      "notes": "The metadata mentions OBIS as a broader system, and provides a persistent DOI, which implies a part of a collection. However, it doesn't explicitly use terms like 'IsPartOf', 'HasPart', or specify a catalog name associated with the broader collection."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Instrumentation: Do the metadata describe the instruments or sensors used to collect the data, including their specifications and configuration?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include information on the instruments or sensors used to collect the data. It primarily focuses on dataset organization, data access, and querying examples. There are no details regarding instrumentation specifications or configurations."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Collection Method Documentation): Do the metadata describe the methods used to collect or generate the data?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides information about the OBIS dataset's collection and quality control methods. It mentions that the OBIS dataset is built from source datasets licensed under CC0, CC BY, or CC BY-NC licenses, and lists examples of transformed or added fields by the OBIS quality control pipeline. The metadata also references data based on sources like WoRMS, EMODnet Bathymetry, GEBCO, and Bio-Oracle. It details specific fields that have been processed by OBIS, such as scientific names matched with WoRMS and validated coordinates. Additionally, there are links to GitHub repositories providing further documentation.",
+      "notes": "While specific URLs or DOIs for method documentation are not included directly in the metadata, references to documented data processes and external data sources hint at well-defined collection and processing methods."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Resolution): Do the metadata describe the spatial resolution?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes 'spatial queries' and references 'st_within' and 'st_point' expressions related to geographic coordinates. There is also mention of 'geometry' fields and querying datasets with spatial extent using polygons.",
+      "notes": "The metadata includes examples of point-based spatial queries using longitude and latitude, indicating a point location spatial resolution."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Extent): Do the metadata describe the geographic coverage (region, bounding box, domain)?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes the ability to perform spatial queries, providing an example with specific coordinates: POLYGON ((2.831383 51.212045, 2.896957 51.212045, 2.896957 51.240211, 2.831383 51.240211, 2.831383 51.212045)), indicating that geographic coverage is considered in the dataset.",
+      "notes": "The example provided in the 'Example: Querying the dataset using Amazon Athena' section shows how users can perform queries based on specific geographic coordinates, implying detailed spatial extent information is available."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Resolution): Do the metadata describe the temporal resolution?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes temporal attributes such as 'date_start', 'date_mid', 'date_end', and 'date_year', which indicates the dataset includes temporal resolution at the level of Unix timestamps and years based on 'eventDate'.",
+      "notes": "The metadata provides temporal details related to events, which suggests that the data can have at least annual or event-based temporal resolution."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Extent): Do the metadata describe the temporal extent?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "\"interpreted\" fields include \"date_start\", \"date_mid\", \"date_end\", and \"date_year\", which are based on \"eventDate\".",
+      "notes": "The metadata describes timestamps and year based on event dates, which constitutes a description of the temporal extent."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Types: Do the metadata describe the types of annotations or labels are included in the dataset (if any)?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes annotations such as 'textual descriptors' like 'scientificName', 'phylum', 'class', and spatial annotations through the 'geometry' field, which includes WKB geometry for spatial data. It also mentions flags like 'absence'.",
+      "notes": "The metadata provides detailed descriptions of the fields in the dataset, indicating that there are both textual and spatial annotations included."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Process: Do the metadata describe how annotations were generated or obtained?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide information on how annotations were generated or obtained."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotators (Contributors): Do metadata indicate who performed the data annotations? \nPreferably, a list of annotators (e.g., ORCiDs), or names/versions of automated tools or systems; or other relevant information.",
+      "response_choices": "Yes | No",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 7 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Data Origin",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset is built from source datasets licensed with CC0, CC BY, or CC BY-NC licenses and is available on AWS S3.",
+      "evidence": "The OBIS dataset is built from source datasets that are licensed with CC0, CC BY, or CC BY-NC licenses. The full OBIS dataset is licensed under CC BY-NC. It is available as GeoParquet from AWS S3 at s3://obis-open-data/occurrence and the source dataset Darwin Core Archives are available from s3://obis-open-data/dwca.",
+      "notes": "The metadata provides detailed information about the structure, licensing, and access methods for the dataset which are crucial for understanding its origin and use constraints."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Preparation: Do the metadata provide a complete overall description of data preparation, cleaning, transformation, or quality-control steps performed prior to generating the final dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md provides details on data preparation and quality-control steps such as parsing and validating fields (e.g., decimalLongitude, decimalLatitude), deriving new variables (e.g., sea surface temperature, sea surface salinity), and flags for absence and dropped records. It also discusses transformations performed by the OBIS quality control pipeline such as matching scientific names with WoRMS. Additionally, the metadata mentions the usage of DuckDB and scripting in R and Python for processing.",
+      "notes": "The metadata provides a comprehensive description of various data preparation and quality-control processes. It even includes examples of querying the dataset using different tools, indicating preparation for data accessibility and analysis."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Processing Platform or Software: Metadata provide a description of and citations or links to any processing platform or software used in the creation of this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides detailed information on querying and processing platforms. It mentions the use of Amazon Athena for querying the dataset on S3 using SQL and the DuckDB for querying the dataset locally using Python and R. The documentation talks about using the AWS CLI for downloading the dataset locally.",
+      "notes": "The description includes specific software tools and services like AWS CLI, Amazon Athena, and DuckDB, utilized for data processing and query operations."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Correction / Standardization of Values: Does the metadata describe corrections applied to existing data values and whether the data values have been standardized in any way?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata in 'extracted_page_content.md' describes standardization processes such as: 'decimalLongitude Parsed and validated by OBIS', 'scientificName Valid scientific name based on the scientificNameID or derived by matching the provided scientificName with WoRMS', and 'Parsed and validated' methods for fields like 'decimalLatitude', 'minimumDepthInMeters', 'coordinateUncertaintyInMeters'. Additionally, data transformations such as Unix timestamps for dates and flagging of quality issues are mentioned.",
+      "notes": "The metadata provides detailed descriptions of corrections and standardizations applied to existing data values, including validation and transformation processes for various fields."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Gaps Filled: Does metadata indicate if missing values or data gaps filled in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states that the 'interpreted' field contains 'Interpreted Darwin Core fields.' The section also mentions fields like 'decimalLongitude', 'decimalLatitude', 'minimumDepthInMeters', 'maximumDepthInMeters', and 'shoredistance' are 'Parsed and validated by OBIS.' Additionally, there are fields for 'missing' and 'invalid' values, which suggest checking and filling gaps: 'missing: Recommended fields with missing values.'",
+      "notes": "The metadata indicates that some fields are interpreted and validated, which implies that some missing data or gaps might be filled during these processes."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If gaps were filled, are the methods described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provides details on the OBIS dataset's fields and data processing but does not mention any methods related to gap filling, interpolation, imputation, or model-based approaches.",
+      "notes": "The metadata describes fields like 'dropped' and 'absence', which relate to data quality but do not specify methods of gap filling. The focus is on data quality and validation rather than gap-filling techniques."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Labeling / Relabeling: Does the metadata indicate if any labeling or relabeling steps were applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The 'interpreted' field in the metadata indicates that certain fields have been transformed or added by the OBIS quality control pipeline, such as 'decimalLongitude' and 'scientificName'.",
+      "notes": "The metadata confirms that OBIS quality control processes involve the relabeling or transformation of certain dataset fields, which suggests a relabeling process."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Does the metadata sufficiently describe the labeling or relabeling process?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes the 'interpreted' field containing Darwin Core terms and how certain fields are transformed or added by the OBIS quality control pipeline, such as 'scientificName' being validated or derived by matching with the WoRMS (World Register of Marine Species). This indicates alignment with an external taxonomy.",
+      "notes": "The metadata provides detailed descriptions of how data is processed and aligned with external taxonomies, specifically mentioning WoRMS for scientific names and other classifications."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Data Filtering and Outlier Removal: Were any outlier removal or filtering procedures applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata specifies several fields related to data quality and exclusion. The 'dropped' flag indicates records with insufficient quality, and this includes records with missing coordinates or no match with the World Register of Marine Species (WoRMS). Additionally, 'Example: Querying the dataset locally using Python' mentions excluding absence records and records of insufficient quality.",
+      "notes": "The metadata describes specific quality control processes and flags used to filter out low-quality records, indicating outlier removal or filtering."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If yes, does the metadata sufficiently describe the outlier detection and removal methods used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any description of outlier detection and removal methods, such as statistical thresholds, manual review, or algorithmic approaches. The focus of the metadata is largely on data access, structure, and querying examples rather than data processing techniques."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do metadata indicate if the dataset has been split into training, validation, and/or test sets?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata mentions data access and querying methods but does not include information related to splits such as training, validation, or test sets.",
+      "notes": "The dataset organization and examples provided are focused on data querying and not on machine learning tasks that would require data splits."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do the metadata provide information on how splits were created?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not contain any information on how data splits were created. Available metadata focuses on data organization, access, licensing, and querying but lacks details on the creation of data splits or any associated methodology."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset contains various quality flags and is processed for data quality control, including parsed and validated fields such as scientific names, coordinates, and depth measurements. It's also organized in a GeoParquet format for efficient queries.",
+      "evidence": "The extracted_page_content.md mentions fields such as 'decimalLongitude', 'decimalLatitude', 'scientificName', and 'quality flags'. It describes them as being parsed, validated, or derived by OBIS. Data is organized in GeoParquet format (evidence from 'Data organization' section).",
+      "notes": "The dataset includes detailed data processing and validation procedures for data quality control and is accessible using multiple querying methods, highlighting its flexibility and readiness for various analytical tools."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if this dataset is complete (i.e., there are no plans for further updates to this data product)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any information indicating whether the dataset is complete or if there are plans for further updates. The available documentation mainly focuses on data access, usage, licensing, and format."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if quality assurance checks been run and if they passed?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata indicates that the OBIS quality control pipeline parsed and validated various fields (e.g., decimalLongitude, decimalLatitude) and added quality-related flags (e.g., 'dropped' indicates records with insufficient quality, 'flags' for quality flags). This suggests that quality assurance checks have been run.",
+      "notes": "The metadata mentions specific transformations and validations that imply quality checks, such as checking for missing coordinates and matching with the World Register of Marine Species (WoRMS)."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the timeliness of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any specific information regarding the timeliness of the dataset, such as whether the data is updated in real-time, periodically, or is static."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate quality checks on or evaluate dataset timeliness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not provide any specific information about the timeliness of data collection or quality checks related to the timing of data collection.",
+      "notes": "The metadata focuses on the structure, access, and types of data, as well as quality controls related to data accuracy and completeness, such as handling missing or invalid values, but does not address the timeliness of data collection or evaluation in relation to the study's objectives."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the time lag between data collection and availability?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding the time lag between data collection and availability."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the quality checks that have failed and provide context for downstream users to work with the data as-is or resolve the issues?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes fields such as 'dropped', which indicates records with insufficient quality due to missing coordinates or no match with the World Register of Marine Species (WoRMS), and 'flags', which relate to quality. This provides context for quality issues.",
+      "notes": "The metadata provides detailed information on quality control measures and fields relating to data quality issues that help downstream users understand and address these issues."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata explain why quality checks were not performed and provide context for downstream users to work with the data as-is or resolve potential issues?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata in 'extracted_page_content.md' mentions that the 'dropped' flag indicates records with insufficient quality, such as missing coordinates or no match with the World Register of Marine Species (WoRMS).",
+      "notes": "The metadata provides context on the quality checks and flags, explaining that dropped records are those with inadequate quality. However, it does not detail all potential data quality issues that could arise or offer specific remediation steps for every case."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe any known gaps or limitations in the dataset’s completeness?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions that 'absence' records are included in the dataset, but 'by default the OBIS webservices do not expose absence records.' This could imply a limitation in the completeness of the data accessed via web services. The metadata also specifies that certain records are 'dropped' due to insufficient quality because of issues like 'missing coordinates or no match with the World Register of Marine Species (WoRMS),' indicating potential gaps.",
+      "notes": "The presence of dropped records due to quality issues and the inclusion of absence records, which are not exposed by default in web services, could affect the perceived completeness of the dataset."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if all units have been translated into compatible forms?",
+      "response_choices": "Yes | No",
+      "response": "No units requiring standardization",
+      "evidence": "The metadata indicates that the dataset contains fields like decimalLatitude, decimalLongitude, and various biological classification fields without specifying units. No mention of units requiring standardization was found.",
+      "notes": "The metadata specifies the fields and their descriptions but does not mention any units or the need to translate them into compatible forms. Most of the fields relate to categorical or identifier data rather than measurements requiring unit standardization."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do any of the data follow a controlled vocabulary?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata refers to the WoRMS (World Register of Marine Species) as a source for validating and matching scientific names and other taxonomic information, suggesting the use of a controlled vocabulary for taxonomy fields like 'scientificName'.",
+      "notes": "The metadata mentions using WoRMS for fields such as 'scientificName', 'superdomain', 'domain', 'kingdom', and others, which indicates adherence to a controlled vocabulary for taxonomic data."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Is a reference provided for the controlled vocabulary used?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'Valid scientific name based on the scientificNameID or derived by matching the provided scientificName with WoRMS.' and several taxonomy levels are stated to be based on WoRMS (World Register of Marine Species).",
+      "notes": "The metadata references WoRMS as the source for controlled vocabulary for taxonomic classification."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are any known consistency issues or steps taken to ensure consistency described?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions that 'The interpreted field contains the Darwin Core terms as submitted by the data provider, with the exception of the following fields which have been transformed or added by the OBIS quality control pipeline.' It includes specific transformations like 'decimalLongitude Parsed and validated by OBIS,' and 'scientificName Valid scientific name based on the scientificNameID or derived by matching the provided scientificName with WoRMS.'",
+      "notes": "The metadata describes steps taken for parsing, validation, and matching against WoRMS to ensure data consistency. This implies that standardization processes are in place to handle inconsistencies."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if any quality assurance or peer review procedures been applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata in 'extracted_page_content.md' indicates that the 'interpreted' field contains the Darwin Core terms as submitted by the data provider, with transformations or additions by the OBIS quality control pipeline. This implies that an internal quality control process, including parsing and validation by OBIS, is applied to fields such as decimalLongitude, decimalLatitude, and others.",
+      "notes": "The quality control processes mentioned in the metadata include parsing, validation, and additions made by OBIS. These suggest automated validation and potentially manual checks as part of internal quality assurance mechanisms."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the procedures used to ensure data integrity?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any description of procedures used to ensure data integrity such as checksums, version control, or audit trails. The metadata mainly focuses on the structure of the data, license information, and examples of data access and querying."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are data checksums included? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain any information about data checksums for verifying dataset integrity or completeness."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes information on data organization, access methods, and specific fields with quality control processes implemented by OBIS.",
+      "evidence": "The 'extracted_page_content.md' document provides detailed insights into the dataset's fields, quality flags, and data organization: 'The Parquet schema contains the following top level fields:', 'interpreted field contains the Darwin Core terms as submitted by the data provider, with the exception of the following fields which have been transformed or added by the OBIS quality control pipeline:'.",
+      "notes": "This dataset is organized as GeoParquet files available on AWS S3 and includes extensive quality control processes, such as parsing and validation of data fields like 'decimalLongitude', 'decimalLatitude', and the addition of environment flags based on WoRMS. It also provides data access examples for local and AWS-based queries."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe known sources of bias in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided in extracted_page_content.md describes the data organization, including fields and quality control processes, but does not specifically mention any known sources of bias in the dataset.",
+      "notes": "There is extensive information on data structure and quality flags, but no direct mention of biases or their sources, such as potential sampling biases or coverage issues."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known risks or limitations associated with the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes limitations such as 'absence records and records of insufficient quality are excluded', 'Dropped flag. This indicates records with insufficient quality, for example due to missing coordinates or no match with the World Register of Marine Species (WoRMS)'.",
+      "notes": "The metadata indicates that the dataset includes flags for insufficient quality and records where certain data, such as coordinates, may be missing."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate if the dataset is based on experimental data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as part of the Ocean Biodiversity Information System (OBIS) and details its data sources, such as licensed with CC0, CC BY, or CC BY-NC licenses. It does not mention any experimental data collection methods or experiments in its description.",
+      "notes": "The dataset appears to be compiled from various data sources and public archives, as indicated by terms like 'source datasets' and 'Darwin Core Archives.' No experimental methodology is referenced in the metadata."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, do the metadata describe the experimental design?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata focuses on dataset organization, access, and querying, without mentioning experimental design aspects such as treatments, controls, replication, or randomization."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe recommended or intended uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md file mentions 'Example: Querying the dataset using Amazon Athena' which refers to querying the dataset on S3 using SQL. It also provides examples for querying the dataset locally using Python and R. Additionally, it includes examples of spatial queries and data analysis using Athena and DuckDB.",
+      "notes": "The metadata provides examples of how to access and query the data using specific tools and languages (Athena, Python, R), which implies intended uses for data analysis and spatial queries."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known inappropriate or discouraged uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not include any specific section or mention addressing inappropriate or discouraged uses of the dataset. Only general information about data access, download, and usage instructions are provided without any discussion on ethical considerations."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate this dataset has been used in AI/ML applications previously?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any mention or indication of the dataset's use in AI or ML applications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, is it described how the dataset has been used in AI/ML applications?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The available metadata and documentation describe the dataset's content, structure, and access methods, but do not mention its use in AI/ML applications, references to models, benchmarks, or related publications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Are there references to models, benchmarks, or publications if available?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions citing the full OBIS dataset as follows: 'Ocean Biodiversity Information System (OBIS) (25 March 2025) OBIS Occurrence Data. Intergovernmental Oceanographic Commission of UNESCO. https://doi.org/10.25607/obis.occurrence.b89117cd.' This includes a DOI, which is a standard form of publication reference.",
+      "notes": "The information found in 'extracted_page_content.md' indicates licensing details and a citation format, which can be considered a form of documentation related to publications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate how to report issues or errors in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information on how to report issues or errors in the dataset. There is no contact email, issue tracker link, or any other method for reporting problems mentioned."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset is organized as GeoParquet files and Darwin Core Archives, available on AWS S3. It includes several examples of querying the dataset using tools like Amazon Athena, Python, and R. It also outlines various quality control processes applied to fields such as scientific names and geographic coordinates.",
+      "evidence": "The dataset is available as GeoParquet from AWS S3 at s3://obis-open-data/occurrence with one file per source dataset. The metadata provides examples of querying the dataset using Amazon Athena, Python, and R, and describes the Darwin Core format and quality control measures (extracted_page_content.md). Information on licenses and citations for the dataset is also included (extracted_page_content.md).",
+      "notes": "The metadata highlights the availability of data on AWS S3 and the format of the data. It also describes the tools and methods for accessing and querying the data, which are crucial for understanding how to interact with the dataset. The licensing information provides necessary details for proper use and citation of the dataset."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available for direct download?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'Use the AWS CLI to download the dataset locally. The size of the dataset is around 50 GB. aws s3 sync --no-sign-request s3://obis-open-data/occurrence/ ./occurrence/'",
+      "notes": "The dataset is available for direct download through AWS using the CLI command provided. It is accessible from the specified S3 bucket."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via an API?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes access to the dataset via AWS S3 and provides examples of accessing the dataset using download commands and query services like Amazon Athena and local querying with Python and R. There is no mention of an API for accessing the dataset.",
+      "notes": "The absence of any mention of an API in the metadata provided indicates that the dataset is not directly accessible via an API. Instead, access is facilitated through AWS S3 and querying tools."
+    },
+    {
+      "section": "Data Access",
+      "question": "If accessible via API, is the type of API specified?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "There is no mention of an API type (e.g., REST, GraphQL, OPeNDAP) within the provided metadata files.",
+      "notes": "The metadata includes details about accessing the dataset via AWS S3, downloading with AWS CLI, and querying using Amazon Athena or local tools like Python and R, but does not specify an API type."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is API documentation provided (e.g., linked to)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files and extracted page content do not mention any API documentation or provide a link to it. The content primarily discusses data access through AWS CLI, Amazon Athena, and local querying using Python and R."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via a cloud platform?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is available from AWS S3 at s3://obis-open-data/occurrence.",
+      "notes": "The metadata specifies that the OBIS Open Data is hosted on AWS S3, making it accessible via a cloud platform."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in a machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md states that the OBIS dataset is available as GeoParquet from AWS S3 and specifies a directory structure that includes '.parquet' files, which are a well-known machine-readable format.",
+      "notes": "Parquet files are specifically designed to be efficient, compact, and readable by machines, which supports interoperability and machine-readability criteria of FAIR principles."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in an open (non-proprietary) format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions that the OBIS dataset is available as GeoParquet from AWS S3 at s3://obis-open-data/occurrence with one file per source dataset. Source dataset Darwin Core Archives are available from s3://obis-open-data/dwca.",
+      "notes": "Parquet is an open-format for columnar storage and is widely used for big data processing and analytics. The metadata clearly states that the dataset is provided in this open format, ensuring accessibility and reusability."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available in multiple formats?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is available as 'GeoParquet' from AWS S3 ('s3://obis-open-data/occurrence') and as Darwin Core Archives ('s3://obis-open-data/dwca').",
+      "notes": "The metadata specifies two different formats: GeoParquet and Darwin Core Archives, indicating the dataset's availability in multiple formats."
+    },
+    {
+      "section": "Data Access",
+      "question": "Do the metadata indicate what license applies to this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'Although most of the underlying data are licensed with open CC0 and CC BY licenses, the full OBIS dataset is licensed under CC BY-NC and can be cited as follows.'",
+      "notes": "The dataset license information is explicitly provided in the metadata under the 'Data license and citation' section in 'extracted_page_content.md'."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the license information provided in a standardized or machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The license and citation information for every source dataset is available at s3://obis-open-data/licenses.tsv.",
+      "notes": "The mention of a TSV file suggests that the data is likely in a standardized or machine-readable format."
+    },
+    {
+      "section": "Data Access",
+      "question": "Does the dataset contain personal or sensitive information?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata and documentation specify that the dataset is about the Ocean Biodiversity Information System (OBIS) and includes biodiversity occurrence data. There is no mention of personal or sensitive information, only scientific and geospatial data related to biodiversity, such as species information, data licenses, and dataset organization.",
+      "notes": "The dataset is primarily focused on biodiversity and geospatial data based on the fields and associated documentation provided, which do not indicate the presence of personal or sensitive data."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is access to the dataset restricted in any way?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata states: 'Use the AWS CLI to download the dataset locally. The size of the dataset is around 50 GB.' This indicates unrestricted access as it provides direct instructions for downloading the dataset.",
+      "notes": "While the metadata provides guidance on downloading the dataset, it does not mention any specific restrictions or access controls."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is secure access required to obtain or use the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata states that the dataset can be downloaded using AWS CLI with `--no-sign-request` from the URL `s3://obis-open-data/occurrence/`, indicating that secure access is not required.",
+      "notes": "The use of `--no-sign-request` in the AWS CLI command suggests that the dataset is publicly accessible without authentication."
+    },
+    {
+      "section": "Data Access",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No additional information about data access beyond what is already detailed in the 'extracted_page_content.md' under the 'Data access' section.",
+      "notes": "The section 'Data access' in the extracted page content already outlines methods for accessing and downloading the dataset including using AWS CLI and querying with Amazon Athena. No new or additional information about data access is provided in the metadata."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Is this form sufficient to evaluate if a dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The provided metadata contains detailed information about the dataset structure, licensing, citation, and access methods but lacks information regarding accessibility features, comprehensive metadata documentation, and programmatic access standards which are crucial for FAIR4AI evaluation.",
+      "notes": "While the dataset has metadata regarding its structure, access methods, and licensing, FAIR4AI goes beyond basic FAIR principles to consider aspects like AI readiness, including machine-actionability of metadata, consistent use of ontologies, and compliance with AI/ML-ready data formats and standards. These aspects are not covered in the provided metadata files."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from this form?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata and documentation largely focus on data structure, licensing, access instructions, and examples for querying the dataset. There are no specific sections discussing FAIR principles or AI readiness.",
+      "notes": "The metadata does not explicitly mention aspects like provenance information, data versioning, or detailed interoperability standards, which could be crucial for assessing FAIRness and AI-readiness. Adding these aspects could improve the assessment of whether the data meet FAIR4AI criteria."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Should sections or items from this form be edited or deleted? If so, how and/or why?",
+      "response_choices": NaN,
+      "response": "Not applicable",
+      "evidence": "The provided metadata files 'extracted_meta_tags.json', 'downloaded_metadata_0.md', 'downloaded_metadata_1.md', and 'extracted_page_content.md' do not contain explicit instructions or permissions about editing or deleting sections or items from a form.",
+      "notes": "The metadata focuses on describing the dataset structure, licensing, and usage instructions. There are no specific guidelines or suggestions about making edits or deletions to sections."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Did the metadata you evaluated provide sufficient information to determine if the dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provides some information such as data access methods (e.g., AWS S3, Amazon Athena) and data organization in formats like GeoParquet, but it lacks detailed accessibility guidelines, interoperability standards, and reuse conditions specific to AI readiness for the dataset as a whole. Key elements for determining FAIR4AI, such as metadata schema compliance, detailed provenance, or machine-accessible licensing, are not explicitly covered.",
+      "notes": "While the dataset includes some metadata, it does not comprehensively address all aspects of FAIR4AI principles, such as ensuring metadata is machine-readable or defining interoperability standards for AI applications."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from the metadata? ",
+      "response_choices": NaN,
+      "response": "Detailed provenance, structured metadata standards, machine accessibility, and domain-specific interoperability information",
+      "evidence": "The metadata provided in 'extracted_meta_tags.json', 'downloaded_metadata_0.md', 'downloaded_metadata_1.md', and 'extracted_page_content.md' lacks structured metadata standards information like XML or JSON-LD schemas, detailed provenance records, mentions of machine accessibility options, and domain-specific interoperability practices beyond basic access links.",
+      "notes": "While the metadata gives some introductory information about data access and certain details like licensing, specific standards for data documentation necessary to support automated processes are not explicitly noted. Provenance details (i.e., origin, who collected the data, who processed it) are implicit rather than explicit, and there is limited information on compliance with specific ontology or semantic standards for interoperability. While the availability of formats like Parquet is helpful, more information is required to fully assess FAIR compliance for AI purposes."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Use this space to provide any other feedback",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata files do not contain a designated section for conclusions or feedback. They primarily contain technical details about the dataset and its usage.",
+      "notes": "The metadata provided is focused on the technical aspects and usage of the dataset on GitHub and AWS, and does not include a section for additional user feedback."
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "The dataset provides clear access instructions including direct download capabilities via AWS.",
+      "Comprehensive metadata describes data structure and attributes, highlighting use of open formats like GeoParquet.",
+      "Data uses controlled vocabularies and standards like the Darwin Core for interoperability.",
+      "Detailed data preparation and quality control processes are documented, enhancing data reliability."
+    ],
+    "weaknesses": [
+      "Lack of personal contact information or curator details in metadata, reducing traceability and support for users.",
+      "No information provided regarding dataset updates or maintenance schedule, questioning its timeliness.",
+      "Metadata does not explicitly coordinate between machine-readability of metadata and AI/ML application readiness.",
+      "Details on provenance, including detailed curation history and data versioning, are limited."
+    ],
+    "overall_assessment": "The OBIS Open Data dataset is strong in providing well-documented access methods, leveraging standardized data formats for interoperability, and including comprehensive quality control steps to ensure data reliability. However, the dataset falls short in certain FAIR aspects, like providing sufficient details on provenance and curator contact information. Furthermore, improvements are necessary to ensure the metadata is aligned with AI/ML-readiness standards, especially in providing machine-actionable metadata components.",
+    "fair_score_estimate": {
+      "findable": "7/10 - The dataset has a DOI and is documented, but lacks personal contact information and metadata identifiers.",
+      "accessible": "8/10 - Dataset is easily downloadable via AWS, but there is no API accessibility provided.",
+      "interoperable": "8/10 - Uses Darwin Core and is in open formats, but lacks comprehensive AI-readiness metadata integration.",
+      "reusable": "8/10 - Comprehensive metadata and quality control details support reusability, though updates and versioning information are lacking."
+    }
+  }
+}

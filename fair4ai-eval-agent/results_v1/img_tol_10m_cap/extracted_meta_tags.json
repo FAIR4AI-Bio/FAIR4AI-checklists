@@ -1,0 +1,13 @@
+{
+  "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+  "description": "This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contex...",
+  "fb:app_id": "1321688464574422",
+  "twitter:card": "summary_large_image",
+  "twitter:site": "@huggingface",
+  "twitter:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/TreeOfLife-10M-Captions.png",
+  "og:title": "imageomics/TreeOfLife-10M-Captions · Datasets at Hugging Face",
+  "og:description": "This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contex...",
+  "og:type": "website",
+  "og:url": "https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions",
+  "og:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/TreeOfLife-10M-Captions.png"
+}

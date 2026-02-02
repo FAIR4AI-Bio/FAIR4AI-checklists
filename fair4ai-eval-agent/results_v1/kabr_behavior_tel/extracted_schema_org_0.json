@@ -1,0 +1,96 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "arrayShape": "cr:arrayShape",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "containedIn": "cr:containedIn",
+    "cr": "http://mlcommons.org/croissant/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataBiases": "cr:dataBiases",
+    "dataCollection": "cr:dataCollection",
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isArray": "cr:isArray",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "personalSensitiveInformation": "cr:personalSensitiveInformation",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "repo",
+      "name": "repo",
+      "description": "The Hugging Face git repository.",
+      "contentUrl": "https://huggingface.co/datasets/imageomics/kabr-behavior-telemetry/tree/refs%2Fconvert%2Fparquet",
+      "encodingFormat": "git+https",
+      "sha256": "https://github.com/mlcommons/croissant/issues/80"
+    }
+  ],
+  "recordSet": [],
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "name": "kabr-behavior-telemetry",
+  "description": "Frame-level behavior telemetry dataset combining drone GPS tracks, camera metadata, animal detections, and behavior annotations from wildlife monitoring in Kenya. Supports detection, tracking, and behavioral analysis research.",
+  "alternateName": [
+    "imageomics/kabr-behavior-telemetry",
+    "KABR Behavior Telemetry - FAIR² Drone Wildlife Monitoring Dataset"
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "HDR Imageomics Institute",
+    "url": "https://huggingface.co/imageomics"
+  },
+  "keywords": [
+    "object-detection",
+    "video-classification",
+    "English",
+    "cc0-1.0",
+    "100K<n<1M",
+    "arxiv:2407.16864",
+    "🇺🇸 Region: US",
+    "biology",
+    "ecology",
+    "wildlife-monitoring",
+    "drone",
+    "uav",
+    "aerial-imagery",
+    "animal-behavior",
+    "zebra",
+    "giraffe",
+    "kenya",
+    "savanna"
+  ],
+  "license": "https://choosealicense.com/licenses/cc0-1.0/",
+  "sameAs": "https://imageomics.github.io/KABR/",
+  "url": "https://huggingface.co/datasets/imageomics/kabr-behavior-telemetry"
+}

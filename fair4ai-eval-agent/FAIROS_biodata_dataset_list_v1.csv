@@ -1,30 +1,36 @@
-email,name,url,notes
-kakani@mbari.org,Kakani Katija,https://database.fathomnet.org,FathomNet dataset website
-mlondono@humboldt.org.co,María Cecilia Londoño Murcia,https://geonetwork.humboldt.org.co/geonetwork/srv/spa/catalog.search#/metadata/0a1a6bdf-3231-4a77-8031-0dc3fa40f21b,Geographic data repository
-mlondono@humboldt.org.co,María Cecilia Londoño Murcia,https://biocultural.humboldt.org.co/dataset.xhtml?persistentId=doi:10.21068/YITJEE,Biocultural data repository
-mlondono@humboldt.org.co,María Cecilia Londoño Murcia,https://i2d.humboldt.org.co/ceiba/resource.do?r=rrbb_plantasutiles_obs_colombia_2022,Useful plants info metadata
-mlondono@humboldt.org.co,María Cecilia Londoño Murcia,https://i2d.humboldt.org.co/archive.do?r=rrbb_plantasutiles_obs_colombia_2022&v=1.2,Useful plants data
-mlondono@humboldt.org.co,María Cecilia Londoño Murcia,https://i2d.humboldt.org.co/resource?r=chingaza_plantas_2013,Permanent plots metadata
-mlondono@humboldt.org.co,María Cecilia Londoño Murcia,https://i2d.humboldt.org.co/archive.do?r=chingaza_plantas_2013&v=7.1,Permanent plots data
-KJKOMATSU@uncg.edu,Kim Komatsu,https://doi.org/10.6073/pasta/c2dde97352fb0e25ab749765967997b,Dataset 1
-KJKOMATSU@uncg.edu,Kim Komatsu,https://doi.org/10.6073/pasta/a33c9be2bd819d6b1a2c52663d561158,Dataset 2 imputed
-ksh5s@virginia.edu,Kelsey Huelsman,https://www.earthdata.nasa.gov/data/catalog/lpcloud-glrefl-001,NASA G-LiHT
-ksh5s@virginia.edu,Kelsey Huelsman,https://data.neonscience.org/data-products/DP1.10026.001,NEON plant foliar traits
-ksh5s@virginia.edu,Kelsey Huelsman,https://zenodo.org/records/7187242,NEON tree crowns
-ksh5s@virginia.edu,Kelsey Huelsman,https://landfire.gov/vegetation/evc,Landfire EVC
-sydne.record@maine.edu,Sydne Record,https://harvardforest1.fas.harvard.edu/exist/apps/datasets/showData.html?id=HF118,Long-term ant dataset
-sydne.record@maine.edu,Sydne Record,https://catalog-beta.data.gov/dataset/great-smoky-mountains-national-park-vital-signs-forest-and-soils-monitoring-data-2015-2024?from_hint=eyJxIjoidml0YWwgc2lnbnMifQ%3D%3D,Smoky Mountains data
-dr2497@columbia.edu,Dustin R. Rubenstein,https://zenodo.org/records/14697198,Co-Breed dataset
-dr2497@columbia.edu,Dustin R. Rubenstein,https://opentraits.org/datasets/avonet.html,Avonet dataset
-josephigum@gmail.com,Joseph Gum,https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.ncei.noaa.gov%2Fproducts%2Fworld-ocean-database&data=05%7C02%7Cesokol%40battelleecology.org%7C681c128633584e0c967c08de614c56b7%7Cf44d2ab390994d85998610165a8619f5%7C0%7C0%7C639055177682251748%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=urdHNksEuQDP9%2FE62lYGSzs5DxpXaBAzAwHEglMzR7o%3D&reserved=0,
-maustin@mobot.org,Matt Austin,https://www.tropicos.org/specimen/Search,"Tropicos specimen data against FAIR4AI criteria.Tropicos specimen data can broadly be obtained using two methods: (1) performing a specimen search on the Tropicos ""Specimen Search"" page or (2) performing an advanced query on the ""Advanced Query"" page. Because advanced query returns more fields than a general search — and the variable names can differ between a general search and advanced query — I would ideally like to evaluate specimen data obtained through both of these methods against FAIR4AI."
-rking@nceas.ucsb.edu,Rachel King,https://doi.org/10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca,Earthworm species identification and counts at three long-term grassland-to-woodland land use contrasts across England
-jb160@ucsb.edu,Julien Brun,https://doi.org/10.5061/dryad.wdbrv15vm,
-carrie@inaturalist.org,Carrie Seltzer,https://registry.opendata.aws/inaturalist-open-data/,
-kline.377@buckeyemail.osu.edu,Jenna Kline,https://huggingface.co/collections/imageomics/smartwilds,SmatWilds
-kline.377@buckeyemail.osu.edu,Jenna Kline,https://huggingface.co/datasets/imageomics/kabr-behavior-telemetry,"KABR, telemetry-behavior collection"
-Max_Tarjan@natureserve.org,Max Tarjan,https://explorer.natureserve.org/ ,
-rguralnick@flmnh.ufl.edu,Rob Guralnick,https://zenodo.org/records/15306421,PhenoVision machine annotations of phenology for iNaturalist plant photos
-shir3bar@mit.edu,Shir Bar,https://doi.org/10.5441/001/1.6gr485fk,"Bastille-Rousseau G, Yackulic CB, Gibbs J, Frair JL, Cabrera F, Blake S. 2019. Data from: Migration triggers in a large herbivore: Galápagos giant tortoises navigating resource gradients on volcanoes. Movebank Data Repository."
-shir3bar@mit.edu,Shir Bar,https://doi.org/10.5281/zenodo.7947104,"Hoffman, B., Cusimano, M., Baglione, V., Canestrari, D., Chevallier, D., DeSantis, D. L., Jeantet, L., Ladds, M. A., Maekawa, T., Mata-Silva, V., Moreno-González, V., Trapote, E., Vainio, O., Vehkaoja, A., Yoda, K., Zacarian, K., Friedlaender, A., & Rutz, C. (2023). Bio-logger Ethogram Benchmark: A benchmark for computational analysis of animal behavior, using animal-borne tags (1.0.0) [Data set]. Zenodo"
-steve@thedatapatch.com,Stephen Formel,https://github.com/iobis/obis-open-data,"OBIS serves a snapshot of data from AWS as a GeoParquet. It's documented in the GeoParquet to some extent (a mix of Darwin Core, WoRMS, and OBIS terms). I suspect it could be improved. When people want to work with a big subset, or the entirety of OBIS, this is where we send them"
+email,name,dataset_short_name,url,notes
+esokol@battelleecology.org,Eric Sokol,neon_beetles,https://data.neonscience.org/data-products/DP1.10022.001,NEON Ground Beetles
+campolongo.4@osu.edu,Elizabeth Campolongo,img_tol_200m,https://huggingface.co/datasets/imageomics/TreeOfLife-200M,
+campolongo.4@osu.edu,Elizabeth Campolongo,img_rare_species,https://huggingface.co/datasets/imageomics/rare-species,
+campolongo.4@osu.edu,Elizabeth Campolongo,img_tol_10m_cap,https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions,
+esokol@battelleecology.org,Eric Sokol,img_sentinel_beetles,https://huggingface.co/datasets/imageomics/sentinel-beetles,
+esokol@battelleecology.org,Eric Sokol,edi_ntl_macroinvert,https://portal.edirepository.org/nis/mapbrowse?packageid=edi.285.3,LTER NTL macroinvertebrates
+kakani@mbari.org,Kakani Katija,fathomnet,https://database.fathomnet.org,FathomNet dataset website
+mlondono@humboldt.org.co,María Cecilia Londoño Murcia,humbolt_1,https://geonetwork.humboldt.org.co/geonetwork/srv/spa/catalog.search#/metadata/0a1a6bdf-3231-4a77-8031-0dc3fa40f21b,Geographic data repository
+mlondono@humboldt.org.co,María Cecilia Londoño Murcia,humbolt_2,https://biocultural.humboldt.org.co/dataset.xhtml?persistentId=doi:10.21068/YITJEE,Biocultural data repository
+mlondono@humboldt.org.co,María Cecilia Londoño Murcia,humbolt_3,https://i2d.humboldt.org.co/ceiba/resource.do?r=rrbb_plantasutiles_obs_colombia_2022,Useful plants info metadata
+mlondono@humboldt.org.co,María Cecilia Londoño Murcia,humbolt_4,https://i2d.humboldt.org.co/archive.do?r=rrbb_plantasutiles_obs_colombia_2022&v=1.2,Useful plants data
+mlondono@humboldt.org.co,María Cecilia Londoño Murcia,humbolt_5,https://i2d.humboldt.org.co/resource?r=chingaza_plantas_2013,Permanent plots metadata
+mlondono@humboldt.org.co,María Cecilia Londoño Murcia,humbolt_6,https://i2d.humboldt.org.co/archive.do?r=chingaza_plantas_2013&v=7.1,Permanent plots data
+KJKOMATSU@uncg.edu,Kim Komatsu,edi_komatsu_1,https://doi.org/10.6073/pasta/c2dde97352fb0e25ab749765967997b,Dataset 1
+KJKOMATSU@uncg.edu,Kim Komatsu,edi_komatsu_2,https://doi.org/10.6073/pasta/a33c9be2bd819d6b1a2c52663d561158,Dataset 2 imputed
+ksh5s@virginia.edu,Kelsey Huelsman,huelsman_1,https://www.earthdata.nasa.gov/data/catalog/lpcloud-glrefl-001,NASA G-LiHT
+ksh5s@virginia.edu,Kelsey Huelsman,huelsman_2,https://data.neonscience.org/data-products/DP1.10026.001,NEON plant foliar traits
+ksh5s@virginia.edu,Kelsey Huelsman,huelsman_3,https://zenodo.org/records/7187242,NEON tree crowns
+ksh5s@virginia.edu,Kelsey Huelsman,huelsman_4,https://landfire.gov/vegetation/evc,Landfire EVC
+sydne.record@maine.edu,Sydne Record,record_1,https://harvardforest1.fas.harvard.edu/exist/apps/datasets/showData.html?id=HF118,Long-term ant dataset
+sydne.record@maine.edu,Sydne Record,record_2,https://catalog-beta.data.gov/dataset/great-smoky-mountains-national-park-vital-signs-forest-and-soils-monitoring-data-2015-2024?from_hint=eyJxIjoidml0YWwgc2lnbnMifQ%3D%3D,Smoky Mountains data
+dr2497@columbia.edu,Dustin R. Rubenstein,rbenstein_1,https://zenodo.org/records/14697198,Co-Breed dataset
+dr2497@columbia.edu,Dustin R. Rubenstein,rbenstein_2,https://opentraits.org/datasets/avonet.html,Avonet dataset
+josephigum@gmail.com,Joseph Gum,world_ocean_database,https://www.ncei.noaa.gov/products/world-ocean-database,
+maustin@mobot.org,Matt Austin,tropicos,https://www.tropicos.org/specimen/Search,"Tropicos specimen data against FAIR4AI criteria.Tropicos specimen data can broadly be obtained using two methods: (1) performing a specimen search on the Tropicos ""Specimen Search"" page or (2) performing an advanced query on the ""Advanced Query"" page. Because advanced query returns more fields than a general search — and the variable names can differ between a general search and advanced query — I would ideally like to evaluate specimen data obtained through both of these methods against FAIR4AI."
+rking@nceas.ucsb.edu,Rachel King,earthworms,https://doi.org/10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca,Earthworm species identification and counts at three long-term grassland-to-woodland land use contrasts across England
+jb160@ucsb.edu,Julien Brun,brun_1,https://doi.org/10.5061/dryad.wdbrv15vm,
+carrie@inaturalist.org,Carrie Seltzer,inat,https://registry.opendata.aws/inaturalist-open-data/,
+kline.377@buckeyemail.osu.edu,Jenna Kline,smartwilds,https://huggingface.co/collections/imageomics/smartwilds,SmatWilds
+kline.377@buckeyemail.osu.edu,Jenna Kline,kabr_behavior_tel,https://huggingface.co/datasets/imageomics/kabr-behavior-telemetry,"KABR, telemetry-behavior collection"
+Max_Tarjan@natureserve.org,Max Tarjan,natureserve,https://explorer.natureserve.org/ ,
+rguralnick@flmnh.ufl.edu,Rob Guralnick,phenovision,https://zenodo.org/records/15306421,PhenoVision machine annotations of phenology for iNaturalist plant photos
+shir3bar@mit.edu,Shir Bar,bar_1,https://doi.org/10.5441/001/1.6gr485fk,"Bastille-Rousseau G, Yackulic CB, Gibbs J, Frair JL, Cabrera F, Blake S. 2019. Data from: Migration triggers in a large herbivore: Galápagos giant tortoises navigating resource gradients on volcanoes. Movebank Data Repository."
+shir3bar@mit.edu,Shir Bar,bar_2,https://doi.org/10.5281/zenodo.7947104,"Hoffman, B., Cusimano, M., Baglione, V., Canestrari, D., Chevallier, D., DeSantis, D. L., Jeantet, L., Ladds, M. A., Maekawa, T., Mata-Silva, V., Moreno-González, V., Trapote, E., Vainio, O., Vehkaoja, A., Yoda, K., Zacarian, K., Friedlaender, A., & Rutz, C. (2023). Bio-logger Ethogram Benchmark: A benchmark for computational analysis of animal behavior, using animal-borne tags (1.0.0) [Data set]. Zenodo"
+steve@thedatapatch.com,Stephen Formel,obis_open_data,https://github.com/iobis/obis-open-data,"OBIS serves a snapshot of data from AWS as a GeoParquet. It's documented in the GeoParquet to some extent (a mix of Darwin Core, WoRMS, and OBIS terms). I suspect it could be improved. When people want to work with a big subset, or the entirety of OBIS, this is where we send them"

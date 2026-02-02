@@ -1,0 +1,18 @@
+{
+  "viewport": "width=device-width, initial-scale=1",
+  "google-site-verification": "Rp5zp04IKW-s1IbpTOGB7Z6XY60oloZD5C3kTM-AiY4",
+  "generator": "InvenioRDM 14.0",
+  "description": "Global phenology data on flower and fruit presence generated from machine labeling iNaturalist images through March 2024.  This dataset contains key record level information from the iNaturalist observation needed for phenology analyses, along with data and metadata about fruit and flower detection, the model used to generate machine labeling of phenology presence, and record level classification quality metrics.",
+  "citation_title": "PhenoVision machine annotations of phenology for iNaturalist plant photos",
+  "citation_author": "Phenobase",
+  "citation_doi": "10.5281/zenodo.15306421",
+  "citation_abstract_html_url": "https://zenodo.org/records/15306421",
+  "og:title": "PhenoVision machine annotations of phenology for iNaturalist plant photos",
+  "og:description": "Global phenology data on flower and fruit presence generated from machine labeling iNaturalist images through March 2024.  This dataset contains key record level information from the iNaturalist observation needed for phenology analyses, along with data and metadata about fruit and flower detection, the model used to generate machine labeling of phenology presence, and record level classification quality metrics.",
+  "og:url": "https://zenodo.org/records/15306421",
+  "og:site_name": "Zenodo",
+  "twitter:card": "summary",
+  "twitter:site": "@zenodo_org",
+  "twitter:title": "PhenoVision machine annotations of phenology for iNaturalist plant photos",
+  "twitter:description": "Global phenology data on flower and fruit presence generated from machine labeling iNaturalist images through March 2024.  This dataset contains key record level information from the iNaturalist observation needed for phenology analyses, along with data and metadata about fruit and flower detection, the model used to generate machine labeling of phenology presence, and record level classification quality metrics."
+}

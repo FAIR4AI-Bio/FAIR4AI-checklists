@@ -1,0 +1,635 @@
+{
+  "@context": "http://schema.org",
+  "@id": "https://doi.org/10.5281/zenodo.7947104",
+  "@type": "https://schema.org/Dataset",
+  "author": [
+    {
+      "@id": "https://orcid.org/0000-0002-2785-7827",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Earth Species Project"
+        }
+      ],
+      "familyName": "Hoffman",
+      "givenName": "Benjamin",
+      "name": "Hoffman, Benjamin"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7435-2434",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Earth Species Project"
+        }
+      ],
+      "familyName": "Cusimano",
+      "givenName": "Maddie",
+      "name": "Cusimano, Maddie"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-8464-7861",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Universidad de León"
+        }
+      ],
+      "familyName": "Baglione",
+      "givenName": "Vittorio",
+      "name": "Baglione, Vittorio"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-9112-0208",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Universidad de León"
+        }
+      ],
+      "familyName": "Canestrari",
+      "givenName": "Daniela",
+      "name": "Canestrari, Daniela"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-2232-6787",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Centre national de la recherche scientifique Borea"
+        }
+      ],
+      "familyName": "Chevallier",
+      "givenName": "Damien",
+      "name": "Chevallier, Damien"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-1971-7418",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Georgia College & State University"
+        }
+      ],
+      "familyName": "DeSantis",
+      "givenName": "Dominic L.",
+      "name": "DeSantis, Dominic L."
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-7317-3154",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "African Institute for Mathematical Sciences, Stellenbosch University"
+        }
+      ],
+      "familyName": "Jeantet",
+      "givenName": "Lorène",
+      "name": "Jeantet, Lorène"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-0241-4915",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Department of Conservation, New Zealand"
+        }
+      ],
+      "familyName": "Ladds",
+      "givenName": "Monique A.",
+      "name": "Ladds, Monique A."
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7227-580X",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Osaka University"
+        }
+      ],
+      "familyName": "Maekawa",
+      "givenName": "Takuya",
+      "name": "Maekawa, Takuya"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-8123-1844",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Texas, El Paso"
+        }
+      ],
+      "familyName": "Mata-Silva",
+      "givenName": "Vicente",
+      "name": "Mata-Silva, Vicente"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-0094-1559",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Universidad de León"
+        }
+      ],
+      "familyName": "Moreno-González",
+      "givenName": "Víctor",
+      "name": "Moreno-González, Víctor"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-1165-3379",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Universidad de León"
+        }
+      ],
+      "familyName": "Trapote",
+      "givenName": "Eva",
+      "name": "Trapote, Eva"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-3467-2246",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Helsinki"
+        }
+      ],
+      "familyName": "Vainio",
+      "givenName": "Outi",
+      "name": "Vainio, Outi"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-3721-3467",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Tampere University"
+        }
+      ],
+      "familyName": "Vehkaoja",
+      "givenName": "Antti",
+      "name": "Vehkaoja, Antti"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8346-3291",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Nagoya University"
+        }
+      ],
+      "familyName": "Yoda",
+      "givenName": "Ken",
+      "name": "Yoda, Ken"
+    },
+    {
+      "@id": "https://orcid.org/0009-0005-3780-7304",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Earth Species Project"
+        }
+      ],
+      "familyName": "Zacarian",
+      "givenName": "Katherine",
+      "name": "Zacarian, Katherine"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-2822-233X",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of California, Santa Cruz"
+        }
+      ],
+      "familyName": "Friedlaender",
+      "givenName": "Ari",
+      "name": "Friedlaender, Ari"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-5187-7417",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of St. Andrews"
+        }
+      ],
+      "familyName": "Rutz",
+      "givenName": "Christian",
+      "name": "Rutz, Christian"
+    }
+  ],
+  "contentSize": "11.96 GB",
+  "creator": [
+    {
+      "@id": "https://orcid.org/0000-0002-2785-7827",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Earth Species Project"
+        }
+      ],
+      "familyName": "Hoffman",
+      "givenName": "Benjamin",
+      "name": "Hoffman, Benjamin"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7435-2434",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Earth Species Project"
+        }
+      ],
+      "familyName": "Cusimano",
+      "givenName": "Maddie",
+      "name": "Cusimano, Maddie"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-8464-7861",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Universidad de León"
+        }
+      ],
+      "familyName": "Baglione",
+      "givenName": "Vittorio",
+      "name": "Baglione, Vittorio"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-9112-0208",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Universidad de León"
+        }
+      ],
+      "familyName": "Canestrari",
+      "givenName": "Daniela",
+      "name": "Canestrari, Daniela"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-2232-6787",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Centre national de la recherche scientifique Borea"
+        }
+      ],
+      "familyName": "Chevallier",
+      "givenName": "Damien",
+      "name": "Chevallier, Damien"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-1971-7418",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Georgia College & State University"
+        }
+      ],
+      "familyName": "DeSantis",
+      "givenName": "Dominic L.",
+      "name": "DeSantis, Dominic L."
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-7317-3154",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "African Institute for Mathematical Sciences, Stellenbosch University"
+        }
+      ],
+      "familyName": "Jeantet",
+      "givenName": "Lorène",
+      "name": "Jeantet, Lorène"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-0241-4915",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Department of Conservation, New Zealand"
+        }
+      ],
+      "familyName": "Ladds",
+      "givenName": "Monique A.",
+      "name": "Ladds, Monique A."
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-7227-580X",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Osaka University"
+        }
+      ],
+      "familyName": "Maekawa",
+      "givenName": "Takuya",
+      "name": "Maekawa, Takuya"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-8123-1844",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Texas, El Paso"
+        }
+      ],
+      "familyName": "Mata-Silva",
+      "givenName": "Vicente",
+      "name": "Mata-Silva, Vicente"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-0094-1559",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Universidad de León"
+        }
+      ],
+      "familyName": "Moreno-González",
+      "givenName": "Víctor",
+      "name": "Moreno-González, Víctor"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-1165-3379",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Universidad de León"
+        }
+      ],
+      "familyName": "Trapote",
+      "givenName": "Eva",
+      "name": "Trapote, Eva"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-3467-2246",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Helsinki"
+        }
+      ],
+      "familyName": "Vainio",
+      "givenName": "Outi",
+      "name": "Vainio, Outi"
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-3721-3467",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Tampere University"
+        }
+      ],
+      "familyName": "Vehkaoja",
+      "givenName": "Antti",
+      "name": "Vehkaoja, Antti"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-8346-3291",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Nagoya University"
+        }
+      ],
+      "familyName": "Yoda",
+      "givenName": "Ken",
+      "name": "Yoda, Ken"
+    },
+    {
+      "@id": "https://orcid.org/0009-0005-3780-7304",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Earth Species Project"
+        }
+      ],
+      "familyName": "Zacarian",
+      "givenName": "Katherine",
+      "name": "Zacarian, Katherine"
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-2822-233X",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of California, Santa Cruz"
+        }
+      ],
+      "familyName": "Friedlaender",
+      "givenName": "Ari",
+      "name": "Friedlaender, Ari"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-5187-7417",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of St. Andrews"
+        }
+      ],
+      "familyName": "Rutz",
+      "givenName": "Christian",
+      "name": "Rutz, Christian"
+    }
+  ],
+  "dateCreated": "2023-05-18T05:55:39.486320+00:00",
+  "dateModified": "2023-05-18T14:26:55.571027+00:00",
+  "datePublished": "2023-05-19",
+  "description": "<p>This repository contains the datasets&nbsp;presented in our forthcoming work:</p>\n\n<blockquote>\n<p>B. Hoffman, M. Cusimano, V. Baglione, D. Canestrari, D. Chevallier, D. DeSantis, L. Jeantet, M.&nbsp;Ladds, T. Maekawa, V. Mata-Silva, V. Moreno-Gonz&aacute;lez, A. Pagano, E. Trapote, O. Vainio, A. Vehkaoja, K. Yoda, K. Zacarian, A. Friedlaender, and C. Rutz, &quot;A benchmark for computational analysis of animal behavior, using animal-borne tags,&quot; 2023.</p>\n</blockquote>\n\n<p>It also contains the experiment results which are reported in the paper. Standardized&nbsp;code to implement, train, and evaluate models can be found at&nbsp;<a href=\"https://github.com/earthspecies/BEBE/\">https://github.com/earthspecies/BEBE/</a>.&nbsp;</p>\n\n<p>Please note the licenses in each dataset folder.</p>\n\n<p><strong>Zip folders beginning with &quot;formatted&quot;:</strong> These are the datasets we used to run the experiments reported in the benchmark paper.&nbsp;</p>\n\n<p><strong>Zip folders beginning with &quot;raw&quot;: </strong>These are the unprocessed datasets used in BEBE. Code to process&nbsp;these raw datasets into the formatted ones used by BEBE can be found at&nbsp;<a href=\"https://github.com/earthspecies/BEBE-datasets/\">https://github.com/earthspecies/BEBE-datasets/</a>.</p>\n\n<p><strong>Zip folders beginning with &quot;experiments&quot;: </strong>Results of the cross-validation experiments&nbsp; reported in the paper, as well as&nbsp;hyperparameter optimization.&nbsp;Confusion matrices for all experiments can also be found here.</p>\n\n<p>&nbsp;</p>",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/experiments_baglione_crows.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/experiments_HAR.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/experiments_desantis_rattlesnakes.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/experiments_jeantet_turtles.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/experiments_friedlaender_whales.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/raw_friedlaender_whales.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/experiments_ladds_seals.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/raw_desantis_rattlesnakes.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/raw_ladds_seals.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/raw_pagano_bears.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/raw_jeantet_turtles.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/formatted_desantis_rattlesnakes.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/raw_vehkaoja_dogs.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/formatted_ladds_seals.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/formatted_friedlaender_whales.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/formatted_HAR.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/raw_HAR.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/formatted_maekawa_gulls.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/formatted_jeantet_turtles.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/experiments_maekawa_gulls.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/experiments_vehkaoja_dogs.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/experiments_pagano_bears.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/formatted_pagano_bears.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/formatted_baglione_crows.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/raw_maekawa_gulls.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/formatted_vehkaoja_dogs.zip/content",
+      "encodingFormat": "application/zip"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/7947104/files/raw_baglione_crows.zip/content",
+      "encodingFormat": "application/zip"
+    }
+  ],
+  "identifier": "https://doi.org/10.5281/zenodo.7947104",
+  "inLanguage": {
+    "@type": "Language",
+    "alternateName": "eng",
+    "name": "English"
+  },
+  "keywords": "bio-logger, machine learning, ethogram, animal behavior, acclerometer, benchmark",
+  "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+  "name": "Bio-logger Ethogram Benchmark: A benchmark for computational analysis of animal behavior, using animal-borne tags",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zenodo"
+  },
+  "size": "11.96 GB",
+  "url": "https://zenodo.org/records/7947104",
+  "version": "1.0.0"
+}

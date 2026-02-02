@@ -1,0 +1,18 @@
+{
+  "viewport": "width=device-width, initial-scale=1",
+  "google-site-verification": "Rp5zp04IKW-s1IbpTOGB7Z6XY60oloZD5C3kTM-AiY4",
+  "generator": "InvenioRDM 14.0",
+  "description": "Folder with inputs and outputs of the manuscript titled: \"Continental-scale Hyperspectral tree species classification in the National Ecological Observatory Network\".   Data contains spectral library for thousands individual trees Hyperspectral signature and Canopy Height, plus a number of traits and attributes measured from NEON field surveys. The data focus on 30 NEON sites, across the continent and can be used to reproduce the generalized species classification approach used, described and analyzed in the manuscript.",
+  "citation_title": "Continental-scale Hyperspectral tree species classification in the National Ecological Observatory Network",
+  "citation_author": "Ethan P. White",
+  "citation_doi": "10.5281/zenodo.7187242",
+  "citation_abstract_html_url": "https://zenodo.org/records/7187242",
+  "og:title": "Continental-scale Hyperspectral tree species classification in the National Ecological Observatory Network",
+  "og:description": "Folder with inputs and outputs of the manuscript titled: \"Continental-scale Hyperspectral tree species classification in the National Ecological Observatory Network\".   Data contains spectral library for thousands individual trees Hyperspectral signature and Canopy Height, plus a number of traits and attributes measured from NEON field surveys. The data focus on 30 NEON sites, across the continent and can be used to reproduce the generalized species classification approach used, described and analyzed in the manuscript.",
+  "og:url": "https://zenodo.org/records/7187242",
+  "og:site_name": "Zenodo",
+  "twitter:card": "summary",
+  "twitter:site": "@zenodo_org",
+  "twitter:title": "Continental-scale Hyperspectral tree species classification in the National Ecological Observatory Network",
+  "twitter:description": "Folder with inputs and outputs of the manuscript titled: \"Continental-scale Hyperspectral tree species classification in the National Ecological Observatory Network\".   Data contains spectral library for thousands individual trees Hyperspectral signature and Canopy Height, plus a number of traits and attributes measured from NEON field surveys. The data focus on 30 NEON sites, across the continent and can be used to reproduce the generalized species classification approach used, described and analyzed in the manuscript."
+}

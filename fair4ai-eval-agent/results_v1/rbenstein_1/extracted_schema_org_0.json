@@ -1,0 +1,92 @@
+{
+  "@context": "http://schema.org",
+  "@id": "https://doi.org/10.5281/zenodo.14697198",
+  "@type": "https://schema.org/Dataset",
+  "author": [
+    {
+      "@id": "https://orcid.org/0000-0002-9946-1936",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@id": "https://ror.org/0546hnb39",
+          "@type": "Organization",
+          "name": "University of Konstanz"
+        },
+        {
+          "@type": "Organization",
+          "name": "Centre for the Advanced Study of Collective Behaviour"
+        }
+      ],
+      "familyName": "Ben Mocha",
+      "givenName": "Yitzchak",
+      "name": "Ben Mocha, Yitzchak"
+    }
+  ],
+  "container_title": "Journal of Animal Ecology",
+  "contentSize": "2.71 MB",
+  "creator": [
+    {
+      "@id": "https://orcid.org/0000-0002-9946-1936",
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@id": "https://ror.org/0546hnb39",
+          "@type": "Organization",
+          "name": "University of Konstanz"
+        },
+        {
+          "@type": "Organization",
+          "name": "Centre for the Advanced Study of Collective Behaviour"
+        }
+      ],
+      "familyName": "Ben Mocha",
+      "givenName": "Yitzchak",
+      "name": "Ben Mocha, Yitzchak"
+    }
+  ],
+  "dateCreated": "2025-09-16T08:18:38.024081+00:00",
+  "dateModified": "2025-12-22T20:07:55.216551+00:00",
+  "datePublished": "2025-09-20",
+  "description": "<p>The Cooperative-Breeding Database (Co-BreeD) is an updateable database that curates population-level estimates of biological parameters relevant to cooperative breeding research of birds and (human and non-human) mammals. Please refer to Ben Mocha <em>et al.</em> (2025) for a comprehensive overview of the database.&nbsp;</p>\n<p>The Co-BreeD folder contains 4 files:</p>\n<p><strong>(a) Co_BreeD_V1__read_me.R :</strong> This R script<span lang=\"EN-US\"> includes instructions about the 5 dataframes included in the Co_BreeD_V1.RData and can be used to view the database.</span></p>\n<p><strong>(b) </strong><strong><span lang=\"EN-US\">Co_BreeD_V1.RData :</span></strong><span lang=\"EN-US\"> This RData file includes the Co-BreeD database and accompanying dataframes.</span></p>\n<p><strong>(c) Co_BreeD_V1__quality_check.R :</strong> An r script to check for inconsistencies in each column of the database.</p>\n<p><strong>(d) Co_BreeD_V1__data_submission_template</strong> : A data submission form for data contributors. Data contributors (i.e., data on any type of parental care in any wild population of any individually marked bird or mammal species) are acknowledged by an offer to join as co-authors of the next Co-BreeD manuscript (contact Yitzchak Ben Mocha for more details:&nbsp;<a href=\"mailto:yitzchakbm@gmail.com\">yitzchakbm@gmail.com</a>).</p>\n<p>&nbsp;Ben Mocha <em>et al.</em> (2025) An integrative, peer-reviewed and open-source Cooperative-Breeding Database (Co-BreeD). <em>Journal of Animal Ecology</em></p>",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://zenodo.org/api/records/14697198/files/Co_BreeD_V1.zip/content",
+      "encodingFormat": "application/zip"
+    }
+  ],
+  "funding": [
+    {
+      "funder": {
+        "@id": "018mejw64",
+        "@type": "Organization",
+        "name": "Deutsche Forschungsgemeinschaft"
+      },
+      "name": "EXC 2117 – 422037984"
+    },
+    {
+      "funder": {
+        "@id": "0546hnb39",
+        "@type": "Organization",
+        "name": "University of Konstanz"
+      },
+      "name": "ZENiT Zukunftskolleg"
+    }
+  ],
+  "identifier": "https://doi.org/10.5281/zenodo.14697198",
+  "inLanguage": {
+    "@type": "Language",
+    "alternateName": "eng",
+    "name": "English"
+  },
+  "keywords": "cooperative breeding, communal breeding, birds, mammals, alloparental care, parental care, social evolution, comparative research, Cooperative Breeding Database, Co-BreeD",
+  "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+  "name": "Cooperative-Breeding Database (Co-BreeD)",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zenodo"
+  },
+  "size": "2.71 MB",
+  "url": "https://zenodo.org/records/14697198",
+  "version": "V1"
+}

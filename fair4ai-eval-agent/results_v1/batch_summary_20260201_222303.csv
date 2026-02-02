@@ -1,0 +1,36 @@
+dataset,status,url,json_output,csv_output,error
+neon_beetles,SUCCESS,https://data.neonscience.org/data-products/DP1.10022.001,results_v1/neon_beetles/fair4ai_evaluation.json,results_v1/neon_beetles/fair4ai_evaluation.csv,
+img_rare_species,SUCCESS,https://huggingface.co/datasets/imageomics/rare-species,results_v1/img_rare_species/fair4ai_evaluation.json,results_v1/img_rare_species/fair4ai_evaluation.csv,
+img_tol_200m,SUCCESS,https://huggingface.co/datasets/imageomics/TreeOfLife-200M,results_v1/img_tol_200m/fair4ai_evaluation.json,results_v1/img_tol_200m/fair4ai_evaluation.csv,
+fathomnet,FAILED,https://database.fathomnet.org,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+humbolt_1,FAILED,https://geonetwork.humboldt.org.co/geonetwork/srv/spa/catalog.search#/metadata/0a1a6bdf-3231-4a77-8031-0dc3fa40f21b,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+humbolt_2,FAILED,https://biocultural.humboldt.org.co/dataset.xhtml?persistentId=doi:10.21068/YITJEE,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+humbolt_3,FAILED,https://i2d.humboldt.org.co/ceiba/resource.do?r=rrbb_plantasutiles_obs_colombia_2022,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+humbolt_4,FAILED,https://i2d.humboldt.org.co/archive.do?r=rrbb_plantasutiles_obs_colombia_2022&v=1.2,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+humbolt_5,FAILED,https://i2d.humboldt.org.co/resource?r=chingaza_plantas_2013,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+img_tol_10m_cap,SUCCESS,https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions,results_v1/img_tol_10m_cap/fair4ai_evaluation.json,results_v1/img_tol_10m_cap/fair4ai_evaluation.csv,
+edi_komatsu_1,FAILED,https://doi.org/10.6073/pasta/c2dde97352fb0e25ab749765967997b,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+humbolt_6,FAILED,https://i2d.humboldt.org.co/archive.do?r=chingaza_plantas_2013&v=7.1,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+huelsman_1,FAILED,https://www.earthdata.nasa.gov/data/catalog/lpcloud-glrefl-001,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+img_sentinel_beetles,SUCCESS,https://huggingface.co/datasets/imageomics/sentinel-beetles,results_v1/img_sentinel_beetles/fair4ai_evaluation.json,results_v1/img_sentinel_beetles/fair4ai_evaluation.csv,
+edi_ntl_macroinvert,SUCCESS,https://portal.edirepository.org/nis/mapbrowse?packageid=edi.285.3,results_v1/edi_ntl_macroinvert/fair4ai_evaluation.json,results_v1/edi_ntl_macroinvert/fair4ai_evaluation.csv,
+huelsman_2,SUCCESS,https://data.neonscience.org/data-products/DP1.10026.001,results_v1/huelsman_2/fair4ai_evaluation.json,results_v1/huelsman_2/fair4ai_evaluation.csv,
+edi_komatsu_2,SUCCESS,https://doi.org/10.6073/pasta/a33c9be2bd819d6b1a2c52663d561158,results_v1/edi_komatsu_2/fair4ai_evaluation.json,results_v1/edi_komatsu_2/fair4ai_evaluation.csv,
+huelsman_3,SUCCESS,https://zenodo.org/records/7187242,results_v1/huelsman_3/fair4ai_evaluation.json,results_v1/huelsman_3/fair4ai_evaluation.csv,
+record_1,SUCCESS,https://harvardforest1.fas.harvard.edu/exist/apps/datasets/showData.html?id=HF118,results_v1/record_1/fair4ai_evaluation.json,results_v1/record_1/fair4ai_evaluation.csv,
+record_2,SUCCESS,https://catalog-beta.data.gov/dataset/great-smoky-mountains-national-park-vital-signs-forest-and-soils-monitoring-data-2015-2024?from_hint=eyJxIjoidml0YWwgc2lnbnMifQ%3D%3D,results_v1/record_2/fair4ai_evaluation.json,results_v1/record_2/fair4ai_evaluation.csv,
+rbenstein_1,SUCCESS,https://zenodo.org/records/14697198,results_v1/rbenstein_1/fair4ai_evaluation.json,results_v1/rbenstein_1/fair4ai_evaluation.csv,
+rbenstein_2,SUCCESS,https://opentraits.org/datasets/avonet.html,results_v1/rbenstein_2/fair4ai_evaluation.json,results_v1/rbenstein_2/fair4ai_evaluation.csv,
+world_ocean_database,SUCCESS,https://www.ncei.noaa.gov/products/world-ocean-database,results_v1/world_ocean_database/fair4ai_evaluation.json,results_v1/world_ocean_database/fair4ai_evaluation.csv,
+tropicos,SUCCESS,https://www.tropicos.org/specimen/Search,results_v1/tropicos/fair4ai_evaluation.json,results_v1/tropicos/fair4ai_evaluation.csv,
+inat,SUCCESS,https://registry.opendata.aws/inaturalist-open-data/,results_v1/inat/fair4ai_evaluation.json,results_v1/inat/fair4ai_evaluation.csv,
+huelsman_4,SUCCESS,https://landfire.gov/vegetation/evc,results_v1/huelsman_4/fair4ai_evaluation.json,results_v1/huelsman_4/fair4ai_evaluation.csv,
+brun_1,SUCCESS,https://doi.org/10.5061/dryad.wdbrv15vm,results_v1/brun_1/fair4ai_evaluation.json,results_v1/brun_1/fair4ai_evaluation.csv,
+natureserve,FAILED,https://explorer.natureserve.org/ ,,,ValueError: No metadata loaded. Provide either metadata files or a dataset URL.
+earthworms,SUCCESS,https://doi.org/10.5285/2636c7e1-ec8c-4b77-9f4e-f731781191ca,results_v1/earthworms/fair4ai_evaluation.json,results_v1/earthworms/fair4ai_evaluation.csv,
+smartwilds,SUCCESS,https://huggingface.co/collections/imageomics/smartwilds,results_v1/smartwilds/fair4ai_evaluation.json,results_v1/smartwilds/fair4ai_evaluation.csv,
+bar_1,SUCCESS,https://doi.org/10.5441/001/1.6gr485fk,results_v1/bar_1/fair4ai_evaluation.json,results_v1/bar_1/fair4ai_evaluation.csv,
+phenovision,SUCCESS,https://zenodo.org/records/15306421,results_v1/phenovision/fair4ai_evaluation.json,results_v1/phenovision/fair4ai_evaluation.csv,
+kabr_behavior_tel,SUCCESS,https://huggingface.co/datasets/imageomics/kabr-behavior-telemetry,results_v1/kabr_behavior_tel/fair4ai_evaluation.json,results_v1/kabr_behavior_tel/fair4ai_evaluation.csv,
+bar_2,SUCCESS,https://doi.org/10.5281/zenodo.7947104,results_v1/bar_2/fair4ai_evaluation.json,results_v1/bar_2/fair4ai_evaluation.csv,
+obis_open_data,SUCCESS,https://github.com/iobis/obis-open-data,results_v1/obis_open_data/fair4ai_evaluation.json,results_v1/obis_open_data/fair4ai_evaluation.csv,

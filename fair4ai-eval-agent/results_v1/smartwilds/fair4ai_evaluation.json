@@ -1,0 +1,980 @@
+{
+  "metadata": {
+    "generated_date": "2026-02-01",
+    "dataset_evaluated": "smartwilds",
+    "evaluation_method": "Automated analysis using FAIR4AI Agent with LLM",
+    "source_files": [
+      "extracted_meta_tags.json",
+      "extracted_page_content.md"
+    ],
+    "llm_provider": "azure",
+    "llm_model": "gpt-4o"
+  },
+  "responses": [
+    {
+      "section": "Form Root",
+      "question": "My name",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "Not applicable as 'My name' is not relevant to or found in the dataset metadata.",
+      "notes": "The provided metadata focuses on dataset details and does not contain personal names or identifiers."
+    },
+    {
+      "section": "Form Root",
+      "question": "My affiliation",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "There is no information related to affiliation in the provided metadata content.",
+      "notes": "The available metadata focuses on dataset description and updates, without mentioning affiliations."
+    },
+    {
+      "section": "Form Root",
+      "question": "My email",
+      "response_choices": NaN,
+      "response": "Not applicable",
+      "evidence": "No mention of email information in the metadata provided.",
+      "notes": "The provided metadata does not include any fields related to email or contact information."
+    },
+    {
+      "section": "Form Root",
+      "question": "Dataset title",
+      "response_choices": NaN,
+      "response": "SmartWilds - a imageomics Collection",
+      "evidence": "Field 'og:title' contains 'SmartWilds - a imageomics Collection'",
+      "notes": "The dataset title is derived from the Open Graph metadata which is often used to define the main title for a page or content."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the associated repository, if available.",
+      "response_choices": NaN,
+      "response": "https://huggingface.co/collections/imageomics/smartwilds",
+      "evidence": "\"og:url\": \"https://huggingface.co/collections/imageomics/smartwilds\"",
+      "notes": "The URL found in the og:url field points to the collection housing the dataset, which functions as a repository for this dataset on Hugging Face."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the dataset landing page/home page if available.",
+      "response_choices": NaN,
+      "response": "https://huggingface.co/collections/imageomics/smartwilds",
+      "evidence": "Field 'og:url': 'https://huggingface.co/collections/imageomics/smartwilds'",
+      "notes": "The URL provided in 'og:url' indicates the landing page for the SmartWilds dataset collection."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide the citation, DOI, URL, or similar, if available.",
+      "response_choices": NaN,
+      "response": "https://huggingface.co/collections/imageomics/smartwilds",
+      "evidence": "The 'og:url' field in the extracted_meta_tags.json contains 'https://huggingface.co/collections/imageomics/smartwilds'.",
+      "notes": "The metadata provides a URL, but no specific DOI or standard citation is mentioned."
+    },
+    {
+      "section": "Form Root",
+      "question": "As I am evaluating this dataset, I am considering it for",
+      "response_choices": "publishing for others to use | open-ended use (window shopping) | use in a specific project",
+      "response": "publishing for others to use",
+      "evidence": "The metadata mentions 'Dashboards', 'KABR', 'BaboonLand', 'imageomics', and mentions collection in 'SmartWilds' with updates and notes, including datasets for ecological monitoring and more. This indicates the dataset is organized for broader use and distribution.",
+      "notes": "The presence of detailed collection guides and publication indicates the dataset is likely intended for distribution and use by others in various ecological and scientific studies."
+    },
+    {
+      "section": "Form Root",
+      "question": "My relationship to this dataset",
+      "response_choices": "Data Provider/Producer (metadata author) | Data User/Consumer (metadata reader)",
+      "response": "Data User/Consumer (metadata reader)",
+      "evidence": "The provided metadata files include descriptions and summaries aimed at informing a reader about the dataset. There is no indication that the metadata author is providing or producing the dataset.",
+      "notes": "The metadata is written in a way that suggests it is meant for someone consuming or reading about the dataset, with overviews and details that would be useful for potential users or consumers of the dataset."
+    },
+    {
+      "section": "Form Root",
+      "question": "Provide a brief description of how you are evaluating this dataset. ",
+      "response_choices": NaN,
+      "response": "I am evaluating the dataset using extracted meta tags and extracted page content metadata.",
+      "evidence": "Evidence from the provided `extracted_meta_tags.json` and `extracted_page_content.md`.",
+      "notes": "The evaluation is based on metadata insights derived from meta tags and page descriptions, which provide an overview of the dataset but lack specific structured metadata formats like Schema.org, EML, or ML Croissant."
+    },
+    {
+      "section": "Form Root",
+      "question": "Metadata Upload",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files do not contain any references or instructions regarding uploading a metadata file for evaluation.",
+      "notes": "The instructions seem to be a placeholder or instruction for a process outside of the metadata content itself. No specific information on metadata upload is available in the given files."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Citation for “this dataset”: The full citation is provided (preferably in Bibtex format).",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "There is no Bibtex format citation or any full citation provided in the metadata files. The metadata includes descriptions and updates on dataset components but lacks a formal citation."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Summary or Abstract",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The section in the 'extracted_page_content.md' file describes the dataset as a 'Multi-modal ecological dataset collected at The Wilds during Summer 2025' with data sources including 'camera traps, bioacoustics, drones, and GPS tags.' It supports 'ecological monitoring, animal behavior analysis, and biodiversity studies.'",
+      "notes": "The metadata provides a brief and clear summary of the dataset's purpose, collection methods, and applications, which aligns with the concept of an abstract or summary."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Publisher",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention a publisher for the dataset. While it references 'huggingface' and has URLs linking to Hugging Face, these do not explicitly identify a publisher role. No explicit information regarding a publisher is given in the metadata."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Date Created",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata mentions the dataset was collected during Summer 2025 and some files were updated on specific dates in December 2025, but it does not explicitly provide the Date Created for the dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "An identifier for “this dataset”: Does the dataset have a unique, persistent, machine-resolvable identifier (e.g., DOI)? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not explicitly mention any unique, persistent, machine-resolvable identifier such as a DOI for the dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Author/creator information are provided (e.g., names, affiliations, ORCIDs)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not include any information regarding the authors, creators, or their affiliations or ORCIDs."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Curator information is provided (all curator names, ORCIDs, etc. are listed)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain any information about the curators, such as names, ORCIDs, or any other identifiers related to curatorship."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Author(s) (person providing the description of the dataset) listed",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include information about the Dataset Card Author(s) or the individuals responsible for providing the dataset description. The files contain descriptions and update information about the dataset, but the authorship details are not specified."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Contact or Expert Contact (who to contact with questions) is provided",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata includes general descriptions and updates about the dataset but does not specify any contact information or an expert for queries related to the dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Other Non-author Contributions",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "No specific mention of non-author contributions found in the extracted_meta_tags.json or extracted_page_content.md.",
+      "notes": "The metadata provided does not include information about non-author contributions to the dataset. The focus is on the dataset's collection methods and applications, without details on contributors."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Acknowledgments: Funding Description and Grants",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information about funding sources or grant acknowledgments."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Is this dataset derived from other sources?",
+      "response_choices": "Yes | No (skip to \"Additional information\" question)",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as being collected from camera traps, bioacoustic monitors, drones, and GPS tags at The Wilds during Summer 2025, with no indication of it being derived from other existing datasets.",
+      "notes": "The metadata emphasizes primary data collection methods and locations, which suggests that the data is original and not derived from other datasets. There's no mention of other datasets contributing to this one in the metadata provided."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Provenance Tracking: Do the metadata provide information about the source data from which this dataset was derived (e.g., titles, summaries, and links)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata includes multiple references to the sources of data such as 'imageomics/thewilds_cameratraps', 'imageomics/thewilds_bioacousticmonitors', and 'imageomics/thewilds_drones' with descriptions of what each data source includes. It specifies that the dataset supports ecological monitoring and analysis, and includes update dates and collection locations.",
+      "notes": "The metadata describes various components and sources of the dataset collected at The Wilds, providing a clear connection to the original data sources such as camera traps and drones. However, there are no direct links provided in the metadata."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data producers (who created the source data?)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include specific information about the individuals or organizations that created the source data. While it describes the types of data collected and their purposes, there are no explicit references to the creators or producers of the original data sources."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Citation of subsumed datasets (cite your sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any citations for subsumed datasets or sources. It only describes the components and updates related to the dataset (e.g., camera traps, bioacoustic recordings, drone data) but does not mention any citations for datasets that were derived from or used in its creation."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data DOI (permalink for the sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not contain any information on DOI or permalink for the source data. The provided metadata files only describe the types of data included and some updates about their collection dates and purposes."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data checksums: E.g., checksum for a zip file or a list of image checksums to ensure downstream users can get the same data you did.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No mention of checksums or similar verification methods are present in the provided metadata content.",
+      "notes": "While the metadata provides detailed descriptions of the sources and types of data (e.g., camera traps, drones, bioacoustics), it does not include any checksums or other mechanisms for verifying data integrity."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "There is no section in the provided metadata files that details the provenance information explicitly, such as dataset owners, version histories, or methods used in data processing.",
+      "notes": "The metadata provides only brief descriptions of the dataset's content and purpose. While it mentions the collection locations and types of data (e.g., camera traps, bioacoustics, drones, GPS tags), there is no further specific information about its history or the provenance documentation typically required for this section."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related paper (e.g., DOI, BIBTEX citation, link, etc.)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions 'SmartWilds: Multimodal Wildlife Monitoring Dataset' with 'Paper • 2509.18894 • Published Sep 23, 2025'.",
+      "notes": "The provided DOI or reference number '2509.18894' suggests there is a related paper."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related dataset and/or Model",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Related datasets are mentioned with identifiers such as imageomics/thewilds_cameratraps, imageomics/thewilds_bioacousticmonitors, and imageomics/thewilds_drones.",
+      "notes": "The metadata includes references to related datasets, suggesting a collection of different datasets focused on ecological monitoring at The Wilds. However, explicit model references were not found."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Purpose of the data",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The description in the extracted_meta_tags.json states: 'Multi-modal ecological dataset collected at The Wilds during Summer 2025. Data sources include camera traps, bioacoustics, drones, and GPS tags.' In the extracted_page_content.md, it further explains that the dataset supports ecological monitoring, animal behavior analysis, and biodiversity studies.",
+      "notes": "The purpose of the dataset is clearly mentioned in both the extracted_meta_tags.json and extracted_page_content.md, indicating that the data is intended for ecological monitoring, animal behavior analysis, and biodiversity studies."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Content - short description of the data types, etc.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata includes descriptions like 'Multi-modal ecological dataset collected at The Wilds during Summer 2025. Data sources include camera traps, bioacoustics, drones, and GPS tags.' Additionally, each specific dataset is described, such as camera traps capturing images and video, bioacoustic monitors capturing soundscapes, and drones capturing video footage.",
+      "notes": "The description in the metadata provides a clear and concise overview of the data types and their purposes, fulfilling the requirement for a short description of the data contents."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Are the data machine ready? (machine-actionable under the FAIR Principles)",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not provide specific information about the dataset's format or its machine-actionability status.",
+      "notes": "While the metadata describes the dataset's content and purpose, it does not detail whether the data is structured in a way that is directly usable by machines, such as adherence to specific schemas or standards that would ensure machine-actionability under the FAIR principles."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Language - what language or languages are the data?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata provides information about the dataset and its sources but does not specify the language used within the data.",
+      "notes": "The metadata mentions data types such as camera footage and audio recordings, but does not explicitly state the language of any accompanying textual data or annotations."
+    },
+    {
+      "section": "General Information",
+      "question": "Discovery: Are keywords/tags provided to describe the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not contain any explicit keywords or tags describing the dataset. The description mentions data sources, but these aren't formatted as keywords or tags."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Does the dataset and its metadata make use of relevant ontologies?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention the use of any specific ontologies like the Environment Ontology (ENVO), Darwin Core, the Units Ontology (UO), or the Gene Ontology (GO). The metadata primarily describes the data collection sources and purposes but does not refer to any ontological frameworks."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Is the data dictionary/codebook provided?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not mention any data dictionary or codebook associated with the dataset."
+    },
+    {
+      "section": "General Information",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset supports ecological monitoring, animal behavior analysis, biodiversity studies, and acoustic biodiversity modeling.",
+      "evidence": "Notes from extracted_page_content.md mention that the dataset components support 'ecological monitoring, animal behavior analysis, and biodiversity studies' and 'acoustic biodiversity modeling'.",
+      "notes": "The dataset is collected at The Wilds safari park in Ohio during Summer 2025 and includes data from camera traps, bioacoustics, drones, and GPS tags."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: File format(s) that encode the data are described",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes data sources such as camera traps, bioacoustics, drones, and GPS tags, but does not specify the file format(s) that encode the data.",
+      "notes": "While the data types (e.g., images, video, acoustic recordings) imply certain file formats (e.g., JPG/PNG for images, MP4 for video, WAV for audio), the specific file formats are not explicitly mentioned in the metadata provided."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The dataset layout pattern is provided or explained",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files do not explicitly provide information on the dataset layout pattern.",
+      "notes": "While the metadata describes various sources and types of data collected (e.g., camera traps, drones, bioacoustics), it does not provide a specific explanation of their layout or how they are organized within the dataset."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The primary unit of data that is to be operated on is explained",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not explicitly explain the primary unit of data to be operated on, such as 'Each file is a satellite image'.",
+      "notes": "While the metadata describes that the dataset includes various data sources (camera traps, bioacoustics, drones, GPS tags) and their uses, it does not specify the primary unit of data in terms of rows, files, or detailed data structure."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are properly documented in the metadata",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provides a descriptive overview of the dataset's origins and types (camera traps, bioacoustics, drones, GPS tags) but does not specify any field-level details such as species name, location, date, observer ID, etc.",
+      "notes": "The existing metadata focuses on a general description of the dataset and its components but lacks detailed documentation of individual features or attributes that would be present in the data files themselves."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are included for each data instance",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No specific mention of features or attributes for individual data instances found in the metadata files.",
+      "notes": "The metadata describes the types of data sources (e.g., camera traps, bioacoustics, drones) and mentions their purpose, but does not provide detailed information on features or attributes for each data instance. Information about complete metadata for each instance is not available."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Technical Specifications: Are the technical specifications of the dataset indicated?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Specific technical specifications such as file sizes, total dataset size, resolution, bit depth, sampling rate, etc. are not provided in the metadata.",
+      "notes": "The metadata includes descriptions of data sources and collection methods but lacks detailed technical specifications."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes various modalities such as camera trap images, bioacoustic recordings, and drone videos. It is collected at The Wilds safari park in Ohio during Summer 2025 and supports ecological monitoring, animal behavior analysis, and biodiversity studies.",
+      "evidence": "extracted_meta_tags.json description: 'Multi-modal ecological dataset collected at The Wilds during Summer 2025. Data sources include camera traps, bioacoustics, drones, and GPS tags.' extracted_page_content.md: 'Images and video captured from camera traps deployed at The Wilds safari park in Ohio during Summer 2025. Passive acoustic recordings collected at The Wilds safari park in Ohio during Summer 2025. Drone mission data collected at The Wilds safari park in Ohio during Summer 2025.'",
+      "notes": "The dataset is multimodal and is specifically designed for environmental and ecological applications, which may involve different dataset handling and analysis requirements compared to typical datasets."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Data Source Type): Metadata record what type(s) of source data were collected or used to generate this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes that the dataset was collected using 'camera traps, bioacoustics, drones, and GPS tags' which are types of 'Sensor-based data collection'.",
+      "notes": "The dataset sources listed in the metadata correspond to different sensor-based collection methods, indicating direct sensor-based data gathering."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Curation Rationale):  Metadata record the primary rationale for curating or assembling this dataset",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not specifically mention the primary rationale for curating or assembling the dataset, such as consolidating distributed sources, creating ML-ready structure, improving data quality, or enhancing discoverability/interoperability."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Part of a Larger Collection): Metadata indicate if this dataset part of a larger collection or series, and provide the following information:",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "\"og:title\": \"SmartWilds - a imageomics Collection\", \"og:url\": \"https://huggingface.co/collections/imageomics/smartwilds\"",
+      "notes": "The metadata suggests that the SmartWilds dataset is part of the larger 'imageomics' collection on Hugging Face, as evidenced by the Open Graph title and URL indicating a collection structure."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Instrumentation: Do the metadata describe the instruments or sensors used to collect the data, including their specifications and configuration?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes data sources such as camera traps, bioacoustics, drones, and GPS tags, but does not provide specifications, configuration details, or technical specifications for these instruments.",
+      "notes": "While the instruments used are mentioned, there is no detailed information regarding models, manufacturer, technical specs, deployment, or calibration procedures in the provided metadata."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Collection Method Documentation): Do the metadata describe the methods used to collect or generate the data?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides descriptions of the data sources and methods used for data collection including camera traps, bioacoustics, drones, and GPS tags. Specifically, statements like 'Images and video captured from camera traps deployed at The Wilds safari park,' 'Passive acoustic recordings collected,' and 'Drone mission data collected,' indicate specific collection methods.",
+      "notes": "While the metadata describes the general methods used (e.g., camera traps, drones, bioacoustics), detailed SOPs or protocol documents are not provided in the metadata."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Resolution): Do the metadata describe the spatial resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the data sources as including camera traps, bioacoustics, drones, and GPS tags, but it does not specify the spatial resolution such as point location, plot/transect, pixel-based, or voxel/3D resolution.",
+      "notes": "While the metadata provides information on the types of data and the purpose of collection, it lacks details on spatial resolution which is critical for understanding how the data are organized spatially."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Extent): Do the metadata describe the geographic coverage (region, bounding box, domain)?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions that the dataset was collected 'at The Wilds safari park in Ohio' which implies geographic coverage.",
+      "notes": "The reference to 'The Wilds safari park in Ohio' indicates some level of geographic information, although it does not specify boundaries or exact coordinates."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Resolution): Do the metadata describe the temporal resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as being collected during 'Summer 2025' and provides some details about the types of data collected (such as camera traps, bioacoustics, and drones), but it does not specify the temporal resolution (e.g., how frequently data was recorded or collected).",
+      "notes": "The available metadata provides general information on the time period (Summer 2025) during which data was collected and the purpose of the data collection, but lacks specifics on the temporal frequency or resolution of the recording within that time frame."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Extent): Do the metadata describe the temporal extent?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata specifies that data was collected during 'Summer 2025' for various data sources, as seen in both 'extracted_meta_tags.json' under 'description' and 'og:description', and 'extracted_page_content.md' multiple times.",
+      "notes": "The metadata indicates that the dataset was collected in Summer 2025 but does not provide specific start and end dates within that period."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Types: Do the metadata describe the types of annotations or labels are included in the dataset (if any)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as a multi-modal ecological dataset using camera traps, bioacoustics, drones, and GPS tags for ecological monitoring, animal behavior analysis, and biodiversity studies, but it does not specifically mention the types of annotations or labels included in the dataset.",
+      "notes": "The metadata focuses on the data sources and collection details but does not detail the annotations or labels such as categorical labels, spatial annotations, or textual descriptors."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Process: Do the metadata describe how annotations were generated or obtained?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The provided metadata includes descriptions of the dataset's modalities (camera traps, bioacoustics, drones, and GPS tags) but does not mention any annotation process.",
+      "notes": "The metadata focuses on data collection instruments and their purposes but lacks details regarding annotation processes, if any exist."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotators (Contributors): Do metadata indicate who performed the data annotations? \nPreferably, a list of annotators (e.g., ORCiDs), or names/versions of automated tools or systems; or other relevant information.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files do not contain any specific information about annotators or contributors.",
+      "notes": "The metadata provided focuses on the description and collection methods of the dataset but does not mention who performed the annotations or any tools used for annotation."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes data from camera traps, bioacoustics, drones, and GPS tags collected at The Wilds during Summer 2025.",
+      "evidence": "From both the `extracted_meta_tags.json` and `extracted_page_content.md`, it is mentioned that the data sources include camera traps, bioacoustics, drones, and GPS tags collected at The Wilds during Summer 2025.",
+      "notes": "The specific purposes of these data sources, such as ecological monitoring and biodiversity studies, are also outlined in the `extracted_page_content.md`."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Preparation: Do the metadata provide a complete overall description of data preparation, cleaning, transformation, or quality-control steps performed prior to generating the final dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not mention any data preparation, cleaning, transformation, or quality-control steps. It only describes the data sources and their purposes, but does not go into details about any processing steps or tools used."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Processing Platform or Software: Metadata provide a description of and citations or links to any processing platform or software used in the creation of this dataset.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any description of or citations to a processing platform or software used in the creation of the dataset."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Correction / Standardization of Values: Does the metadata describe corrections applied to existing data values and whether the data values have been standardized in any way?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided does not mention any corrections or standardization procedures applied to the data values.",
+      "notes": "The metadata focuses on the description of the dataset sources and use cases but lacks details on data processing activities such as corrections or standardization of values."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Gaps Filled: Does metadata indicate if missing values or data gaps filled in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided in the extracted_meta_tags.json and extracted_page_content.md does not contain any information about the handling of missing values or data gaps. The metadata focuses primarily on describing the dataset contents, their sources, and purpose, with no mention of data processing or handling of missing data."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If gaps were filled, are the methods described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain any information regarding methods for filling gaps, such as interpolation, imputation, or model-based approaches. The focus of the metadata is on the description of the dataset and its components, not on data processing techniques."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Labeling / Relabeling: Does the metadata indicate if any labeling or relabeling steps were applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files provided (extracted_meta_tags.json and extracted_page_content.md) do not mention any labeling or relabeling steps applied to the dataset.",
+      "notes": "The metadata focuses on the sources and purposes of data collection (camera traps, bioacoustics, drones, GPS) but does not provide details about labeling or relabeling processes."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Does the metadata sufficiently describe the labeling or relabeling process?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata focuses on describing the dataset's collection methods and contents, such as data sources and types (e.g., camera traps, bioacoustics, drones, and GPS tags). It does not include details about labeling or relabeling processes, label sources, standardization methods, or alignment with external taxonomies or ontologies."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Data Filtering and Outlier Removal: Were any outlier removal or filtering procedures applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "There is no mention of data filtering or outlier removal procedures in the provided metadata content.",
+      "notes": "The metadata describes the dataset and its collection sources but does not include detailed information on processing steps such as outlier removal or data filtering."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If yes, does the metadata sufficiently describe the outlier detection and removal methods used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata contains information about the dataset, its sources, and applications but does not mention any details on outlier detection or removal methods."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do metadata indicate if the dataset has been split into training, validation, and/or test sets?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not mention any information about the dataset being split into training, validation, or test sets."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do the metadata provide information on how splits were created?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information about how data splits were created, such as methods (random, stratified, etc.), proportions, or considerations for data leakage. The metadata only mentions the types of data collected and their sources, but does not cover data processing details or dataset splitting strategies."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Yes",
+      "evidence": "Images and video captured from camera traps; Passive acoustic recordings; Drone mission data. Supports ecological monitoring, animal behavior analysis, and biodiversity studies.",
+      "notes": "The metadata highlights the types of data sources (camera traps, bioacoustics, drones) and their applications (ecological monitoring, animal behavior analysis, biodiversity studies, acoustic modeling, aerial object detection). This information is crucial for understanding the dataset's processing needs and potential applications."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if this dataset is complete (i.e., there are no plans for further updates to this data product)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The extracted_page_content.md mentions updates to different components of the dataset: 'Updated 25 days ago', 'Updated Dec 17, 2025', etc.",
+      "notes": "The frequent updates mentioned imply that the dataset is actively being modified, suggesting that it is not complete and could see further updates."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if quality assurance checks been run and if they passed?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any references to quality assurance checks or their outcomes. It primarily describes the dataset's components and updates without detailing quality assurance processes."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the timeliness of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata in 'extracted_page_content.md' mentions that the dataset was updated '25 days ago' and provides specific update times for different data sources such as 'Updated Dec 17, 2025' for camera traps and 'Updated 26 days ago' for drone data.",
+      "notes": "The metadata indicates periodic updates to the dataset, reflecting timeliness."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate quality checks on or evaluate dataset timeliness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not include any mention of quality checks or evaluations related to the timeliness of the dataset. It only describes the data collection methods and purposes.",
+      "notes": "The metadata describes the types of data collected and the time frame (Summer 2025) but does not provide information on the appropriateness or rationale for the timing of these surveys in relation to the study's objectives."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the time lag between data collection and availability?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata includes descriptions of data sources, collection locations, and update timestamps, but does not mention the time lag between data collection and availability.",
+      "notes": "The metadata provides update timestamps such as 'Updated Dec 17, 2025' and collection descriptions ('collected at The Wilds during Summer 2025'), but lacks explicit information about the time lag between collection and data availability."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the quality checks that have failed and provide context for downstream users to work with the data as-is or resolve the issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding data quality checks, which ones have failed, or any context for users on how to work with the data or resolve issues."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata explain why quality checks were not performed and provide context for downstream users to work with the data as-is or resolve potential issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not include any information on data quality checks, explanations for why they were not performed, or guidance for downstream users on working with the data or resolving potential issues."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe any known gaps or limitations in the dataset’s completeness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided in extracted_meta_tags.json and extracted_page_content.md does not mention any gaps or limitations in the dataset’s completeness. The descriptions focus on the data sources, collection period, and purposes such as ecological monitoring and animal behavior analysis.",
+      "notes": "The metadata documents provide an overview of the dataset's content and purpose but do not specifically address any gaps or limitations in terms of spatial, temporal, or content completeness."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if all units have been translated into compatible forms?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not contain any information regarding unit standardization or compatibility. There is no mention of units, scripts, or documentation related to unit standardization in the extracted meta tags or page content."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do any of the data follow a controlled vocabulary?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "There is no mention of controlled vocabulary or standards used within any section of the metadata provided.",
+      "notes": "The metadata does not provide detailed information regarding the use of controlled vocabularies for the dataset elements. It describes the data sources and their purposes but does not include specifics about data quality or structure."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Is a reference provided for the controlled vocabulary used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any reference to a controlled vocabulary or its documentation. It primarily describes the dataset's content, sources, and usage context without mentioning controlled vocabularies."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are any known consistency issues or steps taken to ensure consistency described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not describe any consistency issues or steps taken to ensure consistency. It's mainly descriptive of the dataset sources and purposes."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if any quality assurance or peer review procedures been applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention any quality assurance or peer review procedures applied to the dataset. The focus of the metadata is on the collection and description of the dataset, without detailing any quality control processes."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the procedures used to ensure data integrity?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The provided metadata files contain information about the description, updates, sources, and purposes of the dataset components but do not mention any procedures related to ensuring data integrity such as checksums, version control, or audit trails.",
+      "notes": "The metadata focuses on the dataset description and components without detail on data integrity procedures. Thus, it does not meet the criteria for describing data integrity procedures."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are data checksums included? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain any information or mention of checksums associated with the dataset data."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes multi-modal ecological data collected at The Wilds during Summer 2025 from sources such as camera traps, bioacoustics, drones, and GPS tags.",
+      "evidence": "The description in 'extracted_meta_tags.json' and the details in 'extracted_page_content.md' both mention, 'Multi-modal ecological dataset collected at The Wilds during Summer 2025. Data sources include camera traps, bioacoustics, drones, and GPS tags.'",
+      "notes": "The metadata provides an overview of the data sources used, which include camera traps, bioacoustics, drones, and GPS tags, for ecological monitoring and analysis. Specific updates on subsets of data, like camera traps and bioacoustic monitors, are noted with their last update dates."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe known sources of bias in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as a 'Multi-modal ecological dataset collected at The Wilds during Summer 2025' using various data sources like 'camera traps, bioacoustics, drones, and GPS tags.' However, there is no mention of known sources of bias in the dataset.",
+      "notes": "The metadata provides a description of the dataset and data collection methods but does not discuss any biases related to data collection or representation."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known risks or limitations associated with the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention any known risks or limitations associated with the dataset. It primarily describes the sources and purpose of the data collection."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate if the dataset is based on experimental data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as 'multi-modal ecological dataset' with data sources including 'camera traps, bioacoustics, drones, and GPS tags'. This suggests observational data collection rather than experimental.",
+      "notes": "The metadata indicates the dataset is observational as it involves monitoring and recording activities without an indication of manipulated variables or controlled experiments typical in experimental datasets."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, do the metadata describe the experimental design?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata mentions the dataset includes data from camera traps, bioacoustics, drones, and GPS tags collected at The Wilds during Summer 2025, but there is no mention of experimental design elements such as treatments, controls, replication, or randomization.",
+      "notes": "The metadata focuses on the sources and purposes of data collection but does not detail any experimental design aspects typical to controlled scientific studies."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe recommended or intended uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md contains notes such as 'It supports ecological monitoring, animal behavior analysis, and biodiversity studies.' for camera traps, 'to support ecological monitoring, animal behavior analysis, and acoustic biodiversity modeling.' for bioacoustic monitors, and 'to support ecological monitoring, animal behavior analysis, and aerial object detection modeling.' for drones.",
+      "notes": "The metadata provides specific examples of analyses and applications such as ecological monitoring, animal behavior analysis, and biodiversity studies across different data sources (camera traps, bioacoustics, drones)."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known inappropriate or discouraged uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not contain any information about inappropriate or discouraged uses of the dataset. It focuses on describing the dataset content, data sources, and potential applications in ecological monitoring and analysis."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate this dataset has been used in AI/ML applications previously?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions that the dataset supports 'ecological monitoring, animal behavior analysis, and biodiversity studies' as well as 'acoustic biodiversity modeling' and 'aerial object detection modeling'.",
+      "notes": "The mention of ecological monitoring, behavior analysis, biodiversity studies, and modeling indicates the dataset's usage in AI/ML applications. However, the metadata does not explicitly state past usage in AI/ML but strongly suggests its application in these fields."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, is it described how the dataset has been used in AI/ML applications?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The page content mentions that the data supports 'ecological monitoring, animal behavior analysis, and biodiversity studies.' It also references 'ecological monitoring, animal behavior analysis, and acoustic biodiversity modeling' for camera traps and bioacoustic monitors, and 'ecological monitoring, animal behavior analysis, and aerial object detection modeling' for drones.",
+      "notes": "The dataset's uses in AI/ML applications are described generally in terms of ecological and behavioral analysis. However, specific models, benchmarks, or detailed publications are not explicitly mentioned beyond the broad applications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Are there references to models, benchmarks, or publications if available?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "SmartWilds: Multimodal Wildlife Monitoring Dataset\n\nPaper\n\n2509.18894\n\nPublished\n\nSep 23, 2025",
+      "notes": "The metadata references a publication associated with the dataset titled 'SmartWilds: Multimodal Wildlife Monitoring Dataset' with a specific identifier (2509.18894) and a publication date (Sep 23, 2025)."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate how to report issues or errors in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any contact information, email addresses, or links to an issue tracker for reporting dataset issues or errors."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided includes details about the types of data collected, their purposes, and some technical updates, but does not provide additional guidance or recommendations.",
+      "notes": "The metadata focuses on the description of the dataset, the sources, and the purpose of the data collection. It does not include additional recommendations or guidance information."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available for direct download?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not provide any specific information about direct download availability.",
+      "notes": "The metadata describes the dataset and its components (camera traps, bioacoustics, drones, GPS tags) but does not mention whether it is available for direct download or provide links indicating such functionality. Additional information would be required to determine download availability."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via an API?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files do not contain any mention of API access for the dataset.",
+      "notes": "The available metadata describes the content and purpose of the dataset but does not include information about accessing the dataset via an API. Further investigation or documentation would be needed to verify API access."
+    },
+    {
+      "section": "Data Access",
+      "question": "If accessible via API, is the type of API specified?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not mention any API or its type for accessing the dataset."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is API documentation provided (e.g., linked to)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not contain any information or links regarding API documentation."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via a cloud platform?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not specify access via a cloud platform.",
+      "notes": "While the dataset is described and there are updates and notes regarding its content, there is no explicit mention of a cloud platform facilitating access in the provided metadata."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in a machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not specify the format of the dataset files.",
+      "notes": "While the metadata describes the sources of the data (camera traps, bioacoustics, drones, GPS tags), there is no information on whether the dataset is provided in a machine-readable format, such as CSV, JSON, etc."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in an open (non-proprietary) format?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not specify the format of the dataset files.",
+      "notes": "The metadata details the types of data sources and the purpose but does not provide any information about the dataset's file format or whether it is open or proprietary."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available in multiple formats?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not specify the formats in which the dataset is available.",
+      "notes": "The provided metadata describes the modalities of data collection (e.g., camera traps, bioacoustics, drones, GPS tags) but does not indicate the formats in which this data can be accessed or downloaded. Therefore, it's not possible to determine if the dataset is available in multiple formats based solely on the provided metadata."
+    },
+    {
+      "section": "Data Access",
+      "question": "Do the metadata indicate what license applies to this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not include any information regarding the license applicable to this dataset."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the license information provided in a standardized or machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any information about license information, either in a standardized or machine-readable format."
+    },
+    {
+      "section": "Data Access",
+      "question": "Does the dataset contain personal or sensitive information?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as being collected from camera traps, bioacoustics, drones, and GPS tags to monitor wildlife and does not mention any collection of personal or sensitive information.",
+      "notes": "The metadata focuses on ecological and wildlife monitoring, emphasizing data sources like camera traps and drones in a safari park, which typically do not involve personal or sensitive human data."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is access to the dataset restricted in any way?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not provide any information about restrictions or conditions for accessing the dataset.",
+      "notes": "The provided metadata includes descriptions and updates about the dataset but does not specify any access restrictions or permissions."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is secure access required to obtain or use the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not contain any references to access requirements, secure or otherwise.",
+      "notes": "The metadata includes information about the dataset's contents, such as data sources and updates, but does not mention any specifics about access protocols or security requirements."
+    },
+    {
+      "section": "Data Access",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No specific information regarding dataset access rules or procedures was found in the provided metadata files.",
+      "notes": "The metadata provided does not include details about data licensing, access conditions, or methods for accessing the dataset. It primarily includes descriptions of the dataset components and updates."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Is this form sufficient to evaluate if a dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided includes descriptive details about the dataset contents and modalities (e.g., camera traps, bioacoustics, drones, GPS tags) but lacks specific information on FAIR4AI aspects like data access protocols, interoperability standards, or reuse conditions.",
+      "notes": "While the metadata describes the type of data collected and its purpose, it does not address critical components of the FAIR principles such as persistent identifiers, metadata standards, or licensing information. Without this information, it is not possible to fully assess the dataset's FAIR4AI compliance."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from this form?",
+      "response_choices": NaN,
+      "response": "Detailed information on data licensing and access requirements",
+      "evidence": "Not found in metadata",
+      "notes": "While the metadata provides a rich description of the dataset's content and sources, it lacks specific information about the licensing terms, data access procedures, or any usage restrictions. This information is crucial for assessing the dataset's accessibility and reusability, which are critical components of FAIR and AI readiness."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Should sections or items from this form be edited or deleted? If so, how and/or why?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not contain any suggestions or recommendations for editing or deleting sections or items.",
+      "notes": "The metadata provided includes general descriptions of the dataset and its components but does not offer specific guidance or recommendations for edits. Any decisions about editing or deleting should be based on an analysis of the content quality or relevance, which isn't detailed in the metadata."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Did the metadata you evaluated provide sufficient information to determine if the dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain explicit information or fields that allow assessment of FAIR (Findable, Accessible, Interoperable, Reusable) principles specifically in the context of AI readiness. The metadata outlines general dataset information and description but lacks details on data accessibility, interoperability standards, usage licenses, or data formats that are necessary to evaluate FAIR4AI compliance. While some descriptive and findable aspects are partially evident through dataset descriptions and updater information, key elements for accessibility, interoperability, and reusability are not covered."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from the metadata? ",
+      "response_choices": NaN,
+      "response": "The metadata lacks information on licensing terms, data format specifications, access protocols, and data quality metrics.",
+      "evidence": "The metadata mentions data collection methods and purposes, but does not include details about licensing (`license` field is missing), data formats (e.g., 'CSV', 'JSON' plot or specification details), no access protocol information (`accessURL` field is missing), and there are no indications of data quality metrics or validation processes.",
+      "notes": "For a dataset to be FAIR4AI, it should have clear licensing information to ensure reuse, specified formats to ensure interoperability, access protocols to define how data is accessed, and quality metrics to establish the dataset's reliability. These elements are essential to ensure the data's findability, accessibility, interoperability, and reusability."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Use this space to provide any other feedback",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not contain a 'Conclusion' section or feedback-related content.",
+      "notes": "The provided metadata files contain descriptions and updates about the SmartWilds dataset, including its sources and uses, but do not include a designated conclusion or feedback section."
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "The dataset description is clear and provides details on the purpose and types of data collected, such as ecological monitoring, animal behavior analysis, and biodiversity studies.",
+      "The dataset is part of a larger 'imageomics' collection, suggesting it is well-integrated into a broader context which could facilitate collaborative efforts and data sharing.",
+      "Geographic coverage is indicated, specifying that data was collected at The Wilds safari park in Ohio, which provides context on the data's origin."
+    ],
+    "weaknesses": [
+      "The metadata lacks important information on licensing, making it unclear under what terms the dataset can be accessed or reused.",
+      "There is no unique, persistent identifier like a DOI, which limits the dataset's findability and citation in scholarly works.",
+      "Information on data access methods, such as direct download or API availability, is not provided, which hampers easy accessibility.",
+      "The metadata does not describe data formats, technical specifications, or processing methods, impacting interoperability and reusability.",
+      "No contact information or provenance details are included, which are important for users to seek assistance or understand dataset history."
+    ],
+    "overall_assessment": "While the 'smartwilds' dataset is well-described in terms of its ecological and monitoring purposes, it falls short in several critical areas required for full FAIR compliance. Specifically, it lacks unique identifiers, comprehensive access details, format specifications, and licensing information which are essential to ensure its findability, accessibility, interoperability, and reusability, especially in AI applications. Improvement in these areas would enhance its usability and compliance with FAIR data principles.",
+    "fair_score_estimate": {
+      "findable": "4/10 - While the dataset is clearly part of a larger collection and described well, it lacks unique identifiers such as a DOI and keywords for enhanced searchability.",
+      "accessible": "3/10 - The metadata does not provide information on how the dataset can be accessed, such as download links or API documentation, nor does it mention licensing.",
+      "interoperable": "2/10 - There is no mention of data formats, ontologies, or standards used, severely limiting the dataset's interoperability with other datasets or systems.",
+      "reusable": "3/10 - Without detail on formats, no citation format, and lacking in licensing and proper provenance information, the dataset's reusability remains low."
+    }
+  }
+}

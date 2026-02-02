@@ -1,0 +1,2486 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dbpedia": "http://dbpedia.org/resource/"
+  },
+  "@type": "Dataset",
+  "citation": "NEON (National Ecological Observatory Network). Plant foliar traits (DP1.10026.001), provisional data. Dataset accessed from https://data.neonscience.org/data-products/DP1.10026.001 on February 1, 2026. Data archived at [your DOI].",
+  "description": "Traits of sun-lit canopy plants reported at the level of the individual (woody plants) or community (herbaceous plants).",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://data.neonscience.org/data-products/DP1.10026.001",
+      "encodingFormat": "application/zip"
+    }
+  ],
+  "identifier": "https://data.neonscience.org/data-products/DP1.10026.001",
+  "includedInDataCatalog": {
+    "@id": "https://data.neonscience.org/data-products/explore",
+    "@type": "DataCatalog",
+    "url": "https://data.neonscience.org/data-products/explore"
+  },
+  "isAccessibleForFree": true,
+  "keywords": "leaves,plants,chlorophyll,canopy,foliage,foliar,lignin,cellulose,leaf mass per area,specific leaf area,carotenoids,nitrogen (N),calcium (Ca),iron (Fe),magnesium (Mg),manganese (Mn),potassium (K),sulfur (S),carbon (C),boron (B),copper (Cu),zinc (Zn),d13C,d15N,plant traits,cfc,phosphorus (P),biodiversity",
+  "license": "https://www.neonscience.org/data-samples/data-policies-citation",
+  "name": "NEON (National Ecological Observatory Network) Plant foliar traits (DP1.10026.001)",
+  "provider": {
+    "@id": "https://data.neonscience.org",
+    "@type": "Organization",
+    "url": "https://data.neonscience.org"
+  },
+  "publisher": {
+    "@id": "https://data.neonscience.org",
+    "@type": "Organization",
+    "url": "https://data.neonscience.org"
+  },
+  "sameAs": "https://data.neonscience.org/data-products/DP1.10026.001",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Abby Road NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 364.5523,
+        "latitude": 45.762439,
+        "longitude": -122.330317
+      },
+      "name": "ABBY"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Utqiaġvik NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 4.4653,
+        "latitude": 71.28241,
+        "longitude": -156.61936
+      },
+      "name": "BARR"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Bartlett Experimental Forest NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 274.04928,
+        "latitude": 44.063889,
+        "longitude": -71.287375
+      },
+      "name": "BART"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Blandy Experimental Farm NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 182.71388,
+        "latitude": 39.033698,
+        "longitude": -78.041788
+      },
+      "name": "BLAN"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Caribou-Poker Creeks Research Watershed NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 230.496,
+        "latitude": 65.15401,
+        "longitude": -147.50258
+      },
+      "name": "BONA"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Lyndon B. Johnson National Grassland NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 272.27,
+        "latitude": 33.40123,
+        "longitude": -97.57
+      },
+      "name": "CLBJ"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Central Plains Experimental Range NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1653.9151,
+        "latitude": 40.815536,
+        "longitude": -104.745591
+      },
+      "name": "CPER"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Dakota Coteau Field Site NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 575.3036,
+        "latitude": 47.16165,
+        "longitude": -99.10656
+      },
+      "name": "DCFS"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Delta Junction NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 517.3972,
+        "latitude": 63.88112,
+        "longitude": -145.75136
+      },
+      "name": "DEJU"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Dead Lake NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 25.00966,
+        "latitude": 32.541727,
+        "longitude": -87.803877
+      },
+      "name": "DELA"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Disney Wilderness Preserve NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 20.33438,
+        "latitude": 28.12505,
+        "longitude": -81.43619
+      },
+      "name": "DSNY"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Great Smoky Mountains National Park NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 575.396725,
+        "latitude": 35.68896,
+        "longitude": -83.50195
+      },
+      "name": "GRSM"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Guánica Forest NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 125.3233,
+        "latitude": 17.96955,
+        "longitude": -66.8687
+      },
+      "name": "GUAN"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Harvard Forest & Quabbin Watershed NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 348.12784,
+        "latitude": 42.53691,
+        "longitude": -72.17265
+      },
+      "name": "HARV"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Healy NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 677.1235,
+        "latitude": 63.875798,
+        "longitude": -149.213347
+      },
+      "name": "HEAL"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "The Jones Center At Ichauway NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 46.6537,
+        "latitude": 31.194839,
+        "longitude": -84.468623
+      },
+      "name": "JERC"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Jornada Experimental Range NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1323.54804,
+        "latitude": 32.590694,
+        "longitude": -106.842542
+      },
+      "name": "JORN"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Konza Prairie Agroecosystem NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 323.2928,
+        "latitude": 39.110446,
+        "longitude": -96.612935
+      },
+      "name": "KONA"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Konza Prairie Biological Station NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 414.42534,
+        "latitude": 39.100774,
+        "longitude": -96.563075
+      },
+      "name": "KONZ"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Lajas Experimental Station NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 16.44298,
+        "latitude": 18.021261,
+        "longitude": -67.076889
+      },
+      "name": "LAJA"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Lenoir Landing NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 13.2496,
+        "latitude": 31.853861,
+        "longitude": -88.161181
+      },
+      "name": "LENO"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Mountain Lake Biological Station NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1169.668,
+        "latitude": 37.378314,
+        "longitude": -80.524847
+      },
+      "name": "MLBS"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Moab NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1798.8379,
+        "latitude": 38.248283,
+        "longitude": -109.388273
+      },
+      "name": "MOAB"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Niwot Ridge NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 3489.988,
+        "latitude": 40.05425,
+        "longitude": -105.58237
+      },
+      "name": "NIWO"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Northern Great Plains Research Laboratory NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 588.63,
+        "latitude": 46.76972,
+        "longitude": -100.91535
+      },
+      "name": "NOGP"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Marvin Klemme Range Research Station NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 518.93536,
+        "latitude": 35.410599,
+        "longitude": -99.058779
+      },
+      "name": "OAES"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Onaqui NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1662.3947,
+        "latitude": 40.177599,
+        "longitude": -112.452452
+      },
+      "name": "ONAQ"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Oak Ridge NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 343.7875,
+        "latitude": 35.964128,
+        "longitude": -84.282588
+      },
+      "name": "ORNL"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Ordway-Swisher Biological Station NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 46.0339,
+        "latitude": 29.689282,
+        "longitude": -81.993431
+      },
+      "name": "OSBS"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Puu Makaala Natural Area Reserve NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1685,
+        "latitude": 19.55309,
+        "longitude": -155.31731
+      },
+      "name": "PUUM"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Rocky Mountains NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 2741.57408,
+        "latitude": 40.275903,
+        "longitude": -105.545955
+      },
+      "name": "RMNP"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Smithsonian Conservation Biology Institute NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 352.431604,
+        "latitude": 38.892925,
+        "longitude": -78.139494
+      },
+      "name": "SCBI"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Smithsonian Environmental Research Center NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 32.5315,
+        "latitude": 38.890131,
+        "longitude": -76.560014
+      },
+      "name": "SERC"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "San Joaquin Experimental Range NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 399.8378,
+        "latitude": 37.10878,
+        "longitude": -119.73228
+      },
+      "name": "SJER"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Soaproot Saddle NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1209.8888,
+        "latitude": 37.03337,
+        "longitude": -119.26219
+      },
+      "name": "SOAP"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Santa Rita Experimental Range NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 997.476,
+        "latitude": 31.91068,
+        "longitude": -110.83549
+      },
+      "name": "SRER"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Steigerwaldt-Chequamegon NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 475.7317,
+        "latitude": 45.50894,
+        "longitude": -89.58637
+      },
+      "name": "STEI"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "North Sterling NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1364.63056,
+        "latitude": 40.461894,
+        "longitude": -103.02929
+      },
+      "name": "STER"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Talladega National Forest NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 166.1869,
+        "latitude": 32.95047,
+        "longitude": -87.393259
+      },
+      "name": "TALL"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Lower Teakettle NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 2149.25705,
+        "latitude": 37.00583,
+        "longitude": -119.00602
+      },
+      "name": "TEAK"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Toolik Field Station NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 832.06,
+        "latitude": 68.66109,
+        "longitude": -149.37047
+      },
+      "name": "TOOL"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Treehaven NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 466.57,
+        "latitude": 45.49369,
+        "longitude": -89.58571
+      },
+      "name": "TREE"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "KU Field Station NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 321.5761,
+        "latitude": 39.040431,
+        "longitude": -95.19215
+      },
+      "name": "UKFS"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "University of Notre Dame Environmental Research Center NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 520.97118,
+        "latitude": 46.23391,
+        "longitude": -89.537254
+      },
+      "name": "UNDE"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Chase Lake National Wildlife Refuge NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 590.869,
+        "latitude": 47.1282,
+        "longitude": -99.241334
+      },
+      "name": "WOOD"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Wind River Experimental Forest NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 351.26,
+        "latitude": 45.82049,
+        "longitude": -121.95191
+      },
+      "name": "WREF"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Yellowstone National Park NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 2132.566,
+        "latitude": 44.95348,
+        "longitude": -110.53914
+      },
+      "name": "YELL"
+    }
+  ],
+  "temporalCoverage": "2016-06/2025-09",
+  "url": "https://data.neonscience.org/data-products/DP1.10026.001",
+  "variablesMeasured": [
+    {
+      "@type": "PropertyValue",
+      "description": "Unique ID within NEON database; an identifier for the record",
+      "name": "uid",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique ID within NEON database; an identifier for the record",
+      "name": "uid",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the measurement location in the NEON database",
+      "name": "namedLocation",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the measurement location in the NEON database",
+      "name": "namedLocation",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The start date-time or interval during which an event occurred",
+      "name": "startDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date or date and time of measurement, observation, or collection event",
+      "name": "date",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier of the NEON domain",
+      "name": "domainID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The end date-time or interval during which an event occurred",
+      "name": "endDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Analyte or parameter measured",
+      "name": "analyte",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier of the NEON domain",
+      "name": "domainID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "NEON site code",
+      "name": "siteID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Associated units of measure for analyte",
+      "name": "analyteUnits",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Equation input for calculating chlorophyll or carotenoid content",
+      "name": "chlCarotEquationInput",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the set of information associated with the event, which includes information about the place and time of the event",
+      "name": "eventID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Plot identifier (NEON site code_XXX)",
+      "name": "plotID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "NEON plot type in which sampling occurred: tower, distributed or gradient",
+      "name": "plotType",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "NEON site code",
+      "name": "siteID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Parameter used for calculating chlorophyll or carotenoid content",
+      "name": "chlCarotExtinctionCoefficient",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier of the NEON domain",
+      "name": "domainID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The name of the user-downloaded file that is linked to the record",
+      "name": "downloadFileName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "NEON plot type in which sampling occurred: tower, distributed or gradient",
+      "name": "plotType",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for sample",
+      "name": "sampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Type of sample",
+      "name": "sampleType",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The URL of the file linked to the record",
+      "name": "downloadFileUrl",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A list of sources (concatenated and semicolon separated) for the extinction coefficients",
+      "name": "ecReference",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "National Land Cover Database Vegetation Type Name",
+      "name": "nlcdClass",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for quality assurance reference material or standard",
+      "name": "qaReferenceID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a sample",
+      "name": "sampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for sample",
+      "name": "sampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "NEON site code",
+      "name": "siteID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The known value of a given analyte for a quality assurance reference material or standard, with units tied to the analyte",
+      "name": "analyteKnownValue",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Model used to measure horizontal position on the earth",
+      "name": "geodeticDatum",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Plot identifier (NEON site code_XXX)",
+      "name": "plotID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a sample",
+      "name": "sampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Year of Airborne Observation Platform (AOP) remote sensing data used to create shapefile of crown polygons",
+      "name": "shapefileAopYear",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The measured value of a given analyte for a standard reference material, with units tied to the analyte",
+      "name": "analyteObservedValue",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for a chlorophyll sample",
+      "name": "chlorophyllSampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for a carbon-nitrogen sample",
+      "name": "cnSampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date of the collection event",
+      "name": "collectDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The geographic latitude (in decimal degrees, WGS84) of the geographic center of the reference area",
+      "name": "decimalLatitude",
+      "unitText": "decimalDegree"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for a lignin sample",
+      "name": "ligninSampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Method used to conduct test",
+      "name": "testMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Long-term average absolute error, e.g. the absolute value of the difference between observed and known values of the analyte, based on analysis of quality assurance reference materials or standards treated as unknowns",
+      "name": "analyteAbsoluteError",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Long-term average standard deviation values of the analyte, based on analysis of quality assurance reference materials or standards treated as unknowns",
+      "name": "analyteStandardDeviation",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a chlorophyll sample",
+      "name": "chlorophyllSampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a carbon-nitrogen sample",
+      "name": "cnSampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date of the collection event",
+      "name": "collectDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The geographic longitude (in decimal degrees, WGS84) of the geographic center of the reference area",
+      "name": "decimalLongitude",
+      "unitText": "decimalDegree"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date a specific analyte, instrument, and associated method detection limit combination started",
+      "name": "labSpecificStartDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode for a lignin sample",
+      "name": "ligninSampleBarcode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for a leaf mass per area sample",
+      "name": "lmaSampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Long-term average accuracy, e.g. the difference between observed and known values of the analyte, based on analysis of quality assurance reference materials or standards treated as unknowns",
+      "name": "analyteAccuracy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent recovery of the analyte, based on analysis of quality assurance reference materials or standards treated as unknowns",
+      "name": "analytePercentRecovery",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location. Zero is not a valid value for this term",
+      "name": "coordinateUncertainty",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date a specific analyte, instrument, and associated method detection limit combination ended",
+      "name": "labSpecificEndDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a leaf mass per area sample",
+      "name": "lmaSampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The date and time a sample was placed in the drying oven",
+      "name": "ovenStartDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for a point location",
+      "name": "pointID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Count of how many measurements were used to determine analyte metrics",
+      "name": "analyteMetricsCount",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Long-term average standard deviation values of the analyte, based on analysis of quality assurance reference materials or standards treated as unknowns",
+      "name": "analyteStandardDeviation",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date of the collection event",
+      "name": "collectDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Elevation (in meters) above sea level",
+      "name": "elevation",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Condition of a leaf mass per area sample",
+      "name": "lmaSampleCondition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The date and time a sample was removed from the drying oven",
+      "name": "ovenEndDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Horizontal distance from stem to pointID location",
+      "name": "stemDistance",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date that the sample was analyzed",
+      "name": "analysisDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Count of how many measurements were used to determine analyte metrics",
+      "name": "analyteMetricsCount",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Uncertainty in elevation values (in meters)",
+      "name": "elevationUncertainty",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Start date for the quality assurance (QA) reporting period",
+      "name": "qaReportingStartDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Condition of a sample",
+      "name": "sampleCondition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Azimuth relative to True North between stem and pointID location",
+      "name": "stemAzimuth",
+      "unitText": "degree"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A brief description of the type of tissue or material analyzed",
+      "name": "tissueDescriptor",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of the analytical replicate",
+      "name": "analyticalRepNumber",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for a carbon-nitrogen sample",
+      "name": "cnSampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Indicator for whether carbon dioxide was trapped prior to analysis; used for measuring nitrogen in high C:N samples",
+      "name": "co2Trapped",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Domain-level unique identifier for an individual: NEON.MOD.D##.######",
+      "name": "individualID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "End date for the quality assurance (QA) reporting period",
+      "name": "qaReportingEndDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Start date for the quality assurance (QA) reporting period",
+      "name": "qaReportingStartDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The NEON document number and version where detailed information regarding the sampling method used is available; format NEON.DOC.######vX",
+      "name": "samplingProtocolVersion",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The date and time a sample is scanned",
+      "name": "scanDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a carbon-nitrogen sample",
+      "name": "cnSampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Oven-dried mass of sample or subsample",
+      "name": "dryMass",
+      "unitText": "gram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "End date for the quality assurance (QA) reporting period",
+      "name": "qaReportingEndDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Condition of a sample",
+      "name": "sampleCondition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who scanned the sample(s)",
+      "name": "scannedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date of the collection event",
+      "name": "collectDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Measure of the ratio of 15N:14N in a sample, relative to atmospheric N2",
+      "name": "d15N",
+      "unitText": "permill"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Volume of digest solution used",
+      "name": "digestVolume",
+      "unitText": "milliliter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The start date-time for an extraction event",
+      "name": "extractionStartDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Total fresh mass of a sample",
+      "name": "freshMass",
+      "unitText": "gram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent lignin from the acid detergent method on a dry mass basis",
+      "name": "ligninPercent",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for a lignin sample",
+      "name": "ligninSampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Globally unique identifier for stem on which a liana is growing",
+      "name": "supportingStemIndividualID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date that remote sensing data from the NEON AOP were collected for the sample",
+      "name": "aopCollectDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent cellulose from the acid detergent method on a dry mass basis",
+      "name": "cellulosePercent",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Measure of the ratio of 13C:12C in a sample, relative to Vienna Pee Dee Belemnite",
+      "name": "d13C",
+      "unitText": "permill"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of phophorus in sample digest",
+      "name": "digestPhosphorusConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The duration of an extraction event",
+      "name": "extractionLength",
+      "unitText": "hour"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode for a lignin sample",
+      "name": "ligninSampleBarcode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The date and time a sample was placed in the drying oven",
+      "name": "ovenStartDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Indicates the tagID previously reported for a given individual",
+      "name": "previouslyTaggedAs",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for an archive sample",
+      "name": "archiveSampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of potassium in sample digest",
+      "name": "digestPotassiumConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Type of instrument used for the analysis",
+      "name": "instrument",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for sample measurement",
+      "name": "measurementQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent nitrogen in a sample on a dry weight basis",
+      "name": "nitrogenPercent",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The date and time a sample was removed from the drying oven",
+      "name": "ovenEndDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Preparation or preservation method for a field sample prior to processing",
+      "name": "samplePrepMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Samples and/or measurements were not collected due to the indicated circumstance",
+      "name": "samplingImpractical",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The NEON document number and version where detailed information regarding the sampling method used is available; format NEON.DOC.######vX",
+      "name": "samplingProtocolVersion",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for quality assurance materials associated with the run",
+      "name": "accuracyQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of archive sample",
+      "name": "archiveSampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent carbon in a sample on a dry weight basis",
+      "name": "carbonPercent",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of calcium in sample digest",
+      "name": "digestCalciumConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Oven-dried mass of sample or subsample",
+      "name": "dryMass",
+      "unitText": "gram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Total fresh mass of a sample",
+      "name": "freshMass",
+      "unitText": "gram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Type of instrument used for the analysis",
+      "name": "instrument",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for the NEON subplot",
+      "name": "subplotID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Species code, based on one or more sources",
+      "name": "taxonID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Method used to conduct test",
+      "name": "testMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Mass of an archive sample",
+      "name": "archiveMass",
+      "unitText": "gram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Ratio of carbon to nitrogen concentration in a sample on a dry weight basis",
+      "name": "CNratio",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of magnesium in sample digest",
+      "name": "digestMagnesiumConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Published method used for analysis",
+      "name": "method",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Type of sample",
+      "name": "sampleType",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+      "name": "scientificName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Volume of solvent used in the extraction",
+      "name": "solventVolume",
+      "unitText": "milliliter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Method used to conduct test",
+      "name": "testMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who weighed the sample",
+      "name": "weighedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for stable isotope values outside the calibration range",
+      "name": "cnIsotopeQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of sulfur in sample digest",
+      "name": "digestSulfurConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The factor by which the sample was diluted prior to analysis",
+      "name": "dilutionFactor",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Published method used for analysis",
+      "name": "method",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name or code for the method used to collect or test a sample",
+      "name": "samplingMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of leaves or needles scanned",
+      "name": "scannedLeafNumber",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The lowest level taxonomic rank that can be determined for the individual or specimen",
+      "name": "taxonRank",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Indicator for whether a sample may contain Toxicodendron spp",
+      "name": "toxicodendronPossible",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of the analytical replicate",
+      "name": "analyticalRepNumber",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for concentration values outside the calibration range",
+      "name": "cnPercentQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of manganese in sample digest",
+      "name": "digestManganeseConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+      "name": "identificationReferences",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Area of all leaves or needles scanned",
+      "name": "leafArea",
+      "unitText": "squareMillimeter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who processed the sample(s)",
+      "name": "processedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for sample",
+      "name": "sampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Method used to conduct test",
+      "name": "testMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of lab personnel analyzing sample",
+      "name": "analyzedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The first wavelength used to measure chlorophyll and carotenoid content",
+      "name": "chlCarotWavelength1",
+      "unitText": "nanometer"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of iron in sample digest",
+      "name": "digestIronConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for accuracy of stable isotope values of QA materials associated with the run",
+      "name": "isotopeAccuracyQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for morphospecies",
+      "name": "morphospeciesID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Visual estimate of percent scanned foliar material that was live and green",
+      "name": "percentGreen",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a sample",
+      "name": "sampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The second wavelength used to measure chlorophyll and carotenoid content",
+      "name": "chlCarotWavelength2",
+      "unitText": "nanometer"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of copper in sample digest",
+      "name": "digestCopperConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Dry mass per unit area of leaf or needle foliage",
+      "name": "leafMassPerArea",
+      "unitText": "gramsPerSquareMeter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes about the morphospecies; free text comments accompanying the record",
+      "name": "morphospeciesIDRemarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for accuracy of percent concentration values of QA materials associated with the run",
+      "name": "percentAccuracyQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of lab personnel who reviewed the data prior to submission",
+      "name": "reviewedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Condition of a sample",
+      "name": "sampleCondition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of the analytical replicate",
+      "name": "analyticalRepNumber",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The third wavelength used to measure chlorophyll and carotenoid content",
+      "name": "chlCarotWavelength3",
+      "unitText": "nanometer"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for a chlorophyll sample",
+      "name": "chlorophyllSampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of boron in sample digest",
+      "name": "digestBoronConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Dry mass divided by fresh mass of a sample",
+      "name": "dryMassFraction",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A standard term to express the determiner's doubts about the Identification",
+      "name": "identificationQualifier",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The fourth wavelength used to measure chlorophyll and carotenoid content",
+      "name": "chlCarotWavelength4",
+      "unitText": "nanometer"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a chlorophyll sample",
+      "name": "chlorophyllSampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of zinc in sample digest",
+      "name": "digestZincConc",
+      "unitText": "milligramsPerLiter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who measured or collected the data",
+      "name": "measuredBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Absorbance values for the first wavelength used to measure chlorophyll and carotenoid content",
+      "name": "chlCarotWavelength1Abs",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Preparation or preservation method for a chlorophyll sample",
+      "name": "chlorophyllSamplePrepMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of phophorus in plant foliage sample on a dry mass basis",
+      "name": "foliarPhosphorusConc",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who measured or collected the data",
+      "name": "measuredBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Absorbance values for the second wavelength used to measure chlorophyll and carotenoid content",
+      "name": "chlCarotWavelength2Abs",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Condition of a chlorophyll sample",
+      "name": "chlorophyllSampleCondition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of potassium in plant foliage sample on a dry mass basis",
+      "name": "foliarPotassiumConc",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who recorded the data",
+      "name": "recordedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Method used to conduct test",
+      "name": "testMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Absorbance values for the third wavelength used to measure chlorophyll and carotenoid content",
+      "name": "chlCarotWavelength3Abs",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A numeric identifier for the clip-harvest cell in which herbaceous biomass was sampled",
+      "name": "clipCellNumber",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of calcium in plant foliage sample on a dry mass basis",
+      "name": "foliarCalciumConc",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Type of instrument used for the analysis",
+      "name": "instrument",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of lab personnel analyzing sample",
+      "name": "analyzedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Absorbance values for the fourth wavelength used to measure chlorophyll and carotenoid content",
+      "name": "chlCarotWavelength4Abs",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier for the clip-harvest location within the plot",
+      "name": "clipID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of magnesium in plant foliage sample on a dry mass basis",
+      "name": "foliarMagnesiumConc",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The length of the clip-harvest area in meters",
+      "name": "clipLength",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Calculated chlorophyll A concentration of the extract solution, dilution-corrected as needed",
+      "name": "extractChlAConc",
+      "unitText": "microgramsPerMilliliter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of sulfur in plant foliage sample on a dry mass basis",
+      "name": "foliarSulfurConc",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of lab personnel who reviewed the data prior to submission",
+      "name": "reviewedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The width of the clip-harvest area in meters",
+      "name": "clipWidth",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Calculated chlorophyll B concentration of the extract solution, dilution-corrected as needed",
+      "name": "extractChlBConc",
+      "unitText": "microgramsPerMilliliter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of manganese in plant foliage sample on a dry mass basis",
+      "name": "foliarManganeseConc",
+      "unitText": "milligramsPerKilogram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Calculated total carotenoid concentration of the extract solution, dilution-corrected as needed",
+      "name": "extractCarotConc",
+      "unitText": "microgramsPerMilliliter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of iron in plant foliage sample on a dry mass basis",
+      "name": "foliarIronConc",
+      "unitText": "milligramsPerKilogram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Ocular estimate of percent cover of all vegetation in the clip strip",
+      "name": "percentCoverClip",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of copper in plant foliage sample on a dry mass basis",
+      "name": "foliarCopperConc",
+      "unitText": "milligramsPerKilogram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for sample handling",
+      "name": "handlingQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Indicator for whether a sample may contain Toxicodendron spp",
+      "name": "toxicodendronPossible",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of boron in plant foliage sample on a dry mass basis",
+      "name": "foliarBoronConc",
+      "unitText": "milligramsPerKilogram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for sample measurement",
+      "name": "measurementQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Indicator for whether a tagID is associated with vegetation structure measurements",
+      "name": "vstTag",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Concentration of zinc in plant foliage sample on a dry mass basis",
+      "name": "foliarZincConc",
+      "unitText": "milligramsPerKilogram"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Indicator for the mean relative accuracy of standards analyzed as unknowns with a run of samples",
+      "name": "relativeAccuracyScale",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Domain-level unique identifier of tag used to mark the individual",
+      "name": "tagID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for the spectrometer absorbance standard",
+      "name": "absorbanceStandardQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar phosphorus data",
+      "name": "foliarPhosphorusQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Domain-level unique identifier for an individual: NEON.MOD.D##.######",
+      "name": "individualID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for chlorophyll quality assurance materials associated with the run",
+      "name": "chlQAMaterialQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar potassium data",
+      "name": "foliarPotassiumQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar calcium data",
+      "name": "foliarCalciumQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Species code, based on one or more sources",
+      "name": "taxonID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar magnesium data",
+      "name": "foliarMagnesiumQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+      "name": "scientificName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar sulfur data",
+      "name": "foliarSulfurQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Physical status of the plant or plants",
+      "name": "plantStatus",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Method used to conduct test",
+      "name": "testMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of lab personnel analyzing sample",
+      "name": "analyzedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Canopy status of an individual relative to its neighbors",
+      "name": "canopyStatus",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar manganese data",
+      "name": "foliarManganeseQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Vertical status of an individual relative to its neighbors",
+      "name": "canopyPosition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar iron data",
+      "name": "foliarIronQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of lab personnel who reviewed the data prior to submission",
+      "name": "reviewedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar copper data",
+      "name": "foliarCopperQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Vertical position of a leaf or needle sample in the canopy",
+      "name": "leafSamplePosition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar boron data",
+      "name": "foliarBoronQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Vertical distance from ground to height of first canopy subsample",
+      "name": "subsample1Height",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Quality flag for foliar zinc data",
+      "name": "foliarZincQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Vertical distance from ground to height of second canopy subsample",
+      "name": "subsample2Height",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Vertical distance from ground to height of third canopy subsample",
+      "name": "subsample3Height",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for a crown polygon",
+      "name": "crownPolygonID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Field assessment of confidence level in a crown polygon",
+      "name": "crownPolygonConfidence",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Method used to conduct test",
+      "name": "testMethod",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of lab personnel analyzing sample",
+      "name": "analyzedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Indicator of whether a polygon was created during a previous canopy foliar sampling bout",
+      "name": "previousPolygon",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of lab personnel who reviewed the data prior to submission",
+      "name": "reviewedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for the shapefile that contains the crown polygon",
+      "name": "shapefileID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who collected the sample or specimen",
+      "name": "collectedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who recorded the data",
+      "name": "recordedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    }
+  ],
+  "version": "PROVISIONAL"
+}

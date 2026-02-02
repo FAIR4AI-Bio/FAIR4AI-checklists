@@ -1,0 +1,20 @@
+{
+  "description": "The World Ocean Database (WOD) is world's largest collection of uniformly formatted, quality controlled, publicly available ocean profile data. It is a powerful tool for oceanographic, climatic, and environmental research, and the end result of more than 20 years of coordinated efforts to incorporate data from institutions, agencies, individual researchers, and data recovery initiatives into a single database. WOD data spans from Captain Cook's 1772 voyage to the contemporary Argo period, making it a valuable resource for long term and historical ocean climate analysis.",
+  "keywords": "climate,data,observations,weather,coasts,oceans,geophysics,satellites",
+  "generator": "Drupal 8 (http://drupal.org)",
+  "og:site_name": "National Centers for Environmental Information (NCEI)",
+  "og:type": "article",
+  "og:url": "https://www.ncei.noaa.gov/products/world-ocean-database",
+  "og:title": "World Ocean Database",
+  "og:description": "The World Ocean Database (WOD) is world's largest collection of uniformly formatted, quality controlled, publicly available ocean profile data. It is a powerful tool for oceanographic, climatic, and environmental research, and the end result of more than 20 years of coordinated efforts to incorporate data from institutions, agencies, individual researchers, and data recovery initiatives into a single database. WOD data spans from Captain Cook's 1772 voyage to the contemporary Argo period, making it a valuable resource for long term and historical ocean climate analysis.",
+  "og:updated_time": "2025-11-19T09:59:21-0500",
+  "article:published_time": "2020-11-10T13:37:28-0500",
+  "article:modified_time": "2025-11-19T09:59:21-0500",
+  "twitter:card": "summary_large_image",
+  "twitter:title": "World Ocean Database",
+  "twitter:description": "The World Ocean Database (WOD) is world's largest collection of uniformly formatted, quality controlled, publicly available ocean profile data. It is a powerful tool for oceanographic, climatic, and environmental research, and the end result of more than 20 years of coordinated efforts to incorporate data from institutions, agencies, individual researchers, and data recovery initiatives into a single database. WOD data spans from Captain Cook's 1772 voyage to the contemporary Argo period, making it a valuable resource for long term and historical ocean climate analysis.",
+  "Generator": "Drupal 10 (https://www.drupal.org)",
+  "MobileOptimized": "width",
+  "HandheldFriendly": "true",
+  "viewport": "width=device-width, initial-scale=1.0"
+}

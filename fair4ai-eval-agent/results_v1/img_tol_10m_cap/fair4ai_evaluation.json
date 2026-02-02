@@ -1,0 +1,986 @@
+{
+  "metadata": {
+    "generated_date": "2026-02-01",
+    "dataset_evaluated": "img_tol_10m_cap",
+    "evaluation_method": "Automated analysis using FAIR4AI Agent with LLM",
+    "source_files": [
+      "extracted_schema_org_0.json",
+      "extracted_meta_tags.json",
+      "downloaded_metadata_0.md",
+      "downloaded_metadata_1.md",
+      "downloaded_metadata_2.md",
+      "downloaded_metadata_3.md",
+      "downloaded_metadata_4.md",
+      "extracted_page_content.md"
+    ],
+    "llm_provider": "azure",
+    "llm_model": "gpt-4o"
+  },
+  "responses": [
+    {
+      "section": "Form Root",
+      "question": "My name",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "None of the provided metadata files contain a field or value related to a specific individual's name.",
+      "notes": "The metadata files focus on dataset structure, description, file details, and technical attributes without any personal identifiers, including names."
+    },
+    {
+      "section": "Form Root",
+      "question": "My affiliation",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "My affiliation is not listed or referenced in any of the provided metadata documents.",
+      "notes": "The provided metadata includes dataset details, schema, and descriptions, but no information regarding personal affiliations is present."
+    },
+    {
+      "section": "Form Root",
+      "question": "My email",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided does not contain any information about email addresses or personal contact details.",
+      "notes": "Email addresses are typically not included in dataset metadata files unless specifically tagged, so it's expected that this information would not be found here."
+    },
+    {
+      "section": "Form Root",
+      "question": "Dataset title",
+      "response_choices": NaN,
+      "response": "TreeOfLife-10M Captions",
+      "evidence": "extracted_page_content.md: 'pretty_name: TreeOfLife-10M Captions'",
+      "notes": "The dataset title is confirmed in the 'pretty_name' field within the extracted page content."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the associated repository, if available.",
+      "response_choices": NaN,
+      "response": "https://github.com/Imageomics/biocap",
+      "evidence": "Found in extracted_page_content.md under the description section: 'Repository: [BioCAP](https://github.com/Imageomics/biocap)'",
+      "notes": "The repository is specifically associated with the BioCAP project mentioned in the dataset description."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the dataset landing page/home page if available.",
+      "response_choices": NaN,
+      "response": "https://imageomics.github.io/biocap",
+      "evidence": "The homepage is provided under the 'Dataset Description' section in the extracted_page_content.md file: '- **Homepage:** https://imageomics.github.io/biocap'",
+      "notes": "The homepage URL is explicitly mentioned in the dataset description details."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide the citation, DOI, URL, or similar, if available.",
+      "response_choices": NaN,
+      "response": "https://arxiv.org/abs/2510.20095",
+      "evidence": "downloaded_metadata_0.md mentions the paper 'BioCAP: Exploiting synthetic captions beyond labels in biological foundation models' with the provided URL as citation.",
+      "notes": "This citation leads to a paper that is directly related to the dataset and provides deeper insights into its creation and usage."
+    },
+    {
+      "section": "Form Root",
+      "question": "As I am evaluating this dataset, I am considering it for",
+      "response_choices": "publishing for others to use | open-ended use (window shopping) | use in a specific project",
+      "response": "publishing for others to use",
+      "evidence": "The metadata indicates that the dataset is shared on the Hugging Face platform with a detailed description and access instructions, suggesting it is intended for use by others. Specifically, the metadata includes fields such as 'description', 'configs', and 'tags', which are used to make datasets accessible and discoverable by others. Additionally, the dataset card mentions use in training models like BioCAP, further indicating the intention for public use and contribution to open science. Metadata fields like 'og:url' point to a public repository and homepage that make the dataset available for broader consumption.",
+      "notes": "The metadata describes the dataset's utility in model training and provides detailed dataset structure, annotation information, and data access instructions, all indicative of a dataset intended for public sharing and reuse."
+    },
+    {
+      "section": "Form Root",
+      "question": "My relationship to this dataset",
+      "response_choices": "Data Provider/Producer (metadata author) | Data User/Consumer (metadata reader)",
+      "response": "Data User/Consumer (metadata reader)",
+      "evidence": "The available metadata includes descriptions and information about the dataset's contents, such as its structure, supported tasks, and data splits, but does not indicate authorship or creation by the metadata provider.",
+      "notes": "The metadata provides comprehensive details of the dataset's contents, structure, and usage, aligning with the responsibilities of a data user/consumer."
+    },
+    {
+      "section": "Form Root",
+      "question": "Provide a brief description of how you are evaluating this dataset. ",
+      "response_choices": NaN,
+      "response": "I am evaluating this dataset based on metadata files, specifically the ML Croissant metadata format provided as JSON and other accompanying metadata documents.",
+      "evidence": "Evidence includes the 'extracted_schema_org_0.json' file which uses ML Croissant metadata format for dataset description, along with 'downloaded_metadata_0.md', 'downloaded_metadata_1.md', and others with additional HTML content.",
+      "notes": "The metadata files contain structured information about the dataset format, contents, and the methodologies used for generating image captions. Extracted metadata also indicates data sources and process descriptions. There is no access to the raw dataset itself, just the metadata documentation."
+    },
+    {
+      "section": "Form Root",
+      "question": "Metadata Upload",
+      "response_choices": NaN,
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 1 second. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Citation for “this dataset”: The full citation is provided (preferably in Bibtex format).",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata mentions a paper titled 'BioCAP: Exploiting synthetic captions beyond labels in biological foundation models' but does not provide a full citation or Bibtex format specifically for 'this dataset'.",
+      "notes": "The metadata references related publications and repositories but does not provide a structured citation format for the dataset itself."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Summary or Abstract",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include a specific section labeled as 'Summary' or 'Abstract'. Instead, it contains general descriptions and information about the dataset components and their uses."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Publisher",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions that the dataset was curated by Ziheng Zhang, Xinyue Ma, Arpita Chowdhury, Elizabeth G Campolongo, Matthew J Thompson, Net Zhang, Samuel Stevens, Hilmar Lapp, Tanya Berger-Wolf, Yu Su, Wei-Lun Chao, Jianyang Gu, and it is affiliated with the homepage https://imageomics.github.io/biocap. The repository is also listed as [BioCAP](https://github.com/Imageomics/biocap).",
+      "notes": "The curators and affiliated repository provide enough information to establish provenance."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Date Created",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not provide any specific information regarding the creation date of the dataset. The provided information includes details about the dataset structure, description, and usage, but not the creation date."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "An identifier for “this dataset”: Does the dataset have a unique, persistent, machine-resolvable identifier (e.g., DOI)? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any information about a unique, persistent, machine-resolvable identifier such as DOI for the dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Author/creator information are provided (e.g., names, affiliations, ORCIDs)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata under the **Curated by** section lists the names of the authors/creators of the dataset: Ziheng Zhang, Xinyue Ma, Arpita Chowdhury, Elizabeth G Campolongo, Matthew J Thompson, Net Zhang, Samuel Stevens, Hilmar Lapp, Tanya Berger-Wolf, Yu Su, Wei-Lun Chao, Jianyang Gu.",
+      "notes": "The metadata provides explicit names of individuals involved in curating the dataset, which fulfills the criteria for author/creator information. However, affiliations or ORCIDs are not provided."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Curator information is provided (all curator names, ORCIDs, etc. are listed)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Curator information is partially provided with names in the 'Dataset Description' section: Ziheng Zhang, Xinyue Ma, Arpita Chowdhury, Elizabeth G Campolongo, Matthew J Thompson, Net Zhang, Samuel Stevens, Hilmar Lapp, Tanya Berger-Wolf, Yu Su, Wei-Lun Chao, Jianyang Gu. However, ORCIDs or other unique identifiers are not listed.",
+      "notes": "The metadata includes the names of the curators but lacks ORCIDs or any other unique identifiers that would provide a more complete curator information according to FAIR principles."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Author(s) (person providing the description of the dataset) listed",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not contain any information specifically identifying the author(s) of the dataset card or documentation."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Contact or Expert Contact (who to contact with questions) is provided",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not list a contact or expert contact information specifically for questions about the dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Other Non-author Contributions",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention any non-author contributions. All listed contributors and processes seem to be directly related to the authors or the Hugging Face platform."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Acknowledgments: Funding Description and Grants",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain any information regarding funding descriptions or grants related to the dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Is this dataset derived from other sources?",
+      "response_choices": "Yes | No (skip to \"Additional information\" question)",
+      "response": "Yes",
+      "evidence": "This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contexts. It was used to train BioCAP, a CLIP-based model.",
+      "notes": "The dataset 'TreeOfLife-10M Captions' is derived from other sources, including generated captions and Wikipedia-derived descriptions processed using the BioCAP pipeline. Additionally, the images and taxonomic labels used are sourced from the TreeOfLife-10M dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Provenance Tracking: Do the metadata provide information about the source data from which this dataset was derived (e.g., titles, summaries, and links)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "\"This dataset is comprised of captions for the images in [TreeOfLife-10M](https://huggingface.co/datasets/imageomics/TreeOfLife-10M).\" and \"Images and taxonomic labels were sourced from the [TreeOfLife-10M dataset](https://huggingface.co/datasets/imageomics/TreeOfLife-10M).\"",
+      "notes": "The metadata clearly outlines the source of the images and taxonomic labels as the TreeOfLife-10M dataset, providing a link for more information. This satisfies the provenance tracking requirement."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data producers (who created the source data?)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'This dataset used visual descriptions sourced from Wikipedia as part of prompting an MLLM to generate captions for images sourced from the TreeOfLife-10M dataset using their associated taxonomic labels from that dataset. See the TreeOfLife-10M dataset sources section for more details.'",
+      "notes": "The source data producers for the TreeOfLife-10M dataset are mentioned, as well as Wikipedia as a source for visual descriptions."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Citation of subsumed datasets (cite your sources)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata specifies that images and taxonomic labels were sourced from the TreeOfLife-10M dataset and Wikipedia was used to source species-level visual descriptions - extracted_page_content.md: 'Images and taxonomic labels were sourced from the [TreeOfLife-10M dataset](https://huggingface.co/datasets/imageomics/TreeOfLife-10M)...', 'We used [Wikipedia](https://www.wikipedia.org/) to source the species-level visual descriptions...'",
+      "notes": "The dataset clearly cites its sources, including both the TreeOfLife-10M dataset for images and Wikipedia for visual descriptions."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data DOI (permalink for the sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No DOI or permalink for source data is provided in any sections of the metadata.",
+      "notes": "The metadata provides links and descriptions but does not mention a DOI for the source data (TreeOfLife-10M dataset or Wikipedia)."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data checksums: E.g., checksum for a zip file or a list of image checksums to ensure downstream users can get the same data you did.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata includes a 'sha256' field with an URL for issues but does not provide specific checksums for the dataset files or a list of image checksums.",
+      "notes": "The 'sha256' field seems to refer to an issue URL likely related to data integrity concerns, but actual checksums for verifying the source data files are not included in the provided metadata."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata includes information about dataset structure, creation, curation, and annotation processes. However, no specific additional information is found beyond these details.",
+      "notes": "The metadata provided includes comprehensive sections on dataset description, supported tasks, dataset splits, dataset creation details, source data, and annotations, but does not contain a distinct section labeled 'Additional information'."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related paper (e.g., DOI, BIBTEX citation, link, etc.)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "extracted_page_content.md: The reference to the related paper is 'BioCAP: Exploiting synthetic captions beyond labels in biological foundation models' with a link to the arXiv paper: https://arxiv.org/abs/2510.20095.",
+      "notes": "The metadata includes a direct link to the related paper which serves as proper evidence for the reference."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related dataset and/or Model",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions 'This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the [TreeOfLife-10M](https://huggingface.co/datasets/imageomics/TreeOfLife-10M).' It also references usage in training the BioCAP model, a CLIP-based model mentioned with a link to the model: 'This dataset was used to train [BioCAP](https://huggingface.co/imageomics/biocap).' Additionally, the [BioCAP pipeline](https://github.com/Imageomics/biocap/blob/main/BioCAP-pipeline.md) is referenced as the workflow for creating the dataset. The source data is sourced from the TreeOfLife-10M dataset, which is also referenced multiple times.",
+      "notes": "The metadata provides clear references to related datasets and models used in conjunction with this dataset, including links to TreeOfLife-10M and BioCAP."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Purpose of the data",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata in extracted_meta_tags.json describes the dataset as consisting of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. It explains the purpose of the data as being generated using InternVL3-38B based on biological contexts to help the model generate more accurate captions and to train BioCAP, a CLIP-based model.",
+      "notes": "The evidence is supported by multiple references in the metadata files, including the purpose being to generate more accurate captions and use biological contexts for better model training."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Content - short description of the data types, etc.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contexts that help the model generate more accurate captions. It was used to train BioCAP, a CLIP-based model. (found in extracted_page_content.md under the 'Dataset Card for TreeOfLife-10M Captions' section)",
+      "notes": "The metadata provides a clear and concise description of the dataset's contents, including the types of data it contains, such as captions generated via an AI model and descriptions derived from Wikipedia."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Are the data machine ready? (machine-actionable under the FAIR Principles)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is available in Parquet format, which is a columnar storage file format optimized for query performance. Evidence can be found in the extracted_schema_org_0.json file, where multiple entries of 'encodingFormat': 'application/x-parquet' are present, indicating the machine-readable file format.",
+      "notes": "The dataset includes structured metadata and is provided in a format that is widely used in data analysis and AI training workflows, ensuring its compatibility with various machine-learning tools and environments."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Language - what language or languages are the data?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states 'Languages: English, Latin'.",
+      "notes": "The dataset includes data in both English and Latin according to the metadata."
+    },
+    {
+      "section": "General Information",
+      "question": "Discovery: Are keywords/tags provided to describe the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata in extracted_page_content.md contains a 'tags' field under the dataset description: ['biology', 'image', 'animals', 'plants', 'fungi', 'CV', 'evolutionary biology', 'multimodal', 'clip', 'biology', 'species', 'taxonomy', 'knowledge-guided', 'imbalanced', 'captions']",
+      "notes": "Tags are provided that describe various aspects pertinent to the dataset such as the scientific domains addressed ('biology', 'evolutionary biology', 'taxonomy') as well as the type of data ('image', 'captions')."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Does the dataset and its metadata make use of relevant ontologies?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files mention various elements like 'dataType', 'fileSet', 'recordSet', and 'field' but do not reference any standardized ontology like ENVO, Darwin Core, UO, or GO.",
+      "notes": "While the metadata contains structured sections related to data fields and file sets, there is no reference to well-known ontologies in the biological or environmental domains typically used to enhance interoperability and standardization."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Is the data dictionary/codebook provided?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any explicit reference to a data dictionary or codebook that defines the fields or attributes of the dataset."
+    },
+    {
+      "section": "General Information",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for TreeOfLife-10M, used to train the BioCAP model.",
+      "evidence": "extracted_meta_tags.json: 'description': 'This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M.'; extracted_page_content.md: 'description': 'This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contexts that help the model generate more accurate captions.'",
+      "notes": "The dataset is multimodal and supports various tasks including image classification and text-to-image retrieval. It uses biological contexts to improve generated captions and contains taxa-level descriptions sourced from Wikipedia."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: File format(s) that encode the data are described",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes multiple file formats: 'This dataset contains three pieces... /dataset/ format_example.parquet wiki_description.parquet uuid_caption_description.parquet'. The encodingFormat for the datasets is 'application/x-parquet' as found in multiple locations, such as 'encodingFormat': 'application/x-parquet' and files like 'format_example.parquet', 'wiki_description.parquet'.",
+      "notes": "The dataset is described as being available in Parquet file format, which is explicitly mentioned as 'application/x-parquet'."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The dataset layout pattern is provided or explained",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes the dataset's layout with specific files and their content. The extracted_page_content.md details the structure, mentioning files like `format_example.parquet`, `wiki_description.parquet`, and `uuid_caption_description.parquet`. Additionally, the extracted_schema_org_0.json lists configurations and includes paths like `TOL-10M captions/*/*.parquet` and `sample captions/*/*.parquet`.",
+      "notes": "The dataset includes multiple files organized in a structured way, covering format examples, Wikipedia-derived descriptions, and UUID-caption-description mappings."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The primary unit of data that is to be operated on is explained",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes several files, each with specific structures: 'format_example.parquet' contains columns 'class' and 'format_example'; 'uuid_caption_description.parquet' has columns for 'uuid', 'caption', and 'description'. Each row in these files corresponds to unique data points such as taxonomic class descriptions or UUID-caption mappings.",
+      "notes": "The explanation of each file's structure provides clarity on how data is organized, with specific descriptions of what each column represents."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are properly documented in the metadata",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "In the `extracted_schema_org_0.json`, the dataset fields and attributes are detailed for each config: For 'TOL-10M_captions', attributes include `uuid`, `caption`, and `description`. For 'sample_captions', they include `class` and `description`. For 'wiki_descriptions', they include `binomial_name`, `caption`, `kingdom`, `phylum`, and `class`. Each field is described with its data type and source.",
+      "notes": "The metadata provides structured documentation for fields across different dataset configurations, indicating proper documentation of features or attributes."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are included for each data instance",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata includes detailed information about each record set and the fields available for each data instance, such as 'uuid', 'caption', 'description' in the TOL-10M captions config; 'class', 'description' in sample captions config; 'binomial_name', 'caption', 'kingdom', 'phylum', 'class' in wiki descriptions config.",
+      "notes": "Each data instance in the dataset is provided with attributes like 'uuid', 'caption', 'description', 'class', among others, according to the record set they belong to, ensuring that they have complete metadata as described in the metadata structure."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Technical Specifications: Are the technical specifications of the dataset indicated?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md mentions file sizes: 'wiki_description.parquet' (24MB), 'format_example.parquet' (93KB), and 'uuid_caption_description.parquet' (1.8GB).",
+      "notes": "The metadata provides the file sizes which are part of the technical specifications. However, there is no information on resolution, bit depth, or sampling rate as these may not be applicable for this dataset type."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset is divided into three parts: format examples, Wikipedia-derived visual descriptions, and UUID-caption-description mappings. Each subset is stored in separate parquet files and contains information crucial for training models on biologically meaningful captions.",
+      "evidence": "The dataset contains three pieces: 1. Format Examples, 2. Derived Wikipedia Visual Information, 3. Image Captions.",
+      "notes": "These subsets are crucial for tasks involving image and text processing in biological contexts. Each piece serves a different part of the dataset's intended use, from providing format guidance to offering thorough mappings of image identifiers to their descriptions and captions."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Data Source Type): Metadata record what type(s) of source data were collected or used to generate this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Images and taxonomic labels were sourced from the [TreeOfLife-10M dataset](https://huggingface.co/datasets/imageomics/TreeOfLife-10M). We used [Wikipedia](https://www.wikipedia.org/) to source the species-level visual descriptions for these taxa due to its breadth of coverage and ease of access.",
+      "notes": "The dataset is derived from existing data sources rather than collected via new observations or experiments. The metadata explicitly mentions using pre-existing datasets and Wikipedia as sources."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Curation Rationale):  Metadata record the primary rationale for curating or assembling this dataset",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'This dataset was constructed to evaluate both the ability of existing models to generate meaningful image-level captions (when provided biological context) and to further evaluate the impact of such captions on the biological abilities of models trained with them.' This suggests a primary rationale of consolidating and creating an ML-ready structure for evaluation and training purposes.",
+      "notes": "The metadata makes it clear that one of the main reasons for creating this dataset was to analyze and improve AI models in generating biologically meaningful captions, indicating an ML-ready structure as a goal."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Part of a Larger Collection): Metadata indicate if this dataset part of a larger collection or series, and provide the following information:",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The 'description' field in extracted_meta_tags.json and the 'Dataset Description' section in extracted_page_content.md both mention this dataset as part of the TreeOfLife-10M collection, specifically linked to 'BioCAP'.",
+      "notes": "The dataset is mentioned to consist of generated captions and Wikipedia-derived descriptions related to the TreeOfLife-10M. It is associated with models such as BioCAP, indicating it is part of a larger series of resources related to the project."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Instrumentation: Do the metadata describe the instruments or sensors used to collect the data, including their specifications and configuration?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The provided metadata files, including extracted_schema_org_0.json, extracted_meta_tags.json, and the downloaded markdown metadata, do not include any descriptions of instruments or sensors used to collect the data. The focus is on the description of datasets, their structure, and usage. There are references to sources such as Wikipedia, but no technical specifications or configurations of instruments or sensors are mentioned.",
+      "notes": "The dataset is primarily based on generated and Wikipedia-derived content, with no indication of physical instrumentation being involved in data collection. Therefore, specifics about instruments or sensors do not apply here."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Collection Method Documentation): Do the metadata describe the methods used to collect or generate the data?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset metadata describes the methods used to collect or generate the data, including the use of the InternVL3-38B model and Wikipedia for generating captions, as well as links to the BioCAP pipeline and Wikipedia scraping. For more details, refer to Method section: 'We use biological knowledge as contexts to improve the quality and relevance of generated captions... The full workflow is provided in the BioCAP repo.'",
+      "notes": "The metadata provides comprehensive documentation of the data collection and generation process, including the use of external resources and workflows, which supports the response."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Resolution): Do the metadata describe the spatial resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not describe any spatial resolution or spatially explicit data characteristics."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Extent): Do the metadata describe the geographic coverage (region, bounding box, domain)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain any information about the geographic coverage or spatial extent of the dataset. The metadata focuses on dataset descriptions, data structure, and dataset creation processes without specifying geographic boundaries or regions."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Resolution): Do the metadata describe the temporal resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not contain information specifying the temporal resolution of the dataset.",
+      "notes": "There is no mention of temporal characteristics such as frequency or specific time intervals at which the data was collected or represented. The dataset appears focused on static descriptions and captions rather than temporal data."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Extent): Do the metadata describe the temporal extent?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in extracted_schema_org_0.json, extracted_meta_tags.json, downloaded_metadata_0.md, downloaded_metadata_1.md, downloaded_metadata_2.md, downloaded_metadata_3.md, downloaded_metadata_4.md, or extracted_page_content.md",
+      "notes": "The metadata files provided do not contain information related to the temporal extent of the dataset."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Types: Do the metadata describe the types of annotations or labels are included in the dataset (if any)?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions the use of taxonomic labels from TreeOfLife-10M for obtaining visual descriptions and training the model. It specifies the presence of textual descriptors such as species names (as shown in the columns like 'class', 'caption', and 'description' in the parquet files). Annotations are discussed in sections titled 'Annotations' and 'Dataset Creation' of the extracted_page_content.md.",
+      "notes": "The dataset includes textual descriptors or tags such as species names and descriptions derived from Wikipedia, used for generating captions."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Process: Do the metadata describe how annotations were generated or obtained?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes the annotation process as starting with Wikipedia scraping to obtain visual descriptions and using these to create sample captions for three species per taxonomic class. The captions are generated by providing these format examples for the taxonomic class and asking InternVL3 38B to provide an image-specific caption following that model. Details are also linked in the BioCAP pipeline documentation: 'See steps 1 & 2 of the BioCAP pipeline for details on the caption generation, starting with Wikipedia scraping.'",
+      "notes": "The process involves automated scraping from Wikipedia and a model (InternVL3 38B) to generate captions, indicating a mixed process with a potential human input at the curation and review stages."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotators (Contributors): Do metadata indicate who performed the data annotations? \nPreferably, a list of annotators (e.g., ORCiDs), or names/versions of automated tools or systems; or other relevant information.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "- Curated by: Ziheng Zhang, Xinyue Ma, Arpita Chowdhury, Elizabeth G Campolongo, Matthew J Thompson, Net Zhang, Samuel Stevens, Hilmar Lapp, Tanya Berger-Wolf, Yu Su, Wei-Lun Chao, Jianyang Gu",
+      "notes": "The dataset card provides the names of the contributors involved in the curation and annotation of the dataset, fulfilling the requirement of indicating who performed the data annotations."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset uses biological contexts from Wikipedia to enhance caption generation based on InternVL3-38B and is used to train the BioCAP model.",
+      "evidence": "extracted_page_content.md: 'These captions were generated using InternVL3-38B based on biological contexts that help the model generate more accurate captions.' and 'It was used to train BioCAP, a CLIP-based model.'",
+      "notes": "The dataset integrates visual descriptions from Wikipedia and employs them to generate enhanced captions for the TreeOfLife-10M dataset images."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Preparation: Do the metadata provide a complete overall description of data preparation, cleaning, transformation, or quality-control steps performed prior to generating the final dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata files provide details on the data processing steps. For example, in the `downloaded_metadata_0.md`, there is mention of 'Data Collection and Processing' and linking to a pipeline 'https://github.com/Imageomics/biocap/blob/main/BioCAP-pipeline.md' used for Wiki Data Scraping and Filtering. Furthermore, the section on 'Annotations' describes the process for obtaining visual descriptions from Wikipedia for training the model and mentions steps such as taxonomy filtering.",
+      "notes": "The metadata includes data processing descriptions such as using taxonomic labels from TreeOfLife-10M for both obtaining visual descriptions from Wikipedia and feeding into a scraping pipeline. While detailed methodological processes are present, some might require accessing additional linked documents for more comprehensive insights."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Processing Platform or Software: Metadata provide a description of and citations or links to any processing platform or software used in the creation of this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset description in 'extracted_page_content.md' mentions that the captions were generated using InternVL3 38B based on biological contexts. The document also includes links to both the InternVL3-38B model page and the BioCAP repository on GitHub for further information about the dataset creation and processing.",
+      "notes": "While the specific software or platform used isn't detailed, links are provided that likely contain these details, suggesting that the processing platform or software can be determined from them."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Correction / Standardization of Values: Does the metadata describe corrections applied to existing data values and whether the data values have been standardized in any way?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not mention any specific correction or standardization processes applied to the data values such as data gridding, unit consistency, or data anonymization. The description focuses on the generation of captions and sourcing of visual descriptions from Wikipedia but does not detail corrections or standardizations.",
+      "notes": "While the dataset involves generating captions and using Wikipedia data, there is no mention of corrections applied to existing data values or any standardization processes in the provided metadata."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Gaps Filled: Does metadata indicate if missing values or data gaps filled in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "There is no mention of missing values or data gaps being filled in the provided metadata.",
+      "notes": "The metadata files do not provide any information or indications that missing values or data gaps have been addressed or filled. This includes the dataset description and structure sections where such information might typically be detailed."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If gaps were filled, are the methods described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "There is no mention of specific methods like interpolation, imputation, or model-based gap-filling approaches described in the metadata files.",
+      "notes": "The metadata describes data curation and source details, but does not explicitly cover any gap-filling methodologies."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Labeling / Relabeling: Does the metadata indicate if any labeling or relabeling steps were applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions the use of taxonomic labels from TreeOfLife-10M for obtaining visual descriptions from Wikipedia and training the model. These visual descriptions are used to create sample captions for three species per taxonomic class, which indicates labeling/relabeling steps. Evidence can be found in sections: 'We use the taxonomic labels from [TreeOfLife-10M](https://huggingface.co/datasets/imageomics/TreeOfLife-10M) for both obtaining the visual descriptions from Wikipedia and for training the model...' and 'This visual information is then used to create sample captions (format examples) for three species per taxonomic class.'",
+      "notes": "The dataset uses labels to generate captions and descriptions grounded in biological knowledge, indicating a form of labeling process was applied in dataset preparation."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Does the metadata sufficiently describe the labeling or relabeling process?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The 'Annotations' section in the extracted_page_content.md describes that the taxonomic labels from TreeOfLife-10M are used for obtaining visual descriptions from Wikipedia and for training the model. It specifies that these labels guide the generation of captions by providing format examples for the taxonomic class, following which InternVL3 38B generates image-specific captions. The process of using Wikipedia for visual descriptions and taxonomic labels is detailed in the annotation process section.",
+      "notes": "The metadata provides detailed information on the sources of the labels, the standardization via Wikipedia visual descriptions, and alignment with taxonomic classes for caption generation. However, it may not cover all possible aspects of label alignment with possible external taxonomies or ontologies outside of Wikipedia and TreeOfLife-10M."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Data Filtering and Outlier Removal: Were any outlier removal or filtering procedures applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Error processing",
+      "evidence": "",
+      "notes": "Error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Your requests to gpt-4o for gpt-4o in East US 2 have exceeded the token rate limit for your current OpenAI S0 pricing tier. This request was for ChatCompletions_Create under Azure OpenAI API version 2025-01-01-preview. Please retry after 1 second. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.'}}"
+    },
+    {
+      "section": "Data Processing",
+      "question": "If yes, does the metadata sufficiently describe the outlier detection and removal methods used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any specific information or description related to outlier detection and removal methods in the dataset processing section. There is no mention of statistical thresholds, manual review, or algorithmic approaches in any of the metadata files provided."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do metadata indicate if the dataset has been split into training, validation, and/or test sets?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata contains split information with record sets for 'TOL-10M_captions_splits', 'sample_captions_splits', and 'wiki_descriptions_splits' with data indicating a 'train' split: 'data': [{ 'TOL-10M_captions_splits/split_name': 'train' }], 'data': [{ 'sample_captions_splits/split_name': 'train' }], and 'data': [{ 'wiki_descriptions_splits/split_name': 'train' }].",
+      "notes": "However, the metadata only explicitly indicates a 'train' split. There's no information about validation or test splits."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do the metadata provide information on how splits were created?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "While the metadata provides information on the existence of splits, such as 'train', it does not detail how these splits were created or their proportions. The 'recordSet' entries like 'TOL-10M_captions_splits' mention a 'split_name' field with a value of 'train', but there is no explanation of the method used for the splits (random, stratified, etc.).",
+      "notes": "The metadata does not include specific details on the methodology for creating the splits or how data leakage might have been avoided. It only lists the 'split_name' as 'train' without further elaboration."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contexts that help the model generate more accurate captions. It was used to train BioCAP, a CLIP-based model.",
+      "evidence": "extracted_meta_tags.json - 'description': 'This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contexts...'",
+      "notes": "This information highlights the use of the dataset in the training of BioCAP and the biological context used in caption generation."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if this dataset is complete (i.e., there are no plans for further updates to this data product)?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata details various aspects of the dataset such as its purpose, configuration, and structure but does not explicitly state whether the dataset is complete or if there are plans for future updates.",
+      "notes": "The metadata includes descriptions of the dataset's content and its formation process but lacks information specifically indicating the dataset's update status or future plans. Without explicit statements regarding updates, we cannot determine the completeness or ongoing nature of the dataset from the available metadata."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if quality assurance checks been run and if they passed?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "There is no mention of quality assurance checks in any of the metadata files, including 'extracted_schema_org_0.json', 'extracted_meta_tags.json', 'downloaded_metadata_0.md', 'downloaded_metadata_1.md', 'downloaded_metadata_2.md', 'downloaded_metadata_3.md', and 'downloaded_metadata_4.md'.",
+      "notes": "The metadata focuses on dataset descriptions, sources, and tasks but does not provide information on any quality assurance processes or their results."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the timeliness of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not provide any explicit information regarding the timeliness or update schedule of the dataset. The extracted_schema_org_0.json mentions an 'isLiveDataset' attribute, but it does not include any related data or values. There are no mentions of real-time updates, periodic updates, or whether it's static in the available metadata files.",
+      "notes": "While there are data structures such as record sets and descriptions which imply organized data, there is no explicit mention of timeliness descriptions like real-time, periodic updates, static, or historical archive."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate quality checks on or evaluate dataset timeliness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not contain any specific mention of quality checks or evaluations related to the timeliness of the dataset. There is no information regarding the timing of data collection or any related quality assessments in the provided metadata."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the time lag between data collection and availability?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not contain any information regarding the time lag between data collection and availability.",
+      "notes": "The metadata provides details about the dataset's contents and structure but does not mention when the data was collected or how long it takes before it is made available."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the quality checks that have failed and provide context for downstream users to work with the data as-is or resolve the issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain any specific information regarding failed quality checks or guidance for downstream users on how to work with or resolve such issues. The details provided mainly describe the dataset structure, sources, and intended use cases, but there is no mention of quality assurance processes or outcomes."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata explain why quality checks were not performed and provide context for downstream users to work with the data as-is or resolve potential issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include information regarding why quality checks were not performed or guidance for downstream users to work with the data as-is or resolve potential issues. The focus is on dataset description, structure, and annotations process without specific mention of quality check explanations."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe any known gaps or limitations in the dataset’s completeness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not mention any known gaps or limitations in the dataset’s completeness in terms of spatial, temporal, or content gaps.",
+      "notes": "The dataset description and dataset creation sections discuss the curation rationale and the use of biological context to generate captions, but they do not specifically mention any limitations or gaps in completeness."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if all units have been translated into compatible forms?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Within the dataset description in extracted_page_content.md, there is no mention of units being translated or standardized. The metadata does not provide details regarding units or their standardization.",
+      "notes": "The metadata primarily focuses on data fields relating to captions and descriptions, with no reference to units or their standardization. As such, there's no indication of whether units are compatible or standardized."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do any of the data follow a controlled vocabulary?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata indicates fields categorized under specific data types such as 'class', 'kingdom', 'phylum' in the record sets 'wiki_descriptions' and 'sample_captions', which suggests that taxonomic classifications follow controlled vocabularies.",
+      "notes": "Taxonomic terms such as 'class', 'kingdom', 'phylum' typically follow controlled vocabularies in scientific contexts."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Is a reference provided for the controlled vocabulary used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not mention any controlled vocabulary or references to it. It lists various fields and descriptions but does not specify the use of a controlled vocabulary or a reference to it."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are any known consistency issues or steps taken to ensure consistency described?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "In the extracted_page_content.md, under 'Dataset Structure', it describes a standardized format for Wikipedia and Format Examples, and UUID Caption and Description Match. The structure specifies columns like 'uuid', 'caption', and 'description' to ensure consistent data representation. Additionally, the 'Data Collection and Processing' section mentions checks against full taxonomic strings to disambiguate returned Wikipedia page options.",
+      "notes": "The metadata explicitly details steps taken to ensure consistency, such as standardized column structures and specific processing methods to handle taxonomic labels accurately."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if any quality assurance or peer review procedures been applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files do not mention any specific quality assurance or peer review procedures applied to the dataset.",
+      "notes": "The metadata contains detailed descriptions about the dataset's composition and purpose but does not specify any quality assurance processes that were conducted."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the procedures used to ensure data integrity?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata includes 'sha256' with a reference to GitHub issues for encoding format and data integrity, suggesting the use of checksums to ensure data remains unchanged. Additionally, there's reference to 'fileSet' contained within a 'repo', indicating version control through Git in 'contentUrl': 'https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions/tree/refs%2Fconvert%2Fparquet'.",
+      "notes": "The reference to GitHub issues and file containment within a repository suggests data integrity practices were considered; however, explicit audit trails are not described."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are data checksums included? ",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "In the extracted_schema_org_0.json, the 'sha256' field is present under the distribution entry for the git repository, which seems to refer to a specific GitHub issue link rather than an actual checksum. The 'md5' field is defined in the JSON context, but there is no actual value for a checksum within the distribution entries.",
+      "notes": "The checksum is mentioned but does not appear to be a standard checksum in the metadata provided. The value given ('https://github.com/mlcommons/croissant/issues/80') may indicate a usage context rather than a checksum itself."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M, created using InternVL3-38B based on biological contexts.",
+      "evidence": "The metadata states: 'This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contexts that help the model generate more accurate captions.'",
+      "notes": "The dataset's purpose is to improve the quality and relevance of generated captions with the help of biological knowledge. It was used to train the BioCAP, a CLIP-based model."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe known sources of bias in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not specifically address known sources of bias in the dataset. While there are references to biological context and annotations based on taxonomic labels, there is no explicit mention of bias considerations or analyses.",
+      "notes": "The metadata focuses on data processing and sources, such as Wikipedia for descriptions, but does not undertake a bias analysis in the dataset or the caption generation process. It's important for users to consider potential biases related to the representation of species and taxonomy derived from Wikipedia data."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known risks or limitations associated with the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md includes a section titled 'Considerations for Using the Data,' which provides caution about AI-generated captions. Specifically, it notes, 'As with any AI-generated text, we caution that these captions were not gene[ted]...'",
+      "notes": "The metadata indicates a caution regarding the biological grounding of the generated captions, suggesting users should be mindful of potential inaccuracies or misinterpretations."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate if the dataset is based on experimental data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The dataset consists of generated captions, Wikipedia-derived descriptions, and format examples based on biological contexts, as mentioned in the 'description' field of extracted_page_content.md: \"These captions were generated using InternVL3-38B based on biological contexts...\".",
+      "notes": "The metadata describes the dataset as being constructed using biological contexts and Wikipedia-derived descriptions, indicating it is not based on experimental data but rather data sourcing and computational generation processes."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, do the metadata describe the experimental design?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided discuss the dataset's content, structure, curation rationale, source data, and annotations, but there is no specific information about experimental design such as treatments, controls, replication, or randomization.",
+      "notes": "The dataset appears to focus on the generation and use of captions and descriptions from biological contexts and Wikipedia, without mention of an experimental setup in the traditional scientific sense."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe recommended or intended uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Metadata provides Dataset Structure and supported tasks descriptions: 'Image Classification, Zero-shot and few-shot Classification, text-to-image retrieval, and content-based querying for biological images.' Also states the use for training 'BioCAP, a CLIP-based model.'",
+      "notes": "The metadata explicitly mentions several use cases including types of analyses and applications such as image classification and text-to-image retrieval, and mentions that it was used to train a specific model, BioCAP."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known inappropriate or discouraged uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not describe any known inappropriate or discouraged uses of the dataset. The provided metadata includes dataset descriptions, structure, curation rationale, source data, and annotation processes, but does not explicitly mention inappropriate or ethically problematic uses.",
+      "notes": "The focus of the metadata is largely on the dataset's purpose, structure, and usage in AI and biological research. It may imply ethical considerations through its design and intent, but it does not explicitly describe prohibited uses."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate this dataset has been used in AI/ML applications previously?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes that the captions were generated using the InternVL3-38B based on biological contexts and that this data was used to train the BioCAP, a CLIP-based model (referenced in the description field of extracted_page_content.md).",
+      "notes": "The dataset has been explicitly noted as part of training the BioCAP model, indicating previous use in AI/ML applications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, is it described how the dataset has been used in AI/ML applications?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "In extracted_page_content.md, the dataset description mentions: 'These captions were generated using InternVL3-38B based on biological contexts that help the model generate more accurate captions. It was used to train BioCAP, a CLIP-based model.' Additionally, the 'Dataset Details' section references the paper: 'BioCAP: Exploiting synthetic captions beyond labels in biological foundation models'",
+      "notes": "The metadata provides specific details about the use of the dataset in AI/ML applications, including the use of the InternVL3-38B model for caption generation and training a CLIP-based model, BioCAP."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Are there references to models, benchmarks, or publications if available?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides references to models, benchmarks, or publications: 'captions were generated using InternVL3-38B based on biological contexts', 'It was used to train BioCAP, a CLIP-based model.', 'Paper: BioCAP: Exploiting synthetic captions beyond labels in biological foundation models (https://arxiv.org/abs/2510.20095)'.",
+      "notes": "The metadata included references to the InternVL3-38B model and a paper related to the dataset, indicating documentation and community standards followed."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate how to report issues or errors in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any contact information, issue tracker link, or other specific methods for reporting issues or errors related to the dataset."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contexts.",
+      "evidence": "Description: 'This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contexts that help the model generate more accurate captions.' (extracted_page_content.md)",
+      "notes": "The dataset is structured into format examples, Wikipedia-derived descriptions, and UUID-caption-description mappings, providing a comprehensive resource for biological image captioning. Additionally, the metadata specifies the purpose as improving caption quality using biological context."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available for direct download?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides a direct link to download the dataset: 'https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions/tree/refs%2Fconvert%2Fparquet'. This indicates it is available for direct download via the Hugging Face repository.",
+      "notes": "The dataset is structured into multiple parquet files as indicated by their configurations. Accessing these files directly via the repository URL provided confirms availability for download."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via an API?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "\"contentUrl\": \"https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions/tree/refs%2Fconvert%2Fparquet\"",
+      "notes": "The metadata provides a content URL for the dataset on the Hugging Face platform, which typically allows access via their API."
+    },
+    {
+      "section": "Data Access",
+      "question": "If accessible via API, is the type of API specified?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No specific type of API is mentioned in the provided metadata. The metadata provides URLs for datasets but does not specify an API type like REST, GraphQL, or OPeNDAP.",
+      "notes": "The metadata contains links to dataset repositories and descriptions but does not indicate any API specifications. Access might be through direct downloading or browsing repository rather than API access."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is API documentation provided (e.g., linked to)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not include any mention or link to API documentation.",
+      "notes": "The metadata files describe dataset details and provide some links to repositories and datasets but do not reference or link to any API documentation."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via a cloud platform?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata specifies the dataset is available via a Git repository on Hugging Face, indicating cloud access: \"contentUrl\": \"https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions/tree/refs%2Fconvert%2Fparquet\".",
+      "notes": "The dataset is hosted on Hugging Face, which is a cloud platform that allows access to datasets online, confirming accessibility through a cloud platform."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in a machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset distribution includes files in 'encodingFormat': 'application/x-parquet', which is a machine-readable format.",
+      "notes": "Parquet is commonly used for efficient data storage and processing, indicating the dataset is machine-readable."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in an open (non-proprietary) format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is provided in 'application/x-parquet' format as mentioned multiple times under `encodingFormat` in the 'distribution' section of extracted_schema_org_0.json, which is an open format.",
+      "notes": "Parquet is an open-source columnar storage file format commonly used with data processing frameworks like Apache Hadoop and Spark."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available in multiple formats?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Multiple formats are mentioned in the metadata. The dataset is available as parquet files, as indicated in the 'extracted_schema_org_0.json' file under the 'distribution' section, with 'encodingFormat': 'application/x-parquet'.",
+      "notes": "The dataset is specifically available in parquet format, which is a columnar storage file format."
+    },
+    {
+      "section": "Data Access",
+      "question": "Do the metadata indicate what license applies to this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "extracted_page_content.md includes the line 'license: cc-by-sa-4.0'",
+      "notes": "The license is specified as 'cc-by-sa-4.0' in the metadata, indicating a Creative Commons Attribution-ShareAlike 4.0 International license."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the license information provided in a standardized or machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The license information is provided as `cc-by-sa-4.0` which is a standardized format within the `extracted_page_content.md` under `license:`",
+      "notes": "The license follows a common format which is recognizable and machine-readable."
+    },
+    {
+      "section": "Data Access",
+      "question": "Does the dataset contain personal or sensitive information?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "In the extracted_schema_org_0.json metadata, the field 'personalSensitiveInformation' is present but not populated, and the metadata describes the dataset as containing descriptions and captions related to biology and species, with no mention of personal or sensitive information.",
+      "notes": "The dataset focuses on biological data, captions, and descriptions related to species and taxonomy. There is no indication of any personal data involved."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is access to the dataset restricted in any way?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not mention any access restrictions, and the 'Data Access' section provides steps for downloading and using the dataset from openly available sources: 'To reproduce the complete BioCAP training dataset: Download the base dataset from: https://huggingface.co/datasets/imageomics/TreeOfLife-10M.'",
+      "notes": "There is no mention of any restrictions or special permissions required to access the dataset in the metadata provided."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is secure access required to obtain or use the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "There is no mention of secure access requirements in the metadata. The dataset is available through a public Hugging Face URL: 'https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions'.",
+      "notes": "The dataset appears to be openly accessible without any indication of secure access protocols needed in the provided metadata."
+    },
+    {
+      "section": "Data Access",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files focus on the dataset's structure, creation, and usage but do not include additional information specifically for the Data Access section.",
+      "notes": "While details on data access and related links are provided, there is no new or additional information explicitly stated in the metadata files concerning this section."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Is this form sufficient to evaluate if a dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided gives some information on dataset structure, format, and usage, but lacks clear explanations on accessibility, interoperability, and specific licenses for derived datasets which are crucial for evaluating if a dataset is FAIR4AI.",
+      "notes": "The metadata provides descriptions and context, but FAIR principles require detailed descriptions on findability including DOI or persistent identifiers, clear license terms for reuse, machine-readable metadata for interoperability, and specifics on how data can be accessed by third-party systems which are not fully covered in the metadata."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from this form?",
+      "response_choices": NaN,
+      "response": "Information about data bias and personal sensitive information",
+      "evidence": "The metadata includes fields like `dataBiases` and `personalSensitiveInformation`, indicating that aspects related to data biases and sensitive information might be necessary to evaluate for FAIR4AI principles.",
+      "notes": "While these fields are present in the schema definition, there is no detailed information or value provided about these aspects in the extracted metadata, which could be important for assessing the dataset's adherence to FAIR principles and its readiness for AI applications."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Should sections or items from this form be edited or deleted? If so, how and/or why?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files consist of descriptive information about the dataset structure, contents, and purposes but do not include discussions or suggestions regarding the editing or deletion of sections or items from the dataset.",
+      "notes": "The question seems to ask for subjective recommendations which are not typically present in metadata files. To make an informed recommendation, one would need to understand the goals and requirements of the dataset users."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Did the metadata you evaluated provide sufficient information to determine if the dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "The metadata provides significant detail about the dataset's contents, structure, sources, and associated projects, such as the BioCAP and TreeOfLife-10M datasets. Specifically, it includes the @context for schema.org, data distributions, descriptions of record sets, and various metadata fields. However, certain aspects such as licensing, detailed access instructions, machine-readability of metadata, and explicit interoperability formats are not comprehensively addressed.",
+      "notes": "While the metadata covers many aspects of FAIR principles, such as detailed dataset description and links to relevant resources, it lacks explicit mention of licensing details and comprehensive instructions for data access beyond URLs, which are crucial for Accessibility and Reusability. Interoperability details, such as adherence to specific standards for datasets, are not fully detailed in the metadata, making it difficult to confirm complete FAIR4AI compliance."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from the metadata? ",
+      "response_choices": NaN,
+      "response": "The metadata lacks information on data citation standards and detailed data licensing information.",
+      "evidence": "The metadata includes license information in the 'extracted_page_content.md' as 'cc-by-sa-4.0', but it does not provide detailed guidance on how to properly cite the dataset. The 'extracted_schema_org_0.json' references '@vocab': 'https://schema.org/' which includes citation elements, but it doesn't specify actual citation practices.",
+      "notes": "In terms of FAIR principles, particularly for AI, it's important not only to specify the license type (which is present) but also how the dataset should be cited in publications. This helps ensure the dataset is properly credited and its reuse is tracked. Additionally, while the license type is mentioned as 'cc-by-sa-4.0', more detailed licensing terms or link to the full license terms are often recommended in the metadata for completeness."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Use this space to provide any other feedback",
+      "response_choices": NaN,
+      "response": "This dataset offers a comprehensive set of resources for AI applications in biological image analysis, with valuable metadata for FAIRness and AI readiness evaluation. The metadata provides detailed descriptions of dataset configurations, data types, sources, and collection processes.",
+      "evidence": "Evidence can be found in various metadata files: 'extracted_schema_org_0.json' offers the dataset configurations and file structures, 'extracted_meta_tags.json' includes social media metadata, and 'extracted_page_content.md' provides detailed dataset descriptions, structures, files, and data collection processes. The dataset is associated with models such as BioCAP and tasks like image classification, zero-shot classification, and more.",
+      "notes": "The dataset's FAIR attributes include extensive documentation, clear data structure, and specification of source data producers. Additionally, annotations and curation rationales are well-explained, supporting both usability and reproducibility."
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "The dataset has thorough metadata descriptions, including data types, sources, and collection processes.",
+      "It provides direct download availability and cloud access via platforms like Hugging Face.",
+      "The purposes and intended use cases of the dataset are clearly documented.",
+      "References to related papers and datasets are included, enhancing findability and context."
+    ],
+    "weaknesses": [
+      "No unique, persistent, machine-resolvable identifier such as a DOI is provided.",
+      "The metadata lacks information on data citation standards and detailed quality assurance checks.",
+      "Information on data repositories and API specifications is missing.",
+      "Details about bias, limitations, and quality checks are insufficient."
+    ],
+    "overall_assessment": "The 'img_tol_10m_cap' dataset is a well-documented and accessible dataset designed for AI applications in biology. While it contains comprehensive metadata on its structure, collection, and intended uses, the absence of unique identifiers, detailed quality assurance processes, and API specifications hinder its full alignment with FAIR principles. There is a notable gap in citation standards and bias discussion which could further support its interoperability and reusability in diverse applications. Enhancing these areas would significantly improve the dataset's FAIRness and readiness for AI-focused tasks.",
+    "fair_score_estimate": {
+      "findable": "6/10 - While the dataset description is comprehensive with linked resources, the absence of a persistent identifier like a DOI limits its findability.",
+      "accessible": "7/10 - The dataset is available for download and through cloud platforms, but details on API specifications and error reporting are lacking.",
+      "interoperable": "6/10 - Standard vocabularies in taxonomy are used, but no ontologies or standardization for other aspects are indicated.",
+      "reusable": "5/10 - The metadata does indicate a license and intended uses, but lacks detailed licensing terms, bias analysis, and citation guidelines for proper reuse and reference."
+    }
+  }
+}

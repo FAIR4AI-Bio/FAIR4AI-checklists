@@ -1,0 +1,244 @@
+{
+  "@context": "http://schema.org",
+  "@id": "https://doi.org/10.5281/zenodo.7187242",
+  "@type": "https://schema.org/ScholarlyArticle",
+  "author": [
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Sergio Marconi",
+      "name": "Sergio Marconi"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Ben. G. Weinstein",
+      "name": "Ben. G. Weinstein"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Sheng Zou",
+      "name": "Sheng Zou"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Stephanie A. Bohlman",
+      "name": "Stephanie A. Bohlman"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Alina Zare",
+      "name": "Alina Zare"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Aditya Singh",
+      "name": "Aditya Singh"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Dylan Stewart",
+      "name": "Dylan Stewart"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Ira Harmon",
+      "name": "Ira Harmon"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Ashley Steinkraus",
+      "name": "Ashley Steinkraus"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Ethan P. White",
+      "name": "Ethan P. White"
+    }
+  ],
+  "contentSize": "1.23 GB",
+  "creator": [
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Sergio Marconi",
+      "name": "Sergio Marconi"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Ben. G. Weinstein",
+      "name": "Ben. G. Weinstein"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Sheng Zou",
+      "name": "Sheng Zou"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Stephanie A. Bohlman",
+      "name": "Stephanie A. Bohlman"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Alina Zare",
+      "name": "Alina Zare"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Aditya Singh",
+      "name": "Aditya Singh"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Dylan Stewart",
+      "name": "Dylan Stewart"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Ira Harmon",
+      "name": "Ira Harmon"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Ashley Steinkraus",
+      "name": "Ashley Steinkraus"
+    },
+    {
+      "@type": "Person",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "University of Florida"
+        }
+      ],
+      "familyName": "Ethan P. White",
+      "name": "Ethan P. White"
+    }
+  ],
+  "dateCreated": "2022-10-12T00:20:05.206262+00:00",
+  "dateModified": "2022-10-12T02:26:22.504031+00:00",
+  "datePublished": "2021-12-21",
+  "description": "<p>Folder with inputs and outputs of the manuscript titled: &quot;Continental-scale Hyperspectral tree species classification in the National Ecological Observatory Network&quot;.</p>\n\n<p>&nbsp;</p>\n\n<p>Data contains spectral library for thousands individual trees Hyperspectral signature and Canopy Height, plus a number of traits and attributes measured from&nbsp;NEON field surveys. The data focus on 30 NEON sites, across the continent and can be used to reproduce the generalized species classification approach used, described and analyzed in the manuscript.</p>",
+  "identifier": "https://doi.org/10.5281/zenodo.7187242",
+  "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+  "name": "Continental-scale Hyperspectral tree species classification in the National Ecological Observatory Network",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zenodo"
+  },
+  "size": "1.23 GB",
+  "url": "https://zenodo.org/records/7187242",
+  "version": "1"
+}

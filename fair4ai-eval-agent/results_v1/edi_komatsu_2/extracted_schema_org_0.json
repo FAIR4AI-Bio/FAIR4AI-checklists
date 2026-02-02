@@ -1,0 +1,611 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#"
+  },
+  "@type": "Dataset",
+  "name": "CoRRE Trait Data: A collection of 17 categorical and continuous traits for more than 4000 grassland species worldwide",
+  "description": "In our changing world, it is critical to understand and predict plant community responses to global change drivers. Plant functional traits promise to be a key predictive tool for many ecosystems, including grasslands, however their use requires both complete plant community and functional trait data. Yet, representation of these data in global databases is incredibly sparse, particularly beyond a handful of most used traits and common species. Here we present the CoRRE Trait Database, spanning 17 traits (9 categorical, 8 continuous) anticipated to predict species’ responses to global change for 4,079 vascular plant species across 173 plant families present in 390 grassland experiments from around the world. The database contains complete categorical trait records for all 4,079 plant species, obtained from a comprehensive literature search. Additionally, the database contains nearly complete coverage (99.97%) of species mean values for continuous traits for a subset of 2,927 plant species, predicted from observed trait data drawn from TRY and a variety of other plant trait databases using Bayesian Probabilistic Matrix Factorization (BHPMF) and multivariate imputation using chained equations (MICE). These data will shed light on mechanisms underlying population, community, and ecosystem responses to global change in grasslands worldwide.",
+  "url": "https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=1533&revision=3",
+  "version": "3",
+  "isAccessibleForFree": true,
+  "keywords": [
+    "functional traits",
+    "growth form",
+    "lifespan",
+    "clonality",
+    "leaf type",
+    "leaf compoundness",
+    "stem support",
+    "photosynthetic pathway",
+    "mycorrhizal type",
+    "nitrogen fixation type",
+    "vegetative height",
+    "leaf dry mass",
+    "leaf dry matter content",
+    "leaf percent nitrogen",
+    "specific root length",
+    "seed dry mass",
+    "herbaceous plant",
+    "plants",
+    "plant functional types",
+    "grasslands",
+    "leaf area",
+    "specific leaf area"
+  ],
+  "identifier": {
+    "@id": "https://doi.org/10.6073/pasta/a33c9be2bd819d6b1a2c52663d561158",
+    "@type": "PropertyValue",
+    "propertyID": "https://registry.identifiers.org/registry/doi",
+    "value": "10.6073/pasta/a33c9be2bd819d6b1a2c52663d561158",
+    "url": "https://doi.org/10.6073/pasta/a33c9be2bd819d6b1a2c52663d561158"
+  },
+  "citation": "Komatsu, K.J., M.L. Avolio, J. Padulles Cubino, F. Schrodt, H. Auge, J. Cavender-Bares, A.T. Clark, H. Flores-Moreno, E. Grman, W. Harpole, J. Kattge, K. Kimmel, S.E. Koerner, L. Korell, J. Langley, T. Münkemüller, T. Ohlert, R.E. Onstein, C. Roscher, N.A. Soudzilovskaia, B.N. Taylor, L. Tedersoo, R.S. Terry, and K.R. Wilcox. 2024. CoRRE Trait Data: A collection of 17 categorical and continuous traits for more than 4000 grassland species worldwide ver 3. Environmental Data Initiative. https://doi.org/10.6073/pasta/a33c9be2bd819d6b1a2c52663d561158.",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "family",
+      "alternateName": "family",
+      "description": "Taxonomic family of the plant species."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "species",
+      "alternateName": "species",
+      "description": "Genus and species (separated by a space) of the plant species."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "trait",
+      "alternateName": "trait",
+      "description": "Trait type out of 9 categorical traits. See methods for trait collection procedures."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "trait_value",
+      "alternateName": "trait_value",
+      "description": "Trait value for each species."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "source",
+      "alternateName": "source",
+      "description": "Source of trait data."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "error_risk_overall",
+      "alternateName": "error_risk_overall",
+      "description": "Error risk for each trait relative to entire database. Calculated as proportion error for all categorical traits determined from a check of 424 of the 4,079 species in the database.",
+      "unitText": "likelihood of error"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "family",
+      "alternateName": "family",
+      "description": "Taxonomic family of the plant species."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "species",
+      "alternateName": "species",
+      "description": "Genus and species (separated by a space) of the plant species."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "trait",
+      "alternateName": "trait",
+      "description": "Trait type out of 9 categorical and 8 continuous traits. Traits included are growth form, lifespan, clonal, leaf type, leaf compoundness, stem support, photosynthetic pathway, mycorrhizal type, N fixation type, vegetative height, leaf area, leaf dry mass, leaf dry matter content (LDMC), specific leaf area (SLA), leaf N, specific root length (SRL), and seed dry mass. See methods for trait units and collection/imputation procedures."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "trait_value",
+      "alternateName": "trait_value",
+      "description": "Value of trait. Note that all values are imputed for continuous (numerical) traits.",
+      "unitText": "see trait descriptions for units for each trait type"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "imputation_error",
+      "alternateName": "imputation_error",
+      "description": "Mean error for each trait value for each species generated from the continuous trait imputation process (BHPMF or MICE). Higher values indicate lower confidence in the data point.",
+      "unitText": "error"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "error_risk_overall",
+      "alternateName": "error_risk_overall",
+      "description": "Error risk relative to entire database. Calculated as standard deviations away from the mean based on log10 transformed values for continuous data.",
+      "unitText": "error risk"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "error_risk_family",
+      "alternateName": "error_risk_family",
+      "description": "Error risk for continuous traits relative to species within the same plant family. Calculated as standard deviations away from the mean based on log10 transformed values for continuous data.",
+      "unitText": "error risk"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "error_risk_genus",
+      "alternateName": "error_risk_genus",
+      "description": "Error risk relative to plant species within the same genus. Calculated as standard deviations away from the mean based on log10 transformed values for continuous data.",
+      "unitText": "error risk"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "source",
+      "alternateName": "source",
+      "description": "All continuous trait data was imputed following procedures outlined in the methods."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "DatabaseID",
+      "alternateName": "DatabaseID",
+      "description": "Database the measured trait data was drawn from."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "DatasetID",
+      "alternateName": "DatasetID",
+      "description": "Dataset identifier as noted in the original database."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ObservationID",
+      "alternateName": "ObservationID",
+      "description": "Observation identifier as noted in the original database."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "family",
+      "alternateName": "family",
+      "description": "Taxonomic family of the plant species."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "genus",
+      "alternateName": "genus",
+      "description": "Genus of the plant species."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "species",
+      "alternateName": "species",
+      "description": "Genus and species (separated by a space) of the plant species."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "trait",
+      "alternateName": "trait",
+      "description": "Trait type out of 8 continuous traits."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "trait_value",
+      "alternateName": "trait_value",
+      "description": "Value of trait from original databases (see trait descriptors for units).",
+      "unitText": "see trait descriptions for units for each trait type"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Reference",
+      "alternateName": "Reference",
+      "description": "Source of measured trait data as described by the original database."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ReferenceID",
+      "alternateName": "ReferenceID",
+      "description": "Unique reference identifier."
+    }
+  ],
+  "subjectOf": {
+    "@type": "DataDownload",
+    "name": "EML metadata for dataset",
+    "description": "EML metadata describing the dataset",
+    "encodingFormat": [
+      "application/xml",
+      "https://eml.ecoinformatics.org/eml-2.2.0"
+    ],
+    "contentUrl": "https://pasta.lternet.edu/package/metadata/eml/edi/1533/3",
+    "dateModified": "2024-05-16"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "CoRRE Categorical Trait Data",
+      "description": "CoRRE categorical trait data, spanning 9 categorical traits that are anticipated to predict species’ responses to global change for 4,079 vascular plant species across 173 plant families present in 390 grassland experiments from around the world. The database contains complete categorical trait records for all 4,079 plant species, obtained from a comprehensive literature search.",
+      "contentSize": "3524292 byte",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/1533/3/5ebbc389897a6a65dd0865094a8d0ffd",
+      "encodingFormat": "text/csv",
+      "spdx:checksum": null
+    },
+    {
+      "@type": "DataDownload",
+      "name": "CoRRE Continuous Trait Data",
+      "description": "CoRRE continuous trait data for 8 continuous traits that are anticipated to predict species’ responses to global change for 2,927 vascular plant species present in 390 grassland experiments from around the world. The database contains nearly complete (99.97%) continuous trait records imputed from measured values.",
+      "contentSize": "3446179 byte",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/1533/3/169fc12d10ac20b0e504f8d5ca0b8ee8",
+      "encodingFormat": "text/csv",
+      "spdx:checksum": null
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Imputation Training Data",
+      "description": "Trait data gathered from five trait databases (TRY, BIEN, AusTraits, TiPLeaf, China Plant Trait Database) to serve as baseline data for continuous trait imputation. See methods for details on imputation procedures.",
+      "contentSize": "75480039 byte",
+      "contentUrl": "https://pasta.lternet.edu/package/data/eml/edi/1533/3/f21fe032152862d12f85d7d4b0eda94a",
+      "encodingFormat": "text/csv",
+      "spdx:checksum": null
+    }
+  ],
+  "dateModified": "2024-05-16",
+  "datePublished": "2024-05-16",
+  "spatialCoverage": {
+    "@type": "Place",
+    "geo": [
+      {
+        "@type": "GeoShape",
+        "box": "-45.6833333 -149.590593 78.9333333 151.14"
+      }
+    ]
+  },
+  "creator": {
+    "@list": [
+      {
+        "@type": "Person",
+        "givenName": "Kimberly",
+        "familyName": "Komatsu",
+        "url": "https://www.communitydynamicslab.com/",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-7056-4547"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Meghan",
+        "familyName": "Avolio",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-2649-9159"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Josep",
+        "familyName": "Padulles Cubino",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-2283-5004"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Franziska",
+        "familyName": "Schrodt",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-9053-8872"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Harold",
+        "familyName": "Auge",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-7432-8453"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Jeannine",
+        "familyName": "Cavender-Bares",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0003-3375-9630"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Adam",
+        "familyName": "Clark",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-8843-3278"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Habacuc",
+        "familyName": "Flores-Moreno",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-7083-0005"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Emily",
+        "familyName": "Grman",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-2085-3073"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "W Stanley",
+        "familyName": "Harpole",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-3404-9174"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Jens",
+        "familyName": "Kattge",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-1022-8469"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Kaitlin",
+        "familyName": "Kimmel",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0003-3261-5248"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Sally",
+        "familyName": "Koerner",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-6403-7513"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Lotte",
+        "familyName": "Korell",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-7051-8903"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "J Adam",
+        "familyName": "Langley",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-5164-4760"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Tamara",
+        "familyName": "Münkemüller",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-9743-1322"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Timothy",
+        "familyName": "Ohlert",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-6976-5114"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Renske",
+        "familyName": "Onstein",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-2295-3510"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Christiane",
+        "familyName": "Roscher",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-9301-7909"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Nadejda",
+        "familyName": "Soudzilovskaia",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-9584-2109"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Benton",
+        "familyName": "Taylor",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-9834-9192"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Leho",
+        "familyName": "Tedersoo",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0002-1635-1249"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Rosalie",
+        "familyName": "Terry",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0003-2246-8002"
+        }
+      },
+      {
+        "@type": "Person",
+        "givenName": "Kevin",
+        "familyName": "Wilcox",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "https://orcid.org",
+          "value": "0000-0001-6829-1148"
+        }
+      }
+    ]
+  },
+  "contributor": {
+    "@list": [
+      {
+        "@type": "Role",
+        "roleName": "contact",
+        "contributor": {
+          "@type": "Person",
+          "givenName": "Kimberly",
+          "familyName": "Komatsu",
+          "url": "https://www.communitydynamicslab.com/",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://orcid.org",
+            "value": "0000-0001-7056-4547"
+          }
+        }
+      },
+      {
+        "@type": "Role",
+        "roleName": "contact",
+        "contributor": {
+          "@type": "Person",
+          "givenName": "Meghan",
+          "familyName": "Avolio",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://orcid.org",
+            "value": "0000-0002-2649-9159"
+          }
+        }
+      },
+      {
+        "@type": "Role",
+        "roleName": "Lead Investigator",
+        "contributor": {
+          "@type": "Person",
+          "givenName": "Kimberly",
+          "familyName": "Komatsu",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://orcid.org",
+            "value": "0000-0001-7056-4547"
+          }
+        }
+      },
+      {
+        "@type": "Role",
+        "roleName": "Lead Investigator",
+        "contributor": {
+          "@type": "Person",
+          "givenName": "Meghan",
+          "familyName": "Avolio",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://orcid.org",
+            "value": "0000-0002-2649-9159"
+          }
+        }
+      }
+    ]
+  },
+  "provider": {
+    "@id": "https://edirepository.org"
+  },
+  "publisher": {
+    "@id": "https://edirepository.org"
+  },
+  "funding": [
+    {
+      "@type": "MonetaryGrant",
+      "name": "sCoRRE: Assessing functional consequences of community changes with global change using trait-based and phylogenetic approaches",
+      "funder": {
+        "@type": "Organization",
+        "name": "German Centre for Integrative Biodiversity Research (iDiv)"
+      }
+    }
+  ],
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://bien.nceas.ucsb.edu/bien/"
+    },
+    {
+      "@id": "https://austraits.org/"
+    },
+    {
+      "@id": "https://doi.org/10.11888/Terre.tpdc.272516"
+    },
+    {
+      "@id": "https://figshare.com/articles/dataset/The_China_Plant_Trait_Database_Version_2_0/19448219"
+    },
+    {
+      "@id": "https://www.try-db.org"
+    }
+  ],
+  "isBasedOn": [
+    {
+      "@id": "https://bien.nceas.ucsb.edu/bien/"
+    },
+    {
+      "@id": "https://austraits.org/"
+    },
+    {
+      "@id": "https://doi.org/10.11888/Terre.tpdc.272516"
+    },
+    {
+      "@id": "https://figshare.com/articles/dataset/The_China_Plant_Trait_Database_Version_2_0/19448219"
+    },
+    {
+      "@id": "https://www.try-db.org"
+    }
+  ]
+}

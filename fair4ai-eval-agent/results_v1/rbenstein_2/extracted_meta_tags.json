@@ -1,0 +1,14 @@
+{
+  "viewport": "width=device-width, initial-scale=1",
+  "generator": "Jekyll v3.10.0",
+  "og:title": "Avonet",
+  "og:locale": "en_US",
+  "description": "The AVONET database contains comprehensive functional trait data for all birds, including six ecological variables, eleven continuous morphological traits, and information on range size and location. Raw morphological measurements are available from 90020 individuals of 11009 extant bird species sampled from 181 countries. These data are also summarised as species averages in three taxonomic formats, allowing integration with a global phylogeny, geographical range maps, IUCN Red List data, and the eBird citizen science database. Code to reproduce the analyses and figures presented in Tobias et al 2022 “AVONET: morphological, ecological and geographical data for all birds” Ecology Letters, is also included.",
+  "og:description": "The AVONET database contains comprehensive functional trait data for all birds, including six ecological variables, eleven continuous morphological traits, and information on range size and location. Raw morphological measurements are available from 90020 individuals of 11009 extant bird species sampled from 181 countries. These data are also summarised as species averages in three taxonomic formats, allowing integration with a global phylogeny, geographical range maps, IUCN Red List data, and the eBird citizen science database. Code to reproduce the analyses and figures presented in Tobias et al 2022 “AVONET: morphological, ecological and geographical data for all birds” Ecology Letters, is also included.",
+  "og:url": "https://opentraits.org/datasets/avonet.html",
+  "og:site_name": "Open Traits Network",
+  "og:type": "article",
+  "article:published_time": "2025-08-13T13:57:26+00:00",
+  "twitter:card": "summary",
+  "twitter:title": "Avonet"
+}

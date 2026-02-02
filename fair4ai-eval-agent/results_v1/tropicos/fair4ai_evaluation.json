@@ -1,0 +1,979 @@
+{
+  "metadata": {
+    "generated_date": "2026-02-01",
+    "dataset_evaluated": "tropicos",
+    "evaluation_method": "Automated analysis using FAIR4AI Agent with LLM",
+    "source_files": [
+      "extracted_meta_tags.json"
+    ],
+    "llm_provider": "azure",
+    "llm_model": "gpt-4o"
+  },
+  "responses": [
+    {
+      "section": "Form Root",
+      "question": "My name",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "Metadata does not contain any information regarding names.",
+      "notes": "The provided metadata file contains only a viewport tag, which is related to the display settings of a webpage and unrelated to personal names."
+    },
+    {
+      "section": "Form Root",
+      "question": "My affiliation",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No information regarding affiliation is present in the metadata.",
+      "notes": "The provided metadata only contains a viewport tag with no information related to affiliations."
+    },
+    {
+      "section": "Form Root",
+      "question": "My email",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No email information is present in the provided metadata content.",
+      "notes": "The metadata only contains viewport information, which is unrelated to email data."
+    },
+    {
+      "section": "Form Root",
+      "question": "Dataset title",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided in 'extracted_meta_tags.json' does not include information about the dataset title.",
+      "notes": "The available metadata only contains viewport settings, which do not pertain to dataset titles."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the associated repository, if available.",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The extracted_meta_tags.json file contains only viewport information and does not provide any repository link.",
+      "notes": "The metadata provided does not include any URLs or references to a repository. Only viewport settings are included."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the dataset landing page/home page if available.",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No link to a dataset landing page is present in the extracted_meta_tags.json content provided.",
+      "notes": "The metadata only contains a viewport setting, which is unrelated to dataset landing page details."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide the citation, DOI, URL, or similar, if available.",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata only contains a 'viewport' field.",
+      "notes": "The metadata does not contain any citation, DOI, URL, or similar information."
+    },
+    {
+      "section": "Form Root",
+      "question": "As I am evaluating this dataset, I am considering it for",
+      "response_choices": "publishing for others to use | open-ended use (window shopping) | use in a specific project",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not contain information related to the dataset's intended use or purpose.",
+      "notes": "The extracted_meta_tags.json file only includes viewport settings and lacks any contextual information regarding the intended use of the dataset. Therefore, it does not provide information necessary to determine the reason for evaluating this dataset."
+    },
+    {
+      "section": "Form Root",
+      "question": "My relationship to this dataset",
+      "response_choices": "Data Provider/Producer (metadata author) | Data User/Consumer (metadata reader)",
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided does not contain any information about relationships to the dataset.",
+      "notes": "The provided metadata file, `extracted_meta_tags.json`, solely contains a viewport setting and lacks details about roles or relationships to the dataset."
+    },
+    {
+      "section": "Form Root",
+      "question": "Provide a brief description of how you are evaluating this dataset. ",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata file does not include information about the evaluation method or access to specific metadata standards.",
+      "notes": "The metadata contains only a viewport setting, which does not pertain to dataset evaluation methods or access to metadata files like Schema.org, EML, or ML Croissant."
+    },
+    {
+      "section": "Form Root",
+      "question": "Metadata Upload",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided does not contain any information about metadata uploads.",
+      "notes": "The provided metadata only contains information regarding the viewport, which does not relate to any file uploads or the content of other metadata files."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Citation for “this dataset”: The full citation is provided (preferably in Bibtex format).",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only contains information about the viewport tag, which is not related to dataset citation."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Summary or Abstract",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any information related to a summary or abstract of the dataset. The only detail available is the viewport setting which does not pertain to dataset summaries or abstracts."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Publisher",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information about the publisher is found in the metadata provided.",
+      "notes": "The metadata only contains a viewpoint tag related to display settings and does not include any information regarding the publisher of the dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Date Created",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "specific evidence from metadata",
+      "notes": "Not found in metadata"
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "An identifier for “this dataset”: Does the dataset have a unique, persistent, machine-resolvable identifier (e.g., DOI)? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only contains a viewport setting and does not include any identifiers such as DOI."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Author/creator information are provided (e.g., names, affiliations, ORCIDs)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided in 'extracted_meta_tags.json' only includes a viewport setting and does not contain any author or creator information.",
+      "notes": "The absence of author/creator information in the provided metadata indicates that this aspect of provenance is not documented in the available files."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Curator information is provided (all curator names, ORCIDs, etc. are listed)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information regarding curator names, ORCIDs, or any related details."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Author(s) (person providing the description of the dataset) listed",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only contains information about the viewport settings and does not mention any dataset card author(s) or their details."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Contact or Expert Contact (who to contact with questions) is provided",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only contains a viewport setting and does not include any information about contact details or dataset documentation."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Other Non-author Contributions",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only includes information about the viewport, which does not relate to contributions, making it impossible to determine non-author contributions from this metadata."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Acknowledgments: Funding Description and Grants",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any information about funding descriptions or grants. The extracted_meta_tags.json only contains a viewport setting, which is unrelated to funding or acknowledgments."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Is this dataset derived from other sources?",
+      "response_choices": "Yes | No (skip to \"Additional information\" question)",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The available metadata 'extracted_meta_tags.json' contains only information about the viewport and does not include any details regarding the dataset's provenance or whether it is derived from other sources."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Provenance Tracking: Do the metadata provide information about the source data from which this dataset was derived (e.g., titles, summaries, and links)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The only information available in the metadata is the viewport setting. There is no mention of source data, titles, summaries, or links.",
+      "notes": "The metadata content provided is insufficient to determine any provenance or source information for the dataset. The viewport setting is unrelated to provenance tracking."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data producers (who created the source data?)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provides information only about the viewport settings related to web display, but no information on the source data producers is provided. The specific requirement to document the creators of the source data is not met in the given metadata."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Citation of subsumed datasets (cite your sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata file extracted_meta_tags.json does not contain any information regarding the citation of subsumed datasets.",
+      "notes": "The current metadata only contains a viewport setting, which is unrelated to dataset provenance or citation. There is no information available about derived datasets or citations."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data DOI (permalink for the sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata file 'extracted_meta_tags.json' does not contain any information regarding the DOI or source data references. It only includes a viewport tag, which is unrelated to dataset provenance."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data checksums: E.g., checksum for a zip file or a list of image checksums to ensure downstream users can get the same data you did.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata contains only a viewport specification and does not include any information about checksums for source data. Therefore, there is no evidence of checksums for a zip file or list of image checksums to ensure the integrity of the data."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only includes a 'viewport' tag which is related to web page display settings and does not pertain to dataset provenance or related information. Therefore, no additional dataset-specific information is present in the provided metadata."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related paper (e.g., DOI, BIBTEX citation, link, etc.)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any references to a related paper, such as DOI, BIBTEX citation, or a link."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related dataset and/or Model",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The 'extracted_meta_tags.json' only contains a 'viewport' property, which is related to web page layout, not datasets or models. There is no mention of related datasets or models in the available metadata."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Purpose of the data",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The available metadata only contains information about the viewport for layout purposes and does not provide any description or purpose of the data. There is no evidence in the extracted_meta_tags.json to ascertain the purpose of the dataset."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Content - short description of the data types, etc.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information regarding a description of the data types or content."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Are the data machine ready? (machine-actionable under the FAIR Principles)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information about the dataset being machine-actionable or compatible with FAIR Principles. The metadata only includes a viewport setting, which is unrelated to data machine readability."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Language - what language or languages are the data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any information regarding the language of the data."
+    },
+    {
+      "section": "General Information",
+      "question": "Discovery: Are keywords/tags provided to describe the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata file 'extracted_meta_tags.json' only contains a 'viewport' tag which is related to web page display, not dataset keywords or tags.",
+      "notes": "Metadata does not provide any indication of keywords or descriptive tags relevant to the dataset itself."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Does the dataset and its metadata make use of relevant ontologies?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any reference to ontologies such as ENVO, Darwin Core, UO, GO, or any others."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Is the data dictionary/codebook provided?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information about a data dictionary or codebook. It only contains a viewport metadata tag related to web page rendering."
+    },
+    {
+      "section": "General Information",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No relevant information found in extracted_meta_tags.json",
+      "notes": "The provided metadata only includes a viewport setting, which is not related to additional information about the dataset itself."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: File format(s) that encode the data are described",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "There is no information regarding the data format in the provided metadata.",
+      "notes": "The metadata only contains viewport information and does not describe any file formats used for data encoding."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The dataset layout pattern is provided or explained",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only includes a 'viewport' field related to display settings, with no information on dataset layout or structure."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The primary unit of data that is to be operated on is explained",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata (extracted_meta_tags.json) does not contain any information explaining the primary unit of data that is to be operated on. It only includes a viewport setting for device layout."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are properly documented in the metadata",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No relevant fields or values indicating documentation of features or attributes are present in the metadata.",
+      "notes": "The metadata provided only contains a viewport setting, which is related to the display of the website or application, not data documentation. There is no information on dataset features like species name, location, date, or observer ID."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are included for each data instance",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only includes a viewport setting, which is related to web page display and does not provide any information about features or attributes for data instances."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Technical Specifications: Are the technical specifications of the dataset indicated?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The 'extracted_meta_tags.json' file only contains a viewport specification and does not mention any technical specifications of the dataset.",
+      "notes": "The viewport metadata is related to web display properties and does not provide any technical specifications such as file sizes, resolution, or other relevant details about the dataset."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata file extracted_meta_tags.json contains only information about the viewport configuration and does not include any additional details about the dataset.",
+      "notes": "The metadata lacks information regarding data fields, data types, or any other structural details commonly found in a dataset."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Data Source Type): Metadata record what type(s) of source data were collected or used to generate this dataset.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only includes information about the viewport, which does not contain details about the type of source data collected or used to generate the dataset. Therefore, this information is missing."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Curation Rationale):  Metadata record the primary rationale for curating or assembling this dataset",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata file contains only a viewport configuration setting, which does not include information about the collection or curation rationale.",
+      "notes": "The metadata provided is limited to a single HTML meta tag regarding viewport settings, which does not relate to dataset curation details."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Part of a Larger Collection): Metadata indicate if this dataset part of a larger collection or series, and provide the following information:",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding the dataset being part of a larger collection or series."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Instrumentation: Do the metadata describe the instruments or sensors used to collect the data, including their specifications and configuration?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata file 'extracted_meta_tags.json' contains only a viewport setting which is related to web display, and does not include any information about instruments or sensors used for data collection."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Collection Method Documentation): Do the metadata describe the methods used to collect or generate the data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information regarding methods of data collection or generation is found in the provided metadata",
+      "notes": "The provided metadata contains only a metadata tag related to viewport settings, which does not describe any collection methods."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Resolution): Do the metadata describe the spatial resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata from the extracted_meta_tags.json only contains information about the viewport settings, which is not relevant to describing spatial resolution. There is no mention of spatial resolution or related methods, such as point location, grid-based, or any other spatial characteristics."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Extent): Do the metadata describe the geographic coverage (region, bounding box, domain)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only includes a 'viewport' tag, which is related to web page layout and not geographic coverage or spatial extent."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Resolution): Do the metadata describe the temporal resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata contains a viewport specification, which does not pertain to temporal resolution or provide any information about time variables related to the dataset."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Extent): Do the metadata describe the temporal extent?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information on temporal extent found in the metadata. The provided metadata only includes viewport settings.",
+      "notes": "The metadata content provided does not include any details regarding temporal aspects such as start date or end date, which are necessary to describe the temporal extent."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Types: Do the metadata describe the types of annotations or labels are included in the dataset (if any)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided in the 'extracted_meta_tags.json' file does not include information about annotation types or labels included in the dataset. The only information available is related to the viewport settings for web display."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Process: Do the metadata describe how annotations were generated or obtained?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only includes a 'viewport' specification, which is related to display settings for web content, and does not provide any information on the annotation process or how annotations were generated or obtained."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotators (Contributors): Do metadata indicate who performed the data annotations? \nPreferably, a list of annotators (e.g., ORCiDs), or names/versions of automated tools or systems; or other relevant information.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided only includes a viewport setting and has no information on annotators or contributors.",
+      "notes": "The metadata file provided does not include any details related to the individuals or tools used for data annotation."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided only contains 'viewport': 'width=device-width, initial-scale=1', which does not offer any information about the dataset.",
+      "notes": "The metadata does not contain any information related to the origin of the dataset or any additional context about it."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Preparation: Do the metadata provide a complete overall description of data preparation, cleaning, transformation, or quality-control steps performed prior to generating the final dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata file only contains information about the viewport setting, which is unrelated to data preparation or processing steps. There is no information provided about how the data was prepared, cleaned, transformed, or quality-controlled."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Processing Platform or Software: Metadata provide a description of and citations or links to any processing platform or software used in the creation of this dataset.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any description, citations, or links related to a processing platform or software used in the creation of the dataset."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Correction / Standardization of Values: Does the metadata describe corrections applied to existing data values and whether the data values have been standardized in any way?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The provided metadata 'extracted_meta_tags.json' only includes a 'viewport' setting, which does not relate to data correction or standardization.",
+      "notes": "The metadata provided does not contain information about data processing or any corrections or standardizations applied to data values. Therefore, based on this particular metadata file, there is no evidence of such processes."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Gaps Filled: Does metadata indicate if missing values or data gaps filled in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata file 'extracted_meta_tags.json' does not contain any information related to data processing or the handling of missing values or data gaps. It only includes a 'viewport' tag, which is unrelated to the dataset's content or data processing."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If gaps were filled, are the methods described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata file only contains information regarding the viewport settings for a webpage. There is no information about data processing methods, such as gap-filling techniques, described in the metadata."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Labeling / Relabeling: Does the metadata indicate if any labeling or relabeling steps were applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information regarding labeling or relabeling steps for the dataset. Only a viewport setting is mentioned, which is unrelated to data processing or labeling."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Does the metadata sufficiently describe the labeling or relabeling process?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata file `extracted_meta_tags.json` contains only a viewport setting, which pertains to web page display settings and does not include any information about data labeling, relabeling, sources, standardization, or alignment with taxonomies or ontologies."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Data Filtering and Outlier Removal: Were any outlier removal or filtering procedures applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "No relevant information on data filtering or outlier removal in extracted_meta_tags.json",
+      "notes": "The provided metadata does not contain information related to data processing, specifically regarding data filtering or outlier removal procedures."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If yes, does the metadata sufficiently describe the outlier detection and removal methods used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata only contains a 'viewport' tag and does not include any description of outlier detection and removal methods.",
+      "notes": "The provided metadata file does not contain any information related to data processing or outlier methods. It only includes a 'viewport' setting, which is unrelated to data processing."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do metadata indicate if the dataset has been split into training, validation, and/or test sets?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information related to dataset splits is provided in the extracted_meta_tags.json file.",
+      "notes": "The metadata file only contains viewport configuration information, which is unrelated to dataset splits."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do the metadata provide information on how splits were created?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only contains information related to viewport settings and does not include any details about data splits or their creation processes."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No relevant information found in extracted_meta_tags.json",
+      "notes": "The metadata file provided does not contain any information related to data processing specifically. It only includes a viewport setting which is unrelated to dataset contents."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if this dataset is complete (i.e., there are no plans for further updates to this data product)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding the completeness of the dataset or plans for future updates. The only metadata available pertains to the viewport setting."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if quality assurance checks been run and if they passed?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Quality assurance information not found in extracted_meta_tags.json.",
+      "notes": "The only metadata provided is related to viewport settings, which does not include any references to quality assurance checks."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the timeliness of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata file 'extracted_meta_tags.json' only includes a viewport setting and does not provide information about the timeliness of the dataset.",
+      "notes": "The metadata lacks details on the dataset's update frequency or currency, which are necessary to determine timeliness."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate quality checks on or evaluate dataset timeliness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata only includes a viewport setting: 'width=device-width, initial-scale=1'.",
+      "notes": "The provided metadata does not contain any information related to dataset quality checks or evaluation of timeliness. It solely contains web page rendering details."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the time lag between data collection and availability?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata 'extracted_meta_tags.json' does not include any information regarding the time lag between data collection and availability. It only contains a viewport specification, which pertains to the display settings for web pages, not data quality or release information."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the quality checks that have failed and provide context for downstream users to work with the data as-is or resolve the issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information related to quality checks is found in the metadata.",
+      "notes": "The provided metadata only includes a viewport tag, which is unrelated to data quality. There's no mention of quality checks or guidance for downstream users."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata explain why quality checks were not performed and provide context for downstream users to work with the data as-is or resolve potential issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding data quality checks or context for downstream users. The extracted_meta_tags.json file contains only a viewport configuration."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe any known gaps or limitations in the dataset’s completeness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata in extracted_meta_tags.json does not contain any information about known gaps or limitations in the dataset’s completeness. It only includes a viewport meta tag."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if all units have been translated into compatible forms?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding units or their standardization."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do any of the data follow a controlled vocabulary?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The provided metadata only contains information about the viewport setting, which does not mention controlled vocabulary.",
+      "notes": "The metadata does not contain any details about the dataset itself or vocabulary usage, which makes it impossible to determine if a controlled vocabulary is used."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Is a reference provided for the controlled vocabulary used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided from 'extracted_meta_tags.json' contains only information about the viewport settings, with no references or mentions of controlled vocabularies."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are any known consistency issues or steps taken to ensure consistency described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No relevant fields or values related to data quality or consistency issues found in the metadata",
+      "notes": "The provided metadata only contains information about viewport settings, which do not pertain to data quality or consistency issues."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if any quality assurance or peer review procedures been applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding quality assurance or peer review procedures applied to the dataset."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the procedures used to ensure data integrity?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding procedures used to ensure data integrity, such as checksums, version control, or audit trails."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are data checksums included? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information about checksums found in the provided metadata",
+      "notes": "The metadata only includes information about the viewport setting without any mention of data checksums."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No relevant information related to data quality is present in the extracted_meta_tags.json",
+      "notes": "The provided metadata only includes a viewport setting, which is not related to data quality or any additional dataset information."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe known sources of bias in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata contains only a 'viewport' tag, which does not contain any information regarding sources of bias in the dataset."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known risks or limitations associated with the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata file 'extracted_meta_tags.json' only contains information related to the viewport and does not include any descriptions of risks or limitations associated with the dataset."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate if the dataset is based on experimental data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided only contains information about the viewport and does not indicate the nature of the dataset.",
+      "notes": "The metadata lacks details about the dataset's origin or whether it is based on experimental data."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, do the metadata describe the experimental design?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata in 'extracted_meta_tags.json' contains only a 'viewport' specification, which is related to web page display settings and not experimental design. There is no information regarding treatments, controls, replication, randomization, or any aspects of experimental design."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe recommended or intended uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata 'extracted_meta_tags.json' does not include any information regarding recommended or intended uses of the dataset. It only contains a viewport setting for web display purposes."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known inappropriate or discouraged uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information regarding inappropriate or discouraged uses of the dataset. The only information available is related to viewport settings, which do not pertain to ethical or appropriate use considerations."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate this dataset has been used in AI/ML applications previously?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information regarding the use of the dataset in AI/ML applications. The only information available in the metadata is about the viewport settings, which is unrelated to dataset usage."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, is it described how the dataset has been used in AI/ML applications?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata 'extracted_meta_tags.json' does not contain any information regarding the usage of the dataset in AI/ML applications, models, benchmarks, or publications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Are there references to models, benchmarks, or publications if available?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata only contains information about the viewport settings and does not mention any models, benchmarks, publications, documentation, or licensing considerations."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate how to report issues or errors in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The 'extracted_meta_tags.json' file only contains a viewport setting for web display, with no information regarding reporting issues or errors."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No related fields or values in extracted_meta_tags.json",
+      "notes": "The provided metadata only includes a 'viewport' setting, which does not pertain to dataset characteristics or guidelines."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available for direct download?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information regarding the availability of the dataset for direct download."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via an API?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding access to the dataset via an API."
+    },
+    {
+      "section": "Data Access",
+      "question": "If accessible via API, is the type of API specified?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information regarding API type is found in the provided metadata.",
+      "notes": "The only metadata available is related to viewport settings for web display and does not include any details about API access or types."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is API documentation provided (e.g., linked to)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information about API documentation is present in the metadata.",
+      "notes": "The 'extracted_meta_tags.json' only contains metadata related to the viewport settings and does not include any references to API documentation."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via a cloud platform?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The extracted_meta_tags.json file only contains information about the viewport.",
+      "notes": "There is no information regarding cloud platform accessibility in the provided metadata."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in a machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not contain any information about the dataset being in a machine-readable format. The provided metadata only includes a viewport tag, which is related to web page display rather than dataset format."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in an open (non-proprietary) format?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information about the format of the dataset. Thus, it cannot be determined whether the dataset is in an open format."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available in multiple formats?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "No relevant information about data formats in extracted_meta_tags.json",
+      "notes": "The provided metadata only contains a viewport setting related to web page display, not dataset formats."
+    },
+    {
+      "section": "Data Access",
+      "question": "Do the metadata indicate what license applies to this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The provided metadata only includes a 'viewport' property, which does not contain licensing information.",
+      "notes": "The metadata does not provide any details about the data license. Typically, licensing information would be found in fields specifically labeled with terms like 'license' or 'rights', none of which are present here."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the license information provided in a standardized or machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any information regarding license information, hence it cannot be considered to be in a standardized or machine-readable format."
+    },
+    {
+      "section": "Data Access",
+      "question": "Does the dataset contain personal or sensitive information?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata only contains information about the viewport settings.",
+      "notes": "The given metadata file lacks any details regarding the dataset's contents, including whether it contains personal or sensitive information."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is access to the dataset restricted in any way?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not contain any information regarding data access restrictions.",
+      "notes": "The provided metadata only includes viewport specifications, which do not offer any insight into dataset access restrictions."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is secure access required to obtain or use the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "There is no information related to secure access in the provided metadata.",
+      "notes": "The metadata file only contains information about viewport settings, which are related to web page display and not data access security."
+    },
+    {
+      "section": "Data Access",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No relevant data access information is present in 'extracted_meta_tags.json'.",
+      "notes": "The metadata only includes a viewport tag, which does not provide information related to data access."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Is this form sufficient to evaluate if a dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata only contains a generic viewport setting and lacks any information about the dataset's findability, accessibility, interoperability, or reusability.",
+      "notes": "The provided metadata is insufficient for evaluating FAIR4AI principles as it does not contain any relevant information about the dataset's properties or features necessary for assessing its FAIRness or AI readiness."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from this form?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata only contains viewport information, lacking detail about FAIR principles.",
+      "notes": "The metadata provided is insufficient to evaluate the dataset against FAIR4AI principles. Essential elements such as data identification, accessibility, metadata standards, format details, and licensing information are missing."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Should sections or items from this form be edited or deleted? If so, how and/or why?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata only contains a 'viewport' tag, which is unrelated to editing or deleting sections or items from a form.",
+      "notes": "The metadata does not provide any information regarding the structure or content of a form that would suggest edits or deletions."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Did the metadata you evaluated provide sufficient information to determine if the dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata only includes a single 'viewport' tag: 'width=device-width, initial-scale=1'",
+      "notes": "The metadata evaluated does not include any information related to the Findable, Accessible, Interoperable, and Reusable principles required to assess if the dataset is FAIR for AI."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from the metadata? ",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata only includes a viewport configuration, which does not cover any attributes related to FAIR principles.",
+      "notes": "The metadata does not include any information on dataset identifier, access protocols, metadata standards, licenses, provenance information, data formats, or interoperability specifications."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Use this space to provide any other feedback",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No relevant information in 'extracted_meta_tags.json'",
+      "notes": "The metadata file 'extracted_meta_tags.json' contains only a viewport setting, which does not provide any information for feedback or conclusions about the dataset."
+    }
+  ],
+  "summary": {
+    "strengths": [],
+    "weaknesses": [
+      "Lack of structured metadata",
+      "No identifiers such as DOI",
+      "Absence of access methods (e.g., API, direct download)",
+      "No documentation for data formats, provenance, or processing",
+      "No licensing information",
+      "Missing provenance information including creator and publisher",
+      "No data description, purpose or content",
+      "No technical or structural specifications",
+      "Absence of interoperability details or use of ontologies"
+    ],
+    "overall_assessment": "The 'tropicos' dataset lacks essential metadata elements necessary for assessing its FAIRness. It does not include identifiers, access information, provenance details, data description, or licensing information. This severely limits its findability, accessibility, interoperability, and reusability, rendering the dataset's compliance with FAIR principles very low. There is insufficient information about the dataset's structure, intended use, or guidelines for users, which makes it challenging to utilize effectively in any scientific or research context.",
+    "fair_score_estimate": {
+      "findable": "1/10 - The dataset does not have unique identifiers and is lacking any metadata for discovery.",
+      "accessible": "1/10 - There are no details on how the dataset can be accessed, whether through API or download.",
+      "interoperable": "1/10 - There is no use of standardized metadata schemes or ontologies, and no information about the data format.",
+      "reusable": "1/10 - Absence of licensing information and documentation greatly inhibits reusability."
+    }
+  }
+}

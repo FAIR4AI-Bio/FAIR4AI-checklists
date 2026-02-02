@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+         xmlns:xs="https://www.w3.org/2001/XMLSchema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd"
+         system="hfr"
+         scope="system"
+         packageId="knb-lter-hfr.118.35">
+   <access authSystem="knb" order="allowFirst" scope="document">
+      <allow>
+         <principal>uid=HFR,o=lter,dc=ecoinformatics,dc=org</principal>
+         <permission>all</permission>
+      </allow>
+      <allow>
+         <principal>public</principal>
+         <permission>read</permission>
+      </allow>
+   </access>
+   <dataset id="HF118">
+      <alternateIdentifier system="https://doi.org">doi:10.6073/pasta/3c4ded09a76203eec9e157e09309079f</alternateIdentifier>
+      <title>Ant Assemblages in Hemlock Removal Experiment at Harvard Forest since 2003</title>
+      <creator>
+         <individualName>
+            <givenName>Aaron</givenName>
+            <surName>Ellison</surName>
+         </individualName>
+         <userId directory="https://orcid.org">https://orcid.org/0000-0003-4151-6081</userId>
+      </creator>
+      <pubDate>2023</pubDate>
+      <language>English</language>
+      <abstract>
+         <section>
+            <para>Ants comprise a considerable amount of animal biomass in terrestrial ecosystems and play major roles in ecological processes ranging from seed dispersal to soil turnover. Invasion by the hemlock woolly adelgid will transform late-successional hemlock forests into earlier successional mixed hardwood - white pine forests or red-maple wetlands. Understanding how ant assemblages vary in different habitat types allows for predictions of how hemlock decline could alter the composition of ant assemblages, with implications for a wide range of ecosystem processes. As part of the Hemlock Removal Experiment at the Simes Tract, we annually monitor ant species composition and abundance.</para>
+         </section>
+      </abstract>
+      <keywordSet>
+         <keyword>abundance</keyword>
+         <keyword>ants</keyword>
+         <keyword>hemlock</keyword>
+         <keyword>hemlock woolly adelgid</keyword>
+         <keyword>species composition</keyword>
+         <keywordThesaurus>LTER controlled vocabulary</keywordThesaurus>
+      </keywordSet>
+      <keywordSet>
+         <keyword>populations</keyword>
+         <keyword>disturbance</keyword>
+         <keywordThesaurus>LTER core area</keywordThesaurus>
+      </keywordSet>
+      <keywordSet>
+         <keyword>Harvard Forest</keyword>
+         <keyword>HFR</keyword>
+         <keyword>LTER</keyword>
+         <keyword>USA</keyword>
+         <keywordThesaurus>HFR default</keywordThesaurus>
+      </keywordSet>
+      <intellectualRights>
+         <section>
+            <para>This dataset is released to the public under Creative Commons CC0 1.0 (No Rights Reserved). Please keep the dataset creators informed of any plans to use the dataset. Consultation with the original investigators is strongly encouraged. Publications and data products that make use of the dataset should include proper acknowledgement.</para>
+         </section>
+      </intellectualRights>
+      <licensed>
+         <licenseName>Creative Commons Zero v1.0 Universal</licenseName>
+         <url>https://spdx.org/licenses/CC0-1.0.html</url>
+         <identifier>CC0-1.0</identifier>
+      </licensed>
+      <distribution>
+         <online>
+            <url function="information">https://harvardforest.fas.harvard.edu/exist/apps/datasets/showData.html?id=hf118</url>
+         </online>
+      </distribution>
+      <coverage>
+         <geographicCoverage>
+            <geographicDescription>Simes Tract (Harvard Forest). Coordinates based on WGS84 datum.</geographicDescription>
+            <boundingCoordinates>
+               <westBoundingCoordinate>-72.22</westBoundingCoordinate>
+               <eastBoundingCoordinate>-72.21</eastBoundingCoordinate>
+               <northBoundingCoordinate>+42.48</northBoundingCoordinate>
+               <southBoundingCoordinate>+42.47</southBoundingCoordinate>
+               <boundingAltitudes>
+                  <altitudeMinimum>200</altitudeMinimum>
+                  <altitudeMaximum>240</altitudeMaximum>
+                  <altitudeUnits>meter</altitudeUnits>
+               </boundingAltitudes>
+            </boundingCoordinates>
+         </geographicCoverage>
+         <temporalCoverage>
+            <rangeOfDates>
+               <beginDate>
+                  <calendarDate>2003</calendarDate>
+               </beginDate>
+               <endDate>
+                  <calendarDate>2018</calendarDate>
+               </endDate>
+            </rangeOfDates>
+         </temporalCoverage>
+         <taxonomicCoverage>
+            <taxonomicClassification>
+               <taxonRankName>family</taxonRankName>
+               <taxonRankValue>Dolichoderinae</taxonRankValue>
+            </taxonomicClassification>
+            <taxonomicClassification>
+               <taxonRankName>family</taxonRankName>
+               <taxonRankValue>Formicidae</taxonRankValue>
+            </taxonomicClassification>
+            <taxonomicClassification>
+               <taxonRankName>family</taxonRankName>
+               <taxonRankValue>Formicinae</taxonRankValue>
+            </taxonomicClassification>
+            <taxonomicClassification>
+               <taxonRankName>family</taxonRankName>
+               <taxonRankValue>Myrmicinae</taxonRankValue>
+            </taxonomicClassification>
+            <taxonomicClassification>
+               <taxonRankName>family</taxonRankName>
+               <taxonRankValue>Ponerinae</taxonRankValue>
+            </taxonomicClassification>
+            <taxonomicClassification>
+               <taxonRankName>genus</taxonRankName>
+               <taxonRankValue>Aphaenogaster</taxonRankValue>
+               <taxonomicClassification>
+                  <taxonRankName>species</taxonRankName>
+                  <taxonRankValue>rudis</taxonRankValue>
+               </taxonomicClassification>
+            </taxonomicClassification>
+            <taxonomicClassification>
+               <taxonRankName>genus</taxonRankName>
+               <taxonRankValue>Tsuga</taxonRankValue>
+               <taxonomicClassification>
+                  <taxonRankName>species</taxonRankName>
+                  <taxonRankValue>canadensis</taxonRankValue>
+               </taxonomicClassification>
+            </taxonomicClassification>
+         </taxonomicCoverage>
+      </coverage>
+      <maintenance>
+         <description>
+            <para>ongoing</para>
+         </description>
+      </maintenance>
+      <contact scope="document">
+         <positionName>Information Manager</positionName>
+         <organizationName>Harvard Forest</organizationName>
+         <address scope="document">
+            <deliveryPoint>324 North Main Street</deliveryPoint>
+            <city>Petersham</city>
+            <administrativeArea>MA</administrativeArea>
+            <postalCode>01366</postalCode>
+            <country>USA</country>
+         </address>
+         <phone phonetype="voice">(978) 724-3302</phone>
+         <electronicMailAddress>hf-im@lists.fas.harvard.edu</electronicMailAddress>
+      </contact>
+      <publisher scope="document">
+         <organizationName>Harvard Forest</organizationName>
+         <address scope="document">
+            <deliveryPoint>324 North Main Street</deliveryPoint>
+            <city>Petersham</city>
+            <administrativeArea>MA</administrativeArea>
+            <postalCode>01366</postalCode>
+            <country>USA</country>
+         </address>
+         <phone phonetype="voice">(978) 724-3302</phone>
+         <phone phonetype="fax">(978) 724-3595</phone>
+         <onlineUrl>https://harvardforest.fas.harvard.edu</onlineUrl>
+      </publisher>
+      <methods>
+         <methodStep>
+            <description>
+               <section>
+                  <para>A permanent 10 x 10-m grid with 25 equally-spaced sample stations was established near the center of each of the 8 plots in the Hemlock Removal Experiment. Pitfall traps (200-ml cups) are buried flush with the soil surface at each point and capped. Caps are removed for sampling - in June, July, and August in 2003-2005; July and August in 2006; and July only since 2007 - 10 ml of soapy water placed in each cup, and cups left open for 48 hours in dry weather. Trap contents are removed and caps replaced after 48 hours. After pitfall trapping is complete, baits (30 g of crumbled Pecan Sandies cookies on white index cards) are placed at the 25 points and allowed to accumulate ants for 1 hour. Representative individuals are collected from each bait station. Three 3-L litter samples are collected from random locations in the large plots, outside of the sample grid, and sifted in the field. Any ants found in the sifted litter are collected. Plots are walked haphazardly for 1 person-hour and additional foraging ants encountered are collected.</para>
+               </section>
+            </description>
+         </methodStep>
+      </methods>
+      <project>
+         <title>Harvard Forest Long-Term Ecological Research</title>
+         <personnel>
+            <organizationName>Harvard Forest</organizationName>
+            <address>
+               <deliveryPoint>324 North Main Street</deliveryPoint>
+               <city>Petersham</city>
+               <administrativeArea>MA</administrativeArea>
+               <postalCode>01366</postalCode>
+               <country>USA</country>
+            </address>
+            <phone phonetype="voice">(978) 724-3302</phone>
+            <phone phonetype="fax">(978) 724-3595</phone>
+            <onlineUrl>https://harvardforest.fas.harvard.edu</onlineUrl>
+            <userId directory="https://ror.org">https://ror.org/059cpzx98</userId>
+            <role>pointOfContact</role>
+         </personnel>
+         <abstract>The Harvard Forest Long-Term Ecological Research (LTER) program examines ecological dynamics in the New England region resulting from natural disturbances, environmental change, and human impacts.</abstract>
+         <funding>National Science Foundation LTER grants: DEB-8811764, DEB-9411975, DEB-0080592, DEB-0620443, DEB-1237491, DEB-1832210.</funding>
+      </project>
+      <dataTable id="hf118-01">
+         <entityName>hf118-01-ants.csv</entityName>
+         <entityDescription>ants</entityDescription>
+         <physical>
+            <objectName>hf118-01-ants.csv</objectName>
+            <size unit="byte">238871</size>
+            <authentication method="MD5">3df1ecafd2059f810b1b08c2a09019ad</authentication>
+            <dataFormat>
+               <textFormat>
+                  <numHeaderLines>1</numHeaderLines>
+                  <recordDelimiter>\r\n</recordDelimiter>
+                  <attributeOrientation>column</attributeOrientation>
+                  <simpleDelimited>
+                     <fieldDelimiter>,</fieldDelimiter>
+                  </simpleDelimited>
+               </textFormat>
+            </dataFormat>
+            <distribution>
+               <online>
+                  <url function="download">https://harvardforest.fas.harvard.edu/data/p11/hf118/hf118-01-ants.csv</url>
+               </online>
+            </distribution>
+         </physical>
+         <attributeList>
+            <attribute id="1233762109653">
+               <attributeName>year</attributeName>
+               <attributeDefinition>year</attributeDefinition>
+               <measurementScale>
+                  <dateTime>
+                     <formatString>YYYY</formatString>
+                  </dateTime>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109669">
+               <attributeName>date</attributeName>
+               <attributeDefinition>date</attributeDefinition>
+               <measurementScale>
+                  <dateTime>
+                     <formatString>YYYY-MM-DD</formatString>
+                  </dateTime>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109684">
+               <attributeName>block</attributeName>
+               <attributeDefinition>block</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>Valley</code>
+                              <definition>plots 1-3, 8</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Ridge</code>
+                              <definition>plots 4-7</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109700">
+               <attributeName>plot</attributeName>
+               <attributeDefinition>plot number</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>plot</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109716">
+               <attributeName>treatment</attributeName>
+               <attributeDefinition>treatment type</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>Girdled</code>
+                              <definition>girdled</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Logged</code>
+                              <definition>logged</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>HemlockControl</code>
+                              <definition>hemlock control</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>HardwoodControl</code>
+                              <definition>hardwood control</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233992109716">
+               <attributeName>moose.cage</attributeName>
+               <attributeDefinition>location of grid with respect to moose exclosure</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>Exterior</code>
+                              <definition>outside of moose exclosure</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Interior</code>
+                              <definition>inside of moose exclosure</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109731">
+               <attributeName>trap.type</attributeName>
+               <attributeDefinition>trap type</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>Bait</code>
+                              <definition>from bait stations</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Hand</code>
+                              <definition>hand-collected</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Litter</code>
+                              <definition>from litter sample</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Pitfall</code>
+                              <definition>pitfall cup</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109747">
+               <attributeName>trap.num</attributeName>
+               <attributeDefinition>applies only to pitfall cups</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>trap number</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109762">
+               <attributeName>genus</attributeName>
+               <attributeDefinition>genus of ant</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>genus</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109778">
+               <attributeName>species</attributeName>
+               <attributeDefinition>species of ant</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>species</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109794">
+               <attributeName>code</attributeName>
+               <attributeDefinition>species code (combination of genus and species)</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>species code</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+            </attribute>
+            <attribute id="1233762109809">
+               <attributeName>abundance</attributeName>
+               <attributeDefinition>how many</attributeDefinition>
+               <measurementScale>
+                  <interval>
+                     <unit>
+                        <standardUnit>number</standardUnit>
+                     </unit>
+                     <precision>1</precision>
+                     <numericDomain>
+                        <numberType>whole</numberType>
+                     </numericDomain>
+                  </interval>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+         </attributeList>
+         <numberOfRecords>2931</numberOfRecords>
+      </dataTable>
+      <dataTable id="hf118-02">
+         <entityName>hf118-02-functional-traits.csv</entityName>
+         <entityDescription>functional traits</entityDescription>
+         <physical>
+            <objectName>hf118-02-functional-traits.csv</objectName>
+            <size unit="byte">11781</size>
+            <authentication method="MD5">0756572a442562ec8a618b78ab647121</authentication>
+            <dataFormat>
+               <textFormat>
+                  <numHeaderLines>1</numHeaderLines>
+                  <recordDelimiter>\r\n</recordDelimiter>
+                  <attributeOrientation>column</attributeOrientation>
+                  <simpleDelimited>
+                     <fieldDelimiter>,</fieldDelimiter>
+                  </simpleDelimited>
+               </textFormat>
+            </dataFormat>
+            <distribution>
+               <online>
+                  <url function="download">https://harvardforest.fas.harvard.edu/data/p11/hf118/hf118-02-functional-traits.csv</url>
+               </online>
+            </distribution>
+         </physical>
+         <attributeList>
+            <attribute id="1468242164587">
+               <attributeName>species.code</attributeName>
+               <attributeDefinition>ant species code</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>species code</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164603">
+               <attributeName>subfamily</attributeName>
+               <attributeDefinition>ant subfamily</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>ant subfamily</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164618">
+               <attributeName>genus</attributeName>
+               <attributeDefinition>ant generic epithet</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>ant generic epithet</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164634">
+               <attributeName>species</attributeName>
+               <attributeDefinition>ant specific epithet</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>ant specific epithet</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164650">
+               <attributeName>hl</attributeName>
+               <attributeDefinition>head length. We used trait definitions from Del Toro et al. (2015) and
+      filled in missing speciesâ data with information from Ellison et al.</attributeDefinition>
+               <measurementScale>
+                  <ratio>
+                     <unit>
+                        <standardUnit>millimeter</standardUnit>
+                     </unit>
+                     <precision>0.000000001</precision>
+                     <numericDomain>
+                        <numberType>real</numberType>
+                     </numericDomain>
+                  </ratio>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164665">
+               <attributeName>rel</attributeName>
+               <attributeDefinition>eye length relative to body size</attributeDefinition>
+               <measurementScale>
+                  <ratio>
+                     <unit>
+                        <standardUnit>millimeter</standardUnit>
+                     </unit>
+                     <precision>0.000000001</precision>
+                     <numericDomain>
+                        <numberType>real</numberType>
+                     </numericDomain>
+                  </ratio>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164681">
+               <attributeName>rll</attributeName>
+               <attributeDefinition>femur length relative to body size</attributeDefinition>
+               <measurementScale>
+                  <ratio>
+                     <unit>
+                        <standardUnit>millimeter</standardUnit>
+                     </unit>
+                     <precision>0.000000001</precision>
+                     <numericDomain>
+                        <numberType>real</numberType>
+                     </numericDomain>
+                  </ratio>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164696">
+               <attributeName>colony.size</attributeName>
+               <attributeDefinition>size of colony for each species</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>Small</code>
+                              <definition>&lt;100 workers</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Medium</code>
+                              <definition>100-1000 workers</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Large</code>
+                              <definition>1000-5000 workers</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Very Large</code>
+                              <definition>&gt;5000 workers</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164712">
+               <attributeName>feeding.preference</attributeName>
+               <attributeDefinition>feeding preference for each species</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>Predatory</code>
+                              <definition>predatory</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Granivore</code>
+                              <definition>granivore</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Honeydew</code>
+                              <definition>honeydew</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Omnivore</code>
+                              <definition>omnivore</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164728">
+               <attributeName>nest.substrate</attributeName>
+               <attributeDefinition>nest substrate</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>Soil</code>
+                              <definition>soil</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Wood</code>
+                              <definition>wood</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Grass</code>
+                              <definition>grass</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Acorns</code>
+                              <definition>acorns</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164743">
+               <attributeName>primary.habitat</attributeName>
+               <attributeDefinition>primary habitat</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>Open</code>
+                              <definition>open habitat</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Conifer forests</code>
+                              <definition>conifer forests</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Forests</code>
+                              <definition>forests (either coniferous or deciduous)</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Edge</code>
+                              <definition>edge habitat</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Bogs</code>
+                              <definition>bogs</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Deciduous forests</code>
+                              <definition>deciduous forests</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Subterranean</code>
+                              <definition>subterranean</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164759">
+               <attributeName>secondary.habitat</attributeName>
+               <attributeDefinition>secondary habitat associations</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>Wet</code>
+                              <definition>wet soils</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Sandy</code>
+                              <definition>sandy soils</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Edge</code>
+                              <definition>edge habitat</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Litter</code>
+                              <definition>exclusively leaf litter</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Grassy</code>
+                              <definition>exclusively grassy areas</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Rocky</code>
+                              <definition>rocky soils</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164774">
+               <attributeName>seed.disperser</attributeName>
+               <attributeDefinition>whether or not a seed dispersing species</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>N</code>
+                              <definition>no</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Y</code>
+                              <definition>yes</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164790">
+               <attributeName>slavemaker.sp</attributeName>
+               <attributeDefinition>whether or not a slavemaking species</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>N</code>
+                              <definition>no</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>Y</code>
+                              <definition>yes</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164806">
+               <attributeName>behavior</attributeName>
+               <attributeDefinition>classifications based on behavioral interactions with other
+      ants</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>neutral</code>
+                              <definition>neutral</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>dominant</code>
+                              <definition>competitive dominant</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>submissive</code>
+                              <definition>submissive</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="1468242164821">
+               <attributeName>biogeographic.affinity</attributeName>
+               <attributeDefinition>biogeographic affinity based on available occurrence
+      records</attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <enumeratedDomain>
+                           <codeDefinition>
+                              <code>widespread</code>
+                              <definition>widespread (distributed throughout the entire extent of eastern North
+           America)</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>cold climate</code>
+                              <definition>cold climate (distributed only in the northern extent of eastern North
+           America)</definition>
+                           </codeDefinition>
+                           <codeDefinition>
+                              <code>warm climate</code>
+                              <definition>warm climate (distributed only in the southern extent of eastern North
+           America)</definition>
+                           </codeDefinition>
+                        </enumeratedDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+            <attribute id="3468242164587">
+               <attributeName>source</attributeName>
+               <attributeDefinition>
+            where trait information was found. Full citations for literature are as follows: Del Toro, I., R.R. Silva, and A.M. Ellison. 2015. Predicated impacts of climatic change on ant functional diversity and distributions in eastern North American forests. Diversity and Distributions 21:781-791; Ellison, A.M., N.J. Gotelli, G. Alpert, and E.J. Farnsworth. 2012. A field guide to the ants of New England. Yale University Press, New Haven, Connecticut, USA.
+         </attributeDefinition>
+               <measurementScale>
+                  <nominal>
+                     <nonNumericDomain>
+                        <textDomain>
+                           <definition>species code</definition>
+                        </textDomain>
+                     </nonNumericDomain>
+                  </nominal>
+               </measurementScale>
+               <missingValueCode>
+                  <code>NA</code>
+                  <codeExplanation>missing value</codeExplanation>
+               </missingValueCode>
+            </attribute>
+         </attributeList>
+         <numberOfRecords>81</numberOfRecords>
+      </dataTable>
+      <otherEntity id="hf118-03">
+         <entityName>hf118-03-simes-BRF-Rcode.txt</entityName>
+         <entityDescription>R code for paper entitled "Are foundation species effects different than those of dominant species: A case study of ant assemblages in northeastern North American forests" </entityDescription>
+         <physical>
+            <objectName>hf118-03-simes-BRF-Rcode.txt</objectName>
+            <size unit="byte">92325</size>
+            <authentication method="MD5">4daffa03fdce495b7467e5b37976180b</authentication>
+            <compressionMethod>none</compressionMethod>
+            <dataFormat>
+               <externallyDefinedFormat>
+                  <formatName>R script</formatName>
+               </externallyDefinedFormat>
+            </dataFormat>
+            <distribution>
+               <online>
+                  <url function="download">https://harvardforest.fas.harvard.edu/data/p11/hf118/hf118-03-simes-BRF-Rcode.txt</url>
+               </online>
+            </distribution>
+         </physical>
+         <entityType>script</entityType>
+      </otherEntity>
+   </dataset>
+   <additionalMetadata>
+      <metadata>
+         <additionalClassifications>
+            <researchTopic>plot</researchTopic>
+            <researchTopic>community</researchTopic>
+            <studyType>long-term measurement</studyType>
+         </additionalClassifications>
+      </metadata>
+   </additionalMetadata>
+   <additionalMetadata>
+      <metadata>
+         <additionalLinks>
+            <url name="Ant Distribution and Abundance in New England since 1990">https://harvardforest.fas.harvard.edu/exist/apps/datasets/showData.html?id=hf147</url>
+            <url name="Ant Diversity and Vegetation Composition in Hemlock Removal Experiment at Harvard Forest 2006">https://harvardforest.fas.harvard.edu/exist/apps/datasets/showData.html?id=hf119</url>
+            <url name="Understory Vegetation in Hemlock Removal Experiment at Harvard Forest since 2003">https://harvardforest.fas.harvard.edu/exist/apps/datasets/showData.html?id=hf106</url>
+            <url name="Inventory of Ants at the Black Rock Forest in Cornwall NY since 2006">https://harvardforest.fas.harvard.edu/exist/apps/datasets/showData.html?id=hf097</url>
+            <url name="Structure of Ant Communities in Declining Hemlock Stands at Harvard Forest 2003">https://harvardforest.fas.harvard.edu/exist/apps/datasets/showData.html?id=hf065</url>
+         </additionalLinks>
+      </metadata>
+   </additionalMetadata>
+</eml:eml>

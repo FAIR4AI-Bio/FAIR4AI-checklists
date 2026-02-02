@@ -1,0 +1,414 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "arrayShape": "cr:arrayShape",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataBiases": "cr:dataBiases",
+    "dataCollection": "cr:dataCollection",
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isArray": "cr:isArray",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "personalSensitiveInformation": "cr:personalSensitiveInformation",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "containedIn": "cr:containedIn"
+  },
+  "@type": "sc:Dataset",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "repo",
+      "name": "repo",
+      "description": "The Hugging Face git repository.",
+      "contentUrl": "https://huggingface.co/datasets/imageomics/TreeOfLife-200M/tree/refs%2Fconvert%2Fparquet",
+      "encodingFormat": "git+https",
+      "sha256": "https://github.com/mlcommons/croissant/issues/80"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "parquet-files-for-config-default",
+      "containedIn": {
+        "@id": "repo"
+      },
+      "encodingFormat": "application/x-parquet",
+      "includes": "default/*/*.parquet"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "dataType": "cr:Split",
+      "key": {
+        "@id": "default_splits/split_name"
+      },
+      "@id": "default_splits",
+      "name": "default_splits",
+      "description": "Splits for the default config.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "default_splits/split_name",
+          "dataType": "sc:Text"
+        }
+      ],
+      "data": [
+        {
+          "default_splits/split_name": "train"
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "default",
+      "description": "imageomics/TreeOfLife-200M - 'default' subset",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "default/split",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            },
+            "transform": {
+              "regex": "default/(?:partial-)?(train)/.+parquet$"
+            }
+          },
+          "references": {
+            "field": {
+              "@id": "default_splits/split_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/uuid",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "uuid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/source_url",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "source_url"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/kingdom",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "kingdom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/phylum",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "phylum"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/class",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "class"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/order",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "order"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/family",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "family"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/genus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "genus"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/species",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "species"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/scientific_name",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "scientific_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/common",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "common"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/data_source",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "data_source"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/publisher",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "publisher"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/basis_of_record",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "basis_of_record"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/img_type",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "img_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/source_id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "source_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/shard_filename",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "shard_filename"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/shard_file_path",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "shard_file_path"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "default/base_dataset_file_path",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-default"
+            },
+            "extract": {
+              "column": "base_dataset_file_path"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "name": "TreeOfLife-200M",
+  "identifier": "10.57967/hf/6786",
+  "description": "With nearly 214 million images representing 952,257 taxa across the tree of life, TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at release. This dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet to more than double the number of unique taxa covered by TreeOfLife-10M, adding 50 million more images than BioTrove (and nearly triple the unique taxa). TreeOfLife-200M also increases image context diversity with museum specimen, camera trap, and citizen science images well-represented. Our rigorous curation process ensures each image has the most specific taxonomic label possible and that the overall dataset provides a well-rounded foundation for training BioCLIP 2 and future biology foundation models.",
+  "alternateName": [
+    "imageomics/TreeOfLife-200M",
+    "TreeOfLife-200M"
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "HDR Imageomics Institute",
+    "url": "https://huggingface.co/imageomics"
+  },
+  "keywords": [
+    "image-classification",
+    "zero-shot-classification",
+    "English",
+    "Latin",
+    "cc0-1.0",
+    "100M - 1B",
+    "parquet",
+    "Text",
+    "Image",
+    "Datasets",
+    "pandas",
+    "Croissant",
+    "Polars",
+    "arxiv:2505.23883",
+    "doi:10.57967/hf/6786",
+    "🇺🇸 Region: US",
+    "biology",
+    "image",
+    "imageomics",
+    "animals",
+    "evolutionary biology",
+    "CV",
+    "multimodal",
+    "clip",
+    "species",
+    "taxonomy",
+    "knowledge-guided",
+    "imbalanced"
+  ],
+  "license": "https://choosealicense.com/licenses/cc0-1.0/",
+  "sameAs": "https://imageomics.github.io/bioclip-2/",
+  "url": "https://huggingface.co/datasets/imageomics/TreeOfLife-200M"
+}

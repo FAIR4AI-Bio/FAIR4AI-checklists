@@ -1,0 +1,983 @@
+{
+  "metadata": {
+    "generated_date": "2026-02-01",
+    "dataset_evaluated": "img_tol_200m",
+    "evaluation_method": "Automated analysis using FAIR4AI Agent with LLM",
+    "source_files": [
+      "extracted_schema_org_0.json",
+      "extracted_meta_tags.json",
+      "downloaded_metadata_0.md",
+      "downloaded_metadata_2.md",
+      "extracted_page_content.md"
+    ],
+    "llm_provider": "azure",
+    "llm_model": "gpt-4o"
+  },
+  "responses": [
+    {
+      "section": "Form Root",
+      "question": "My name",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files contain technical and descriptive information about the dataset's structure, content, and provenance, but do not contain personal information or fields related to your name.",
+      "notes": "The metadata provided is about the dataset and does not include personal identifiers or names of individuals beyond dataset contributors and authors."
+    },
+    {
+      "section": "Form Root",
+      "question": "My affiliation",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain personal or institutional affiliation information."
+    },
+    {
+      "section": "Form Root",
+      "question": "My email",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files were reviewed, and there is no information regarding an email address.",
+      "notes": "The metadata focuses on dataset characteristics, file structures, and licensing details rather than individual contact information."
+    },
+    {
+      "section": "Form Root",
+      "question": "Dataset title",
+      "response_choices": NaN,
+      "response": "TreeOfLife-200M",
+      "evidence": "\"name\": \"TreeOfLife-200M\" from extracted_schema_org_0.json and \"pretty_name: TreeOfLife-200M\" from extracted_page_content.md",
+      "notes": "The dataset title is clearly mentioned in both the JSON and markdown metadata files."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the associated repository, if available.",
+      "response_choices": NaN,
+      "response": "https://github.com/Imageomics/TreeOfLife-toolbox",
+      "evidence": "\"Repository\": \"[TreeOfLife-toolbox](https://github.com/Imageomics/TreeOfLife-toolbox)\"",
+      "notes": "The link to the associated repository is provided in the 'Dataset Description' section within the 'Dataset Details' of the extracted_page_content.md."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the dataset landing page/home page if available.",
+      "response_choices": NaN,
+      "response": "https://imageomics.github.io/bioclip-2/",
+      "evidence": "The homepage is indicated in the 'Dataset Description' section under 'Dataset Details' in extracted_page_content.md: \"Homepage: https://imageomics.github.io/bioclip-2/\"",
+      "notes": "The homepage provided in the metadata is specific to the BioCLIP 2 project associated with the TreeOfLife-200M dataset, serving as the landing page for the dataset."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide the citation, DOI, URL, or similar, if available.",
+      "response_choices": NaN,
+      "response": "10.57967/hf/6786",
+      "evidence": "Field 'identifier' in 'extracted_schema_org_0.json' indicates the DOI as '10.57967/hf/6786'.",
+      "notes": "The DOI is the most authoritative identifier for citation. Other identifiers such as URLs or repository links are noted, but the DOI is specifically cited in the metadata."
+    },
+    {
+      "section": "Form Root",
+      "question": "As I am evaluating this dataset, I am considering it for",
+      "response_choices": "publishing for others to use | open-ended use (window shopping) | use in a specific project",
+      "response": "publishing for others to use",
+      "evidence": "The metadata describes TreeOfLife-200M as 'the largest and most diverse public ML-ready dataset for computer vision models in biology at release' and provides a detailed description and repository link for public access ('TreeOfLife-toolbox', 'Dataset combines images and metadata from four core biodiversity data providers').",
+      "notes": "The dataset is curated and publicly accessible via Hugging Face, indicated by content such as 'ML-ready dataset' and instructions for downloading and structuring the data, which supports the notion of making it available for public use and contribution from others."
+    },
+    {
+      "section": "Form Root",
+      "question": "My relationship to this dataset",
+      "response_choices": "Data Provider/Producer (metadata author) | Data User/Consumer (metadata reader)",
+      "response": "Data User/Consumer (metadata reader)",
+      "evidence": "The metadata files contain descriptions, data fields, and data instance details intended for readers to understand and use the dataset. The metadata describes the dataset's context, curation, and fields, which aligns with a consumer's perspective.",
+      "notes": "The metadata provides information that is typically consumed by users looking to understand the contents and structure of the dataset for usage purposes, rather than authored by a producer or provider."
+    },
+    {
+      "section": "Form Root",
+      "question": "Provide a brief description of how you are evaluating this dataset. ",
+      "response_choices": NaN,
+      "response": "I am evaluating the dataset using the metadata files provided, including Schema.org and ML Croissant metadata.",
+      "evidence": "The evidence comes from the 'extracted_schema_org_0.json' file which contains ML Croissant metadata, and the 'extracted_meta_tags.json' and 'downloaded_metadata_0.md' which provide additional information about the dataset.",
+      "notes": "The metadata files include extensive details about the dataset structure, distribution, fields, and additional context about its collection and usage, enabling a comprehensive evaluation of the dataset according to FAIR principles."
+    },
+    {
+      "section": "Form Root",
+      "question": "Metadata Upload",
+      "response_choices": NaN,
+      "response": "Metadata uploaded",
+      "evidence": "Metadata content provided across multiple files (extracted_schema_org_0.json, extracted_meta_tags.json, downloaded_metadata_0.md, downloaded_metadata_2.md, extracted_page_content.md) includes extensive descriptions of file structures, dataset details, and usage instructions.",
+      "notes": "The metadata files provided cover several aspects of the dataset, demonstrating comprehensive information that adheres to the question prompt about metadata upload."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Citation for “this dataset”: The full citation is provided (preferably in Bibtex format).",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain a full citation for the dataset in any format, including Bibtex."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Summary or Abstract",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides an abstract with a detailed description of the dataset in the 'description' field in multiple metadata files, such as in 'extracted_schema_org_0.json' with 'description': 'With nearly 214 million images representing 952,257 taxa across the tree of life, TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at release.'",
+      "notes": "The dataset is described in multiple sections, highlighting its size, diversity, and use in machine learning, ensuring the provided summary or abstract is comprehensive."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Publisher",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The 'publisher' field is included in the 'catalog.parquet' section of the extracted_page_content.md, noting the 'publisher' as the organization or entity that published the data (exclusive to GBIF records).",
+      "notes": "The metadata clearly specifies the presence of a 'publisher' field which documents the entity that published the data."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Date Created",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any details regarding the creation date of the dataset. While datasets often have a section detailing provenance, in this case, the pertinent information is absent from the provided metadata files."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "An identifier for “this dataset”: Does the dataset have a unique, persistent, machine-resolvable identifier (e.g., DOI)? ",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset has the identifier '10.57967/hf/6786' mentioned under the 'identifier' field in the extracted_schema_org_0.json.",
+      "notes": "The identifier appears to be formatted similar to a DOI and is intended for unique and persistent identification."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Author/creator information are provided (e.g., names, affiliations, ORCIDs)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is curated by Jianyang Gu, Samuel Stevens, Elizabeth G. Campolongo, Matthew J. Thompson, Net Zhang, Jiaman Wu, Andrei Kopanev, and Alexander E. White as mentioned in the 'Dataset Description' section of the extracted_page_content.md.",
+      "notes": "Affiliations or ORCIDs are not provided, but author names are listed in the metadata."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Curator information is provided (all curator names, ORCIDs, etc. are listed)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is curated by 'Jianyang Gu, Samuel Stevens, Elizabeth G. Campolongo, Matthew J. Thompson, Net Zhang, Jiaman Wu, Andrei Kopanev, and Alexander E. White' as stated in the 'Dataset Details' section of the extracted_page_content.md.",
+      "notes": "The ORCIDs are not provided in the metadata, only the curator names are listed."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Author(s) (person providing the description of the dataset) listed",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does provide information on those who curated the dataset (Jianyang Gu, Samuel Stevens, Elizabeth G. Campolongo, etc.), but it does not specify if they authored the dataset card description itself."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Dataset Card Contact or Expert Contact (who to contact with questions) is provided",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not include any specific contact information or an expert contact for questions regarding the dataset. The metadata contains descriptions and structural information but lacks a designated contact field."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Other Non-author Contributions",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "There is no mention of non-author contributions specifically in any of the provided metadata files. The authors and curators of the dataset are listed, but additional non-author contributions are not specified."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Acknowledgments: Funding Description and Grants",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not contain any information related to funding descriptions or grants. Relevant sections that might contain such acknowledgments, like a 'Funding' or 'Acknowledgments' section in the dataset description, are absent."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Is this dataset derived from other sources?",
+      "response_choices": "Yes | No (skip to \"Additional information\" question)",
+      "response": "Yes",
+      "evidence": "This dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet. The metadata states: 'This dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet.'",
+      "notes": "The dataset clearly takes data from multiple established sources, making it a derived dataset."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Provenance Tracking: Do the metadata provide information about the source data from which this dataset was derived (e.g., titles, summaries, and links)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides information on the 'data_source' field in both 'catalog.parquet' and 'provenance.parquet', indicating the source of records (e.g., 'gbif', 'eol', 'bioscan', 'fathomnet'). Additionally, there's a section detailing the core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet. URLs and identifiers such as 'source_id' and 'source_url' offer links to where the images were obtained from.",
+      "notes": "The metadata comprehensively documents the original sources of the dataset, facilitating provenance tracking through specific fields and descriptions linking to the source repositories and identifiers."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data producers (who created the source data?)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset description in 'extracted_schema_org_0.json' and 'extracted_page_content.md' specifies that the source data is from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet.",
+      "notes": "The metadata clearly lists the original sources of the data, indicating that these organizations created the source data."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Citation of subsumed datasets (cite your sources)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions that the dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet.",
+      "notes": "The citation of these sources is explicitly highlighted in the dataset description, indicating the provenance of the data used in TreeOfLife-200M."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data DOI (permalink for the sources)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The field 'identifier' in 'extracted_schema_org_0.json' lists '10.57967/hf/6786' which is a DOI.",
+      "notes": "The DOI provided appears to serve as a persistent identifier for the dataset, potentially functioning as a permanent link. However, it is unclear if it specifically pertains to the source data, but it serves as a DOI associated with the dataset overall."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Derived Dataset: Source data checksums: E.g., checksum for a zip file or a list of image checksums to ensure downstream users can get the same data you did.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The provided metadata does not list checksums for the source data files or images. There are references to individual identifiers such as `uuid` and `source_id`, but no explicit checksums are provided in the metadata contents.",
+      "notes": "While `uuid` and `source_id` can be considered unique identifiers for images, they do not function as checksums. The metadata focuses on dataset structure and content but lacks information on checksums that guarantee the exact data retrieval."
+    },
+    {
+      "section": "Provenance: Documenting the history of the dataset and providing sufficient information for downstream datasets to do the same.",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata files provided do not contain a dedicated section or mention of additional information about the dataset's provenance.",
+      "notes": "While the metadata includes multiple sections such as data fields and a description of the dataset, there is no specific section detailing provenance beyond basic origin details like data source and license."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related paper (e.g., DOI, BIBTEX citation, link, etc.)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "\"Paper\": \"BioCLIP 2: Emergent Properties from Scaling Hierarchical Contrastive Learning\"",
+      "notes": "The DOI for the related paper is available in the 'Dataset Description' section of the metadata: https://doi.org/10.48550/arXiv.2505.23883"
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related dataset and/or Model",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "From extracted_page_content.md: '... combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet...', '... the largest and most diverse public ML-ready dataset for computer vision models in biology...', 'See [Image Types](#image-types-gbif-only)'. Additionally, mentions 'TreeOfLife-10M', 'BioTrove', and 'BioCLIP 2'.",
+      "notes": "The dataset references other datasets like GBIF, EOL, BIOSCAN-5M, FathomNet, TreeOfLife-10M, and BioTrove. It also references the BioCLIP 2 model, establishing connections to related datasets and models."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Purpose of the data",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset description states that TreeOfLife-200M is designed as the largest and most diverse public ML-ready dataset for computer vision models in biology. It combines images and metadata from four core biodiversity data providers to provide a well-rounded foundation for training BioCLIP 2 and future biology foundation models.",
+      "notes": "The purpose of the data is to serve as a comprehensive dataset for machine learning applications in the field of biology, enhancing the capability of models in recognizing diverse biological taxa."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Content - short description of the data types, etc.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset description in extracted_page_content.md states: 'With nearly 214 million images representing 952,257 taxa across the tree of life, TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at release. This dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet.' It also describes various fields like `uuid`, `source_url`, `kingdom`, and others.",
+      "notes": "The metadata provides a comprehensive overview of the dataset's contents, including data types such as images and taxonomic labels, as well as their sources."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Are the data machine ready? (machine-actionable under the FAIR Principles)",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is described as 'ML-ready' in the 'description' fields of both the extracted_schema_org_0.json and extracted_page_content.md files. It mentions that TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology.",
+      "notes": "The metadata specifies that the dataset is prepared for machine learning models, which indicates that it is machine-actionable under the FAIR Principles."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Language - what language or languages are the data?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The 'language' field in 'extracted_page_content.md' lists 'en' and 'la'.",
+      "notes": "The dataset includes content in both English ('en') and Latin ('la'), as indicated in the metadata."
+    },
+    {
+      "section": "General Information",
+      "question": "Discovery: Are keywords/tags provided to describe the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "In the `extracted_page_content.md`, the 'tags' field lists: biology, image, imageomics, animals, evolutionary biology, CV, multimodal, clip, biology, species, taxonomy, knowledge-guided, imbalanced.",
+      "notes": "The presence of tags indicates that keywords are provided to describe various aspects of the dataset, aiding in its discovery and characterizing its content."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Does the dataset and its metadata make use of relevant ontologies?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided does not mention the use of specific ontologies such as ENVO, Darwin Core, UO, or GO.",
+      "notes": "While the dataset does categorically mention taxonomic concepts such as kingdom, phylum, class, order, family, genus, and species, which are part of biological classification, there is no explicit reference to ontologies like Darwin Core within the provided metadata files."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Is the data dictionary/codebook provided?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not explicitly mention a data dictionary or codebook. They describe various fields included, such as entities within the dataset, but do not reference a separate document that provides an ontology or detailed explanations for each data field."
+    },
+    {
+      "section": "General Information",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset includes text embeddings for all 190,988,120 images with full taxonomic labels and provides a comprehensive coverage of biodiversity data from four core providers.",
+      "evidence": "The extracted_page_content.md mentions 'The `embeddings/` directory contains the [BioCLIP 2](https://huggingface.co/imageomics/bioclip-2) text embeddings for all 190,988,120 images with full taxonomic labels in the TreeOfLife-200M dataset.' and 'This dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet.'",
+      "notes": "The dataset is ML-ready and supports tasks like image classification and zero-shot classification in biology."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: File format(s) that encode the data are described",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is described to include files in Parquet format: 'encodingFormat': 'application/x-parquet' and in sheet content: '/dataset/catalog.parquet'.",
+      "notes": "The metadata specifies that the data is stored in Parquet format, which is a columnar storage file format often used in data processing and analytics workloads."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The dataset layout pattern is provided or explained",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "In the extracted_page_content.md, the dataset layout is detailed under 'Dataset Contents' stating various files and directories such as 'catalog.parquet', 'embeddings/', and 'metadata/'. It also explains the presence of shard files in the 'train' folder (e.g., shard-######.tar) and the structure within each shard.",
+      "notes": "The metadata provides a clear explanation of the dataset's organization, including directory and file descriptions, which qualifies it as a detailed layout pattern."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The primary unit of data that is to be operated on is explained",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata from extracted_schema_org_0.json describes the dataset as consisting of 'parquet-files-for-config-default' which includes columns like 'uuid', 'scientific_name', and 'img_type'. These columns indicate that each row represents image metadata related to a species observation.",
+      "notes": "Each dataset row appears centered around an image with detailed taxonomic data, serving as the primary unit in the dataset."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are properly documented in the metadata",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The 'Data Fields' section in extracted_page_content.md provides documentation for features such as 'uuid', 'source_url', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'scientific_name', 'common', 'data_source', 'publisher', 'basisOfRecord', 'img_type', 'source_id', 'shard_filename', 'shard_file_path', and 'base_dataset_file_path'. Each field is described with its purpose or type, e.g., 'uuid: unique identifier for the image in this dataset'.",
+      "notes": "The provided metadata comprehensively documents the dataset's features, ensuring that users can understand what each field represents."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are included for each data instance",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "In the extracted_schema_org_0.json, the fields listed under the 'recordSet' for the 'default' subset include detailed metadata for each data instance such as 'uuid', 'source_url', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'scientific_name', 'common', 'data_source', 'publisher', 'basis_of_record', 'img_type', 'source_id', 'shard_filename', 'shard_file_path', and 'base_dataset_file_path'.",
+      "notes": "The dataset metadata provides detailed attributes for each data instance, ensuring a comprehensive set of features or attributes for each record."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Technical Specifications: Are the technical specifications of the dataset indicated?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provides information about dataset fields, images, and providers, but it does not specify detailed technical specifications such as file sizes, total dataset size, resolution, or other similar specs.",
+      "notes": "While the dataset is described as having nearly 214 million images, with references to image types and taxonomy information, specific technical details like resolution or file sizes are not mentioned in the metadata."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "There is no specific 'Additional Information' section or equivalent in the provided metadata files. The existing metadata files detail dataset fields, structure, and content but do not explicitly state additional information outside the usual dataset description and structure.",
+      "notes": "The metadata provided is comprehensive with respect to dataset description, distribution, tasks, fields, and instances, but does not include a specific section for 'Additional Information' beyond this typical breakdown. If specific additional information is required, further guidance or metadata entries would be needed."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Data Source Type): Metadata record what type(s) of source data were collected or used to generate this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet. It includes categories like Camera-trap, Citizen Science, and Museum Specimen.",
+      "notes": "The metadata indicates multiple sources for the data collection, including field observations (camera-trap, citizen science) and specimens (museum specimens)."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Curation Rationale):  Metadata record the primary rationale for curating or assembling this dataset",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset description mentions 'This dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet'. It also states that 'TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at release' and 'Our rigorous curation process ensures each image has the most specific taxonomic label possible and that the overall dataset provides a well-rounded foundation for training BioCLIP 2 and future biology foundation models.'",
+      "notes": "The metadata explicitly states that the dataset consolidates distributed sources into a unified dataset and aims to create a machine learning-ready structure. It emphasizes improving data quality through specific taxonomic labeling."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Part of a Larger Collection): Metadata indicate if this dataset part of a larger collection or series, and provide the following information:",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata includes references to the dataset being a part of a larger collection by mentioning 'TreeOfLife-10M' and 'BioTrove', suggesting that TreeOfLife-200M is an expanded version. It also mentions step-by-step reproduction instructions in the [GitHub repository](https://github.com/Imageomics/TreeOfLife-toolbox/tree/main/docs#treeoflife200m-dataset-download-guide). Additionally, it is part of the 'BioCLIP 2' project as mentioned (see links to BioCLIP 2 and related GitHub).",
+      "notes": "The metadata indicates that TreeOfLife-200M expands on previous datasets like TreeOfLife-10M, suggesting it is part of a series aimed at increasing taxonomic coverage and improving dataset utility for machine learning tasks."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Instrumentation: Do the metadata describe the instruments or sensors used to collect the data, including their specifications and configuration?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not include any information regarding the instruments or sensors used for data collection, such as names, models, manufacturers, or technical specifications. The dataset description focuses on the taxonomy and source of biodiversity data rather than instrumentation details."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Collection Method Documentation): Do the metadata describe the methods used to collect or generate the data?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The description in 'extracted_page_content.md' mentions the dataset combines images and metadata from four core biodiversity data providers and describes the dataset as ML-ready for computer vision models. It also references detailed processing and extraction involved in categorizing images by taxonomic labels. However, it does not go into explicit methods but implies a rigorous process. It also notes different types of images (e.g., museum specimen, camera trap, citizen science) and refers to a [curation process](#data-curation-and-processing) which ensures taxonomic labeling.",
+      "notes": "While the exact methods are not explicitly documented in terms of SOPs, manuals, or detailed protocols, the metadata clearly references a rigorous collection and curation process, which implies structured methods were used."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Resolution): Do the metadata describe the spatial resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata contains fields related to taxonomy, source, and file paths but does not mention spatial resolution or methods related to spatial data capture.",
+      "notes": "The dataset seems to focus on biological classification and image metadata rather than spatial resolution or geographic data acquisition methods."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Extent): Do the metadata describe the geographic coverage (region, bounding box, domain)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "There is no specific mention of geographic coverage, region, bounding box, or domain in the provided metadata files.",
+      "notes": "The metadata provide details on the data sources, fields, and other dataset components but do not include geographic coverage information."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Resolution): Do the metadata describe the temporal resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not specify the temporal resolution of the dataset. It discusses the number of images and taxa but does not address how frequently the data was collected or updated. The focus is on the taxonomy, image types, and data sources rather than temporal aspects."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Extent): Do the metadata describe the temporal extent?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files provided do not contain any information specifically describing the temporal extent or dates related to the dataset. None of the sections such as 'Data Fields', 'Dataset Description', or the example records mention or include temporal data such as start or end dates.",
+      "notes": "The metadata provided includes a detailed description of the dataset's content and structure, but lacks specific temporal information. If such information is critical, it may need to be sourced from additional documentation or repositories not included in these metadata files."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Types: Do the metadata describe the types of annotations or labels are included in the dataset (if any)?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata provides various types of annotations including 'species', 'scientific_name', 'common name', and 'taxonomic label' under the 'Data Fields' section. Additionally, it mentions '7-rank Linnean taxonomy' for each image.",
+      "notes": "The dataset includes text-based annotations like common names and scientific names, which are categorical labels. Spatial annotations, such as bounding boxes or segmentation masks, are not mentioned."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Process: Do the metadata describe how annotations were generated or obtained?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided does not detail the process of how annotations were specifically generated or obtained.",
+      "notes": "While the dataset description in `downloaded_metadata_2.md` mentions a rigorous curation process to ensure specific taxonomic labels, it does not explicitly describe if the annotation process was manual, automated, or a mixture of methods. Therefore, the specific annotation process is not detailed in the provided metadata."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotators (Contributors): Do metadata indicate who performed the data annotations? \nPreferably, a list of annotators (e.g., ORCiDs), or names/versions of automated tools or systems; or other relevant information.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata.",
+      "notes": "The provided metadata does not mention specific annotators, ORCiDs, or names/versions of automated tools used for annotations."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet.",
+      "evidence": "The dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet to more than double the number of unique taxa covered by TreeOfLife-10M...",
+      "notes": "This information highlights the diverse sources and collaborations involved in constructing the dataset. It is important for understanding the origins and variety of data within the dataset."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Preparation: Do the metadata provide a complete overall description of data preparation, cleaning, transformation, or quality-control steps performed prior to generating the final dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata states: 'To avoid republishing existing datasets or interfering with original data source providers' ability to track use of their data, we provide all metadata here with step-by-step reproduction instructions in the GitHub repository to download the images and recreate the proper webdataset structure. This process will produce a collection of files named `shard-######.tar` in a `train` folder with which to work.' It also mentions a 'rigorous curation process' in the dataset description.",
+      "notes": "While detailed steps about specific cleaning, transformation, or quality-control processes are not explicitly listed in great detail, the mention of a rigorous curation process and the provision of reproduction instructions suggest that some formal processes were employed."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Processing Platform or Software: Metadata provide a description of and citations or links to any processing platform or software used in the creation of this dataset.",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions a GitHub repository: https://github.com/Imageomics/TreeOfLife-toolbox, which contains step-by-step reproduction instructions in the TreeOfLife-200M dataset download guide. It suggests usage of tools provided in this repository for processing.",
+      "notes": "While specific software or platforms are not listed, the repository's presence implies that it contains tools and instructions used for dataset creation."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Correction / Standardization of Values: Does the metadata describe corrections applied to existing data values and whether the data values have been standardized in any way?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "The metadata mentions a rigorous curation process ensuring the most specific taxonomic label possible (extracted_page_content.md) and classifying images according to specific image types (such as 'Museum Specimen: Fungi'), which implies some standardization. However, specific details on corrections or standardizations such as data gridding, unit consistency, or standardizing dimensions/color spaces are not mentioned.",
+      "notes": "While there is evidence of some form of standardization in taxonomy and classification, detailed processes or other forms of data standardization (e.g., unit consistency, data anonymization) are not explicitly provided in the metadata."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Gaps Filled: Does metadata indicate if missing values or data gaps filled in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata does not explicitly indicate if missing values or data gaps are filled in the dataset.",
+      "notes": "Although the dataset has a rigorous curation process to ensure taxonomic labeling, there is no specific mention of data gaps being filled. The metadata provides descriptions of the dataset's diversity and completeness, but not about treatment of missing values."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If gaps were filled, are the methods described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not include any information about gap-filling methods such as interpolation, imputation, or model-based approaches. Therefore, it cannot be confirmed if such methods were used or described."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Labeling / Relabeling: Does the metadata indicate if any labeling or relabeling steps were applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions 'Our rigorous curation process ensures each image has the most specific taxonomic label possible and that the overall dataset provides a well-rounded foundation.' Additionally, it states, '89% (190,988,120) of the images have full taxonomic labels,' indicating labeling processes have been applied.",
+      "notes": "The dataset description and contents sections explicitly mention full taxonomic labeling and a curation process, which implies labeling or relabeling steps were involved in preparing this dataset."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Does the metadata sufficiently describe the labeling or relabeling process?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes the dataset's labeling process by stating that 'our rigorous curation process ensures each image has the most specific taxonomic label possible.' It also mentions the datasets combining images and metadata from four biodiversity data providers and matching images to the '7-rank Linnean taxonomy.' Furthermore, the 'Data Fields' section explains fields like 'scientific_name' and 'common' that derive from external sources such as the 'GBIF Backbone Taxonomy.'",
+      "notes": "The metadata provides a detailed overview of the dataset's labeling process, indicating alignment with the Linnean taxonomy and use of external taxonomies like the GBIF Backbone Taxonomy. However, the exact methods of standardization or relabeling, if applied specifically, are not elaborated beyond stating the use of a 'rigorous curation process.'"
+    },
+    {
+      "section": "Data Processing",
+      "question": "Data Filtering and Outlier Removal: Were any outlier removal or filtering procedures applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "No specific mention of outlier removal or filtering procedures is present in the provided metadata files.",
+      "notes": "The metadata discusses data curation and a rigorous curation process to ensure specific taxonomic labels, but does not explicitly detail any outlier removal or filtering procedures."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If yes, does the metadata sufficiently describe the outlier detection and removal methods used?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provides a detailed description of the dataset and its content but does not mention any specific outlier detection and removal methods used, such as statistical thresholds, manual review, or algorithmic approaches."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do metadata indicate if the dataset has been split into training, validation, and/or test sets?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "In 'extracted_schema_org_0.json', the recordSet for 'default_splits' contains a key 'default_splits/split_name' with the value 'train' under the data field, indicating a predefined split for training. In 'extracted_page_content.md', the 'configs' section lists a 'train' split under the 'data_files'.",
+      "notes": "The information explicitly lists a 'train' split, but there is no mention of validation or test splits. Only the training split is explicitly mentioned in the metadata."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do the metadata provide information on how splits were created?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata lists 'Splits for the default config' including 'train'. However, it does not describe the method of splitting, such as whether it was random, stratified, or based on any other criteria.",
+      "notes": "The metadata provides the existence of a 'train' split but lacks detailed information on the methodology of how splits were created, which includes randomization techniques, proportions, or measures to avoid data leakage."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset contains comprehensive taxonomic information and metadata from four core biodiversity data providers.",
+      "evidence": "The metadata details that the TreeOfLife-200M dataset includes comprehensive taxonomic information (e.g., kingdom, phylum, class, order, family, genus, species) and metadata sourced from four main biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet.",
+      "notes": "The dataset seems to have a rigorous curation process ensuring specific taxonomic labels, adding to its strength as an ML-ready dataset. Additionally, detailed provenance and data source information is available for records, indicating extensive tracking capabilities for each image's origin."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if this dataset is complete (i.e., there are no plans for further updates to this data product)?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata files do not contain explicit information regarding the completeness or future update plans of the dataset. There is no direct statement indicating that the dataset is considered complete or that there are no plans for future updates.",
+      "notes": "While the metadata provides detailed descriptions of the dataset's content and structure, including the split and fields, it lacks explicit statements about whether the dataset is finished or will receive further updates."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if quality assurance checks been run and if they passed?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not specify whether quality assurance checks have been run or if they have passed. The metadata includes the dataset description, fields, and structure but lacks information on any quality assurance processes or results."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the timeliness of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Timeliness of the dataset is not mentioned in any of the provided metadata documents.",
+      "notes": "The metadata includes details about the dataset's content, format, and fields but does not address whether the dataset is real-time, periodically updated, static, or historical."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate quality checks on or evaluate dataset timeliness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided does not mention any quality checks or evaluations related to the timeliness of data collection. Information regarding the time of year for plant surveys or any similar evaluations is absent.",
+      "notes": "The dataset description emphasizes the diversity and scale of the dataset, mentioning data sources, taxonomy, and image types, but does not address aspects related to the timeliness of data collection."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the time lag between data collection and availability?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not provide any information regarding the time lag between data collection and availability. There is no mention of timelines or schedules related to data publishing in any of the provided metadata files."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the quality checks that have failed and provide context for downstream users to work with the data as-is or resolve the issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "None of the metadata files contain any information about quality checks that have failed or provide context for resolving issues.",
+      "notes": "The metadata includes descriptions of the dataset, its sources, and processes, but does not mention specific quality checks that have failed or guidance for users on how to address such issues. The metadata describes rigorous curation processes yet lacks detail on handling failed quality checks."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata explain why quality checks were not performed and provide context for downstream users to work with the data as-is or resolve potential issues?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata mentions rigorous data curation processes ensuring specific taxonomic labels, but does not include details explaining why certain quality checks might have been skipped or provide specific instructions for downstream users to resolve potential issues."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe any known gaps or limitations in the dataset’s completeness?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata mentions 'To avoid republishing existing datasets or interfering with original data source providers' ability to track use of their data, we provide all metadata here with step-by-step reproduction instructions in the GitHub repository to download the images and recreate the proper webdataset structure.' This indicates there might be gaps due to non-inclusion of direct data to prevent republishing issues.",
+      "notes": "There is an indication that completeness could be affected by reliance on instructions for users to replicate the dataset, rather than providing fully integrated data. However, explicit details about spatial, temporal, or content gaps beyond this general limitation are not directly addressed."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if all units have been translated into compatible forms?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide any information or indication about translations or standardizations of units. There are no details on units or scripts provided to standardize units within the metadata files."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do any of the data follow a controlled vocabulary?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The 'img_type' field in 'catalog.parquet' follows a controlled vocabulary with categories such as 'Museum Specimen: Fungi', 'Citizen Science', 'Camera-trap', as indicated in Data Fields of 'catalog.parquet'.",
+      "notes": "The metadata provides specific categories for the 'img_type' field which suggests adherence to a controlled vocabulary for image types."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Is a reference provided for the controlled vocabulary used?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata in 'downloaded_metadata_2.md' states that common names are sourced from 'GBIF vernacular names provided in the GBIF Backbone Taxonomy'.",
+      "notes": "The reference to the GBIF Backbone Taxonomy as a source for vernacular names indicates the use of a controlled vocabulary."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are any known consistency issues or steps taken to ensure consistency described?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata discusses a rigorous curation process to ensure each image has the most specific taxonomic label possible, as mentioned in the Dataset Card under 'Dataset Details'. There are sections such as 'Data Fields' that outline how different fields are standardized, such as aligning images to the 7-rank Linnean taxonomy and defining image types specifically.",
+      "notes": "The dataset is described as thoroughly curated with specific taxonomic labels and image types to ensure consistency, although there may be less than 1% unresolved cases, e.g., 'Metazoa' and 'incertae sedis'."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if any quality assurance or peer review procedures been applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted page content states: 'Our rigorous curation process ensures each image has the most specific taxonomic label possible and that the overall dataset provides a well-rounded foundation for training BioCLIP 2 and future biology foundation models.'",
+      "notes": "The metadata suggests a rigorous curation process was applied, which implies quality assurance in the dataset preparation."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the procedures used to ensure data integrity?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not explicitly describe procedures like checksums, version control, or audit trails aimed specifically at ensuring data integrity. While there is mention of a 'sha256' as part of the metadata, there is no detailed information on its application for data integrity. Therefore, without specific mentions of integrity procedures, the dataset metadata does not meet this requirement."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Are data checksums included? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "There is no mention of checksums for data completeness verification in any metadata provided, including the fields in 'extracted_schema_org_0.json', 'downloaded_metadata_0.md', 'downloaded_metadata_2.md', or 'extracted_page_content.md'. The only mentions are of sha256 for the git repository URL, which is not indicative of file checksums for data verification.",
+      "notes": "Checksums are crucial for ensuring the integrity of data files upon download and replication. The absence of this information might require users to independently verify data integrity or request this information from the dataset providers."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Sizes of different image types and their counts",
+      "evidence": "Metadata from extracted_page_content.md specifies image counts for various categories such as Camera-trap, Citizen Science, and Museum Specimen subcategories.",
+      "notes": "The metadata provides detailed information on the diversity of image contexts, including specific categories and image counts for each type. These details enhance understanding of the dataset's composition and diversity, which is relevant for evaluating data quality."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe known sources of bias in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata includes information about 'dataBiases' and 'Considerations for Use', as well as a detailed description of the diversity and potential challenges in labeling in the 'Data Instances' section, which discusses labeling challenges in biodiversity data under 'Considerations for Use'.",
+      "notes": "The metadata highlights considerations and challenges related to biodiversity data labeling, indicating awareness of potential biases related to taxonomic labeling and image representation diversity."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known risks or limitations associated with the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The limitations are discussed under the section 'Considerations for Use' in the metadata. Specifically, it mentions labeling challenges in biodiversity data and the need for a rigorous curation process to ensure accurate and specific taxonomic labeling.",
+      "notes": "The dataset also outlines various image types and their potential biases toward camera trap, citizen science, and museum specimen images, which may affect the representativeness of the dataset."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate if the dataset is based on experimental data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as being sourced from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet, which are biodiversity databases and not experimental. It also mentions the dataset combines images and metadata from these providers.",
+      "notes": "The dataset appears to be compiled from existing image and metadata collections focused on biodiversity, rather than data obtained from controlled experiments."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, do the metadata describe the experimental design?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain any specific information about experimental design elements such as treatments, controls, replication, or randomization."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe recommended or intended uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The extracted_page_content.md document mentions 'Supported Tasks and Leaderboards' such as Image Classification, Zero-shot and few-shot Classification. Additionally, it states that the dataset provides a well-rounded foundation for training BioCLIP 2 and future biology foundation models.",
+      "notes": "The metadata indicates the intended use for computer vision models in biology, specifically in training models like BioCLIP 2, which suggests recommended usage for tasks related to image classification and model training in ecological contexts."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known inappropriate or discouraged uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not contain any explicit descriptions of inappropriate or discouraged uses of this dataset. While the metadata provides detailed information on the dataset's contents, structure, and intended use for image classification and taxonomic research, it does not include specific guidance on potentially misleading or ethically problematic contexts. Users should consider the general ethical guidelines applicable to biodiversity datasets while using this data."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate this dataset has been used in AI/ML applications previously?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata from 'extracted_page_content.md' describes that TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at release. It mentions that the dataset provides a well-rounded foundation for training BioCLIP 2 and future biology foundation models.",
+      "notes": "The metadata indicates the dataset's design is for ML applications, and the mention of models like BioCLIP 2 implies previous and potential future use in AI/ML applications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, is it described how the dataset has been used in AI/ML applications?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata describes that the dataset provides a well-rounded foundation for training BioCLIP 2 and future biology foundation models. It also mentions 'Supported Tasks and Leaderboards: Image Classification, Zero-shot and few-shot Classification.' Additionally, a paper titled 'BioCLIP 2: Emergent Properties from Scaling Hierarchical Contrastive Learning' is referenced.",
+      "notes": "The dataset's use in AI/ML is particularly mentioned in the context of training the BioCLIP 2 model, and specific tasks like image classification and zero-shot classification are highlighted."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Are there references to models, benchmarks, or publications if available?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata in extracted_page_content.md includes references to BioCLIP 2 and a publication titled 'BioCLIP 2: Emergent Properties from Scaling Hierarchical Contrastive Learning'. The curators, homepage, and paper section in the Dataset Description also mention related research and entities involved.",
+      "notes": "These references to models (BioCLIP 2) and publications demonstrate adherence to community standards and documentation requirements, indicating the dataset's connection to specific research efforts."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate how to report issues or errors in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No specific field or section in the provided metadata files mentions a contact email, issue tracker link, or method for reporting dataset issues.",
+      "notes": "While the metadata contains URLs and references to various metadata and datasets, there is no mention of a contact or dedicated method for reporting problems with the dataset."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset is designed for use in computer vision models in biology and provides a rich source of taxonomic diversity from four core biodiversity data providers, enhancing image context diversity. It includes provenance metadata and detailed instructions for downloading and structuring images.",
+      "evidence": "The dataset combines images and metadata from Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet. It provides metadata with step-by-step instructions to download images and recreate the webdataset structure. Provenance metadata includes fields such as uuid, source_id, data_source, source_url, license_name, and copyright_owner.",
+      "notes": "The metadata refers to detailed instructions available in a GitHub repository for downloading and structuring the dataset, which may need to be captured in further sections or be useful for users looking to implement the dataset. Moreover, the dataset includes specific image types like museum specimen and citizen science, which are valuable for specialized applications."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available for direct download?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata states: 'To avoid republishing existing datasets or interfering with original data source providers' ability to track use of their data, we provide all metadata here with step-by-step reproduction instructions in the [GitHub repository](https://github.com/Imageomics/TreeOfLife-toolbox/tree/main/docs#treeoflife200m-dataset-download-guide) to download the images and recreate the proper webdataset structure.'",
+      "notes": "The dataset is not available for direct download as it requires users to follow instructions to download images and recreate the dataset."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via an API?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not mention or contain any information about API access for the dataset. While the dataset is hosted on Hugging Face and a GitHub repository is mentioned, there is no explicit reference to an API."
+    },
+    {
+      "section": "Data Access",
+      "question": "If accessible via API, is the type of API specified?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not specify any API access or the type of API available. The dataset is mentioned to be accessible through URLs and git repositories, but there's no mention of API access."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is API documentation provided (e.g., linked to)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not contain any mention or link to API documentation for accessing the dataset. While there are references to GitHub repositories and dataset download guides, API documentation is not explicitly mentioned."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via a cloud platform?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The metadata specifies a Hugging Face git repository as the source for the dataset: 'contentUrl': 'https://huggingface.co/datasets/imageomics/TreeOfLife-200M/tree/refs%2Fconvert%2Fparquet'.",
+      "notes": "The dataset is available through Hugging Face, which is a cloud platform. This inference is based on the provided 'contentUrl' in the metadata."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in a machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "In the extracted_schema_org_0.json, under 'distribution', the 'encodingFormat' is listed as 'application/x-parquet', which is a machine-readable format. Additionally, the 'extracted_page_content.md' mentions 'catalog.parquet' file under the dataset directories.",
+      "notes": "Parquet is a columnar storage file format, optimized for performance and used in big data processing, making it suitable for machine-readable data storage and retrieval."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in an open (non-proprietary) format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is provided in 'application/x-parquet' format. In the 'distribution' section of 'extracted_schema_org_0.json', the encoding format for the dataset is stated as 'application/x-parquet'.",
+      "notes": "Parquet is an open-source, columnar storage file format that is commonly used for big data processing and is compatible with various data processing systems."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available in multiple formats?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "The dataset is available in 'application/x-parquet' format as indicated in the extracted_schema_org_0.json under 'distribution' -> 'encodingFormat'. It also contains metadata files in various formats including CSV (e.g., 'Darwin-finches.csv').",
+      "notes": "The metadata mentions additional files such as JSON and CSV in the /dataset/metadata/ directory, indicating multiple formats are indeed used within the overall dataset structure."
+    },
+    {
+      "section": "Data Access",
+      "question": "Do the metadata indicate what license applies to this dataset?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "'license: cc0-1.0' found in 'extracted_page_content.md'",
+      "notes": "The metadata specifies the license 'cc0-1.0', which indicates a public domain dedication."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the license information provided in a standardized or machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Yes",
+      "evidence": "Under the 'extracted_page_content.md', the license is specified as 'cc0-1.0'.",
+      "notes": "The use of 'cc0-1.0' in the 'extracted_page_content.md' indicates a standardized license format, which is machine-readable."
+    },
+    {
+      "section": "Data Access",
+      "question": "Does the dataset contain personal or sensitive information?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "\"personalSensitiveInformation\": \"cr:personalSensitiveInformation\" is not indicated in the JSON metadata, and there is no mention of personal or sensitive information in any of the dataset fields or descriptions.",
+      "notes": "The metadata provided does not specify the inclusion of personal or sensitive information. The dataset primarily contains image metadata and taxonomic information, which are not typically considered personal or sensitive."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is access to the dataset restricted in any way?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The extracted_page_content.md file specifies that the license for the dataset is cc0-1.0, which indicates that the dataset is in the public domain and can be freely accessed. Additionally, there are no indications of access restrictions mentioned in any part of the provided metadata.",
+      "notes": "The CC0 license explicitly allows for free access and reuse of the dataset, suggesting no restrictions on access."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is secure access required to obtain or use the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata describes the dataset as being available at a public URL: https://huggingface.co/datasets/imageomics/TreeOfLife-200M/tree/refs%2Fconvert%2Fparquet, which is accessible without mentioning the need for secure access.",
+      "notes": "The dataset is described as 'public ML-ready', suggesting no special permissions or secure access requirements are needed beyond standard internet access."
+    },
+    {
+      "section": "Data Access",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "The dataset is available through a Hugging Face git repository, with images and metadata provided by Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet.",
+      "evidence": "The metadata in 'extracted_schema_org_0.json' states: 'With nearly 214 million images representing 952,257 taxa across the tree of life, TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at release. This dataset combines images and metadata from four core biodiversity data providers: Global Biodiversity Information Facility (GBIF), Encyclopedia of Life (EOL), BIOSCAN-5M, and FathomNet.'",
+      "notes": "This information captures the comprehensive and collaborative nature of the dataset sourcing and its availability for public use via an established platform for AI datasets. Ensure data access protocols comply with linked licenses and usage terms as indicated in metadata."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Is this form sufficient to evaluate if a dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata lacks comprehensive information on accessibility, interoperability, and reuse, such as license specifics, citation standards, and detailed access instructions. While some aspects of findability are present, such as identifiers and descriptions, this does not cover all FAIR4AI principles.",
+      "notes": "The metadata provides some context about the dataset's sources and fields, but for full FAIR4AI compliance, it would need to include details on access mechanisms, precise licensing terms, interoperability standards, and guidelines for reuse."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from this form?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata covers a range of details about the dataset, including its distribution files, record sets, fields, data descriptions, and sources. However, it does not explicitly address areas such as data governance, ethical considerations, or detailed information about how FAIR principles are applied in practice. Additionally, information on user access policies, exact licensing terms for each data component, or API access (if any) are missing.",
+      "notes": "To fully evaluate the dataset for FAIR4AI compliance, it would be beneficial to include sections that address how the dataset meets the FAIR principles, such as detailed provenance information, accessibility conditions, interoperability features, and reuse conditions tailored to AI applications. Moreover, information on dataset updates, versioning, and any potential biases present in the data could be more explicitly documented."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Should sections or items from this form be edited or deleted? If so, how and/or why?",
+      "response_choices": NaN,
+      "response": "Not applicable",
+      "evidence": "The prompt asks about potential edits or deletions in a form, but the provided metadata does not include a form to evaluate.",
+      "notes": "The metadata provided includes information about a dataset, but there is no actual form or sections within a form that can be identified for evaluation in the question context."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Did the metadata you evaluated provide sufficient information to determine if the dataset is FAIR4AI?",
+      "response_choices": "Yes | No",
+      "response": "Partial",
+      "evidence": "The metadata specifies the dataset as being public and includes a description that highlights it as ML-ready, indicating potential AI readiness (extracted_page_content.md). The license is clearly stated as 'cc0-1.0' which generally supports reusability (extracted_page_content.md). The datasets are distributed via a URL and include the 'contentUrl' in extracted_schema_org_0.json which supports accessibility. However, explicit metadata for interoperability (such as formats for machine-readability beyond 'application/x-parquet') and specific findability elements like DOIs or searchability are limited.",
+      "notes": "While some elements of FAIR are addressed, the metadata does not provide full evidence of adherence to all FAIR principles, particularly around explicit interoperability standards and comprehensive access mechanisms. The 'conformsTo' field suggests alignment with the Croissant standard but further details on compliance with FAIR principles specifically were not found in the metadata."
+    },
+    {
+      "section": "Conclusion",
+      "question": "What’s missing from the metadata? ",
+      "response_choices": NaN,
+      "response": "The dataset metadata lacks explicit details on licensing terms beyond the name and does not directly include information on dataset versioning, data quality metrics, or detailed provenance documentation.",
+      "evidence": "In the extracted_page_content.md, the license is mentioned in a simple form: 'cc0-1.0'. However, explicit licensing information such as terms of use, modifications, and redistributions is not elaborated. The metadata in the JSON files does not detail the versioning of the dataset, missing data quality metrics or full provenance documentation beyond basic fields such as 'uuid', 'source_id', 'data_source', and 'source_url'.",
+      "notes": "While the metadata specifies the presence of more detailed provenance in 'provenance.parquet', the content of this file is not provided in the extracted metadata. Additionally, a clear versioning system of datasets or revision history for tracking updates is essential for FAIR principles, which is not evident in the metadata provided. Although the dataset is extensive and includes several details about images, missing these elements can make it challenging to assess the FAIR4AI compliance comprehensively."
+    },
+    {
+      "section": "Conclusion",
+      "question": "Use this space to provide any other feedback",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "None of the metadata files (extracted_schema_org_0.json, extracted_meta_tags.json, downloaded_metadata_0.md, downloaded_metadata_2.md, extracted_page_content.md) contain a section titled 'Conclusion' or a specific question asking for other feedback.",
+      "notes": "The prompt requests feedback in a section labeled 'Conclusion', but such a section and the related question are not present in the provided metadata files, nor is there any other instance prompting for general feedback."
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "The dataset is clearly titled as 'TreeOfLife-200M' and is associated with a well-defined repository.",
+      "A DOI and related resources such as papers and models are provided, enhancing the dataset's academic credibility.",
+      "The dataset has been designed to be machine-actionable, evidenced by its use in training AI models like BioCLIP 2.",
+      "Clear metadata is provided for several data attributes and features, supporting good documentation practice."
+    ],
+    "weaknesses": [
+      "No information on data versioning or the potential for updates, impacting reusability and tracking.",
+      "Lack of specific quality assurance steps or checks mentioned within the metadata.",
+      "No comprehensive access via direct download or API, which limits accessibility despite being available on cloud platforms.",
+      "Absence of meaningful ontologies or controlled vocabularies beyond broad taxonomic categories."
+    ],
+    "overall_assessment": "The img_tol_200m dataset presents itself as a robust asset for machine learning applications within the biological domain, supported by its clear title, DOI, and related documentation. However, areas such as quality assurance, accessibility, and interoperability standards are lacking, potentially hindering full compliance with the FAIR principles. Efforts to address these gaps can enhance the dataset's usability and FAIRness, particularly in AI contexts.",
+    "fair_score_estimate": {
+      "findable": "6/10 - The dataset is findable via title, DOI, and repository links, but lacks exhaustive metadata for individual data objects.",
+      "accessible": "5/10 - Accessible through cloud platforms, yet lacks direct download and API functionality, which could impact ease of access.",
+      "interoperable": "4/10 - The dataset metadata references general taxonomic categories, but does not explicitly leverage standardized ontologies.",
+      "reusable": "5/10 - The presence of clear licensing and reusable in specific AI applications, but lacking in detailed documentation on quality and versioning."
+    }
+  }
+}

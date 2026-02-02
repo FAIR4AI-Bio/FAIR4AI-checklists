@@ -1,0 +1,13 @@
+{
+  "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+  "description": "This dataset was generated alongside TreeOfLife-10M as a benchmark for BioCLIP;  data (images and text) were pulled from Encyclopedia of Life (EOL) to generate a dataset consisting of rare species ...",
+  "fb:app_id": "1321688464574422",
+  "twitter:card": "summary_large_image",
+  "twitter:site": "@huggingface",
+  "twitter:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/rare-species.png",
+  "og:title": "imageomics/rare-species · Datasets at Hugging Face",
+  "og:description": "This dataset was generated alongside TreeOfLife-10M as a benchmark for BioCLIP;  data (images and text) were pulled from Encyclopedia of Life (EOL) to generate a dataset consisting of rare species ...",
+  "og:type": "website",
+  "og:url": "https://huggingface.co/datasets/imageomics/rare-species",
+  "og:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/rare-species.png"
+}

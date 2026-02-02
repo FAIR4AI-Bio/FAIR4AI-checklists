@@ -1,0 +1,13 @@
+{
+  "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+  "description": "Multi-modal ecological dataset collected at The Wilds during Summer 2025. Data sources include camera traps, bioacoustics, drones, and GPS tags.",
+  "fb:app_id": "1321688464574422",
+  "twitter:card": "summary_large_image",
+  "twitter:site": "@huggingface",
+  "twitter:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/collections/imageomics/smartwilds-6880ec9381da004aa5682cf6.png",
+  "og:title": "SmartWilds - a imageomics Collection",
+  "og:description": "Multi-modal ecological dataset collected at The Wilds during Summer 2025. Data sources include camera traps, bioacoustics, drones, and GPS tags.",
+  "og:type": "website",
+  "og:url": "https://huggingface.co/collections/imageomics/smartwilds",
+  "og:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/collections/imageomics/smartwilds-6880ec9381da004aa5682cf6.png"
+}

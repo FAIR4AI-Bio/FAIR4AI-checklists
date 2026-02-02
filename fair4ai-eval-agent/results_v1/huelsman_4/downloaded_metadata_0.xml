@@ -1,0 +1,782 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Jon Dewitz</origin>
+
+        <pubdate>20250515</pubdate>
+        <title>LANDFIRE 2024 Existing Vegetation Cover (EVC) CONUS </title>
+        <edition>LF 2024</edition>
+        <geoform>raster digital data</geoform>
+        <pubinfo>
+          <pubplace>Sioux Falls, SD</pubplace>
+          <publish>Earth Resources Observation and Science Center (EROS), U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/P1XVKXRL</onlink>
+        <onlink>https://www.landfire.gov</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>Jennifer L. Long</origin>
+            <origin>Timothy D. Hatten</origin>
+            <pubdate>2023</pubdate>
+            <title>LANDFIRE</title>
+            <geoform>publication</geoform>
+            <pubinfo>
+              <pubplace>n/a</pubplace>
+              <publish>US Geological Survey</publish>
+            </pubinfo>
+            <onlink>https://doi.org/10.3133/fs20233044</onlink>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>LANDFIRE's 2024 update (LF 2024) Existing Vegetation Cover (EVC) represents the vertically projected percent cover of the live canopy for a 30-m cell. EVC is produced separately for tree, shrub, and herbaceous lifeforms. Training data depicting percentages of canopy cover are obtained from plot-level ground-based visual assessments and lidar observations. These are combined with Landsat imagery (from multiple seasons), to inform models built independently for each lifeform. Tree, shrub, and herbaceous lifeforms each have a potential range from 10% to 100% (cover values less than 10% are binned into the 10% value). The three independent lifeform datasets are merged into a single product based on the dominant lifeform of each pixel. The EVC product is then reconciled through QA/QC measures to ensure lifeform is synchronized with Existing Vegetation Height (EVH).
+
+In LF 2024, the vegetation products are updated using rulesets similar to LF 2022 Update (https://landfire.gov/data/lf2022) but only for 2024 disturbances since prior disturbances were brought current using machine learning and 2023 satellite imagery during the LF 2023 Update (https://landfire.gov/data/lf2023). LF uses EVC as an input for LF 2024 Fuel Vegetation Cover (FVC).</abstract>
+      <purpose>The LANDFIRE 2024 Update (LF 2024, version 2.5.0) is the fourth update to LANDFIRE’s new base map LF 2016 Remap (version 2.0.0) and will be releasing throughout calendar year 2025.
+
+LF 2024 products are designed to facilitate national and regional level strategic fire and resource management planning and reporting of management activities. The principal purposes of the products include providing: 1) national level landscape scale geospatial products to support fire and fuels management planning and 2) consistent fuels products to support fire planning, analysis, and budgeting to evaluate fire management alternatives.
+
+Products are created at a 30meter raster; however, the applicability of products varies by location and specific use. LF products were designed to support 1) national (all states) strategic planning, 2) regional (single large states or groups of smaller states), and 3) strategic/tactical planning for large sub regional landscapes and Fire Management Units (FMUs) (such as significant portions of states or multiple federal administrative entities). The applicability of LF products to support fire and land management planning on smaller areas will vary by product, location, and specific use. Managers and planners must evaluate LF products according to the scale and requirements specific to their needs.</purpose>
+      <supplinf>Ongoing since the LF 2020 update all CONUS products are created with a 90km buffer into both Canada and Mexico. The following LF 2024 products have 2025 capability functionality: EVH, EVC, CBD, CBH, CC, CH, FBFM13, FBFM40, FVC, FVH, FVT, CFFDRS and FDist.  </supplinf>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>2024</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>ground condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Annually </update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-127.9878</westbc>
+        <eastbc>-65.2544</eastbc>
+        <northbc>51.6497</northbc>
+        <southbc>22.7654</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>imageryBaseMapsEarthCover</themekey>
+        <themekey>biota</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>fires</themekey>
+        <themekey>hazard preparedness</themekey>
+        <themekey>remote sensing</themekey>
+        <themekey>image collections</themekey>
+        <themekey>geospatial datasets</themekey>
+        <themekey>geographic information systems</themekey>
+      </theme>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>raster digital data </themekey>
+        <themekey>Existing Vegetation Cover</themekey>
+        <themekey>EVC</themekey>
+        <themekey>U.S. Geological Survey (USGS)</themekey>
+        <themekey>U.S. Forest Service (USFS)</themekey>
+        <themekey>LANDFIRE 2024</themekey>
+        <themekey>LF 2024</themekey>
+      </theme>
+      <place>
+        <placekt>Common geographic areas</placekt>
+        <placekey>US</placekey>
+        <placekey>United States</placekey>
+        <placekey>Continental U.S.</placekey>
+        <placekey>Conterminous United States</placekey>
+        <placekey>CONUS</placekey>
+      </place>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>LANDFIRE, Earth Resources Observation and Science Center (EROS), U.S. Geological Survey</cntorg>
+        </cntorgp>
+        <cntpos>Customer Service Representative</cntpos>
+        <cntaddr>
+          <addrtype>physical</addrtype>
+          <address>47914 252nd Street</address>
+          <city>Sioux Falls</city>
+          <state>SD</state>
+          <postal>57198</postal>
+          <country>U.S.</country>
+        </cntaddr>
+        <cntvoice>605-594-6151</cntvoice>
+        <cntemail>helpdesk@landfire.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>These products were created by the LF team at USGS EROS, Sioux Falls, SD. Refer to the contact information throughout this metadata to contact the LF team.</datacred>
+    <secinfo>
+<secsys>None in place</secsys>
+<secclass>Unclassified</secclass>
+<sechandl>If there is ever doubt, contact the LF Help Desk at helpdesk@landfire.gov</sechandl>
+</secinfo>
+    <native>Microsoft Windows 10; ESRI ArcGIS Suite</native>
+    <crossref>
+      <citeinfo>
+        <origin>USGS Advanced Research Computing (ARC)</origin>
+        <pubdate>2021</pubdate>
+        <title>USGS McKinley Supercomputer: U.S. Geological Survey</title>
+        <geoform>publication</geoform>
+        <onlink>https://www.usgs.gov/advanced-research-computing/usgs-mckinley-supercomputer</onlink>
+        <onlink>https://www.usgs.gov/advanced-research-computing</onlink>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>Products were tested to ensure that each attribute is represented consistently across all data sets. Attributes were not validated against in person observations. </attraccr>
+    </attracc>
+    <logic>The products were pixel "truth" tested for consistency of land or water characteristics across all products. </logic>
+    <complete>Products were formally tested to ensure that valid data was produced for all pixels. Each product was then validated and tested for duplicates, omissions, and errors.</complete>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Forest Service (USFS)</origin>
+            <origin>US Natural Resource Manager's (USNRM)</origin>
+            <pubdate>2009</pubdate>
+            <title>Forest Service Activity Tracking System (FACTS)</title>
+            <geoform>remote-sensing image</geoform>
+            <onlink>https://data.fs.usda.gov/geodata/edw/datasets.php</onlink>
+            <onlink>https://data.fs.usda.gov/nrm/briefingpapers/FACTS.pdf </onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>2009</begdate>
+              <enddate>2023</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>observed</srccurr>
+        </srctime>
+        <srccitea>FACTS</srccitea>
+        <srccontr>Landscape change in forested areas </srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Forest Service (USFS)</origin>
+            <origin>US Department of the Interior (USDOI)</origin>
+            <pubdate>2000</pubdate>
+            <title>National Fire Plan Operations and Reporting System (NFPORS)</title>
+            <geoform>application/service</geoform>
+            <onlink>https://www.nfpors.gov/</onlink>
+            <onlink>https://www.forestsandrangelands.gov/resources/overview/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>2000</begdate>
+              <enddate>2023</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>observed</srccurr>
+        </srctime>
+        <srccitea>NFPORS</srccitea>
+        <srccontr>National Fire Plan </srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Bureau of Land Management (USBLM)</origin>
+            <origin>National Park Service (USNPS)</origin>
+            <origin>US Forest Service (USFS)</origin>
+            <origin>US Fish and Wildlife Service (USFWS)</origin>
+            <origin>Fire Administration and the National Association of State Foresters</origin>
+            <origin>US Bureau of Indian Affairs (USBIA)</origin>
+            <pubdate>1965</pubdate>
+            <title>National Interagency Fire Center (NIFC)</title>
+            <geoform>application/service</geoform>
+            <onlink>https://www.nifc.gov/</onlink>
+            <onlink>https://www.nifc.gov/fire-information/maps</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>1965</begdate>
+              <enddate>2023</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>observed</srccurr>
+        </srctime>
+        <srccitea>NIFC</srccitea>
+        <srccontr>Wildfire maps. </srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Forest Service (USFS)</origin>
+            <pubdate>2012</pubdate>
+            <title>USFS National Insect and Disease Risk Map (NIDRM)</title>
+            <geoform>raster digital data</geoform>
+            <onlink>https://www.fs.usda.gov/science-technology/data-tools-products/fhp-mapping-reporting/national-insect-disease-risk-and-hazard-mapping</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>2012</begdate>
+              <enddate>2023</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>observed</srccurr>
+        </srctime>
+        <srccitea>NIDRM</srccitea>
+        <srccontr>NIDRM Insect and Disease Detection Survey</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Forest Service (USFS)</origin>
+            <pubdate>1928</pubdate>
+            <title>Forest Inventory and Analysis (FIA)</title>
+            <geoform>application/service</geoform>
+            <othercit>Check https://www.landfire.gov/reference for more information.</othercit>
+            <onlink>
+https://research.fs.usda.gov/programs/fia</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>Unknown</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>observed</srccurr>
+        </srctime>
+        <srccitea>FIA</srccitea>
+        <srccontr>Read more about each version of LANDFIRE and its inputs at https://landfire.gov/</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Geological Survey (USGS)</origin>
+            <pubdate>1982</pubdate>
+            <title>Landsat Dynamic Surface Water Extent (DSWE)</title>
+            <geoform>raster digital data</geoform>
+            <serinfo>
+              <sername>Fact Sheet</sername>
+              <issue>2022-3084</issue>
+            </serinfo>
+            <pubinfo>
+              <pubplace>Reston, VA</pubplace>
+              <publish>USGS</publish>
+            </pubinfo>
+            <onlink>https://doi.org/10.3133/fs20223084</onlink>
+            <onlink>https://www.usgs.gov/landsat-missions/landsat-collection-2-level-3-dynamic-surface-water-extent-science-product</onlink>
+            <onlink>https://www.usgs.gov/landsat-missions </onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>Unknown</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>DSWE</srccitea>
+        <srccontr>The Landsat Collection 2 (C2) Level-3 Dynamic Surface Water Extent (DSWE) product provides raster layers that represent surface water inundation per-pixel in Landsat data.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Geological Survey (USGS)</origin>
+            <pubdate>1996</pubdate>
+            <title>Multi-Resolution Land Characteristics (MRLC) Consortium National Land Cover Database (NLCD)</title>
+            <geoform>raster digital data</geoform>
+            <othercit>https://pubs.usgs.gov/publication/fs20253001</othercit>
+            <onlink>https://www.mrlc.gov/data</onlink>
+            <onlink>https://www.mrlc.gov/viewer/</onlink>
+            <onlink>https://www.sciencebase.gov/catalog/item/655ceb8ad34ee4b6e05cc51a</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2021</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>NLCD</srccitea>
+        <srccontr>LANDFIRE always utilizes the latest products from NLCD, read more about each version of LANDFIRE and its inputs at https://landfire.gov/</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Department of Agriculture (USDA)</origin>
+            <pubdate>1961</pubdate>
+            <title>National Agricultural Statistics Service (NASS) Cropland Data Layer (CDL)</title>
+            <geoform>application/service</geoform>
+            <onlink>https://www.nass.usda.gov/</onlink>
+            <onlink>https://croplandcros.scinet.usda.gov/ </onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>Unknown</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>NASS CDL</srccitea>
+        <srccontr>Read more about each version of LANDFIRE and its inputs at https://landfire.gov/</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Geological Survey (USGS)</origin>
+            <pubdate>2005</pubdate>
+            <title>Monitoring Trends in Burn Severity (MTBS)</title>
+            <geoform>raster digital data</geoform>
+            <onlink>https://www.mtbs.gov/</onlink>
+            <onlink>https://www.sciencebase.gov/catalog/item/6331e928d34e900e86c52b9e</onlink>
+            <onlink>https://burnseverity.cr.usgs.gov/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>1984</begdate>
+              <enddate>2023</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>MTBS</srccitea>
+        <srccontr>MTBS is an interagency program whose goal is to consistently map the burn severity and extent of large fires across all lands of the United States from 1984 to present.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Geological Survey (USGS)</origin>
+            <origin>US Forest Service (USFS)</origin>
+            <pubdate>2001</pubdate>
+            <title>Burned Area Emergency Response (BAER) Burned Area Reflectance Classification (BARC) </title>
+            <geoform>application/service</geoform>
+            <onlink>https://burnseverity.cr.usgs.gov/baer/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>2001</begdate>
+              <enddate>2023</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>BAER BARC</srccitea>
+        <srccontr>BARC is a satellite-derived data layer of post-fire vegetation condition. The BARC has four classes, representing burn severity: high, moderate, low, and unburned. This product is used as an input to the soil burn severity map produced by the BAER teams.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Geological Survey (USGS)</origin>
+            <origin>Gap Analysis Project (GAP)</origin>
+            <pubdate>2022</pubdate>
+            <title>Protected Areas Database of the United States (PAD US) 4.0</title>
+            <geoform>application/service</geoform>
+            <onlink>https://doi.org/10.5066/P9Q9LQ4B</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2022</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>PAD</srccitea>
+        <srccontr>The USGS Protected Areas Database of the United States (PAD-US) is the nation's inventory of protected areas, including public land and voluntarily provided private protected areas.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Microsoft Maps</origin>
+            <pubdate>2020</pubdate>
+            <title>Microsoft Building Footprint </title>
+            <geoform>application/service</geoform>
+            <onlink>https://github.com/Microsoft/USBuildingFootprints</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2020</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>Building Footprint</srccitea>
+        <srccontr>Microsoft Maps released country wide open building footprints datasets in the United States. This dataset contained 129,591,852 computer generated building footprints.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Geological Survey (USGS)</origin>
+            <pubdate>1984</pubdate>
+            <title>Burned Area (BA) Landsat</title>
+            <geoform>raster digital data</geoform>
+            <onlink>https://www.usgs.gov/landsat-missions/landsat-collection-2-level-3-burned-area-science-product</onlink>
+            <onlink>https://doi.org/10.1016/j.rse.2020.111801</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>1984</begdate>
+              <enddate>2023</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>BA</srccitea>
+        <srccontr>The Landsat Collection 2 (C2) Level-3 Burned Area (BA) science product is designed to identify burned areas across all ecosystems (e.g., forests, shrublands, and grasslands) for Landsat 4-9 data, containing two acquisition-based raster layers that represent burn classification and burn probability. </srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Geological Survey (USGS)</origin>
+            <origin>US Forest Service (USFS)</origin>
+            <pubdate>2007</pubdate>
+            <title>Rapid Assessment of Vegetation Condition after Wildfire (RAVG)</title>
+            <geoform>remote-sensing image</geoform>
+            <onlink>https://burnseverity.cr.usgs.gov/ravg/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>Unknown</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>RAVG</srccitea>
+        <srccontr>The RAVG program provides assessments of vegetation conditions (burn severity) following large wildland fires on forested National Forest System (NFS) lands. Read more about each version of LANDFIRE and its inputs at https://landfire.gov/</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Department of the Interior (USDOI)</origin>
+            <pubdate>2024</pubdate>
+            <title>Interior Fuels Post-fire Reporting System (IFPRS)</title>
+            <geoform>application/service</geoform>
+            <onlink>https://inform-fuels-nifc.hub.arcgis.com/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>Unknown</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>observed</srccurr>
+        </srctime>
+        <srccitea>IFPRS</srccitea>
+        <srccontr>Read more about each version of LANDFIRE and its inputs at https://landfire.gov/</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Department of Agriculture (USDA)</origin>
+            <origin>US Forest Service (USFS)</origin>
+            <pubdate>2020</pubdate>
+            <title>Wildfire Risk to Communities (WRC)</title>
+            <geoform>application/service</geoform>
+            <onlink>https://wildfirerisk.org/download/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2020</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>observed</srccurr>
+        </srctime>
+        <srccitea>WRC</srccitea>
+        <srccontr>Read more about each version of LANDFIRE and its inputs at https://landfire.gov/</srccontr>
+      </srcinfo>
+      <procstep>
+        <procdesc>Beginning with the new base map of LANDFIRE 2016 Remap (LF Remap), LF products were created using recent advances in image compositing, tiling algorithms, and faster computing hardware to ensure that LF products remained relevant. LF Remap leveraged the Landsat archive, lidar data, and user contributed field plot data compiled into the LF Reference Database (LFRDB), to create new vegetation products.  
+
+Reference resources utilized in LF Remap and all updates since includes but is not limited to: Forest Inventory and Analysis (FIA) program plot data, Landsat Dynamic Surface Water Extent (DSWE), the National Land Cover Database (NLCD), and National Agricultural Statistics Service (NASS).  </procdesc>
+        <srcused>FIA</srcused>
+        <srcused>DSWE</srcused>
+        <srcused>NLCD</srcused>
+        <srcused>NASS CDL</srcused>
+        <procdate>20250515</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>For LF 2024 reference resources include but are not limited to: Monitoring Trends in Burn Severity (MTBS), Burned Area Reflectance Classification (BARC) and Rapid Assessment of Vegetation Condition after Wildfire (RAVG), PAD 4.0 was used to remove agriculture on non-irrigated federal and state protected lands, and a rasterized version of the Microsoft building footprint and WRC for 2020 to update developed areas. Two main submitted sources were also used: the US Bureau of Land Management (BLM) and National Park Service (NPS). </procdesc>
+        <srcused>MTBS</srcused>
+        <srcused>BAER BARC</srcused>
+        <srcused>RAVG</srcused>
+        <srcused>PAD</srcused>
+        <srcused>Building Footprint</srcused>
+        <srcused>WRC</srcused>
+        <procdate>20250515</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Disturbances in LF 2024 were also identified with LF's Remote Sensing of Landscape Change (RSLC), which identifies spectral change in vegetation using automated algorithms and image analyst review of the entire country with Landsat imagery. Burned Area (BA) data from Landsat was also used and national events (polygons) were used to identify areas and types of disturbance. </procdesc>
+        <srcused>BA</srcused>
+        <procdate>20250515</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>To read more about LF reference resources go to https://landfire.gov/reference. Information about LF product testing is available by request or via the website at https://www.landfire.gov. </procdesc>
+        <procdate>20250515</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Raster</direct>
+    <rastinfo>
+      <rasttype>Grid Cell</rasttype>
+      <rowcount>20729</rowcount>
+      <colcount>24853</colcount>
+    </rastinfo>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <planar>
+        <mapproj>
+          <mapprojn>Albers Conical Equal Area</mapprojn>
+          <albers>
+            <stdparll>29.5</stdparll>
+            <stdparll>45.5</stdparll>
+            <longcm>-96.0</longcm>
+            <latprjo>23.0</latprjo>
+            <feast>0</feast>
+            <fnorth>0</fnorth>
+          </albers>
+        </mapproj>
+        <planci>
+          <plance>row and column</plance>
+          <coordrep>
+            <absres>30</absres>
+            <ordres>30</ordres>
+          </coordrep>
+          <plandu>meters</plandu>
+        </planci>
+      </planar>
+      <geodetic>
+        <horizdn>North American Datum of 1983 (NAD 83)</horizdn>
+        <ellips>Geodetic Reference System 1980</ellips>
+        <semiaxis>6378137.000000</semiaxis>
+        <denflat>298.257222</denflat>
+      </geodetic>
+    </horizsys>
+    <vertdef/>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>EVC</enttypl>
+        <enttypd>LF 2024 EVC attributes spreadsheet.</enttypd>
+        <enttypds>LF 2024</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>VALUE</attrlabl>
+        <attrdef>The code that identifies the percent canopy cover.</attrdef>
+        <attrdefs>LF 2024</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-9999</edomv>
+            <edomvd>Fill-NoData</edomvd>
+            <edomvds>LF 2024</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>11</rdommin>
+            <rdommax>399</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CLASSNAMES</attrlabl>
+        <attrdef>Existing Vegetation Cover depicts percent canopy cover by life form. Potential range is 10 to 100%</attrdef>
+        <attrdefs>LF 2024</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-9999</edomv>
+            <edomvd>Fill-NoData</edomvd>
+            <edomvds>LF 2024</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>Tree cover 10 to 100%.
+Shrub cover 10 to 100%.
+Herb cover 10 to 100%.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>R</attrlabl>
+        <attrdef>Red color value/255</attrdef>
+        <attrdefs>LF 2024</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>255</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>G</attrlabl>
+        <attrdef>Green color value/255</attrdef>
+        <attrdefs>LF 2024</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>255</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>B</attrlabl>
+        <attrdef>Blue color value/255</attrdef>
+        <attrdefs>LF 2024</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>255</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RED</attrlabl>
+        <attrdef>Red color value.</attrdef>
+        <attrdefs>LF 2024</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>1.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>GREEN</attrlabl>
+        <attrdef>Green color value.</attrdef>
+        <attrdefs>LF 2024</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>1.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>BLUE</attrlabl>
+        <attrdef>Blue color value.</attrdef>
+        <attrdefs>LF 2024</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>1.0</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <overview>
+      <eaover>LANDFIRE (LF) 2024 Existing Vegetation Cover (EVC) CONUS. An Attribute Table is included with each product download as a .csv and embedded in the metadata. The Attribute Data Dictionary (ADD) can be found at https://www.landfire.gov/.</eaover>
+      <eadetcit>https://landfire.gov/vegetation/evc</eadetcit>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey</cntorg>
+          <cntper>GS ScienceBase</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>This product is reproduced from geospatial information prepared by the U.S. Department of the Interior (DOI) USGS EROS. By removing the contents of this package or taking receipt of these files via electronic file transfer methods, you understand that the data stored on this media can be updated at any time. Represented features may not be in an accurate geographic location. USGS EROS makes no expressed or implied warranty, including warranty of merchantability and fitness, with respect to the character, function, or capabilities of the data or their appropriateness for any user's purposes. USGS EROS reserves the right to correct, update, modify, or replace this geospatial information without notification.
+
+Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data for other purposes, nor on all computer systems, nor shall the act of distribution constitute any such warranty.</distliab>
+    <stdorder>
+      <digform><digtinfo>
+<formname>ARCG</formname>
+<formverd>20250515</formverd> 
+<formspec>LF 2024</formspec>
+</digtinfo>
+<digtopt><onlinopt><computer><networka><networkr>https://doi.org/10.5066/P1XVKXRL</networkr></networka></computer></onlinopt></digtopt></digform>
+      <fees>none</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20250515</metd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>LANDFIRE, Earth Resources Observation and Science Center (EROS), U.S. Geological Survey</cntorg>
+        </cntorgp>
+        <cntpos>Customer Service Representative</cntpos>
+        <cntaddr>
+          <addrtype>physical</addrtype>
+          <address>47914 252nd Street</address>
+          <city>Sioux Falls</city>
+          <state>SD</state>
+          <postal>57198</postal>
+          <country>U.S.</country>
+        </cntaddr>
+        <cntvoice>605-594-6151</cntvoice>
+        <cntemail>helpdesk@landfire.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+    <metsi>
+<metscs>None</metscs>
+<metsc>Unclassified</metsc>
+<metshd>None</metshd>
+</metsi>
+  </metainfo>
+</metadata>

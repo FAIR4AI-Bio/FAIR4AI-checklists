@@ -1,0 +1,13 @@
+{
+  "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+  "description": "Frame-level behavior telemetry dataset combining drone GPS tracks, camera metadata, animal detections, and behavior annotations from wildlife monitoring in Kenya. Supports detection, tracking, and ...",
+  "fb:app_id": "1321688464574422",
+  "twitter:card": "summary_large_image",
+  "twitter:site": "@huggingface",
+  "twitter:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/kabr-behavior-telemetry.png",
+  "og:title": "imageomics/kabr-behavior-telemetry · Datasets at Hugging Face",
+  "og:description": "Frame-level behavior telemetry dataset combining drone GPS tracks, camera metadata, animal detections, and behavior annotations from wildlife monitoring in Kenya. Supports detection, tracking, and ...",
+  "og:type": "website",
+  "og:url": "https://huggingface.co/datasets/imageomics/kabr-behavior-telemetry",
+  "og:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/kabr-behavior-telemetry.png"
+}

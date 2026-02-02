@@ -31,6 +31,7 @@ from typing import List, Dict, Any, Optional
 import os
 import sys
 import re
+import time
 try:
     import requests
     from bs4 import BeautifulSoup
@@ -462,35 +463,57 @@ class FAIR4AIAgent:
         except Exception:
             return str(content)
     
-    def _call_llm(self, system_prompt: str, user_prompt: str) -> str:
-        """Call the LLM with the given prompts."""
-        if self.llm_provider in ["openai", "azure"]:
-            # Both OpenAI and Azure use the same API structure with slight parameter differences
-            completion_kwargs = {
-                "model": self.model,
-                "messages": [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-            }
-            if self.llm_provider == "azure":
-                completion_kwargs["max_completion_tokens"] = 2000
-            else:
-                completion_kwargs["max_tokens"] = 2000
-                completion_kwargs["temperature"] = 0.1
+    def _call_llm(self, system_prompt: str, user_prompt: str, max_retries: int = 5) -> str:
+        """Call the LLM with the given prompts, with retry logic for rate limits."""
+        last_exception = None
+        
+        for attempt in range(max_retries):
+            try:
+                if self.llm_provider in ["openai", "azure"]:
+                    # Both OpenAI and Azure use the same API structure with slight parameter differences
+                    completion_kwargs = {
+                        "model": self.model,
+                        "messages": [
+                            {"role": "system", "content": system_prompt},
+                            {"role": "user", "content": user_prompt}
+                        ],
+                    }
+                    if self.llm_provider == "azure":
+                        completion_kwargs["max_completion_tokens"] = 2000
+                    else:
+                        completion_kwargs["max_tokens"] = 2000
+                        completion_kwargs["temperature"] = 0.1
 
-            response = self.client.chat.completions.create(**completion_kwargs)
-            raw_content = response.choices[0].message.content
-            return self._extract_message_text(raw_content)
-        else:  # anthropic
-            response = self.client.messages.create(
-                model=self.model,
-                max_tokens=2000,
-                temperature=0.1,
-                system=system_prompt,
-                messages=[{"role": "user", "content": user_prompt}]
-            )
-            return response.content[0].text
+                    response = self.client.chat.completions.create(**completion_kwargs)
+                    raw_content = response.choices[0].message.content
+                    return self._extract_message_text(raw_content)
+                else:  # anthropic
+                    response = self.client.messages.create(
+                        model=self.model,
+                        max_tokens=2000,
+                        temperature=0.1,
+                        system=system_prompt,
+                        messages=[{"role": "user", "content": user_prompt}]
+                    )
+                    return response.content[0].text
+                    
+            except Exception as e:
+                last_exception = e
+                error_str = str(e)
+                
+                # Check if it's a rate limit error (429 or RateLimitReached)
+                if "429" in error_str or "RateLimitReached" in error_str or "rate_limit" in error_str.lower():
+                    # Exponential backoff: wait longer with each retry
+                    wait_time = (2 ** attempt) + 1  # 2, 3, 5, 9, 17 seconds
+                    print(f"  Rate limit hit. Retrying in {wait_time} seconds... (attempt {attempt + 1}/{max_retries})")
+                    time.sleep(wait_time)
+                    continue
+                else:
+                    # For non-rate-limit errors, fail immediately
+                    raise
+        
+        # If we exhausted all retries, raise the last exception
+        raise last_exception
     
     def answer_question(self, question_row: pd.Series, metadata_context: str) -> Dict[str, str]:
         """
@@ -585,12 +608,13 @@ Provide your response in the following JSON format:
                 "notes": f"Error: {str(e)}"
             }
     
-    def process_all_questions(self, batch_size: int = 5) -> List[Dict[str, Any]]:
+    def process_all_questions(self, batch_size: int = 5, delay_between_calls: float = 0.5) -> List[Dict[str, Any]]:
         """
         Process all questions from the form.
         
         Args:
             batch_size: Process questions in batches (for progress tracking)
+            delay_between_calls: Delay in seconds between API calls to avoid rate limits
             
         Returns:
             List of response dictionaries
@@ -630,6 +654,10 @@ Provide your response in the following JSON format:
             }
             
             responses.append(response_entry)
+            
+            # Add delay between API calls to avoid rate limits
+            if delay_between_calls > 0:
+                time.sleep(delay_between_calls)
         
         print(f"Completed: {len(responses)} responses generated\n")
         return responses

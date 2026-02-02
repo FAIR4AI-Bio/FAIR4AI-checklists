@@ -1,0 +1,471 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "arrayShape": "cr:arrayShape",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataBiases": "cr:dataBiases",
+    "dataCollection": "cr:dataCollection",
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isArray": "cr:isArray",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "personalSensitiveInformation": "cr:personalSensitiveInformation",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "containedIn": "cr:containedIn"
+  },
+  "@type": "sc:Dataset",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "repo",
+      "name": "repo",
+      "description": "The Hugging Face git repository.",
+      "contentUrl": "https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions/tree/refs%2Fconvert%2Fparquet",
+      "encodingFormat": "git+https",
+      "sha256": "https://github.com/mlcommons/croissant/issues/80"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "parquet-files-for-config-TOL-10M_captions",
+      "containedIn": {
+        "@id": "repo"
+      },
+      "encodingFormat": "application/x-parquet",
+      "includes": "TOL-10M captions/*/*.parquet"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "parquet-files-for-config-sample_captions",
+      "containedIn": {
+        "@id": "repo"
+      },
+      "encodingFormat": "application/x-parquet",
+      "includes": "sample captions/*/*.parquet"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "parquet-files-for-config-wiki_descriptions",
+      "containedIn": {
+        "@id": "repo"
+      },
+      "encodingFormat": "application/x-parquet",
+      "includes": "wiki descriptions/*/*.parquet"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "dataType": "cr:Split",
+      "key": {
+        "@id": "TOL-10M_captions_splits/split_name"
+      },
+      "@id": "TOL-10M_captions_splits",
+      "name": "TOL-10M_captions_splits",
+      "description": "Splits for the TOL-10M_captions config.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "TOL-10M_captions_splits/split_name",
+          "dataType": "sc:Text"
+        }
+      ],
+      "data": [
+        {
+          "TOL-10M_captions_splits/split_name": "train"
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "TOL-10M_captions",
+      "description": "imageomics/TreeOfLife-10M-Captions - 'TOL-10M captions' subset",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "TOL-10M_captions/split",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-TOL-10M_captions"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            },
+            "transform": {
+              "regex": "TOL\\-10M\\ captions/(?:partial-)?(train)/.+parquet$"
+            }
+          },
+          "references": {
+            "field": {
+              "@id": "TOL-10M_captions_splits/split_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "TOL-10M_captions/uuid",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-TOL-10M_captions"
+            },
+            "extract": {
+              "column": "uuid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "TOL-10M_captions/caption",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-TOL-10M_captions"
+            },
+            "extract": {
+              "column": "caption"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "TOL-10M_captions/description",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-TOL-10M_captions"
+            },
+            "extract": {
+              "column": "description"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "dataType": "cr:Split",
+      "key": {
+        "@id": "sample_captions_splits/split_name"
+      },
+      "@id": "sample_captions_splits",
+      "name": "sample_captions_splits",
+      "description": "Splits for the sample_captions config.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "sample_captions_splits/split_name",
+          "dataType": "sc:Text"
+        }
+      ],
+      "data": [
+        {
+          "sample_captions_splits/split_name": "train"
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "sample_captions",
+      "description": "imageomics/TreeOfLife-10M-Captions - 'sample captions' subset",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "sample_captions/split",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-sample_captions"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            },
+            "transform": {
+              "regex": "sample\\ captions/(?:partial-)?(train)/.+parquet$"
+            }
+          },
+          "references": {
+            "field": {
+              "@id": "sample_captions_splits/split_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "sample_captions/class",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-sample_captions"
+            },
+            "extract": {
+              "column": "class"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "sample_captions/description",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-sample_captions"
+            },
+            "extract": {
+              "column": "description"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "dataType": "cr:Split",
+      "key": {
+        "@id": "wiki_descriptions_splits/split_name"
+      },
+      "@id": "wiki_descriptions_splits",
+      "name": "wiki_descriptions_splits",
+      "description": "Splits for the wiki_descriptions config.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions_splits/split_name",
+          "dataType": "sc:Text"
+        }
+      ],
+      "data": [
+        {
+          "wiki_descriptions_splits/split_name": "train"
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "wiki_descriptions",
+      "description": "imageomics/TreeOfLife-10M-Captions - 'wiki descriptions' subset",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/split",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            },
+            "transform": {
+              "regex": "wiki\\ descriptions/(?:partial-)?(train)/.+parquet$"
+            }
+          },
+          "references": {
+            "field": {
+              "@id": "wiki_descriptions_splits/split_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/binomial_name",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "column": "binomial_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/caption",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "column": "caption"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/kingdom",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "column": "kingdom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/phylum",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "column": "phylum"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/class",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "column": "class"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/order",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "column": "order"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/family",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "column": "family"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/genus",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "column": "genus"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "wiki_descriptions/species",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "parquet-files-for-config-wiki_descriptions"
+            },
+            "extract": {
+              "column": "species"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "name": "TreeOfLife-10M-Captions",
+  "identifier": "10.57967/hf/6801",
+  "description": "This dataset consists of generated captions, Wikipedia-derived descriptions, and format examples for the TreeOfLife-10M. These captions were generated using InternVL3-38B based on biological contexts that help the model generate more accurate captions. It was used to train BioCAP, a CLIP-based model.",
+  "alternateName": [
+    "imageomics/TreeOfLife-10M-Captions",
+    "TreeOfLife-10M Captions"
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "HDR Imageomics Institute",
+    "url": "https://huggingface.co/imageomics"
+  },
+  "keywords": [
+    "image-classification",
+    "zero-shot-classification",
+    "text-to-image",
+    "question-answering",
+    "English",
+    "Latin",
+    "cc-by-sa-4.0",
+    "1M - 10M",
+    "parquet",
+    "Text",
+    "Image",
+    "Datasets",
+    "pandas",
+    "Polars",
+    "Croissant",
+    "arxiv:2510.20095",
+    "doi:10.57967/hf/6801",
+    "🇺🇸 Region: US",
+    "biology",
+    "image",
+    "animals",
+    "plants",
+    "fungi",
+    "CV",
+    "evolutionary biology",
+    "multimodal",
+    "clip",
+    "species",
+    "taxonomy",
+    "knowledge-guided",
+    "imbalanced",
+    "captions"
+  ],
+  "license": "https://choosealicense.com/licenses/cc-by-sa-4.0/",
+  "sameAs": "https://imageomics.github.io/biocap",
+  "url": "https://huggingface.co/datasets/imageomics/TreeOfLife-10M-Captions"
+}

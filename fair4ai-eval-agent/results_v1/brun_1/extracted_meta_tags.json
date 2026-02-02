@@ -1,0 +1,7 @@
+{
+  "msapplication-TileColor": "#40853e",
+  "theme-color": "#ffffff",
+  "viewport": "width=device-width, initial-scale=1.0, user-scalable=yes",
+  "csrf-param": "authenticity_token",
+  "csrf-token": "gisbsnJwJNC4gFXr95RQ_ATOXimCRs0E6fBbevL28haZ-BMWU75O07kN5IPPGv6QlidJOfpMP6nb-YKP_4Lmyg"
+}

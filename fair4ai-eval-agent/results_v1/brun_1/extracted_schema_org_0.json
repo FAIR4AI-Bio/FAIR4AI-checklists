@@ -1,0 +1,138 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.5061/dryad.wdbrv15vm",
+  "name": "Despite plasticity, heatwaves are costly for a coral reef fish",
+  "description": [
+    "Climate change is intensifying extreme weather events, including marine heatwaves, which are prolonged periods of anomalously high sea surface temperature that pose a novel threat to aquatic animals. Tropical animals may be especially vulnerable to marine heatwaves because they are adapted to a narrow temperature range. If these animals cannot acclimate to marine heat waves, the extreme heat could impair their behavior and fitness. Here, we investigated how marine heatwave conditions affected the performance and thermal tolerance of a tropical predatory fish, arceye hawkfish (Paracirrhites arcatus), across two seasons in Mo'orea, French Polynesia. We found that the fish’s daily activities, including recovery from burst swimming and digestion, were more energetically costly in fish exposed to marine heatwave conditions across both seasons, while their aerobic capacity remained the same. Given their constrained energy budget, these rising costs associated with warming may impact how hawkf...",
+    "Hawkfish (Paracirrhites arcatus) were collected in Mo'orea, French Polynesia during the Austral winter (2019) and Austral summer (2022). They were acclimated to one of five treatments (27, 28, 29, 31, or 33°C) for one week and tested for metabolic performance metrics, including maximum metabolic rate (MMR), standard metabolic rate (SMR), and costs of digestion (specific dynamic action, SDA) using custom-made respirometry chambers. A subset of fish was also tested for thermal tolerance using an acute cardiac thermal tolerance test. In addition, wild fish were also caught and tested for acute cardiac thermal tolerance. Metabolic data were processed in R and heart rate data were processed in LabChart. Please see the published manuscript for detailed methods.&nbsp;",
+    "",
+    "# **Despite plasticity, heatwaves are costly for a coral reef fish**\n\n## Description of the Data and file structure\n\nAuthor Information\nA. Principal Investigator Contact Information\nName: Dr. Erika Eliason or Dr. Deron Burkepile\nInstitution: University of California, Santa Barbara\nEmail: [eliason@ucsb.edu](mailto:eliason@ucsb.edu), [dburkepile@ucsb.edu](mailto:dburkepile@ucsb.edu)\nB. Corresponding Author Contact Information\nName: Jacey Van Wert\nInstitution: University of California, Santa Barbara\nEmail: [jcvanwert@gmail.com](mailto:jcvanwert@gmail.com)\n\nDate range of data collection (single date, range, approximate date): 2019-2022\n\nGeographic location of data collection: Mo'orea, French Polynesia\n\nFile List:\nVanWert_etal_2023_hawkfish.csv - contains hawkfish collection and morphology data, SMR, MMR, AAS, SDA metrics, and cardiac thermal tolerance test metrics\n\n## METHODOLOGICAL INFORMATION\n\n1. Description of methods used for collection/generation/processing of data:\n   Hawkfish (*Parac...",
+    ""
+  ],
+  "url": "http://datadryad.org/dataset/doi%253A10.5061%252Fdryad.wdbrv15vm",
+  "contentUrl": [
+    "http://datadryad.org/downloads/file_stream/3327095",
+    "http://datadryad.org/downloads/file_stream/3327130"
+  ],
+  "identifier": "https://doi.org/10.5061/dryad.wdbrv15vm",
+  "version": 4,
+  "isAccessibleForFree": true,
+  "keywords": [
+    "Climate change",
+    "Metabolism",
+    "Heart rate",
+    "Physiology",
+    "Ecophysiology",
+    "Thermal tolerance"
+  ],
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Jacey Van Wert",
+      "givenName": "Jacey",
+      "familyName": "Van Wert",
+      "sameAs": "http://orcid.org/0000-0001-7262-9420",
+      "affiliation": {
+        "@type": "Organization",
+        "sameAs": "https://ror.org/02t274463",
+        "name": "University of California, Santa Barbara"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Kim Birnie-Gauvin",
+      "givenName": "Kim",
+      "familyName": "Birnie-Gauvin",
+      "affiliation": {
+        "@type": "Organization",
+        "sameAs": "https://ror.org/04qtj9h94",
+        "name": "Technical University of Denmark"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Jordan Gallagher",
+      "givenName": "Jordan",
+      "familyName": "Gallagher",
+      "affiliation": {
+        "@type": "Organization",
+        "sameAs": "https://ror.org/02t274463",
+        "name": "University of California, Santa Barbara"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Emily Hardison",
+      "givenName": "Emily",
+      "familyName": "Hardison",
+      "affiliation": {
+        "@type": "Organization",
+        "sameAs": "https://ror.org/02t274463",
+        "name": "University of California, Santa Barbara"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Kaitlyn Landfield",
+      "givenName": "Kaitlyn",
+      "familyName": "Landfield",
+      "affiliation": {
+        "@type": "Organization",
+        "sameAs": "https://ror.org/02t274463",
+        "name": "University of California, Santa Barbara"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Deron Burkepile",
+      "givenName": "Deron",
+      "familyName": "Burkepile",
+      "affiliation": {
+        "@type": "Organization",
+        "sameAs": "https://ror.org/02t274463",
+        "name": "University of California, Santa Barbara"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Erika Eliason",
+      "givenName": "Erika",
+      "familyName": "Eliason",
+      "sameAs": "http://orcid.org/0000-0002-0120-7498",
+      "affiliation": {
+        "@type": "Organization",
+        "sameAs": "https://ror.org/02t274463",
+        "name": "University of California, Santa Barbara"
+      }
+    }
+  ],
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "application/zip",
+    "contentUrl": "http://datadryad.org/api/v2/datasets/doi%253A10.5061%252Fdryad.wdbrv15vm/download"
+  },
+  "temporalCoverage": [
+    "2023-11-01 15:38:16 UTC",
+    "2023-11-01 18:00:42 UTC",
+    "2024-07-15 00:00:00 UTC",
+    "2024-07-15 00:00:00 UTC"
+  ],
+  "spatialCoverage": [],
+  "citation": "http://doi.org/10.1038/s41598-024-63273-8",
+  "license": {
+    "@type": "CreativeWork",
+    "name": "Creative Commons Zero v1.0 Universal",
+    "license": "https://spdx.org/licenses/CC0-1.0.html"
+  },
+  "publisher": {
+    "@id": "https://datadryad.org",
+    "@type": "Organization",
+    "legalName": "Dryad Data Platform",
+    "name": "Dryad",
+    "url": "https://datadryad.org"
+  },
+  "provider": {
+    "@id": "https://datadryad.org"
+  }
+}
