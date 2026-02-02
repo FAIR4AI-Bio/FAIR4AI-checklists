@@ -236,6 +236,108 @@ class FAIR4AIAgent:
                 except:
                     continue
             
+            # Extract main page content as markdown for dataset landing pages
+            # This is especially useful for HuggingFace dataset cards and similar sites
+            try:
+                # Look for main content areas that typically contain dataset descriptions
+                main_content = None
+                content_source = None
+                
+                # Platform-specific handlers for common dataset repositories
+                
+                # 1. HuggingFace: Fetch raw README.md from repository
+                if 'huggingface.co' in url and '/datasets/' in url:
+                    dataset_path = url.split('/datasets/')[-1].rstrip('/')
+                    readme_url = f"https://huggingface.co/datasets/{dataset_path}/raw/main/README.md"
+                    try:
+                        readme_response = requests.get(readme_url, timeout=15)
+                        if readme_response.status_code == 200:
+                            main_content = readme_response.text
+                            content_source = "HuggingFace README.md"
+                    except:
+                        pass
+                
+                # 2. Zenodo: Extract description and notes from main page
+                if not main_content and 'zenodo.org' in url:
+                    desc_div = soup.select_one('.record-description, .dataset-description, #description')
+                    if desc_div:
+                        main_content = desc_div.get_text(separator='\n\n', strip=True)
+                        content_source = "Zenodo description"
+                
+                # 3. Figshare: Extract article/dataset description
+                if not main_content and 'figshare.com' in url:
+                    desc_div = soup.select_one('.description, .article-description, [data-testid="description"]')
+                    if desc_div:
+                        main_content = desc_div.get_text(separator='\n\n', strip=True)
+                        content_source = "Figshare description"
+                
+                # 4. NEON Data Portal: Extract product description
+                if not main_content and 'data.neonscience.org' in url:
+                    desc_areas = soup.select('.product-description, .dataset-description, #description, .abstract')
+                    for desc_div in desc_areas:
+                        text = desc_div.get_text(separator='\n\n', strip=True)
+                        if len(text) > 200:
+                            main_content = text
+                            content_source = "NEON description"
+                            break
+                
+                # 5. EDI Data Portal: Extract dataset abstract and methods
+                if not main_content and ('environmentaldatainitiative.org' in url or 'portal.edirepository.org' in url):
+                    # Look for abstract, methods, and additional info sections
+                    content_parts = []
+                    for selector in ['.abstract', '.methods', '#abstract', '#methods', '.metadata-section']:
+                        section = soup.select_one(selector)
+                        if section:
+                            content_parts.append(section.get_text(separator='\n\n', strip=True))
+                    if content_parts:
+                        main_content = '\n\n---\n\n'.join(content_parts)
+                        content_source = "EDI metadata"
+                
+                # 6. Dataverse: Extract dataset description and metadata
+                if not main_content and 'dataverse' in url.lower():
+                    desc_div = soup.select_one('.dataset-description, .description-block, #datasetDescription')
+                    if desc_div:
+                        main_content = desc_div.get_text(separator='\n\n', strip=True)
+                        content_source = "Dataverse description"
+                
+                # 7. Google Dataset Search: Extract dataset info
+                if not main_content and 'datasetsearch.research.google.com' in url:
+                    desc_div = soup.select_one('[data-attrid="description"], .dataset-description')
+                    if desc_div:
+                        main_content = desc_div.get_text(separator='\n\n', strip=True)
+                        content_source = "Google Dataset description"
+                
+                # General fallback: extract text from common content containers
+                if not main_content:
+                    content_selectors = [
+                        'article', 'main', '[role="main"]',
+                        '.dataset-card', '.readme', '.markdown-body', '.dataset-description',
+                        '.description', '.abstract', '.metadata', '.content',
+                        '#readme', '#dataset-card', '#description', '#abstract',
+                        '[itemprop="description"]'
+                    ]
+                    for selector in content_selectors:
+                        content_div = soup.select_one(selector)
+                        if content_div:
+                            main_content = content_div.get_text(separator='\n\n', strip=True)
+                            if len(main_content) > 500:  # Only use if substantial content
+                                content_source = f"page content (selector: {selector})"
+                                break
+                
+                # Save the main content if found and substantial
+                if main_content and len(main_content) > 500:
+                    filename = "extracted_page_content.md"
+                    extracted_metadata[filename] = main_content
+                    print(f"  Found {content_source}")
+                    
+                    if output_dir:
+                        output_path = output_dir / filename
+                        with open(output_path, 'w', encoding='utf-8') as f:
+                            f.write(main_content)
+                        print(f"  Saved to: {output_path}")
+            except Exception as e:
+                print(f"  Note: Could not extract main page content: {e}")
+            
             if not extracted_metadata:
                 print("  Warning: No metadata found on page")
                 return {}
