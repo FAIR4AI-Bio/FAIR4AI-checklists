@@ -1,0 +1,9 @@
+{
+  "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+  "mobile-web-app-capable": "yes",
+  "apple-mobile-web-app-capable": "yes",
+  "apple-mobile-web-app-status-bar-style": "black-translucent",
+  "theme-color": "#ffffff",
+  "description": "Reflectance, transmittance, and absorptance spectra from projects conducted through the Canadian Airborne Biodiversity Observatory from 2018 to 2019.\n\nThis data contains the exact same spectral data as CABO 2018-2019 Leaf-Level Spectra (10.21232/44vxHorW). For all intents and purposes except for reproducing the original analyses in the Linked Resources, it should be considered to supersede the previous repository. The substantive differences are: (1) a change in the calculation of equivalent water thickness (EWT) to be based on field fresh mass rather than rehydrated mass; (2) improved geolocations; and (3) a change in some taxonomic assignments.\n\nAs in the previous repository, note the partial overlap of reflectance spectra with Fresh-leaf CABO spectra from herbarium project (10.21232/deP7jVyq), identifiable using unique sample IDs.",
+  "keywords": "foliar functional traits, functional traits, leaf absorptance, leaf reflectance, leaf transmittance, leaf-level"
+}

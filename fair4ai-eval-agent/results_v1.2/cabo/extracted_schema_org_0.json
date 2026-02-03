@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/"
+  },
+  "@type": "http://schema.org/Dataset",
+  "@id": "https://ecosis.org/api/package/cabo-2018-2019-leaf-level-spectra-v2",
+  "name": "CABO 2018-2019 Leaf-Level Spectra v2",
+  "datePublished": "2023-04-04T01:59:29.094Z",
+  "description": "Reflectance, transmittance, and absorptance spectra from projects conducted through the Canadian Airborne Biodiversity Observatory from 2018 to 2019.\n\nThis data contains the exact same spectral data as CABO 2018-2019 Leaf-Level Spectra (10.21232/44vxHorW). For all intents and purposes except for reproducing the original analyses in the Linked Resources, it should be considered to supersede the previous repository. The substantive differences are: (1) a change in the calculation of equivalent water thickness (EWT) to be based on field fresh mass rather than rehydrated mass; (2) improved geolocations; and (3) a change in some taxonomic assignments.\n\nAs in the previous repository, note the partial overlap of reflectance spectra with Fresh-leaf CABO spectra from herbarium project (10.21232/deP7jVyq), identifiable using unique sample IDs.",
+  "url": "https://ecosis.org/api/package/cabo-2018-2019-leaf-level-spectra-v2",
+  "license": "https://opendefinition.org/licenses/cc-by/",
+  "genre": "spectroscopy",
+  "provider": {
+    "@type": "Organization",
+    "email": "ecosis-admins@googlegroups.com",
+    "url": "https://ecosis.org",
+    "name": "EcoSIS",
+    "description": "Ecosystem Spectral Information System"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "email": "info@ecosis.org",
+    "url": "https://caboscience.org/",
+    "name": "EcoSIS",
+    "description": "The Canadian Airborne Biodiversity Observatory: Studying and understanding changes in plant biodiversity across Canada using spectranomics\r\nL'Observatoire Aérien Canadien de la Biodiversité: Étudier et comprendre les changements de biodiversité végétale à l’échelle du Canada à l’aide de la spectranomique\r\n\r\n",
+    "image": "https://data.ecosis.org/uploads/group/2022-07-09-015049.017668CABOcolor.png"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "Canadian Airborne Biodiversity Observatory"
+  },
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "EcoSIS"
+  },
+  "distribution": {
+    "@type": "DataDownload",
+    "name": "cabo-2018-2019-leaf-level-spectra-v2.csv",
+    "contentUrl": "https://ecosis.org/api/package/cabo-2018-2019-leaf-level-spectra-v2/export/&metadata=true",
+    "fileFormat": "text/csv",
+    "encodingFormat": "CSV"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "shan kothari",
+    "email": "shan.kothari@umontreal.ca"
+  },
+  "keywords": [
+    "foliar functional traits",
+    "functional traits",
+    "leaf absorptance",
+    "leaf reflectance",
+    "leaf transmittance",
+    "leaf-level"
+  ]
+}
