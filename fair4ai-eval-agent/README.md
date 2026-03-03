@@ -33,13 +33,6 @@ We recommend creating a [virtual environment](https://imageomics.github.io/Colla
 pip install -r requirements_agent.txt
 ```
 
-Or install individually:
-```bash
-pip install openai pandas requests beautifulsoup4  # For OpenAI
-# OR
-pip install anthropic pandas requests beautifulsoup4  # For Anthropic Claude
-```
-
 ### 2. Set Up API Keys
 
 Get the API key(s) from your preferred provider(s) through the links below. Note that Azure OpenAI  is recommended for enterprise.
