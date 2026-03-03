@@ -1,6 +1,6 @@
 # FAIR4AI Automated Evaluation Agent
 
-An AI-powered system that automatically evaluates datasets against the FAIR4AI checklist using Large Language Models (LLMs). The agent analyzes metadata files or dataset landing pages to provide comprehensive FAIR (Findable, Accessible, Interoperable, Reusable) assessments.
+An AI-powered system that automatically evaluates datasets against the [FAIR4AI checklist form](https://forms.gle/P3MWmJJAi5vq248E8) using Large Language Models (LLMs). The agent checks metadata files or dataset landing pages for the information requested in the checklist to provide comprehensive FAIR (Findable, Accessible, Interoperable, Reusable) assessments.
 
 ## Overview
 
@@ -11,7 +11,7 @@ An AI-powered system that automatically evaluates datasets against the FAIR4AI c
 - Generates structured outputs in JSON and CSV formats with FAIR score estimates
 
 **Key Features:**
-- ✅ Multiple LLM providers (OpenAI, Azure OpenAI, Anthropic Claude)
+- ✅ Multiple LLM providers supported (OpenAI, Azure OpenAI, Anthropic Claude)
 - ✅ URL metadata extraction from dataset landing pages
 - ✅ Graphical user interface (no command-line required)
 - ✅ Organized output with custom directories
@@ -28,6 +28,7 @@ An AI-powered system that automatically evaluates datasets against the FAIR4AI c
 ## Quick Start
 
 ### 1. Install Dependencies
+We recommend creating a [virtual environment](https://imageomics.github.io/Collaborative-distributed-science-guide/wiki-guide/Virtual-Environments/) in which to install the requirements as described below.
 
 ```bash
 pip install -r requirements_agent.txt
@@ -116,7 +117,7 @@ The agent will:
 5. Save all extracted metadata to output directory
 6. Run the evaluation using extracted metadata
 
-Supported URLs include NEON, DataONE, Zenodo, Dryad, and other repositories with structured metadata.
+Supported URLs include those for NEON, DataONE, Zenodo, Dryad, Hugging Face Datasets, and other repositories with structured metadata.
 
 #### Command-Line Options
 
@@ -316,6 +317,8 @@ The form CSV should contain:
 
 Default form: `form_ai_checklist_automated.csv` (135 questions across 9 sections)
 
+The code used to create this file from the [FAIR4AI Checklist form](), is in the [checklist workflow directory](../checklist-workflow/00_README.md).
+
 ### Input: Metadata Files
 
 Any JSON-formatted metadata files. The agent supports:
@@ -366,6 +369,7 @@ output_directory/
 ├── {prefix}.json                    # FAIR4AI evaluation results
 └── {prefix}.csv                     # FAIR4AI evaluation results
 ```
+`prefix` is the name passed to the `--output` parameter.
 
 #### JSON Output Format
 
