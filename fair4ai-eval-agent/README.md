@@ -21,7 +21,6 @@ An AI-powered system that automatically evaluates datasets against the [FAIR4AI 
 **System Requirements:**
 - Python 3.8 or higher
 - API key for OpenAI, Azure OpenAI, or Anthropic
-- Dependencies: pandas, openai, anthropic, requests, beautifulsoup4
 
 ---
 
