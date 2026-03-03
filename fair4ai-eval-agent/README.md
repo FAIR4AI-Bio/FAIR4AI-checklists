@@ -104,7 +104,7 @@ python fair4ai_agent.py \
 The agent will:
 1. Fetch the landing page HTML
 2. Extract JSON-LD/Schema.org metadata from `<script>` tags
-3. Extract meta tags (Open Graph, Dublin Core, etc.)
+3. Extract meta tags ([Open Graph](https://ogp.me/), [Dublin Core](https://www.dublincore.org/specifications/dublin-core/), etc.)
 4. Download linked JSON files
 5. Save all extracted metadata to output directory
 6. Run the evaluation using extracted metadata
