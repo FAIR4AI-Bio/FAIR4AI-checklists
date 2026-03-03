@@ -75,6 +75,7 @@ python fair4ai_agent.py --url "https://data.example.com/dataset" --output-dir re
 
 **Windows Quick Run:**
 - Double-click `run_agent.ps1` or `run_agent.bat`
+- Outputs will be saved in your working directory in a subfolder named `evaluation_results`
 
 That's it! Your evaluation results will be saved as JSON and CSV files.
 
