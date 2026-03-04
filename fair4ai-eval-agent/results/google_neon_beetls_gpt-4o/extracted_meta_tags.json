@@ -1,0 +1,10 @@
+{
+  "referrer": "origin",
+  "mobile-web-app-capable": "yes",
+  "apple-mobile-web-app-capable": "yes",
+  "application-name": "Google Dataset Search",
+  "apple-mobile-web-app-title": "Google Dataset Search",
+  "apple-mobile-web-app-status-bar-style": "black",
+  "msapplication-tap-highlight": "no",
+  "viewport": "width=device-width, initial-scale=1.0, minimum-scale=1.0"
+}

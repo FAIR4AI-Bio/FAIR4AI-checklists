@@ -1,0 +1,1790 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dbpedia": "http://dbpedia.org/resource/"
+  },
+  "@type": "Dataset",
+  "citation": "NEON (National Ecological Observatory Network). Macroinvertebrate collection (DP1.20120.001), provisional data. Dataset accessed from https://data.neonscience.org/data-products/DP1.20120.001 on January 28, 2026. Data archived at [your DOI].",
+  "description": "Collection of benthic macroinvertebrates using multiple sampling methods in lakes, rivers, and wadeable streams",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://data.neonscience.org/data-products/DP1.20120.001",
+      "encodingFormat": "application/zip"
+    }
+  ],
+  "identifier": "https://data.neonscience.org/data-products/DP1.20120.001",
+  "includedInDataCatalog": {
+    "@id": "https://data.neonscience.org/data-products/explore",
+    "@type": "DataCatalog",
+    "url": "https://data.neonscience.org/data-products/explore"
+  },
+  "isAccessibleForFree": true,
+  "keywords": "abundance,aquatic,archived samples,benthic,biodiversity,community composition,diversity,invertebrates,lakes,macroinvertebrates,material samples,population,rivers,species composition,streams,taxonomy,wadeable streams",
+  "license": "https://www.neonscience.org/data-samples/data-policies-citation",
+  "name": "NEON (National Ecological Observatory Network) Macroinvertebrate collection (DP1.20120.001)",
+  "provider": {
+    "@id": "https://data.neonscience.org",
+    "@type": "Organization",
+    "url": "https://data.neonscience.org"
+  },
+  "publisher": {
+    "@id": "https://data.neonscience.org",
+    "@type": "Organization",
+    "url": "https://data.neonscience.org"
+  },
+  "sameAs": "https://data.neonscience.org/data-products/DP1.20120.001",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Arikaree River NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1179.46,
+        "latitude": 39.758206,
+        "longitude": -102.447148
+      },
+      "name": "ARIK"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Lake Barco NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 27,
+        "latitude": 29.675982,
+        "longitude": -82.008414
+      },
+      "name": "BARC"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Upper Big Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1197,
+        "latitude": 37.059719,
+        "longitude": -119.257549
+      },
+      "name": "BIGC"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Blacktail Deer Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 2053,
+        "latitude": 44.95011,
+        "longitude": -110.58715
+      },
+      "name": "BLDE"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Blue River NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 289,
+        "latitude": 34.444218,
+        "longitude": -96.624201
+      },
+      "name": "BLUE"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Black Warrior River NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 22,
+        "latitude": 32.541529,
+        "longitude": -87.798151
+      },
+      "name": "BLWA"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Caribou Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 224.93,
+        "latitude": 65.153224,
+        "longitude": -147.503973
+      },
+      "name": "CARI"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Como Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 3021.6,
+        "latitude": 40.034962,
+        "longitude": -105.544164
+      },
+      "name": "COMO"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Crampton Lake NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 509,
+        "latitude": 46.209675,
+        "longitude": -89.473688
+      },
+      "name": "CRAM"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Río Cupeyes NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 157,
+        "latitude": 18.11352,
+        "longitude": -66.98676
+      },
+      "name": "CUPE"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Flint River NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 30,
+        "latitude": 31.185424,
+        "longitude": -84.437403
+      },
+      "name": "FLNT"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Río Yahuecas NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 550.67,
+        "latitude": 18.17406,
+        "longitude": -66.79868
+      },
+      "name": "GUIL"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Lower Hop Brook NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 203.42,
+        "latitude": 42.471941,
+        "longitude": -72.329526
+      },
+      "name": "HOPB"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Kings Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 324.375,
+        "latitude": 39.105061,
+        "longitude": -96.603829
+      },
+      "name": "KING"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "LeConte Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 579,
+        "latitude": 35.690428,
+        "longitude": -83.50379
+      },
+      "name": "LECO"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Lewis Run NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 152,
+        "latitude": 39.095637,
+        "longitude": -77.983216
+      },
+      "name": "LEWI"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Little Rock Lake NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 502,
+        "latitude": 45.998269,
+        "longitude": -89.704767
+      },
+      "name": "LIRO"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Martha Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 337,
+        "latitude": 45.790835,
+        "longitude": -121.933788
+      },
+      "name": "MART"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Mayfield Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 76.66,
+        "latitude": 32.960365,
+        "longitude": -87.407688
+      },
+      "name": "MAYF"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "McDiffett Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 396,
+        "latitude": 38.945861,
+        "longitude": -96.443022
+      },
+      "name": "MCDI"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "McRae Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 876,
+        "latitude": 44.259598,
+        "longitude": -122.165554
+      },
+      "name": "MCRA"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Oksrukuyik Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 766,
+        "latitude": 68.669753,
+        "longitude": -149.143018
+      },
+      "name": "OKSR"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Posey Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 275.76,
+        "latitude": 38.89431,
+        "longitude": -78.147258
+      },
+      "name": "POSE"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Pringle Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 253.19,
+        "latitude": 33.378517,
+        "longitude": -97.782312
+      },
+      "name": "PRIN"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Prairie Lake NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 565,
+        "latitude": 47.15909,
+        "longitude": -99.11388
+      },
+      "name": "PRLA"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Prairie Pothole NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 579,
+        "latitude": 47.129839,
+        "longitude": -99.253147
+      },
+      "name": "PRPO"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Red Butte Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 1694.2,
+        "latitude": 40.783934,
+        "longitude": -111.797887
+      },
+      "name": "REDB"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Lake Suggs NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 32,
+        "latitude": 29.68778,
+        "longitude": -82.017745
+      },
+      "name": "SUGG"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Sycamore Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 645,
+        "latitude": 33.750993,
+        "longitude": -111.508091
+      },
+      "name": "SYCA"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Teakettle Creek - Watershed 2 NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 2011,
+        "latitude": 36.955931,
+        "longitude": -119.027363
+      },
+      "name": "TECR"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Lower Tombigbee River NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 20,
+        "latitude": 31.853431,
+        "longitude": -88.158872
+      },
+      "name": "TOMB"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Toolik Lake NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 715,
+        "latitude": 68.630692,
+        "longitude": -149.610636
+      },
+      "name": "TOOK"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "Walker Branch NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 264.21,
+        "latitude": 35.957378,
+        "longitude": -84.279251
+      },
+      "name": "WALK"
+    },
+    {
+      "@type": "Place",
+      "additionalProperty": {
+        "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "@type": [
+          "PropertyValue",
+          "dbpedia:Spatial_reference_system"
+        ]
+      },
+      "description": "West St. Louis Creek NEON",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "elevation": 2908,
+        "latitude": 39.891366,
+        "longitude": -105.915395
+      },
+      "name": "WLOU"
+    }
+  ],
+  "temporalCoverage": "2014-07/2025-12",
+  "url": "https://data.neonscience.org/data-products/DP1.20120.001",
+  "variablesMeasured": [
+    {
+      "@type": "PropertyValue",
+      "description": "Unique ID within NEON database; an identifier for the record",
+      "name": "uid",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique ID within NEON database; an identifier for the record",
+      "name": "uid",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier of the NEON domain",
+      "name": "domainID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier of the NEON domain",
+      "name": "domainID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The table(s) containing the record to which this identification history applies",
+      "name": "identificationTable",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for sample",
+      "name": "sampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "NEON site code",
+      "name": "siteID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "NEON site code",
+      "name": "siteID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the measurement location in the NEON database",
+      "name": "namedLocation",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the measurement location in the NEON database",
+      "name": "namedLocation",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a sample",
+      "name": "sampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The geographic latitude (in decimal degrees, WGS84) of the geographic center of the reference area",
+      "name": "decimalLatitude",
+      "unitText": "decimalDegree"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier of the NEON domain",
+      "name": "domainID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date of the collection event",
+      "name": "collectDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date of the collection event",
+      "name": "collectDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The geographic longitude (in decimal degrees, WGS84) of the geographic center of the reference area",
+      "name": "decimalLongitude",
+      "unitText": "decimalDegree"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "NEON site code",
+      "name": "siteID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location. Zero is not a valid value for this term",
+      "name": "coordinateUncertainty",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date on which the sample, individual, or specimen was identified",
+      "name": "identifiedDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date on which the sample, individual, or specimen was identified",
+      "name": "identifiedDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the measurement location in the NEON database",
+      "name": "namedLocation",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date sample was sorted",
+      "name": "sortDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Model used to measure horizontal position on the earth",
+      "name": "geodeticDatum",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for linking records related to this identification history",
+      "name": "identificationHistoryID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date sample sorted for QC",
+      "name": "qcSortDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for sample",
+      "name": "sampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for sample",
+      "name": "sampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Elevation (in meters) above sea level",
+      "name": "elevation",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date on which the sample, individual, or specimen was identified",
+      "name": "identifiedDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a sample",
+      "name": "sampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a sample",
+      "name": "sampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for sample",
+      "name": "sampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Uncertainty in elevation values (in meters)",
+      "name": "elevationUncertainty",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The end date-time or interval during which an event occurred",
+      "name": "endDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a sample",
+      "name": "sampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Vial identifier",
+      "name": "vialID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Type of aquatic site, includes lake, river or stream",
+      "name": "aquaticSiteType",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for mixed macroinvertebrate subsample",
+      "name": "mixedInvertVialID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Species code, based on one or more sources",
+      "name": "taxonID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a vial",
+      "name": "vialCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Accepted species code, based on one or more sources",
+      "name": "acceptedTaxonID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a mixed macroinvertebrate subsample",
+      "name": "mixedInvertVialCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier associated with each slide per sampleID or subsampleID",
+      "name": "slideID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for chironomid subsample",
+      "name": "chironomidVialID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Date of the collection event",
+      "name": "collectDate",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+      "name": "scientificName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a slide",
+      "name": "slideCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a chironomid subsample",
+      "name": "chironomidVialCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the set of information associated with the event, which includes information about the place and time of the event",
+      "name": "eventID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A standard term to express the determiner's doubts about the Identification",
+      "name": "identificationQualifier",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Specimen is selected for the reference collection",
+      "name": "referenceCollection",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of the sampling bout within a calendar year, beginning with 1",
+      "name": "boutNumber",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+      "name": "identificationReferences",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for oligochaete subsample",
+      "name": "oligochaeteVialID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of individuals removed from this sample and placed in reference collection",
+      "name": "referenceCount",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Comments or notes about the identification",
+      "name": "identificationRemarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of an oligochaete subsample",
+      "name": "oligochaeteVialCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier associated with the reference collection",
+      "name": "referenceID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for sample",
+      "name": "sampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for large or rare taxa subsample removed from the general sample prior to subsampling",
+      "name": "largeInvertVialID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a reference sample",
+      "name": "referenceCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a sample",
+      "name": "sampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Accepted species code, based on one or more sources",
+      "name": "acceptedTaxonID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who identified the specimen",
+      "name": "identifiedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a large or rare taxa subsample removed from the general sample prior to subsampling",
+      "name": "largeInvertVialCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Condition of a sample",
+      "name": "sampleCondition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Species code, based on one or more sources",
+      "name": "taxonID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for the genetic sample",
+      "name": "geneticSampleID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Indicator of whether the sample contained individuals of the target taxa",
+      "name": "targetTaxaPresent",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Indicator of whether the sample contained individuals of the target taxa",
+      "name": "targetTaxaPresent",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The protocol version used to test the sample",
+      "name": "testProtocolVersion",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Barcode of a genetic sample",
+      "name": "geneticSampleCode",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Primary material in the sample",
+      "name": "primaryMatrix",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+      "name": "scientificName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+      "name": "scientificName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Condition of the genetic sample",
+      "name": "geneticSampleCond",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for morphospecies",
+      "name": "morphospeciesID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for morphospecies",
+      "name": "morphospeciesID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Estimated volume of sample upon arrival at lab",
+      "name": "preRinseVolume",
+      "unitText": "liter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Estimated volume of sample after preservative has been rinsed",
+      "name": "postRinseVolume",
+      "unitText": "liter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The NEON document number and version where detailed information regarding the sampling method used is available; format NEON.DOC.######vX",
+      "name": "samplingProtocolVersion",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The lowest level taxonomic rank that can be determined for the individual or specimen",
+      "name": "taxonRank",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The lowest level taxonomic rank that can be determined for the individual or specimen",
+      "name": "taxonRank",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Samples and/or measurements were not collected due to the indicated circumstance",
+      "name": "samplingImpractical",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent of the total sample contained in the subsample",
+      "name": "subsamplePercent",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An indicator of whether sampling coincided with the intended biophysical conditions",
+      "name": "biophysicalCriteria",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Total percent of sample recovered, verified by QC process",
+      "name": "qcSortingEfficacy",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Habitat type sampled",
+      "name": "habitatType",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of iterations of QC process performed",
+      "name": "qcIterationCount",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent similarity of original taxonomy report and QC taxonomy report (identification + count)",
+      "name": "qcPercentSimilarity",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Type of sampler used to collect the sample",
+      "name": "samplerType",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the phylum or division in which the taxon is classified",
+      "name": "phylum",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the phylum or division in which the taxon is classified",
+      "name": "phylum",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of sample collected",
+      "name": "sampleNumber",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who sorted the sample",
+      "name": "sortedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the subphylum in which the taxon is classified",
+      "name": "subphylum",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the subphylum in which the taxon is classified",
+      "name": "subphylum",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Size class of the substratum sampled",
+      "name": "substratumSizeClass",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Area of the benthos sampled",
+      "name": "benthicArea",
+      "unitText": "squareMeter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Anonymized name of lab personnel sorting for QC",
+      "name": "qcSortedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Lab technician notes; free text accompanying the record",
+      "name": "benchRemarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Depth of petite ponar sample",
+      "name": "ponarDepth",
+      "unitText": "meter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the class in which the taxon is classified",
+      "name": "class",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the class in which the taxon is classified",
+      "name": "class",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Length of snag sampled",
+      "name": "snagLength",
+      "unitText": "centimeter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent difference in enumeration (PDE) between the first taxonomist and the second taxonomist for the same sample",
+      "name": "qcEnumerationDifference",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Diameter of snag sampled",
+      "name": "snagDiameter",
+      "unitText": "centimeter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the subclass in which the taxon is classified",
+      "name": "subclass",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the subclass in which the taxon is classified",
+      "name": "subclass",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Length of snag sampled for DNA",
+      "name": "dnaSnagLength",
+      "unitText": "centimeter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the infraclass in which the taxon is classified",
+      "name": "infraclass",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the infraclass in which the taxon is classified",
+      "name": "infraclass",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent taxonomic difference (PTD) between the first taxonomist and the second taxonomist for the same sample",
+      "name": "qcTaxonomicDifference",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Diameter of snag sampled for DNA",
+      "name": "dnaSnagDiameter",
+      "unitText": "centimeter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the superorder in which the taxon is classified",
+      "name": "superorder",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the superorder in which the taxon is classified",
+      "name": "superorder",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the order in which the taxon is classified",
+      "name": "order",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the order in which the taxon is classified",
+      "name": "order",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Technician notes; free text comments accompanying the record",
+      "name": "remarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who recorded the data",
+      "name": "recordedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the suborder in which the taxon is classified",
+      "name": "suborder",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the suborder in which the taxon is classified",
+      "name": "suborder",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who collected the sample or specimen",
+      "name": "collectedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the infraorder in which the taxon is classified",
+      "name": "infraorder",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the infraorder in which the taxon is classified",
+      "name": "infraorder",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the superfamily in which the taxon is classified",
+      "name": "superfamily",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the superfamily in which the taxon is classified",
+      "name": "superfamily",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the family in which the taxon is classified",
+      "name": "family",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the family in which the taxon is classified",
+      "name": "family",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the subfamily in which the organism is classified",
+      "name": "subfamily",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the subfamily in which the organism is classified",
+      "name": "subfamily",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the tribe in which the taxon is classified",
+      "name": "tribe",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the tribe in which the taxon is classified",
+      "name": "tribe",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the subtribe in which the taxon is classified",
+      "name": "subtribe",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the subtribe in which the taxon is classified",
+      "name": "subtribe",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the genus in which the organism is classified",
+      "name": "genus",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The scientific name of the genus in which the organism is classified",
+      "name": "genus",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The specific epithet (second part of the species name) of the scientific name applied to the taxon",
+      "name": "specificEpithet",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The specific epithet (second part of the species name) of the scientific name applied to the taxon",
+      "name": "specificEpithet",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",
+      "name": "infraspecificEpithet",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",
+      "name": "infraspecificEpithet",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Macroinvertebrate stage of development (larva, pupa, adult)",
+      "name": "invertebrateLifeStage",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Macroinvertebrate stage of development (larva, pupa, adult)",
+      "name": "invertebrateLifeStage",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Size class of individual(s)",
+      "name": "sizeClass",
+      "unitText": "millimeter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Size class of individual(s)",
+      "name": "sizeClass",
+      "unitText": "millimeter"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Categorical size class of an individual or sample",
+      "name": "sizeCategory",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Categorical size class of an individual or sample",
+      "name": "sizeCategory",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of individuals of the same type",
+      "name": "individualCount",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Number of individuals of the same type",
+      "name": "individualCount",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent of the total sample contained in the subsample",
+      "name": "subsamplePercent",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Percent of the total sample contained in the subsample",
+      "name": "subsamplePercent",
+      "unitText": "percent"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Estimated total count of individuals within a sample, of given taxon, life stage, and size class",
+      "name": "estimatedTotalCount",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Estimated total count of individuals within a sample, of given taxon, life stage, and size class",
+      "name": "estimatedTotalCount",
+      "unitText": "number"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Sample contains immature specimen(s) for which target level of identification cannot be achieved",
+      "name": "immatureSpecimen",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Sample contains immature specimen(s) for which target level of identification cannot be achieved",
+      "name": "immatureSpecimen",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Sample contains specimen(s) not well-described in the literature, not all taxa for a group are included in the literature, or observed characters are such that they do not fit described taxa. See accompanying identificationRemarks",
+      "name": "indeterminateSpecies",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Sample contains specimen(s) not well-described in the literature, not all taxa for a group are included in the literature, or observed characters are such that they do not fit described taxa. See accompanying identificationRemarks",
+      "name": "indeterminateSpecies",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Reason why the specimen is not identified to a lower taxonomic rank",
+      "name": "taxonRankQualifier",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Reason why the specimen is not identified to a lower taxonomic rank",
+      "name": "taxonRankQualifier",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Condition of a sample",
+      "name": "sampleCondition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Condition of a sample",
+      "name": "sampleCondition",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Taxon is known to be distinct within the sample, used for species richness metrics",
+      "name": "distinctTaxon",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Taxon is known to be distinct within the sample, used for species richness metrics",
+      "name": "distinctTaxon",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier for the taxon within the database",
+      "name": "taxonDatabaseID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Unique identifier for the taxon within the database",
+      "name": "taxonDatabaseID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the taxonomic database",
+      "name": "taxonDatabaseName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the taxonomic database",
+      "name": "taxonDatabaseName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A standard term to express the determiner's doubts about the Identification",
+      "name": "identificationQualifier",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A standard term to express the determiner's doubts about the Identification",
+      "name": "identificationQualifier",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+      "name": "identificationReferences",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+      "name": "identificationReferences",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Whether or not QC procedure was performed",
+      "name": "qcChecked",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Whether or not QC procedure was performed",
+      "name": "qcChecked",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Name of the laboratory or facility that is processing the sample",
+      "name": "laboratoryName",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who identified the specimen",
+      "name": "identifiedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "An identifier for the technician who identified the specimen",
+      "name": "identifiedBy",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Comments or notes about the identification",
+      "name": "identificationRemarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Comments or notes about the identification",
+      "name": "identificationRemarks",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for linking records related to this identification history",
+      "name": "identificationHistoryID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Identifier for linking records related to this identification history",
+      "name": "identificationHistoryID",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    },
+    {
+      "@type": "PropertyValue",
+      "description": "Data quality flag",
+      "name": "dataQF",
+      "unitText": "NA"
+    }
+  ],
+  "version": "PROVISIONAL"
+}

@@ -1,0 +1,1954 @@
+[
+  {
+    "@context": {
+      "@vocab": "https://schema.org/",
+      "dbpedia": "http://dbpedia.org/resource/"
+    },
+    "@type": "Dataset",
+    "citation": "NEON (National Ecological Observatory Network). Ground beetles sampled from pitfall traps (DP1.10022.001), provisional data. Dataset accessed from https://data.neonscience.org/data-products/DP1.10022.001 on January 26, 2026. Data archived at [your DOI].",
+    "description": "Taxonomically identified ground beetles and the plots and times from which they were collected.",
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "contentUrl": "https://data.neonscience.org/data-products/DP1.10022.001",
+        "encodingFormat": "application/zip"
+      }
+    ],
+    "identifier": "https://data.neonscience.org/data-products/DP1.10022.001",
+    "includedInDataCatalog": {
+      "@id": "https://data.neonscience.org/data-products/explore",
+      "@type": "DataCatalog",
+      "url": "https://data.neonscience.org/data-products/explore"
+    },
+    "isAccessibleForFree": true,
+    "keywords": "diversity,taxonomy,community composition,species composition,population,invertebrates,abundance,beetles,Carabidae,insects,DNA sequences,COI,DNA barcoding,ground beetles,pitfall traps,material samples,archived samples,bet,introduced species,invasive species,native species,biodiversity",
+    "license": "https://www.neonscience.org/data-samples/data-policies-citation",
+    "name": "NEON (National Ecological Observatory Network) Ground beetles sampled from pitfall traps (DP1.10022.001)",
+    "provider": {
+      "@id": "https://data.neonscience.org",
+      "@type": "Organization",
+      "url": "https://data.neonscience.org"
+    },
+    "publisher": {
+      "@id": "https://data.neonscience.org",
+      "@type": "Organization",
+      "url": "https://data.neonscience.org"
+    },
+    "sameAs": "https://data.neonscience.org/data-products/DP1.10022.001",
+    "spatialCoverage": [
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Abby Road NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 364.5523,
+          "latitude": 45.762439,
+          "longitude": -122.330317
+        },
+        "name": "ABBY"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Utqiaġvik NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 4.4653,
+          "latitude": 71.28241,
+          "longitude": -156.61936
+        },
+        "name": "BARR"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Bartlett Experimental Forest NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 274.04928,
+          "latitude": 44.063889,
+          "longitude": -71.287375
+        },
+        "name": "BART"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Blandy Experimental Farm NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 182.71388,
+          "latitude": 39.033698,
+          "longitude": -78.041788
+        },
+        "name": "BLAN"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Caribou-Poker Creeks Research Watershed NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 230.496,
+          "latitude": 65.15401,
+          "longitude": -147.50258
+        },
+        "name": "BONA"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Lyndon B. Johnson National Grassland NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 272.27,
+          "latitude": 33.40123,
+          "longitude": -97.57
+        },
+        "name": "CLBJ"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Central Plains Experimental Range NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 1653.9151,
+          "latitude": 40.815536,
+          "longitude": -104.745591
+        },
+        "name": "CPER"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Dakota Coteau Field Site NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 575.3036,
+          "latitude": 47.16165,
+          "longitude": -99.10656
+        },
+        "name": "DCFS"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Delta Junction NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 517.3972,
+          "latitude": 63.88112,
+          "longitude": -145.75136
+        },
+        "name": "DEJU"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Dead Lake NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 25.00966,
+          "latitude": 32.541727,
+          "longitude": -87.803877
+        },
+        "name": "DELA"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Disney Wilderness Preserve NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 20.33438,
+          "latitude": 28.12505,
+          "longitude": -81.43619
+        },
+        "name": "DSNY"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Great Smoky Mountains National Park NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 575.396725,
+          "latitude": 35.68896,
+          "longitude": -83.50195
+        },
+        "name": "GRSM"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Guánica Forest NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 125.3233,
+          "latitude": 17.96955,
+          "longitude": -66.8687
+        },
+        "name": "GUAN"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Harvard Forest & Quabbin Watershed NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 348.12784,
+          "latitude": 42.53691,
+          "longitude": -72.17265
+        },
+        "name": "HARV"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Healy NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 677.1235,
+          "latitude": 63.875798,
+          "longitude": -149.213347
+        },
+        "name": "HEAL"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "The Jones Center At Ichauway NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 46.6537,
+          "latitude": 31.194839,
+          "longitude": -84.468623
+        },
+        "name": "JERC"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Jornada Experimental Range NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 1323.54804,
+          "latitude": 32.590694,
+          "longitude": -106.842542
+        },
+        "name": "JORN"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Konza Prairie Agroecosystem NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 323.2928,
+          "latitude": 39.110446,
+          "longitude": -96.612935
+        },
+        "name": "KONA"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Konza Prairie Biological Station NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 414.42534,
+          "latitude": 39.100774,
+          "longitude": -96.563075
+        },
+        "name": "KONZ"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Lajas Experimental Station NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 16.44298,
+          "latitude": 18.021261,
+          "longitude": -67.076889
+        },
+        "name": "LAJA"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Lenoir Landing NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 13.2496,
+          "latitude": 31.853861,
+          "longitude": -88.161181
+        },
+        "name": "LENO"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Mountain Lake Biological Station NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 1169.668,
+          "latitude": 37.378314,
+          "longitude": -80.524847
+        },
+        "name": "MLBS"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Moab NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 1798.8379,
+          "latitude": 38.248283,
+          "longitude": -109.388273
+        },
+        "name": "MOAB"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Niwot Ridge NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 3489.988,
+          "latitude": 40.05425,
+          "longitude": -105.58237
+        },
+        "name": "NIWO"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Northern Great Plains Research Laboratory NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 588.63,
+          "latitude": 46.76972,
+          "longitude": -100.91535
+        },
+        "name": "NOGP"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Marvin Klemme Range Research Station NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 518.93536,
+          "latitude": 35.410599,
+          "longitude": -99.058779
+        },
+        "name": "OAES"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Onaqui NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 1662.3947,
+          "latitude": 40.177599,
+          "longitude": -112.452452
+        },
+        "name": "ONAQ"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Oak Ridge NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 343.7875,
+          "latitude": 35.964128,
+          "longitude": -84.282588
+        },
+        "name": "ORNL"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Ordway-Swisher Biological Station NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 46.0339,
+          "latitude": 29.689282,
+          "longitude": -81.993431
+        },
+        "name": "OSBS"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Puu Makaala Natural Area Reserve NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 1685,
+          "latitude": 19.55309,
+          "longitude": -155.31731
+        },
+        "name": "PUUM"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Rocky Mountains NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 2741.57408,
+          "latitude": 40.275903,
+          "longitude": -105.545955
+        },
+        "name": "RMNP"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Smithsonian Conservation Biology Institute NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 352.431604,
+          "latitude": 38.892925,
+          "longitude": -78.139494
+        },
+        "name": "SCBI"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Smithsonian Environmental Research Center NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 32.5315,
+          "latitude": 38.890131,
+          "longitude": -76.560014
+        },
+        "name": "SERC"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "San Joaquin Experimental Range NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 399.8378,
+          "latitude": 37.10878,
+          "longitude": -119.73228
+        },
+        "name": "SJER"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Soaproot Saddle NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 1209.8888,
+          "latitude": 37.03337,
+          "longitude": -119.26219
+        },
+        "name": "SOAP"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Santa Rita Experimental Range NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 997.476,
+          "latitude": 31.91068,
+          "longitude": -110.83549
+        },
+        "name": "SRER"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Steigerwaldt-Chequamegon NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 475.7317,
+          "latitude": 45.50894,
+          "longitude": -89.58637
+        },
+        "name": "STEI"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "North Sterling NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 1364.63056,
+          "latitude": 40.461894,
+          "longitude": -103.02929
+        },
+        "name": "STER"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Talladega National Forest NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 166.1869,
+          "latitude": 32.95047,
+          "longitude": -87.393259
+        },
+        "name": "TALL"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Lower Teakettle NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 2149.25705,
+          "latitude": 37.00583,
+          "longitude": -119.00602
+        },
+        "name": "TEAK"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Toolik Field Station NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 832.06,
+          "latitude": 68.66109,
+          "longitude": -149.37047
+        },
+        "name": "TOOL"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Treehaven NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 466.57,
+          "latitude": 45.49369,
+          "longitude": -89.58571
+        },
+        "name": "TREE"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "KU Field Station NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 321.5761,
+          "latitude": 39.040431,
+          "longitude": -95.19215
+        },
+        "name": "UKFS"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "University of Notre Dame Environmental Research Center NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 520.97118,
+          "latitude": 46.23391,
+          "longitude": -89.537254
+        },
+        "name": "UNDE"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Chase Lake National Wildlife Refuge NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 590.869,
+          "latitude": 47.1282,
+          "longitude": -99.241334
+        },
+        "name": "WOOD"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Wind River Experimental Forest NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 351.26,
+          "latitude": 45.82049,
+          "longitude": -121.95191
+        },
+        "name": "WREF"
+      },
+      {
+        "@type": "Place",
+        "additionalProperty": {
+          "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+          "@type": [
+            "PropertyValue",
+            "dbpedia:Spatial_reference_system"
+          ]
+        },
+        "description": "Yellowstone National Park NEON",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "elevation": 2132.566,
+          "latitude": 44.95348,
+          "longitude": -110.53914
+        },
+        "name": "YELL"
+      }
+    ],
+    "temporalCoverage": "2013-07/2025-12",
+    "url": "https://data.neonscience.org/data-products/DP1.10022.001",
+    "variablesMeasured": [
+      {
+        "@type": "PropertyValue",
+        "description": "Unique ID within NEON database; an identifier for the record",
+        "name": "uid",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Unique ID within NEON database; an identifier for the record",
+        "name": "uid",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The table(s) containing the record to which this identification history applies",
+        "name": "identificationTable",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the measurement location in the NEON database",
+        "name": "namedLocation",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the measurement location in the NEON database",
+        "name": "namedLocation",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Unique identifier of the NEON domain",
+        "name": "domainID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Unique identifier of the NEON domain",
+        "name": "domainID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "NEON site code",
+        "name": "siteID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "NEON site code",
+        "name": "siteID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Unique identifier of the NEON domain",
+        "name": "domainID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the measurement location in the NEON database",
+        "name": "namedLocation",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Plot identifier (NEON site code_XXX)",
+        "name": "plotID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Plot identifier (NEON site code_XXX)",
+        "name": "plotID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for linking records related to this identification history",
+        "name": "identificationHistoryID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date that trap was set",
+        "name": "setDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date that trap was set",
+        "name": "setDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "NEON site code",
+        "name": "siteID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for trap",
+        "name": "trapID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date of the collection event",
+        "name": "collectDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date of the collection event",
+        "name": "collectDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date on which the sample, individual, or specimen was identified",
+        "name": "identifiedDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the measurement location in the NEON database",
+        "name": "namedLocation",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "NEON plot type in which sampling occurred: tower, distributed or gradient",
+        "name": "plotType",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date that trap was set",
+        "name": "setDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date of the collection event",
+        "name": "collectDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The end date-time or interval during which an event occurred",
+        "name": "endDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for linking records related to this identification history",
+        "name": "identificationHistoryID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date on which the sample, individual, or specimen was identified",
+        "name": "identifiedDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date on which the sample, individual, or specimen was identified",
+        "name": "identifiedDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "National Land Cover Database Vegetation Type Name",
+        "name": "nlcdClass",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date that sample was processed (i.e., sorted or pinned) in the domain lab",
+        "name": "processingDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The geographic latitude (in decimal degrees, WGS84) of the geographic center of the reference area",
+        "name": "decimalLatitude",
+        "unitText": "decimalDegree"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date on which the sample, individual, or specimen was identified",
+        "name": "identifiedDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Domain-level unique identifier for an individual: NEON.MOD.D##.######",
+        "name": "individualID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Domain-level unique identifier for an individual: NEON.MOD.D##.######",
+        "name": "individualID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date that sample was processed (i.e., sorted or pinned) in the domain lab",
+        "name": "processingDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+        "name": "scientificName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "List of subsampleIDs",
+        "name": "subsampleIDList",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The geographic longitude (in decimal degrees, WGS84) of the geographic center of the reference area",
+        "name": "decimalLongitude",
+        "unitText": "decimalDegree"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The end date-time or interval during which an event occurred",
+        "name": "endDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date the ethanol rinse was completed",
+        "name": "etOHChangeDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date on which the sample, individual, or specimen was identified",
+        "name": "identifiedDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Barcode of a subsample",
+        "name": "subsampleCode",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Species code, based on one or more sources",
+        "name": "taxonID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Accepted species code, based on one or more sources",
+        "name": "acceptedTaxonID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for the vial containing specimens for archive",
+        "name": "archiveVialID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Model used to measure horizontal position on the earth",
+        "name": "geodeticDatum",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date on which the sample, individual, or specimen was identified",
+        "name": "identifiedDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+        "name": "scientificName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Unique identifier associated with each subsample per sampleID",
+        "name": "subsampleID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Species code, based on one or more sources",
+        "name": "taxonID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Species code, based on one or more sources",
+        "name": "taxonID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Barcode of archive sample",
+        "name": "archiveSampleCode",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location. Zero is not a valid value for this term",
+        "name": "coordinateUncertainty",
+        "unitText": "meter"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A standard term to express the determiner's doubts about the Identification",
+        "name": "identificationQualifier",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the kingdom in which the taxon is classified",
+        "name": "kingdom",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the kingdom in which the taxon is classified",
+        "name": "kingdom",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for sample",
+        "name": "sampleID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Barcode of a subsample",
+        "name": "subsampleCode",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Species code, based on one or more sources",
+        "name": "taxonID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Accepted species code, based on one or more sources",
+        "name": "acceptedTaxonID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Elevation (in meters) above sea level",
+        "name": "elevation",
+        "unitText": "meter"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+        "name": "identificationReferences",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Domain-level unique identifier for an individual: NEON.MOD.D##.######",
+        "name": "individualID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the phylum or division in which the taxon is classified",
+        "name": "phylum",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the phylum or division in which the taxon is classified",
+        "name": "phylum",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Barcode of a sample",
+        "name": "sampleCode",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Condition of a sample",
+        "name": "sampleCondition",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the class in which the taxon is classified",
+        "name": "class",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the class in which the taxon is classified",
+        "name": "class",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Uncertainty in elevation values (in meters)",
+        "name": "elevationUncertainty",
+        "unitText": "meter"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Comments or notes about the identification",
+        "name": "identificationRemarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Type of sample",
+        "name": "sampleType",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Unique identifier associated with each subsample per sampleID",
+        "name": "subsampleID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A standard term to express the determiner's doubts about the Identification",
+        "name": "identificationQualifier",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the order in which the taxon is classified",
+        "name": "order",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the order in which the taxon is classified",
+        "name": "order",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Technician notes; free text comments accompanying the record",
+        "name": "remarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Condition of a sample",
+        "name": "sampleCondition",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+        "name": "scientificName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date that trap was set",
+        "name": "setDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Barcode of a subsample",
+        "name": "subsampleCode",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Date of the collection event",
+        "name": "collectDate",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the family in which the taxon is classified",
+        "name": "family",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the family in which the taxon is classified",
+        "name": "family",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+        "name": "identificationReferences",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who identified the specimen",
+        "name": "identifiedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Condition of a sample",
+        "name": "sampleCondition",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Species code, based on one or more sources",
+        "name": "taxonID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the set of information associated with the event, which includes information about the place and time of the event",
+        "name": "eventID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Comments or notes about the identification",
+        "name": "identificationRemarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the laboratory or facility that is processing the sample",
+        "name": "laboratoryName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who recorded the data",
+        "name": "recordedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Type of sample",
+        "name": "sampleType",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+        "name": "scientificName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the subfamily in which the organism is classified",
+        "name": "subfamily",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the subfamily in which the organism is classified",
+        "name": "subfamily",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Data quality flag",
+        "name": "dataQF",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Technician notes; free text comments accompanying the record",
+        "name": "remarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Technician notes; free text comments accompanying the record",
+        "name": "remarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Species code, based on one or more sources",
+        "name": "taxonID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The lowest level taxonomic rank that can be determined for the individual or specimen",
+        "name": "taxonRank",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the tribe in which the taxon is classified",
+        "name": "tribe",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the tribe in which the taxon is classified",
+        "name": "tribe",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the genus in which the organism is classified",
+        "name": "genus",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the genus in which the organism is classified",
+        "name": "genus",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A standard term to express the determiner's doubts about the Identification",
+        "name": "identificationQualifier",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who identified the specimen",
+        "name": "identifiedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Data quality flag indicating when composite samples, pooled samples, or sample mixtures are derived from more than one plot at a site",
+        "name": "pooledFromMultiplePlots",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+        "name": "scientificName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Decimal days between trap setting and collecting events",
+        "name": "trappingDays",
+        "unitText": "nominalDay"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for linking records related to this identification history",
+        "name": "identificationHistoryID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the laboratory or facility that is processing the sample",
+        "name": "laboratoryName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Indicator of whether a sample was collected",
+        "name": "sampleCollected",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the individual(s) who designated the scientific name of the taxon",
+        "name": "scientificNameAuthorship",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the subgenus in which the taxon is classified. Values should include the genus to avoid homonym confusion",
+        "name": "subgenus",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The scientific name of the subgenus in which the taxon is classified. Values should include the genus to avoid homonym confusion",
+        "name": "subgenus",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The lowest level taxonomic rank that can be determined for the individual or specimen",
+        "name": "taxonRank",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Data quality flag",
+        "name": "dataQF",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A standard term to express the determiner's doubts about the Identification",
+        "name": "identificationQualifier",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for morphospecies",
+        "name": "morphospeciesID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for sample",
+        "name": "sampleID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The specific epithet (second part of the species name) of the scientific name applied to the taxon",
+        "name": "specificEpithet",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The specific epithet (second part of the species name) of the scientific name applied to the taxon",
+        "name": "specificEpithet",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+        "name": "identificationReferences",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",
+        "name": "infraspecificEpithet",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",
+        "name": "infraspecificEpithet",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Barcode of a sample",
+        "name": "sampleCode",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the individual(s) who designated the scientific name of the taxon",
+        "name": "scientificNameAuthorship",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for morphospecies",
+        "name": "morphospeciesID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The process by which the taxon became established in the location",
+        "name": "nativeStatusCode",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Condition of a sample",
+        "name": "sampleCondition",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+        "name": "scientificName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",
+        "name": "scientificName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Indicator of whether the cup of the trap was disturbed or missing during the sampling bout",
+        "name": "cupStatus",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Number of individuals of the same type",
+        "name": "individualCount",
+        "unitText": "number"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the individual(s) who designated the scientific name of the taxon",
+        "name": "scientificNameAuthorship",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the individual(s) who designated the scientific name of the taxon",
+        "name": "scientificNameAuthorship",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "total length (head + body); in millimeters",
+        "name": "totalLength",
+        "unitText": "millimeter"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A standard term to express the determiner's doubts about the Identification",
+        "name": "identificationQualifier",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+        "name": "identificationReferences",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who identified the specimen",
+        "name": "identifiedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Indicator of whether the lid of the trap was disturbed or missing during the sampling bout",
+        "name": "lidStatus",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The lowest level taxonomic rank that can be determined for the individual or specimen",
+        "name": "taxonRank",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Fluid level in the trap when it was collected; High (above line); Low (below line) or Ok",
+        "name": "fluidLevel",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A standard term to express the determiner's doubts about the Identification",
+        "name": "identificationQualifier",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The process by which the taxon became established in the location",
+        "name": "nativeStatusCode",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who recorded the data",
+        "name": "recordedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "M for male, F for female, U for unknown",
+        "name": "sex",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who identified the specimen",
+        "name": "identifiedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for morphospecies",
+        "name": "morphospeciesID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Technician notes; free text comments accompanying the record",
+        "name": "remarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The NEON document number and version where detailed information regarding the sampling method used is available; format NEON.DOC.######vX",
+        "name": "samplingProtocolVersion",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "M for male, F for female, U for unknown",
+        "name": "sex",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for linking records related to this identification history",
+        "name": "identificationHistoryID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+        "name": "identificationReferences",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for morphospecies",
+        "name": "morphospeciesID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who recorded the data",
+        "name": "recordedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Samples and/or measurements were not collected due to the indicated circumstance",
+        "name": "samplingImpractical",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",
+        "name": "identificationReferences",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who identified the specimen",
+        "name": "identifiedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who recorded the data",
+        "name": "recordedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Technician notes; free text comments accompanying the record",
+        "name": "remarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for linking records related to this identification history",
+        "name": "identificationHistoryID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "An identifier for the technician who identified the specimen",
+        "name": "identifiedBy",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the laboratory or facility that is processing the sample",
+        "name": "laboratoryName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Technician notes; free text comments accompanying the record",
+        "name": "remarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Comments or notes about the identification",
+        "name": "identificationRemarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "The process by which the taxon became established in the location",
+        "name": "nativeStatusCode",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Name of the laboratory or facility that is processing the sample",
+        "name": "laboratoryName",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Condition of a sample",
+        "name": "sampleCondition",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Comments or notes about the identification",
+        "name": "identificationRemarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Technician notes; free text comments accompanying the record",
+        "name": "remarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for linking records related to this identification history",
+        "name": "identificationHistoryID",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Condition of a sample",
+        "name": "sampleCondition",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Technician notes; free text comments accompanying the record",
+        "name": "remarks",
+        "unitText": "NA"
+      },
+      {
+        "@type": "PropertyValue",
+        "description": "Identifier for linking records related to this identification history",
+        "name": "identificationHistoryID",
+        "unitText": "NA"
+      }
+    ],
+    "version": "PROVISIONAL"
+  }
+]

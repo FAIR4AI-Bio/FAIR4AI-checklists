@@ -1,0 +1,13 @@
+{
+  "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+  "description": "Images of pinned carabid beetle specimens collected by the National Ecological Observatory Network (NEON) from ecological sites across the U.S., along with associated metadata and drought severity ...",
+  "fb:app_id": "1321688464574422",
+  "twitter:card": "summary_large_image",
+  "twitter:site": "@huggingface",
+  "twitter:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/sentinel-beetles.png",
+  "og:title": "imageomics/sentinel-beetles · Datasets at Hugging Face",
+  "og:description": "Images of pinned carabid beetle specimens collected by the National Ecological Observatory Network (NEON) from ecological sites across the U.S., along with associated metadata and drought severity ...",
+  "og:type": "website",
+  "og:url": "https://huggingface.co/datasets/imageomics/sentinel-beetles",
+  "og:image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/imageomics/sentinel-beetles.png"
+}

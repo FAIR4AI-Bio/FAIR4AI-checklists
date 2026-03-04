@@ -1,0 +1,923 @@
+{
+  "metadata": {
+    "generated_date": "2026-01-28",
+    "dataset_evaluated": "Unknown Dataset",
+    "evaluation_method": "Automated analysis using FAIR4AI Agent with LLM",
+    "source_files": [
+      "extracted_meta_tags.json"
+    ],
+    "llm_provider": "azure",
+    "llm_model": "gpt-4o"
+  },
+  "responses": [
+    {
+      "section": "Form Root",
+      "question": "My name",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not contain any personal names or identifiers.",
+      "notes": "The provided metadata pertains to web application capabilities and settings, not personal information."
+    },
+    {
+      "section": "Form Root",
+      "question": "My affiliation",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata contains mobile application and web settings for Google Dataset Search, but does not include any information about affiliations.",
+      "notes": "The metadata provided appears to be related to settings for web and mobile applications rather than personal or organizational affiliations."
+    },
+    {
+      "section": "Form Root",
+      "question": "My email",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "Email information is not present in extracted_meta_tags.json",
+      "notes": "The metadata provided does not include any contact or personal information fields."
+    },
+    {
+      "section": "Form Root",
+      "question": "Dataset title",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata files provided only contain information about mobile app capabilities and settings, not specific dataset titles.",
+      "notes": "The file extracted_meta_tags.json appears to relate to web app configuration rather than dataset-specific information."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the associated repository, if available.",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No field in extracted_meta_tags.json provides a repository link.",
+      "notes": "The metadata provided contains mobile application capabilities and configurations, not dataset repository information."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide a link to the dataset landing page/home page if available?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No URL or link to a dataset landing page/home page is provided in the extracted_meta_tags.json file.",
+      "notes": "The metadata primarily includes information related to web application capabilities and does not include URL links."
+    },
+    {
+      "section": "Form Root",
+      "question": "Please provide the citation, DOI, URL, or similar, if available.",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No fields related to citation, DOI, or URL are present in extracted_meta_tags.json",
+      "notes": "The metadata file provided primarily contains web application settings and capabilities, without any data specific to citation, DOI, or URLs."
+    },
+    {
+      "section": "Form Root",
+      "question": "As I am evaluating this dataset, I am considering it for",
+      "response_choices": "publishing for others to use | open-ended use (window shopping) | use in a specific project",
+      "response": "Not found in metadata",
+      "evidence": "The extracted_meta_tags.json does not contain information about the purpose of dataset consideration.",
+      "notes": "The metadata provided is related to web application capabilities and doesn't specify the intended use for evaluating the dataset."
+    },
+    {
+      "section": "Form Root",
+      "question": "My relationship to this dataset",
+      "response_choices": "Data Provider/Producer: Captured/created the original data (e.g., photographed, collected specimens). | Processor: Took existing data and created a new, derived product from it. | Host: Store the actual data assets and make them accessible. | Data User/Developer: Built applications, APIs, or pipelines to discover, consume, or analyze the data, benefiting from the standardization. | Catalog Curator: Structured and organized collections of datasets and collections into a browsable catalog.",
+      "response": "Catalog Curator: Structured and organized collections of datasets and collections into a browsable catalog.",
+      "evidence": "The metadata includes 'application-name': 'Google Dataset Search', which indicates the platform is designed for organizing and browsing collections of datasets.",
+      "notes": "The metadata file content suggests this is part of 'Google Dataset Search', which is known for organizing datasets into catalogs for discovery purposes."
+    },
+    {
+      "section": "Form Root",
+      "question": "Provide a brief description of how you are evaluating this dataset. ",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "No information related to dataset evaluation method is contained in extracted_meta_tags.json",
+      "notes": "The metadata provided only includes HTML meta tags relevant for web applications and does not contain any details about the dataset evaluation approach or access to metadata files such as Schema.org, EML, or others."
+    },
+    {
+      "section": "Form Root",
+      "question": "If available, please upload the metadata file that you are evaluating (placeholder - need to edit in the form). ",
+      "response_choices": NaN,
+      "response": "Not applicable",
+      "evidence": "The question asks about uploading the metadata file, which is not relevant to evaluating the content within the metadata files themselves.",
+      "notes": "This prompt appears to be a placeholder instruction for uploading files, rather than a question about the content of the provided metadata."
+    },
+    {
+      "section": "Provenance",
+      "question": "Citation for “this dataset”: The full citation is provided. Preferably the Bibtex format.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information regarding citation formats or specific citation details for the dataset. It primarily contains meta tags related to web and mobile app capabilities."
+    },
+    {
+      "section": "Provenance",
+      "question": "Summary or Abstract",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any field or value related to a summary or abstract of the dataset."
+    },
+    {
+      "section": "Provenance",
+      "question": "Publisher",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information related to the publisher of the dataset."
+    },
+    {
+      "section": "Provenance",
+      "question": "Date Created",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "extracted_meta_tags.json does not contain any field related to 'Date Created'.",
+      "notes": "The metadata does not include any information about the creation date of the dataset. None of the provided fields relate to provenance or dates."
+    },
+    {
+      "section": "Provenance",
+      "question": "An identifier for “this dataset”: Does the dataset have a unique, persistent, machine-resolvable identifier (e.g., DOI)? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in extracted_meta_tags.json",
+      "notes": "The metadata provided does not include any information about a unique, persistent, machine-resolvable identifier such as a DOI for the dataset."
+    },
+    {
+      "section": "Provenance",
+      "question": "Author/creator information are provided (e.g., names, affiliations, ORCIDs)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in extracted_meta_tags.json",
+      "notes": "The metadata file does not contain any fields related to author or creator information such as names, affiliations, or ORCIDs."
+    },
+    {
+      "section": "Provenance",
+      "question": "Curator information is provided (list all curator names, ORCIDs, etc.)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Curator information such as names or ORCIDs is not present in extracted_meta_tags.json.",
+      "notes": "The provided metadata does not include any fields that refer to curator names or identifiers."
+    },
+    {
+      "section": "Provenance",
+      "question": "Dataset Card Author(s) (who is providing the description of the dataset?)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No evidence of Dataset Card Author(s) in extracted_meta_tags.json",
+      "notes": "The metadata file does not contain information specifying the author of the dataset description."
+    },
+    {
+      "section": "Provenance",
+      "question": "Dataset Card Contact or Expert Contact (who to contact with questions)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not contain any contact information or a section indicating who to contact with questions regarding the dataset."
+    },
+    {
+      "section": "Provenance",
+      "question": "Other Non-author Contributions",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any information on non-author contributions, only HTML meta tags related to web application settings."
+    },
+    {
+      "section": "Provenance",
+      "question": "Acknowledgments: Funding Description and Grants",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information regarding funding descriptions or grants. It includes meta tags related to mobile web app capabilities and application names but does not mention acknowledgments or funding."
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Is this dataset derived from other sources?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided in extracted_meta_tags.json does not contain information regarding the provenance or derivation of the dataset.",
+      "notes": "The metadata focuses on web and mobile application capabilities and does not address dataset provenance or source derivation."
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Provenance Tracking: Do the metadata provide information about the source data from which this dataset was derived (e.g., titles, summaries, and links)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding the source data, such as titles, summaries, or links indicating provenance tracking."
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Source data producers (who created the source data?)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain information about source data producers or creators of the source data."
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Citation of subsumed datasets (cite your sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No relevant evidence found in extracted_meta_tags.json regarding citation of subsumed datasets.",
+      "notes": "The metadata provided contains tags related to mobile app capabilities and application names but does not mention any citation of subsumed datasets."
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Source data DOI (permalink for the sources)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include information about a source data DOI or permalink for the sources. It contains meta tags related to web application capabilities and settings, but no provenance details such as DOIs."
+    },
+    {
+      "section": "Provenance",
+      "question": "Derived Dataset: Source data checksums: E.g., checksum for a zip file or a list of image checksums to ensure downstream users can get the same data you did.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Specific evidence related to data checksums is not found in extracted_meta_tags.json",
+      "notes": "The metadata file contains tags related to web app capabilities and settings, but does not include any information about source data checksums."
+    },
+    {
+      "section": "Provenance",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata contains information about the web application capabilities and configuration but does not provide specific details about the dataset provenance such as references, data collection, or processing.",
+      "notes": "The metadata provided is limited to web app configuration settings, and does not provide any details relevant to dataset provenance or additional information about the dataset itself."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related paper (e.g., DOI, BIBTEX citation, link, etc.)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any references to related papers, DOIs, BIBTEX citations, or links. It only includes meta tags related to web application capabilities and settings."
+    },
+    {
+      "section": "General Information",
+      "question": "References: Related dataset and/or Model",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain information regarding related datasets or models."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Purpose of the data",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files provided do not include information about the purpose of the data.",
+      "notes": "The metadata is focused on web application settings and does not contain descriptive information about the data or its purpose."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Content - short description of the data types, etc.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata file 'extracted_meta_tags.json' contains information primarily about mobile application settings and web capabilities, such as 'application-name', 'apple-mobile-web-app-title', and 'viewport'. It does not include any description of the data types or data content.",
+      "notes": "The metadata provided focuses on web application configuration and does not contain information about the dataset itself or its description."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Are the data machine ready? (machine-actionable under the FAIR Principles)",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata file extracted_meta_tags.json contains information about web application capabilities and interface settings, but does not provide information about the dataset being machine actionable or following FAIR principles.",
+      "notes": "The metadata provided focuses on web app capabilities rather than dataset characteristics. No information is given regarding the machine readiness of the dataset itself."
+    },
+    {
+      "section": "General Information",
+      "question": "Data Description: Language - what language or languages are the data?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not contain information about the language of the data.",
+      "notes": "The metadata is focused on web application settings and does not include details about the dataset language."
+    },
+    {
+      "section": "General Information",
+      "question": "Discovery: Keywords/Tags provided to describe the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any fields specifically for keywords or tags describing the dataset."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Does the dataset and its metadata make use of relevant ontologies?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not mention the use of any specific ontology or related standards. Without references to ontologies such as ENVO, Darwin Core, UO, or GO, this aspect is not addressed."
+    },
+    {
+      "section": "General Information",
+      "question": "Ontology: Is the data dictionary/codebook provided?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include information about a data dictionary or codebook being available. It primarily contains web app capability settings and application-related metadata."
+    },
+    {
+      "section": "General Information",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata files do not contain any additional information about the dataset itself, only web application metadata.",
+      "notes": "The provided metadata primarily contains tags related to web application settings and capabilities and does not include dataset-specific information."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: File format(s) that encode the data",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files do not provide any information regarding the data format or file formats that encode the data."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The dataset layout pattern",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata 'extracted_meta_tags.json' contains information related to web application capabilities and settings, such as 'application-name', 'viewport', and 'mobile-web-app-capable'. It does not contain any information describing the dataset layout pattern or data format.",
+      "notes": "Information about the dataset layout pattern or data format is not present in the provided metadata. The metadata seems focused on web application interface elements rather than dataset specifics."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Data Format: The primary unit of data that is to be operated on",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata provided does not specify any information about the data format or the primary unit of data to be operated on.",
+      "notes": "The metadata only contains tags related to the web application capabilities and appearance, without details on data structure or format."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are properly documented in the metadata",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata file provided does not include documentation of specific features or attributes related to dataset fields such as species name, location, date, or observer ID. It mainly contains web application-specific metadata tags."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Features or attributes are included for each data instance",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not provide information on whether features or attributes are included for each data instance. It contains metadata about web app capabilities and specific application names, but not about the dataset's structure or contents."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Technical Specifications: What are the technical specifications of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided only includes meta tags related to web application capabilities and appearance, but does not contain any information regarding technical specifications such as file sizes, dataset size, resolution, bit depth, or sampling rate."
+    },
+    {
+      "section": "Data Structure",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The extracted_meta_tags.json file does not provide any data-specific information; it only contains metadata related to web and mobile app capabilities.",
+      "notes": "The metadata provided pertains to the application's mobile and web capabilities, not the dataset itself. There is no dataset-specific information available in the given metadata."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Data Source Type): Metadata record what type(s) of source data were collected or used to generate this dataset.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include information on the type of source data collected or used to generate the dataset. It only contains metadata related to mobile app capabilities and application names."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Curation Rationale):  Metadata record what was the primary rationale for curating or assembling this dataset",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata contains information related to mobile web app capabilities and application names, but does not provide any details about the rationale for curating or assembling the dataset.",
+      "notes": "The metadata provided focuses on web app configuration and does not address data curation rationales or purposes."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Collection (Part of a Larger Collection): Metadata indicate if this dataset part of a larger collection or series, and provide the following information:",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata contains information related to web app capabilities and user interface settings, but does not include any fields or values indicating that the dataset is part of a larger collection or series."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Instrumentation: Do the metadata describe the instruments or sensors used to collect the data, including their specifications and configuration.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata contains information related to web application capabilities and settings, but does not include any details about instruments or sensors used for data collection."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Collection Method Documentation): Do the metadata describe the methods used to collect or generate the data.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata contains information about mobile and web app capabilities but does not include any description of the methods used to collect or generate the data."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Resolution): Do the metadata describe the spatial resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not include information related to spatial resolution or describe any aspect of spatial data. It focuses on web app capabilities and appearance settings."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Spatial Extent): Do the metadata describe the geographic coverage (region, bounding box, domain)",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files do not contain any information about geographic coverage or spatial extent such as region, bounding box, or domain."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Resolution): Do the metadata describe the temporal resolution?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in extracted_meta_tags.json",
+      "notes": "The metadata provided does not include any information regarding temporal resolution methods. It primarily contains web app capability and application name details."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Methods (Temporal Extent): Do the metadata describe the temporal extent?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The provided metadata from extracted_meta_tags.json does not include information about temporal extent such as start date, end date, or any description related to temporal coverage.",
+      "notes": "The metadata consists of web application capabilities and settings, without any mention of data-specific temporal attributes. Temporal extent details would typically be found in structured metadata specific to datasets, not in meta tags."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Types: Do the metadata describe the types of annotations or labels are included in the dataset (if any)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information on annotation types or labels in the dataset. The metadata primarily describes web app capabilities and application names."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotation Process: Do the metadata describe how annotations were generated or obtained?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding the annotation process or describe how annotations were generated or obtained."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Annotators (Contributors): Do metadata indicate who performed the data annotations? If available, provide a list of annotators (e.g., ORCiDs), or names/versions of automated tools or systems; or other relevant information.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata file 'extracted_meta_tags.json' does not contain any information about annotators, contributors, ORCiDs, names/versions of automated tools, or systems.",
+      "notes": "The metadata provided focuses on app capabilities and web settings, but lacks details on data annotation or contributors."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided does not contain any information specific to the dataset itself, such as its origin or additional characteristics about the dataset.",
+      "notes": "The extracted metadata tags focus on web and mobile app capabilities and display features rather than details about the dataset or its origin."
+    },
+    {
+      "section": "Data Origin",
+      "question": "Preparation: Do the metadata provide a complete overall description of data preparation, cleaning, transformation, or quality-control steps performed prior to generating the final dataset.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information about the data preparation, cleaning, transformation, or quality-control processes performed on the dataset. It only contains tags related to web app compatibility and application naming."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Processing Platform or Software: Metadata provide a description of and citations or links to any processing platform or software used in the creation of this dataset.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any information about processing platforms or software used in the creation of the dataset. It only contains web application meta tags."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Correction / Standardization of Values: Does the metadata describe corrections applied to existing data values and whether the data values have been standardized in any way?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information related to correction or standardization of data values, such as interpolation, unit consistency, or anonymization."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Gaps Filled: Does metadata indicate if missing values or data gaps filled in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information about missing values or data gaps filled in the dataset. It primarily includes tags related to web app configurations and does not address data processing aspects."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If gaps were filled, are the methods described?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata file does not contain information regarding data processing methods, including gap-filling approaches."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Labeling / Relabeling: Does the metadata indicate if any labeling or relabeling steps applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information regarding labeling or relabeling steps is present in the provided metadata.",
+      "notes": "The metadata file primarily includes tags relating to web application capabilities and the application name, which do not pertain to labeling or relabeling processes."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Does the metadata sufficiently describe the labeling or relabeling process.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided contains information related to web application capabilities and identifiers but does not mention any data processing details, labeling sources, standardization methods, or alignment with taxonomies or ontologies."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Data Filtering and Outlier Removal: Were any outlier removal or filtering procedures applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain information related to data filtering or outlier removal procedures. The metadata tags relate to web application capabilities and do not address data processing specifics."
+    },
+    {
+      "section": "Data Processing",
+      "question": "If yes, does the metadata sufficiently describe the outlier detection and removal methods used.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided contains information related to web application capabilities and settings, but does not include any details on data processing techniques such as outlier detection and removal."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do metadata indicate if the dataset has been split into training, validation, and/or test sets?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata; extracted_meta_tags.json does not contain any information about dataset splits.",
+      "notes": "The provided metadata solely includes application and mobile web app capabilities, and does not mention any dataset-specific information such as splits."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Splits: Do the metadata provide information on how splits were created?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata includes tags related to app capabilities and display settings, but does not contain any information related to dataset splits or data processing methodologies."
+    },
+    {
+      "section": "Data Processing",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not contain specific information about the dataset or its data processing.",
+      "notes": "The metadata provided is specific to web application details and does not include data processing or dataset-specific information."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if this dataset is complete (i.e., there are no plans for further updates to this data product)?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information regarding the completeness or planned updates of the dataset."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Have quality assurance checks been run and have they passed?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata from extracted_meta_tags.json does not contain any information regarding quality assurance checks or whether they have passed."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the timeliness of the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information regarding the timeliness or update frequency of the dataset. It only contains web app related tags and settings."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate quality checks on or evaluate dataset timeliness?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided contains information about mobile web app capabilities and application names, but no details about dataset quality checks or evaluation of dataset timeliness."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Describe the time lag between data collection and availability.",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not contain any information about the time lag between data collection and availability.",
+      "notes": "The metadata files provided focus on mobile app capabilities and application names, with no mention of data collection or publication timelines."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata describe the quality checks that have failed and provide context for downstream users to work with the data as-is or resolve the issues.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The metadata files provided contain web application capability and search engine optimization metadata, but do not include information related to data quality checks or context for users.",
+      "notes": "The metadata provided focuses on the web application settings and titles, and does not mention any data quality checks or context for users. No information related to data quality is present in the extracted_meta_tags.json."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata explain why quality checks were not performed and provide context for downstream users to work with the data as-is or resolve potential issues.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No evidence found in the provided metadata about quality checks or context for downstream users.",
+      "notes": "The metadata does not include any information related to data quality checks or guidance for users regarding unresolved issues. It mainly contains web app capability settings and application names."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata  any known gaps or limitations in the dataset’s completeness.",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided does not include information related to dataset completeness, spatial, temporal, or content gaps.",
+      "notes": "The metadata focuses on mobile app and web capabilities, with no mention of data quality or completeness."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do the metadata indicate if all units have been translated into compatible forms?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding the translation of units into compatible forms."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do any of the data follow a controlled vocabulary?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided contains tags related to web application capabilities and user interface adjustments, but it does not mention any controlled vocabulary used for the dataset."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Is a reference provided for the controlled vocabulary used.",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "There is no information regarding controlled vocabulary reference in the metadata provided.",
+      "notes": "The metadata only contains information about web app capabilities and display settings, but does not address controlled vocabulary or related references."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Describe any known consistency issues or steps taken to ensure consistency.",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata does not include any information related to data consistency issues or steps taken for standardization.",
+      "notes": "The metadata focuses on tags related to mobile app capabilities and does not address data quality or consistency measures."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata indicate if any quality assurance or peer review procedures been applied to the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information in extracted_meta_tags.json about quality assurance or peer review procedures.",
+      "notes": "The metadata provided focuses on web application capabilities and does not address data quality procedures."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Do metadata describe the procedures used to ensure data integrity?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata content does not include any information on procedures such as checksums, version control, or audit trails related to data integrity."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Does the dataset implement checksums? ",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information regarding the implementation of checksums for the dataset."
+    },
+    {
+      "section": "Data Quality",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "Metadata contains only web app configuration tags and does not include detailed dataset information.",
+      "notes": "The provided metadata is focused on mobile web app configurations and does not contain information related to the dataset’s quality or additional details about the dataset."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe known sources of bias in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata files contain technical information about web app capabilities and settings, but do not mention any sources of bias related to the dataset."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known risks or limitations associated with the dataset.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not include information on risks or limitations associated with the dataset. It primarily provides technical and application-related metadata without addressing the scope, accuracy, representativeness, or potential misuse."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate if the dataset is based on experimental data?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata from extracted_meta_tags.json does not include any information regarding the dataset being based on experimental data."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, do the metadata describe the experimental design.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Metadata only includes tags related to web and application settings such as 'application-name', 'viewport', and 'apple-mobile-web-app-capable'.",
+      "notes": "The metadata does not contain any information related to experimental design, treatments, controls, replication, or randomization."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe recommended or intended uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No information regarding recommended or intended uses, types of analyses, models, or applications is present in extracted_meta_tags.json.",
+      "notes": "The metadata provided focuses on web app capabilities and application names, with no section describing the dataset's use cases."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata describe any known inappropriate or discouraged uses of this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "No fields regarding inappropriate or discouraged uses are present in the metadata.",
+      "notes": "The metadata provided is focused on web application capabilities and does not include any guidance or recommendations related to the dataset's use or ethical considerations."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate this dataset has been used in AI/ML applications previously?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata files provided do not contain any information about the dataset being used in AI/ML applications previously. The metadata mainly includes web app configuration tags, which are not related to AI/ML usage."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "If yes, is it described how the dataset has been used in AI/ML applications.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata contains information about web app capabilities and doesn't include any description of usage in AI/ML applications, models, benchmarks, or publications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Are there references to models, benchmarks, or publications if available.",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata includes tags related to mobile web app capabilities and display settings, but does not contain any references to models, benchmarks, or publications."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Do the metadata indicate how to report issues or errors in the dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any information related to reporting issues or errors in the dataset, such as contact email or issue tracker link."
+    },
+    {
+      "section": "Guidance and Recommendations",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata in extracted_meta_tags.json contains information related to web application capabilities and related settings, but does not offer additional dataset-specific information.",
+      "notes": "The metadata seems to be focused on mobile and web app capabilities, not on the dataset itself."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available for direct download?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not include any information regarding dataset download availability. The extracted_meta_tags.json focuses on web app capabilities and view settings rather than data access."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via an API?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not contain any information regarding API access for the dataset."
+    },
+    {
+      "section": "Data Access",
+      "question": "If accessible via API, what type of API is provided?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata does not mention any API type such as REST, GraphQL, or OPeNDAP. It appears to be focused on mobile app capabilities and display settings."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset accessible via a cloud platform?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information about cloud platform access for the dataset. It primarily includes web app capabilities and app names related to Google Dataset Search."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in a machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not provide any information regarding the dataset format.",
+      "notes": "The extracted metadata tags mainly describe web and mobile application configurations and do not include information about the dataset format or its machine-readability."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset provided in an open (non-proprietary) format?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided does not contain information about the dataset format.",
+      "notes": "The extracted metadata tags focus on web app capabilities and appearance settings, and do not provide any information related to the dataset's format."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the dataset available in multiple formats?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The metadata provided does not contain any information about the dataset's format, thus it cannot be determined if the dataset is available in multiple formats."
+    },
+    {
+      "section": "Data Access",
+      "question": "Do the metadata indicate what license applies to this dataset?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "The extracted_meta_tags.json does not contain any fields related to licensing information.",
+      "notes": "The metadata provided lacks any reference to licensing terms or conditions, which is crucial for determining how the dataset can be used."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is the license information provided in a standardized or machine-readable format?",
+      "response_choices": "Yes | No",
+      "response": "No",
+      "evidence": "Not found in metadata",
+      "notes": "The provided metadata does not include any information about licensing, standardized or machine-readable format. It primarily contains meta tags related to web app capabilities and viewport settings."
+    },
+    {
+      "section": "Data Access",
+      "question": "Does the dataset contain personal or sensitive information?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "No field related to data sensitivity or personal information is present in the provided metadata.",
+      "notes": "The metadata provided focuses on web app capabilities and does not contain information regarding the dataset's content or whether it includes personal or sensitive information."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is access to the dataset restricted in any way?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata provided does not contain any information regarding access restrictions to the dataset.",
+      "notes": "The metadata files contain tags related to web application capabilities and mobile settings, but do not provide information about dataset access conditions or restrictions."
+    },
+    {
+      "section": "Data Access",
+      "question": "Is secure access required to obtain or use the dataset?",
+      "response_choices": "Yes | No",
+      "response": "Not found in metadata",
+      "evidence": "The metadata does not include any information about secure access requirements.",
+      "notes": "The metadata provided focuses on mobile app capabilities and viewport settings, without addressing access or security requirements for obtaining or using the dataset."
+    },
+    {
+      "section": "Data Access",
+      "question": "Additional information: Is there any other information about the dataset that we should capture in this section?",
+      "response_choices": NaN,
+      "response": "Not found in metadata",
+      "evidence": "The provided metadata contains information about web app capabilities and application names, but does not provide specific details related to the dataset itself.",
+      "notes": "The metadata provided contains details related to web application settings and does not include dataset-specific information that would be relevant for the 'Data Access' section."
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "Organized collection into a browsable catalog as part of Google Dataset Search."
+    ],
+    "weaknesses": [
+      "Lack of detailed metadata including dataset title, description, and author/creator information.",
+      "Absence of unique identifiers such as DOI for the dataset.",
+      "No information about access options such as direct download, API, or cloud access.",
+      "No metadata on dataset's format, machine-readability, or file types.",
+      "Lack of description on data provenance, including creation date, publisher, or citation details.",
+      "No metadata on data quality, processing steps, or data completeness.",
+      "No information about the use of ontologies or data dictionaries."
+    ],
+    "overall_assessment": "The dataset 'Unknown Dataset' lacks significant metadata required to adhere to FAIR principles. Its main alignment with FAIR is its organization within the Google Dataset Search catalog, making it theoretically findable. However, due to the absence of identifiers, access methods, interoperability descriptors, and reuse guidelines, the dataset cannot be considered sufficiently FAIR. The metadata appears to be more focused on the application's information rather than dataset specifics.",
+    "fair_score_estimate": {
+      "findable": "2/10 - The dataset is theoretically findable through Google Dataset Search, but lacks essential metadata elements like identifiers and keywords.",
+      "accessible": "1/10 - There is no metadata indicating how the dataset can be accessed, whether through download, API, or cloud platforms.",
+      "interoperable": "1/10 - No information about ontologies or data formats is provided, hindering interoperability.",
+      "reusable": "1/10 - The lack of licensing information, creator details, and descriptive metadata severely limits the dataset's reusability."
+    }
+  }
+}
