@@ -1,0 +1,952 @@
+{
+  "session": {
+    "evaluation_date": "2026-04-30",
+    "ai_model": "Claude (Anthropic)",
+    "evaluation_method": "Automated analysis of NEON REST API metadata (https://data.neonscience.org/api/v0/products/DP1.20120.001) and NEON data portal landing page. Individual data files were not downloaded.",
+    "source_files": [
+      "https://data.neonscience.org/api/v0/products/DP1.20120.001",
+      "https://data.neonscience.org/data-products/DP1.20120.001",
+      "https://data.neonscience.org/api/v0/releases/RELEASE-2026"
+    ],
+    "dataset": {
+      "title": "Macroinvertebrate collection",
+      "product_id": "DP1.20120.001",
+      "repository_url": "https://data.neonscience.org/",
+      "landing_page_url": "https://data.neonscience.org/data-products/DP1.20120.001",
+      "citation": "NEON (National Ecological Observatory Network). Macroinvertebrate collection (DP1.20120.001), RELEASE-2026. https://doi.org/10.48443/hp56-s582"
+    },
+    "evaluator": {
+      "name": "Automated FAIR4AI Evaluation",
+      "affiliation": null,
+      "email": null,
+      "relationship_to_dataset": "Data User/Developer",
+      "evaluation_purpose": "open-ended use",
+      "evaluation_description": "Evaluation based on NEON product API JSON and landing page HTML. NEON RELEASE-2026 release metadata also retrieved. Individual data files, EML records, and user guide PDFs were not downloaded; content of PDF documentation (user guide, lab SOPs, ATBD) was assessed from document titles and descriptions in the API. Where NEON institutional policies (e.g., CC0 license) are well-established but not present in product-level API metadata, this is noted as a gap in machine-readable coverage."
+    }
+  },
+  "responses": [
+    {
+      "section": "General Information",
+      "sub_section": "Acknowledgements",
+      "question": "Is funding support for the dataset documented (funding bodies, agencies, and programs)?",
+      "status": "partial",
+      "evidence": "NEON is funded by the National Science Foundation (NSF) under Cooperative Agreement #1724433. This is publicly stated on the NEON website. However, no funding reference field appears in the product-level API metadata (no EML dataset/project/funding or DataCite fundingReferences).",
+      "notes": "Institutional funding is well-known but not embedded in machine-readable product metadata.",
+      "recommendation": "Add an NSF funding reference with cooperative agreement number to the product API (DataCite fundingReferences/fundingReference/funderName and awardNumber)."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Acknowledgements",
+      "question": "Is grant or award number information documented?",
+      "status": "does not meet",
+      "evidence": "No grant or award numbers found in the product API response. NSF Cooperative Agreement #1724433 is not included in product-level metadata.",
+      "notes": "",
+      "recommendation": "Include the NSF cooperative agreement number in product-level metadata under DataCite fundingReferences/fundingReference/awardNumber."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Acknowledgements",
+      "question": "Are non-author contributors (e.g., data collectors, processors, taxonomy experts) documented?",
+      "status": "partial",
+      "evidence": "External taxonomy labs (EcoAnalysts, Inc. and Rhithron Associates, Inc.) are named in linked lab SOP documents and in change logs. No structured contributor metadata with roles is present in the product API.",
+      "notes": "Institutional contributors are discoverable through linked PDFs but are not expressed as machine-readable contributor records.",
+      "recommendation": "Add DataCite contributors with contributorType=DataProcessor for the contracted taxonomy labs (EcoAnalysts, Rhithron Associates) and contributorType=DataCollector for NEON AOS field staff."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Is the purpose or intended use of the dataset documented?",
+      "status": "meets",
+      "evidence": "productStudyDescription: 'These data are collected at all NEON aquatic sites (wadeable streams, lakes, and rivers).' productAbstract states: 'quality-controlled, native sampling resolution data from NEON's aquatic macroinvertebrate collection and field metadata, as well as associated taxonomic, morphometric, and count analyses data.'",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Is the content and scope of the dataset clearly described?",
+      "status": "meets",
+      "evidence": "productDescription: 'Collection of benthic macroinvertebrates using multiple sampling methods in lakes, rivers, and wadeable streams.' productDesignDescription details five sampler types and three habitat classes. productRemarks names five data tables (inv_fieldData, inv_persample, inv_taxonomyProcessed, inv_taxonomyRaw, inv_identificationHistory).",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Does the dataset include an explicit machine-readiness statement or conformance declaration (e.g., Croissant conformsTo field)?",
+      "status": "does not meet",
+      "evidence": "No cr:conformsTo, schema.org compliance statement, or machine-readiness flag found in any metadata source. Data is accessible via REST API in CSV format, but no formal machine-readiness declaration against a published schema exists.",
+      "notes": "Programmatic API access does not equal a formal machine-readiness conformance statement.",
+      "recommendation": "Publish a Croissant metadata record (cr:conformsTo: https://mlcommons.org/croissant/1.0) for the dataset, or add a schema.org Dataset with structured RecordSet definitions. This makes the dataset discoverable by ML dataset search tools."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Is the language of the dataset's text content documented?",
+      "status": "partial",
+      "evidence": "No explicit language field found in the API metadata. All metadata, field names, and documentation are in English by convention.",
+      "notes": "",
+      "recommendation": "Add sc:inLanguage or EML dataset/language with value 'en' to the product-level metadata."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Is a summary or abstract provided that describes the dataset in plain language?",
+      "status": "meets",
+      "evidence": "productAbstract provides a comprehensive summary covering data source, sampling methods, processing workflow, table structure, and data latency per table. productDescription provides a concise one-sentence summary.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Discovery",
+      "question": "Are descriptive keywords or tags provided to support dataset discovery?",
+      "status": "meets",
+      "evidence": "17 keywords: ['diversity','taxonomy','community composition','species composition','population','aquatic','benthic','macroinvertebrates','invertebrates','abundance','streams','lakes','rivers','wadeable streams','material samples','archived samples','biodiversity']. Theme: 'Organisms, Populations, and Communities'.",
+      "notes": "Keywords are thematic but do not include geographic terms (e.g., 'United States', 'CONUS') or ontology-linked terms (e.g., ENVO habitat URIs).",
+      "recommendation": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Ontology",
+      "question": "Is a data dictionary or codebook provided that defines all variables, fields, and units?",
+      "status": "partial",
+      "evidence": "A user guide PDF (NEON_macroinvertebrate_userGuide_vF, 2.1 MB) is linked via the specs endpoint. This documents field definitions and units. No machine-readable attribute-level data dictionary (sc:variableMeasured or Croissant RecordSet/field) is provided in the API.",
+      "notes": "PDF user guide is human-readable but not machine-parseable for automated ML pipelines.",
+      "recommendation": "Publish a machine-readable schema for each data table as JSON Schema or Croissant RecordSet/field definitions. At minimum, list column names, types, and units for inv_taxonomyProcessed and inv_fieldData in schema.org variableMeasured format."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Ontology",
+      "question": "Is example code provided for loading or accessing the dataset?",
+      "status": "partial",
+      "evidence": "The neonUtilities R package and NEON tutorials exist on the NEON website for downloading and working with NEON data. No direct link to example code or a code repository appears in the product-level API metadata.",
+      "notes": "",
+      "recommendation": "Add a relatedIdentifier linking to NEON tutorials or a GitHub example notebook for this product (DataCite relatedIdentifier with relationType=IsSupplementedBy)."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is a homepage or description page URL provided for the dataset?",
+      "status": "meets",
+      "evidence": "Landing page: https://data.neonscience.org/data-products/DP1.20120.001",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is the URL of the data repository or hosting platform provided?",
+      "status": "meets",
+      "evidence": "Repository root: https://data.neonscience.org/. API root: https://data.neonscience.org/api/v0/. Cloud artifact storage at storage.googleapis.com.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is a linked code repository or example code provided?",
+      "status": "partial",
+      "evidence": "neonUtilities R package exists and NEON tutorials are available at neonscience.org, but no direct link appears in the product-level API metadata.",
+      "notes": "",
+      "recommendation": "Link example code or a tutorial notebook as a relatedIdentifier (DataCite relationType=IsSupplementedBy)."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is a publication describing the dataset provided (data paper or descriptor)?",
+      "status": "does not meet",
+      "evidence": "No literatureCited or relatedIdentifier of type IsDescribedBy found in the API metadata. No linked data paper or publication.",
+      "notes": "NEON data products generally lack individual data papers. The network is described in broad publications (e.g., Battelle 2019 NEON Design doc) but these are not linked at the product level.",
+      "recommendation": "Link any published data descriptor or ecological study using this dataset (DataCite relatedIdentifier with relationType=IsDescribedBy). Even a NEON technical report would satisfy this criterion."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Are related or derived datasets referenced?",
+      "status": "partial",
+      "evidence": "Eight NEON Biorepository collections are linked with DwC-Archive download URLs (BMIC-DNA, BMIC-CH, BMIC-OL, BMIC-MS, BMIC-TR, BMIC-TL, BMIC-TS, BMIC-UB, and identified variants). Other NEON aquatic data products are not formally linked as relatedIdentifiers.",
+      "notes": "",
+      "recommendation": "Add formal relatedIdentifier entries (DataCite relationType=References) linking to related NEON aquatic products (surface water chemistry, turbidity, water quality) and GBIF dataset mirrors."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Are publications that have cited or used this dataset listed?",
+      "status": "does not meet",
+      "evidence": "No IsCitedBy relatedIdentifiers found in the API metadata. No citation count or usage tracker.",
+      "notes": "NEON macroinvertebrate data is widely used in published research but this is not tracked at the product level.",
+      "recommendation": "Add known citations as DataCite relatedIdentifiers (relationType=IsCitedBy) or link a NEON usage statistics page."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Are creator names and affiliations documented for the dataset?",
+      "status": "partial",
+      "evidence": "No individual creator names or ORCIDs in API metadata. Organizational creator: NEON (National Ecological Observatory Network). Science team: Aquatic Observation System (AOS).",
+      "notes": "NEON's institutional model does not attribute individual authorship at the product level.",
+      "recommendation": "Add NEON's Research Organization Registry (ROR) identifier for machine-readable institutional attribution. Consider listing AOS science team leads as contributors with DataCite contributorType=DataCurator."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Is a descriptive title provided for the dataset?",
+      "status": "meets",
+      "evidence": "productName: 'Macroinvertebrate collection'; productCodePresentation: 'NEON.DP1.20120'; productCode: 'DP1.20120.001'.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Is a summary or abstract provided?",
+      "status": "meets",
+      "evidence": "Comprehensive productAbstract present (see Data description above).",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Is the date the dataset was created or first published documented?",
+      "status": "partial",
+      "evidence": "No explicit dateCreated field in API. Earliest data availability is 2014-07 for site ARIK. First versioned release (RELEASE-2021) generationDate: 2021-01-23T02:30:02Z.",
+      "notes": "Creation date can be inferred from site availability but is not formally declared.",
+      "recommendation": "Add an explicit dataset creation/publication date (EML dataset/pubDate or DataCite dates/date[@dateType='Created']) corresponding to when DP1.20120.001 was first published."
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Is the publisher of the dataset identified?",
+      "status": "meets",
+      "evidence": "Publisher: NEON (National Ecological Observatory Network). Identified in productScienceTeam and implicitly throughout API (data.neonscience.org).",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Data format",
+      "question": "Is the file format of the dataset documented?",
+      "status": "partial",
+      "evidence": "NEON consistently publishes L1 data as CSV, and this is confirmed in the user guide PDF. No explicit machine-readable encodingFormat field (sc:encodingFormat or DataCite formats/format) appears in the product API metadata.",
+      "notes": "CSV format is a NEON convention, conveyed by documentation rather than machine-readable metadata.",
+      "recommendation": "Add sc:encodingFormat='text/csv' to the product-level metadata for each data table. A Croissant FileObject with explicit format declarations would enable automated ML ingestion tools to discover the format."
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Data format",
+      "question": "Is the overall dataset structure or schema documented (e.g., relational, tabular, hierarchical)?",
+      "status": "partial",
+      "evidence": "productRemarks describes five named tables and their relationships: 'each record in inv_fieldData will have one corresponding record in inv_persample, and may have multiple corresponding records in inv_taxonomyProcessed, one record for each scientificName and sizeClass combination.' Basic vs expanded packages distinguished.",
+      "notes": "Relational structure described in natural language but not as a machine-readable schema.",
+      "recommendation": "Publish a machine-readable entity-relationship schema documenting join keys between inv_fieldData, inv_persample, and inv_taxonomyProcessed (e.g., sampleID as primary linking key). Croissant RecordSet with field-level join declarations is the appropriate format."
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Data format",
+      "question": "Are individual files or data instances described with names, purposes, and contents?",
+      "status": "partial",
+      "evidence": "Five data tables named in productRemarks with brief purpose descriptions. Basic vs expanded packages distinguished. No file sizes, record counts, or column lists provided in the API.",
+      "notes": "",
+      "recommendation": "Add per-table metadata including column names, data types, and approximate row counts as structured metadata (Croissant RecordSet/FileObject). Quantitative descriptors (size, record count) are needed for ML pipeline planning."
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Data organization",
+      "question": "Is the organization of data within files and across the dataset described?",
+      "status": "partial",
+      "evidence": "Table structure described in productRemarks; basic vs expanded package distinction documented. Within-file organization (column order, primary keys, indexing) not in API.",
+      "notes": "NEON user guide likely contains column-level detail as a PDF.",
+      "recommendation": "Document primary/foreign key structure (sampleID, identificationHistoryID) in a machine-readable format. Specify sort order and key fields for each table."
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Features",
+      "question": "Are the features or variables in the dataset documented (names, types, descriptions)?",
+      "status": "partial",
+      "evidence": "User guide PDF (NEON_macroinvertebrate_userGuide_vF) documents field definitions. No machine-readable sc:variableMeasured or Croissant cr:field definitions in the product API.",
+      "notes": "Feature documentation is human-readable in PDF format only.",
+      "recommendation": "Publish machine-readable variable metadata (schema.org variableMeasured with name, description, unitText) for key fields: scientificName, sizeClass, estimatedTotalCount, targetTaxaPresent, sampleType, and quality flags."
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Technical specs",
+      "question": "Are technical specifications provided (file sizes, record counts, quantitative descriptors)?",
+      "status": "does not meet",
+      "evidence": "No file sizes, record counts, or quantitative dataset statistics in the product API. RELEASE-2026 manifest file has a size (2.8 MB for the manifest itself) and MD5 checksum, but this describes the index file, not the data.",
+      "notes": "Dataset covers 34 sites × ~30 months per site × multiple tables, but total volume is unquantified in metadata.",
+      "recommendation": "Add dataset-level statistics: total records per table, total compressed file size, number of sites, and year range. DataCite sizes/size and schema.org contentSize are the relevant fields."
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "annotation",
+      "question": "Is the file format of annotation or label data documented?",
+      "status": "meets",
+      "evidence": "Taxonomic annotation data stored as CSV in inv_taxonomyProcessed and inv_taxonomyRaw tables. Expanded package adds a separate CSV with raw taxonomist nomenclature. Lab SOP PDFs document annotation procedures.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "annotation",
+      "question": "Is the structure of annotation or label data described?",
+      "status": "meets",
+      "evidence": "productRemarks: 'one record for each scientificName and sizeClass combination' per inv_persample record. inv_identificationHistory provides an audit trail for label changes, linked via identificationHistoryID.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "annotation",
+      "question": "Are annotation instances documented (e.g., annotation counts, granularity, class distribution)?",
+      "status": "partial",
+      "evidence": "Annotation structure described (one record per taxon per sizeClass per sample), but total annotation counts, number of unique taxa, and class distribution statistics are not in the metadata.",
+      "notes": "The inv_identificationHistory table implies versioned annotations, which is excellent, but aggregate statistics are absent.",
+      "recommendation": "Add annotation-level statistics: total taxonomic records, number of unique taxa, mean taxa per sample, and a rough class distribution (dominant vs. rare taxa). These are essential for ML classification task planning and class imbalance assessment."
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "collection",
+      "question": "Is the data source type documented (e.g., field survey, remote sensing, eDNA, citizen science)?",
+      "status": "meets",
+      "evidence": "productDesignDescription clearly states: benthic field sampling using physical samplers (Surber, Hess, hand corer, modified kicknet, D-frame sweep, petite ponar) at NEON aquatic sites. Samples preserved in ethanol in the field and analyzed by external taxonomy labs.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "collection",
+      "question": "Is the source data or upstream dataset(s) identified and cited (for derived datasets)?",
+      "status": "N/A",
+      "evidence": "This is a primary field-collected dataset, not derived from another dataset.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "collection",
+      "question": "Is the curation rationale documented — why this data was collected and what it represents?",
+      "status": "meets",
+      "evidence": "productDesignDescription: samples collected in the two most dominant habitat types at each site; sampler type matched to habitat (riffle, run, pool, step pool, littoral, deep-water); three annual biological bout windows (spring, summer, fall growing season); all NEON aquatic sites included. Aquatic Sampling Strategy PDF (NEON.DOC.001152vD) linked.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "collection",
+      "question": "Is the relationship to a larger collection or parent dataset documented?",
+      "status": "meets",
+      "evidence": "productStudyDescription: 'These data are collected at all NEON aquatic sites (wadeable streams, lakes, and rivers).' RELEASE manifests index all NEON products collectively. Product is one of many NEON Aquatic Observation System (AOS) data products.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "instrumentation",
+      "question": "Is instrumentation or sensor metadata provided (instrument make, model, placement, calibration)?",
+      "status": "meets",
+      "evidence": "Sampler types documented by name (Surber, Hess, hand corer, modified kicknet, D-frame sweep, petite ponar) in productDesignDescription. Lab SOPs for both taxonomy labs (EcoAnalysts SOP Rev6, Rhithron Associates SOP rev 3.1) linked as PDF specs. Aquatic Sampling Protocol (NEON.DOC.003046vG) linked.",
+      "notes": "Sampler calibration procedures are in the SOPs but not surfaced as structured metadata fields.",
+      "recommendation": ""
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "methods",
+      "question": "Is resolution information documented (spatial, temporal, and measurement resolution)?",
+      "status": "meets",
+      "evidence": "Temporal resolution: 3x/year (spring, summer, fall). Spatial resolution: 34 aquatic sites across NEON domains. Taxonomic resolution: lowest practical taxon (genus or species). Measurement resolution: size to nearest mm by sizeClass. Latency per table: inv_fieldData 30 days, inv_taxonomyProcessed 210 days.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Correction/standardization of values",
+      "question": "Has the data been spatially gridded or aggregated, and if so, is the method documented?",
+      "status": "N/A",
+      "evidence": "This is a point-observation dataset from fixed NEON sampling locations. No spatial gridding is performed on L1 data.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Correction/standardization of values",
+      "question": "Are units for all measured variables consistent and documented?",
+      "status": "partial",
+      "evidence": "Size measurements in mm; counts as integers; documented in the user guide PDF. No machine-readable unit field (sc:variableMeasured/sc:unitCode or Croissant field/dataType) in the product API.",
+      "notes": "",
+      "recommendation": "Add machine-readable unit annotations. At minimum, document measurementUnit for size (mm) and abundanceCount (integer) using schema.org variableMeasured or Croissant field definitions."
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Correction/standardization of values",
+      "question": "Is data anonymization or obfuscation documented, including what was modified and the method?",
+      "status": "meets",
+      "evidence": "productRemarks: 'Taxonomic IDs of species of concern have been fuzzed; see data package readme files for more information.' changeLogs document full history: state-level obfuscation applied pre-2022, removed in RELEASE-2022 (except D01, D20), updated to site-level granularity for D01 in 2023. Obfuscation method: elevation to higher taxonomic rank.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Gaps filled",
+      "question": "Has any null value or data gap filling been performed, and is this documented?",
+      "status": "meets",
+      "evidence": "No gap-filling performed. Missing sampling events flagged via the samplingImpractical field in inv_fieldData, not filled. COVID-19 impacts (2020-2022) and other missed sampling documented in changeLogs. This is the appropriate approach for occurrence count data where absence vs. non-detection must be distinguishable.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Gaps filled",
+      "question": "If gap-filling was performed, is the method described?",
+      "status": "N/A",
+      "evidence": "No gap-filling performed on L1 observational count data. Missing sampling is flagged, not imputed.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Labeling/re-labeling",
+      "question": "Is the labeling methodology documented, including who labeled, what method was used, and re-labeling history?",
+      "status": "meets",
+      "evidence": "Taxonomic identification by contracted expert labs (EcoAnalysts, Inc. and Rhithron Associates, Inc.) to lowest practical taxon (genus or species), with enumeration by sizeClass. NEON reassigns synonymies in the basic package. inv_identificationHistory table tracks all label updates with historical identifications linked via identificationHistoryID (implemented in RELEASE-2024). Change log entry #6326 documents taxonomic synonym changes.",
+      "notes": "Label provenance (human expert, specific lab, date of determination) is well-documented relative to most biodiversity datasets.",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Outlier removal",
+      "question": "Is the outlier detection and removal procedure documented?",
+      "status": "partial",
+      "evidence": "ATBD for OS Data Quality Control (NEON.DOC.005424vA) is linked as a spec. productRemarks cautions users to check for anomalies. A known duplicate records issue (2014-2019 inv_fieldData) was identified and resolved in RELEASE-2022.",
+      "notes": "Specific outlier detection thresholds and rules are in the ATBD PDF rather than machine-readable metadata.",
+      "recommendation": "Reference the ATBD as a DataCite relatedIdentifier (relationType=IsDocumentedBy) in product-level metadata so automated tools can discover it."
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Splits",
+      "question": "Are train/validation/test splits defined and documented for ML/AI use?",
+      "status": "does not meet",
+      "evidence": "No train/validation/test split documentation found anywhere in the metadata. This is raw observational data without ML-specific partitioning. No guidance on temporal, spatial, or phylogenetic splitting strategies.",
+      "notes": "This is the most significant gap for ML use. Macroinvertebrate data is used in biodiversity modeling, species distribution modeling, and bioassessment ML — all requiring thoughtful split design to avoid spatial autocorrelation leakage.",
+      "recommendation": "Provide ML-ready split guidance recommending spatial hold-out strategies. Specifically, recommend site-level or NEON domain-level splits (not random record splits) to prevent spatial autocorrelation from inflating model performance. Document recommended splits in a companion metadata file."
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Completeness",
+      "question": "Is the dataset complete and does it contain all expected records and information?",
+      "status": "meets",
+      "evidence": "productStatus: 'ACTIVE.' Data published through 2025 across 34 sites. Six annual versioned releases (RELEASE-2021 through RELEASE-2026). RELEASE manifests document all available data URLs.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Completeness",
+      "question": "Have all required quality checks been completed on the published data?",
+      "status": "meets",
+      "evidence": "productAbstract: 'quality-controlled, native sampling resolution data.' productCategory: 'Level 1 Data Product' — NEON L1 designation means QC is complete. Latency periods (210 days for taxonomy tables) account for QC review time. ATBD for OS Data Quality Control linked.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Completeness",
+      "question": "Are data processing steps documented and confirmed complete?",
+      "status": "meets",
+      "evidence": "Full processing chain documented: field collection → ethanol preservation → preservative change at domain facility → taxonomy lab → expert identification (count per taxon per sizeClass) → NEON QC → publication. Lab SOP PDFs linked. productDesignDescription and productAbstract provide complementary descriptions.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Consistency",
+      "question": "Are all units across the dataset compatible and fully documented?",
+      "status": "meets",
+      "evidence": "Size in mm consistently applied. Count fields as integers. Standardized taxonomic identification protocol applied since 2018 (change log #16338 resolved: 'External labs began using standardized taxonomic effort for identification targets, references, and measurement').",
+      "notes": "Pre-2018 data used non-standard taxonomic effort; this is documented in the change log.",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Consistency",
+      "question": "Are data processing steps consistently applied across all records?",
+      "status": "partial",
+      "evidence": "changeLogs document historical processing inconsistencies: non-standard taxonomic effort (2014-2018), taxonomy lab change (EcoAnalysts to Rhithron Associates starting 2023, change log #38506-equivalent), and synonym handling changes. These are documented but represent real temporal inconsistencies.",
+      "notes": "The change log transparency is excellent for human review but ML users need machine-readable flags to subset or weight records accordingly.",
+      "recommendation": "Add a boolean or categorical flag in data records indicating whether they were collected under standardized taxonomic effort (post-2018) and which taxonomy lab performed the identification. This would allow ML users to subset or stratify training data appropriately."
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Consistency",
+      "question": "Is a controlled vocabulary or taxonomic backbone used consistently, and is it identified with version?",
+      "status": "partial",
+      "evidence": "productBasicDescription: 'presents higher taxonomy information according to NEON and reassigns synonymies with the current valid name.' NEON uses an internal taxonomic backbone. Expanded package preserves raw taxonomist nomenclature. inv_identificationHistory tracks backbone updates.",
+      "notes": "The specific external reference taxonomy (e.g., ITIS, GBIF Backbone) underlying NEON's taxonomy is not stated in the product API, nor is the version or date of the backbone.",
+      "recommendation": "Explicitly document which external taxonomic reference (e.g., ITIS version as of which date, or GBIF Backbone version) underlies the NEON taxonomic backbone. This is critical for ML users merging records from multiple biodiversity datasets, where backbone mismatches create label inconsistencies."
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Integrity",
+      "question": "Are quality procedures documented?",
+      "status": "meets",
+      "evidence": "ATBD for OS Data Quality Control (NEON.DOC.005424vA) and Aquatic Sampling Strategy (NEON.DOC.001152vD) linked as spec documents. Lab SOPs for both taxonomy labs (EcoAnalysts Rev6, Rhithron rev 3.1) linked. 16 change log entries document and resolve identified issues over the dataset's history.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Integrity",
+      "question": "Has the dataset undergone external peer review or community review?",
+      "status": "partial",
+      "evidence": "NEON data products undergo internal QC review (ATBD-defined procedures). External taxonomy is performed by contracted expert labs with documented SOPs — representing expert validation of labels. No formal external peer review of the data publication itself is documented.",
+      "notes": "Wide use in published ecological literature represents de facto community validation, but this is not formally documented.",
+      "recommendation": "Document NEON's internal review process more explicitly, or consider seeking a formal data peer review (e.g., Earth System Science Data journal) to provide a citable quality endorsement."
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Timeliness",
+      "question": "Is it documented whether the data is raw (real-time) or quality-controlled (processed)?",
+      "status": "meets",
+      "evidence": "productCategory: 'Level 1 Data Product' — NEON's L1 designation explicitly denotes quality-controlled, native sampling resolution data. Latency periods confirm that data is not real-time.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Timeliness",
+      "question": "Is the update schedule or data latency documented?",
+      "status": "meets",
+      "evidence": "productAbstract documents latency per table: inv_fieldData 30 days, inv_persample/inv_taxonomyProcessed/inv_taxonomyRaw 210 days, inv_identificationHistory 7 days. Annual RELEASE cycle (RELEASE-2021 through RELEASE-2026) provides versioned snapshots.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Bias",
+      "question": "Are known biases in the dataset documented (sampling, geographic, observer biases)?",
+      "status": "partial",
+      "evidence": "Sampling gear selectivity by habitat type is indirectly documented (habitat-appropriate samplers chosen). COVID-19 sampling gaps documented in changeLogs. Inter-lab variability between EcoAnalysts and Rhithron Associates (2023 lab change) is documented. Geographic scope (34 US aquatic sites) not explicitly flagged as a bias.",
+      "notes": "Seasonal bias (growing season only, spring/summer/fall) and geographic bias (contiguous US + AK + PR; no international sites) are implicit but not stated as limitations.",
+      "recommendation": "Add an explicit bias statement documenting: (1) gear-type selectivity by habitat, (2) inter-lab taxonomic effort variability pre/post 2018 and across labs, (3) seasonal sampling window bias, and (4) geographic scope limitation. These are critical for assessing ML model generalizability."
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Bias",
+      "question": "Are known risks associated with using the dataset documented?",
+      "status": "partial",
+      "evidence": "productRemarks: 'Duplicates may exist where protocol and/or data entry aberrations have occurred; users should check data carefully for anomalies.' Taxonomic fuzzing for sensitive species documented. Lab change in 2023 noted in changeLogs.",
+      "notes": "",
+      "recommendation": "Add a structured risks section documenting how to mitigate known issues: (1) filter to RELEASE data rather than provisional, (2) filter to post-2018 records for standardized taxonomic effort, (3) exclude or handle fuzzed taxa explicitly."
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Bias",
+      "question": "Are the limitations of the dataset documented, including out-of-scope uses?",
+      "status": "partial",
+      "evidence": "productRemarks notes taxonomic fuzzing, potential duplicates, and the need for anomaly checking. No structured intended-use vs. out-of-scope-use documentation. ML-specific limitations (class imbalance, non-detection semantics) not addressed.",
+      "notes": "",
+      "recommendation": "Add an ML-specific limitations section addressing: (1) class imbalance across taxa (common vs. rare), (2) non-detection semantics (samplingImpractical flag ≠ true absence — critical for species distribution models), (3) spatial autocorrelation in site-level records, and (4) temporal label drift from taxonomic synonymy updates."
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Experimental Design",
+      "question": "Is it documented whether the data comes from an experimental design or a systematic monitoring program?",
+      "status": "meets",
+      "evidence": "productDesignDescription clearly describes a systematic observational monitoring design: stratified sampling by dominant habitat type at fixed NEON aquatic sites, 3x/year during growing season. Not experimental.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Experimental Design",
+      "question": "If the data is from an experimental design, is the experimental design described?",
+      "status": "N/A",
+      "evidence": "Data comes from systematic monitoring, not an experiment.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Are supported AI/ML tasks and any benchmark leaderboards documented?",
+      "status": "does not meet",
+      "evidence": "No ML task documentation, benchmark definition, or leaderboard reference found in any metadata source.",
+      "notes": "Potential ML tasks include: taxon classification, biodiversity index prediction, bioassessment scoring, species distribution modeling, and community composition clustering.",
+      "recommendation": "Add a supported ML tasks section enumerating applicable tasks with caveats. Consider defining a benchmark split (e.g., temporal hold-out of 2022-2024 data) and baseline metric for a specific task such as EPT (Ephemeroptera-Plecoptera-Trichoptera) richness prediction."
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Are usage guidelines provided explaining how to appropriately use the dataset?",
+      "status": "partial",
+      "evidence": "productRemarks provides data use cautions (check for duplicates, understand taxonomic fuzz). User guide PDF available. neonUtilities R package tutorials exist on NEON website. No structured intended-use or out-of-scope guidance in machine-readable form.",
+      "notes": "",
+      "recommendation": "Add structured usage guidelines addressing: (1) when to use RELEASE vs provisional data, (2) how to interpret the samplingImpractical flag for ML absent/present classification, (3) how to handle the basic vs expanded package for taxonomy harmonization across datasets."
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Is there documentation of prior AI/ML use of the dataset?",
+      "status": "does not meet",
+      "evidence": "No AI/ML usage history, linked ML publications, or related ML models found in any metadata source.",
+      "notes": "NEON macroinvertebrate data has been used in ecological modeling studies but this is not documented in product metadata.",
+      "recommendation": "Add a usage history section or link known ML/AI applications (DataCite relatedIdentifier with relationType=IsCitedBy for ML-focused publications). Even 2-3 example citations document ML feasibility and provide methodological benchmarks for new users."
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Are recommendations provided for intended and unintended uses of the dataset?",
+      "status": "partial",
+      "evidence": "User guide and productRemarks provide partial guidance but no structured ML-facing recommendations distinguishing intended from unintended uses.",
+      "notes": "",
+      "recommendation": "See usage guidelines recommendation above."
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Is there a mechanism documented for users to report issues with the dataset?",
+      "status": "does not meet",
+      "evidence": "No discussionUrl, issue tracker, or contact point for issue reporting found in the product-level API metadata.",
+      "notes": "NEON presumably has a helpdesk, but no link appears in product metadata.",
+      "recommendation": "Add a sc:discussionUrl or contact endpoint in product metadata pointing to NEON's data issue reporting system. Community-reported issues are essential for maintaining data quality over time."
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Is direct download of the dataset available?",
+      "status": "meets",
+      "evidence": "Data downloadable via NEON data portal by site and date range. API provides per-month per-site data URLs (e.g., https://data.neonscience.org/api/v0/data/DP1.20120.001/ARIK/2014-07). RELEASE manifests provide bulk download via GCS.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Is an API available for programmatic access to the dataset?",
+      "status": "meets",
+      "evidence": "NEON REST API available at https://data.neonscience.org/api/v0/ with product endpoint, site/month data URL endpoints, and release manifest endpoints.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Is the API type documented?",
+      "status": "meets",
+      "evidence": "REST API. API token header (X-API-Token) documented. Endpoints follow RESTful conventions (resource/id path structure).",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Are API rate limits or access throttling conditions documented?",
+      "status": "does not meet",
+      "evidence": "No rate limit information found in the API metadata, product page, or data policies page.",
+      "notes": "",
+      "recommendation": "Document API rate limits in the product metadata or link to NEON's API usage policy. This is important for ML users building large-scale data ingestion pipelines."
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Is cloud-based access to the dataset documented?",
+      "status": "meets",
+      "evidence": "RELEASE-2026 artifacts stored at Google Cloud Storage (storage.googleapis.com). Release manifest URL: https://storage.googleapis.com/neon-publication/release/build/c28725ff-5aa2-41fa-845e-a7f1c8239d09/manifest-available-20260123T000738Z.json",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Format accessibility (open, proprietary, etc.)",
+      "question": "Is the data available in a machine-readable format?",
+      "status": "meets",
+      "evidence": "CSV format — machine-readable. REST API returns JSON metadata. Both formats are standard and widely supported by ML frameworks.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Format accessibility (open, proprietary, etc.)",
+      "question": "Is the data available in an open (non-proprietary) format?",
+      "status": "meets",
+      "evidence": "CSV is an open format. REST API returns standard JSON. No proprietary formats.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Format accessibility (open, proprietary, etc.)",
+      "question": "Is the data available in multiple formats to support different use cases?",
+      "status": "partial",
+      "evidence": "Primary data tables available in CSV only. Biorepository collections available as Darwin Core Archives (DwC-A ZIP downloads). No Parquet, HDF5, or other ML-optimized formats for the main data tables.",
+      "notes": "",
+      "recommendation": "Publish main data tables as Parquet files in addition to CSV to facilitate large-scale ML ingestion. A Darwin Core Archive of combined occurrence data would improve interoperability with GBIF and biodiversity ML tooling."
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "License/ Usage Rights",
+      "question": "Is a license for dataset use provided?",
+      "status": "partial",
+      "evidence": "NEON's published data policy is Creative Commons Zero (CC0 1.0) for all data products. This is documented on the NEON website. However, no explicit license field appears in the product-level API metadata.",
+      "notes": "CC0 is NEON's institutional standard and well-known to the community, but it is not embedded in machine-readable product-level metadata.",
+      "recommendation": "Add an explicit sc:license field to the product API response with value 'https://creativecommons.org/publicdomain/zero/1.0/' to make the license machine-readable at the product level."
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "License/ Usage Rights",
+      "question": "Is the license expressed in a standardized, machine-readable form (e.g., SPDX identifier)?",
+      "status": "does not meet",
+      "evidence": "No machine-readable license field (SPDX identifier or license URL) found in the product-level API metadata. CC0 is NEON's policy but not expressed as SPDX CC0-1.0 in the API.",
+      "notes": "CC0 has SPDX identifier CC0-1.0 and a machine-readable URL. It only needs to be added to the API response.",
+      "recommendation": "Add DataCite rightsList/rights with rightsIdentifierScheme=SPDX and rightsIdentifier=CC0-1.0 to the product API. This enables automated license compatibility checking by ML tooling and dataset aggregators."
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Security / Privacy",
+      "question": "Is personal or sensitive information in the dataset documented, along with protections applied?",
+      "status": "partial",
+      "evidence": "Taxonomic obfuscation for species of concern is documented (productRemarks, 4 relevant change log entries). Species of concern elevated to higher taxonomic rank. No human subjects data. Geographic coordinates of NEON sites are public; no coordinate fuzzing applied.",
+      "notes": "The sensitive data is species-level, not personal data. The protection mechanism (taxonomic elevation) is documented but the triggering list (federal ESA + state lists) is not formally specified in product metadata.",
+      "recommendation": "Document the species concern obfuscation protocol as a formal sensitivity statement, specifying which regulatory lists (federal ESA, state-level threatened/endangered) trigger obfuscation. ML users need to know how to handle fuzzed records in classification tasks."
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Security / Privacy",
+      "question": "Are conditions of restricted access documented?",
+      "status": "partial",
+      "evidence": "Standard access is open and free. Some taxa published at higher taxonomic rank (not restricted, but modified). API token available for bulk access. No formal conditionsOfAccess field in product metadata.",
+      "notes": "",
+      "recommendation": "Add sc:conditionsOfAccess documenting: (1) open access for standard download, (2) API token availability for bulk access, (3) that certain taxa are published at higher ranks rather than withheld."
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Security / Privacy",
+      "question": "Is secure data access documented (e.g., HTTPS, authentication)?",
+      "status": "partial",
+      "evidence": "Data portal and API use HTTPS. An API token (X-API-Token header) is available for authenticated access, documented in NEON_SERVER_DATA on the landing page.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Are author/creator names and affiliations documented for the dataset?",
+      "status": "partial",
+      "evidence": "No individual creator names in API. Organizational creator: NEON (National Ecological Observatory Network). Science team: Aquatic Observation System (AOS). Citation format uses 'NEON (National Ecological Observatory Network)' as author.",
+      "notes": "",
+      "recommendation": "Add NEON's Research Organization Registry (ROR) identifier for machine-readable institutional attribution. Consider listing AOS science team leads as contributors with DataCite contributorType=DataCurator."
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Do creator or contributor records include ORCID identifiers?",
+      "status": "does not meet",
+      "evidence": "No ORCIDs found in any metadata source.",
+      "notes": "",
+      "recommendation": "Add ORCIDs for key NEON AOS staff involved in data curation and QC. DataCite nameIdentifier with nameIdentifierScheme=ORCID is the standard field."
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is the data curator or steward identified?",
+      "status": "partial",
+      "evidence": "Aquatic Observation System (AOS) is the implicit curator. External taxonomy labs are documented. No formal DataCite DataCurator contributor entry.",
+      "notes": "",
+      "recommendation": "Add a DataCite contributor record with contributorType=DataCurator for the NEON AOS team."
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Are authors of the dataset documentation (data card, user guide) identified?",
+      "status": "partial",
+      "evidence": "User guide PDF listed in specs with title and NEON as publisher, but no individual document authors identified.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is a contact point provided for questions about the dataset?",
+      "status": "does not meet",
+      "evidence": "No contact person, email, or contact URL found in the product-level API metadata.",
+      "notes": "",
+      "recommendation": "Add sc:contactPoint or a DataCite ContactPerson contributor to the product metadata, linking to NEON's data help desk or AOS team contact."
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is an expert contact point provided for scientific questions about the dataset?",
+      "status": "partial",
+      "evidence": "Science team identified as 'Aquatic Observation System (AOS)' — no specific expert name or email.",
+      "notes": "",
+      "recommendation": "Add a named expert contact or group email for the AOS team to the product metadata."
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is a full dataset citation provided with a persistent identifier (DOI)?",
+      "status": "meets",
+      "evidence": "Six release-specific DOIs: RELEASE-2021 (10.48443/855x-0n27), RELEASE-2022 (10.48443/gn8x-k322), RELEASE-2023 (10.48443/zj4y-4073), RELEASE-2024 (10.48443/je35-bc57), RELEASE-2025 (10.48443/rmeq-8897), RELEASE-2026 (10.48443/hp56-s582). Annual DOI assignment is excellent practice.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset?",
+      "question": "For derived datasets, is full provenance from source data documented?",
+      "status": "N/A",
+      "evidence": "This is a primary field-collected dataset, not derived from another dataset.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset?",
+      "question": "Are source data producers identified (for derived datasets)?",
+      "status": "N/A",
+      "evidence": "Primary dataset.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset?",
+      "question": "Are constituent source datasets cited (for derived datasets)?",
+      "status": "N/A",
+      "evidence": "Primary dataset.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset?",
+      "question": "Are source data DOIs provided (for derived datasets)?",
+      "status": "N/A",
+      "evidence": "Primary dataset.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset?",
+      "question": "Are checksums of constituent source files provided (for derived datasets)?",
+      "status": "N/A",
+      "evidence": "Primary dataset.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Identifier",
+      "question": "Does the dataset have a persistent, globally unique identifier (DOI)?",
+      "status": "meets",
+      "evidence": "Six release-specific DOIs assigned annually. Most recent: RELEASE-2026 DOI https://doi.org/10.48443/hp56-s582.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Identifier",
+      "question": "Are checksums provided for dataset files to verify integrity?",
+      "status": "partial",
+      "evidence": "RELEASE-2026 manifest artifact has an MD5 checksum (33c04c0f24dba030d3082acf704e2c56) for the manifest file itself. Individual data file checksums are not documented at the product API level.",
+      "notes": "Manifest-level checksum is available for the release bundle, but per-file integrity verification is not possible without individual file checksums.",
+      "recommendation": "Add file-level checksums (SHA-256 preferred over MD5) for each data file in the download package. Croissant FileObject/sc:sha256 is the appropriate field."
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Processing platform/software",
+      "question": "Is the processing platform or software used to produce the dataset documented?",
+      "status": "partial",
+      "evidence": "External taxonomy labs (EcoAnalysts, Rhithron Associates) documented with version-tracked SOPs (Rev6, rev 3.1). neonUtilities R package available for data access. Internal NEON data processing pipeline (NEON Observation System) is not explicitly described with software versions.",
+      "notes": "",
+      "recommendation": "Add software references for the internal NEON data processing pipeline including version information (DataCite descriptions/description[@descriptionType='Methods'])."
+    },
+    {
+      "section": "Ethical + CARE",
+      "sub_section": "Governance",
+      "question": "Are storage conditions for physical specimens or data documented?",
+      "status": "meets",
+      "evidence": "Physical specimens archived at NEON Biorepository: 12 collections documented including fluid-preserved Chironomids (BMIC-CH), Oligochaetes (BMIC-OL), DNA extracts (BMIC-DNA), unsorted bulk samples (BMIC-UB), slide-mounted specimens (BMIC-MS), and taxonomy subsamples (BMIC-TS), plus identified variants. DwC-Archive download URLs provided for each collection. Ethanol preservation with glycerol addition documented in productDesignDescription.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Ethical + CARE",
+      "sub_section": "Governance",
+      "question": "Is it documented that permission was obtained to collect the observations or samples?",
+      "status": "partial",
+      "evidence": "NEON operates under federal and state land-use agreements to collect samples at its 34 aquatic sites. No explicit permitting documentation appears in the product-level API metadata.",
+      "notes": "NEON's operations require permits from land managers (USFS, NPS, BLM, state agencies, private landowners); institutionally documented but not at the product level.",
+      "recommendation": "Add a formal statement in product metadata documenting that collection was authorized under NEON's site access agreements and relevant state and federal collection permits."
+    },
+    {
+      "section": "Ethical + CARE",
+      "sub_section": "Governance",
+      "question": "Is the agent (person or institution) who granted permission to collect documented?",
+      "status": "does not meet",
+      "evidence": "No documentation of permitting agency, land owner, or approving authority in the product-level API metadata.",
+      "notes": "",
+      "recommendation": "Document categories of land owners and regulatory authorities that approved NEON collection at each site. This is particularly important for sites within or adjacent to tribal lands or national parks."
+    },
+    {
+      "section": "Ethical + CARE",
+      "sub_section": "Governance",
+      "question": "Are Indigenous peoples or communities whose territories are represented in the data documented (CARE Principles)?",
+      "status": "does not meet",
+      "evidence": "No documentation of Indigenous territories, CARE Principles compliance, or Indigenous data governance found in any metadata source.",
+      "notes": "Several NEON sites (e.g., ARIK in ancestral Arikara territory, OKSR and TOOK in Alaska) may be in or near Indigenous territories. CARE Principles require this documentation for internationally shared biodiversity data.",
+      "recommendation": "Conduct a CARE Principles (Collective Benefit, Authority to Control, Responsibility, Ethics) assessment for all 34 NEON aquatic sites and document Indigenous territorial relationships in product metadata. Link to the CARE Principles (DOI: 10.5334/dsj-2020-043) as a relatedIdentifier."
+    },
+    {
+      "section": "Ethical + CARE",
+      "sub_section": "Collection",
+      "question": "Is the timestamp of observation documented at the record level?",
+      "status": "meets",
+      "evidence": "inv_fieldData contains collectDate at the field sampling level. Temporal coverage spans 2014-07 to 2025-11 across 34 sites. Three bout windows per year (spring, summer, fall) consistently documented.",
+      "notes": "",
+      "recommendation": ""
+    },
+    {
+      "section": "Ethical + CARE",
+      "sub_section": "Collection",
+      "question": "Is the chain of custody or sequence of actions leading to each observation documented?",
+      "status": "meets",
+      "evidence": "Full processing chain documented: field collection date (collectDate in inv_fieldData) → ethanol preservation → shipping → lab identification (inv_taxonomyProcessed with processingDate fields) → NEON QC → publication. inv_identificationHistory tracks label revision timestamps. 16 change log entries provide chronological issue-resolution history.",
+      "notes": "",
+      "recommendation": ""
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "Six annual versioned releases (RELEASE-2021 through RELEASE-2026) each with a unique, persistent DOI — excellent versioning and citability practice",
+      "Rich methods documentation: full processing chain from field collection through expert taxonomy, with version-tracked lab SOPs for two contracted taxonomy labs",
+      "inv_identificationHistory table provides a complete audit trail of taxonomic label changes — rare in biodiversity datasets and critical for ML label provenance",
+      "16 documented change log entries providing transparent history of data quality issues and their resolutions, including taxonomic synonym changes, COVID-19 impacts, and duplicate record corrections",
+      "Taxonomic obfuscation (sensitive species 'fuzzing') explicitly documented with full changelog history of how the policy evolved (state-level → domain-level → site-level granularity)",
+      "Extensive physical biorepository with 12 collections and DwC-Archive downloads, enabling physical verification of identified specimens",
+      "NEON REST API provides structured programmatic access with per-site, per-month data URL endpoints and GCS-hosted release manifests",
+      "samplingImpractical flag explicitly distinguishes missed collections from true non-detections — crucial for correct ML interpretation of absence records"
+    ],
+    "gaps": [
+      "No ML-ready train/validation/test split guidance — the most significant gap for AI/ML reuse",
+      "Machine-readable license (CC0-1.0 SPDX identifier) not in product-level API metadata despite being NEON's published institutional policy",
+      "No machine-readable data dictionary: variable names, types, and units exist only in a PDF user guide",
+      "Taxonomic backbone identity and version not stated — users cannot determine which external reference (ITIS, GBIF Backbone) underlies NEON's synonymy assignments",
+      "No class distribution statistics (number of unique taxa, records per taxon) — essential for ML class imbalance assessment",
+      "No contact point, issue tracker, or discussion URL in product metadata",
+      "No individual ORCIDs for creators or curators",
+      "Indigenous peoples / CARE Principles governance entirely undocumented",
+      "No AI/ML usage history or linked prior ML applications",
+      "No supported ML task documentation or benchmark definition"
+    ],
+    "overall_assessment": "NEON's Macroinvertebrate collection (DP1.20120.001) is an exceptionally well-curated primary biodiversity dataset with strong FAIR foundations: versioned DOIs, a rich REST API, comprehensive methods documentation, taxonomic label provenance via inv_identificationHistory, and transparent change logging. Its primary gaps for AI/ML reuse are structural rather than content-related: there is no ML-specific documentation (splits, supported tasks, class distributions, bias characterization, AI usage history), no machine-readable variable schema, and no machine-readable license in the product API. Addressing the Croissant/schema.org machine-readiness gap, adding explicit ML split guidance, and documenting the taxonomic backbone version would substantially improve AI-readiness without requiring changes to the underlying data.",
+    "fair4ai_scores": {
+      "findable": "8/10 — Release-specific DOIs, rich abstract, 17 keywords, and a stable landing page URL; docked for missing related-publication links, IsCitedBy references, and geographic keywords.",
+      "accessible": "8/10 — REST API, direct download, GCS cloud access, and open CSV format; docked for absent machine-readable license in API and undocumented API rate limits.",
+      "interoperable": "5/10 — CSV and DwC-A formats, NEON's taxonomic backbone; docked significantly for absent schema.org/Croissant metadata, undocumented backbone identity/version, no machine-readable variable schema, and no ontology-linked keywords.",
+      "reusable": "7/10 — CC0 license (institutional policy), excellent methods docs, version-tracked SOPs, annual release DOIs; docked for machine-readable license absent from API, no ORCIDs, no contact point, and absent individual file checksums.",
+      "ai_ready": "3/10 — Identification history and samplingImpractical flag are exemplary for label provenance and non-detection semantics; but no ML splits, no class distributions, no bias documentation, no supported task documentation, no ML usage history, and no machine-readiness conformance declaration."
+    }
+  }
+}

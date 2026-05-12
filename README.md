@@ -1,6 +1,12 @@
 # FAIR4AI-checklists
 FAIR4AI Working Group repo for organization, planning, and development.
 
+## Dataset Evaluation Agent
+
+**[`fair4ai-eval-agent/`](fair4ai-eval-agent/)** — Current agent (v2): a platform-agnostic AI agent that evaluates datasets for AI-readiness using the FAIR4AI-Bio checklist. Works with Claude Code, GitHub Copilot, and ChatGPT. See [`fair4ai-eval-agent/README.md`](fair4ai-eval-agent/README.md) for setup instructions.
+
+`fair4ai-eval-agent-v1/` — Archived Python script agent (OpenAI/Azure/Anthropic). Superseded by v2.
+
 ## Current Resources/Drafts:
 
 - [Definitions_FAIR4AI_AI-ready.md](Definitions_FAIR4AI_AI-ready.md)
