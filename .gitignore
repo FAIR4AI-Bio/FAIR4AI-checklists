@@ -221,3 +221,9 @@ __marimo__/
 
 # Mac System
 .DS_Store
+
+# AI tool local configuration (set up locally per README instructions — not committed)
+.claude/
+.github/
+**/.claude/
+**/.github/
