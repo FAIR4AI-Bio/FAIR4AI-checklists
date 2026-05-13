@@ -1,12 +1,6 @@
 # FAIR4AI-checklists
 FAIR4AI Working Group repo for organization, planning, and development.
 
-## Dataset Evaluation Agent
-
-**[`fair4ai-eval-agent/`](fair4ai-eval-agent/)** — Current agent (v2): a platform-agnostic AI agent that evaluates datasets for AI-readiness using the FAIR4AI-Bio checklist. Works with Claude Code, GitHub Copilot, and ChatGPT. See [`fair4ai-eval-agent/README.md`](fair4ai-eval-agent/README.md) for setup instructions.
-
-`fair4ai-eval-agent-v1/` — Archived Python script agent (OpenAI/Azure/Anthropic). Superseded by v2.
-
 ## Current Resources/Drafts:
 
 - [Definitions_FAIR4AI_AI-ready.md](Definitions_FAIR4AI_AI-ready.md)
@@ -35,3 +29,9 @@ FAIR4AI Working Group repo for organization, planning, and development.
 FAIR4AI is to the point that it can be fed into a pipeline to have an output ready to put into a model. This can be the "AI-enabled" step.
 
 We are working from the idea that AI-Ready is meant as this data can be fed directly into a model, so data need not be published in this format, just in a format that it is "reasonable" to get there. An example being the [TreeOfLife-200M dataset](https://huggingface.co/datasets/imageomics/TreeOfLife-200M) is not AI-Ready, but using existing pipelines (once all data is downloaded), it can be transformed into the webdataset format used to train [BioCLIP 2](https://huggingface.co/imageomics/bioclip-2). Under this definition, the constituent parts of TreeOfLife-200M are not FAIR4AI.
+
+## Dataset Evaluation Agent
+
+**[`fair4ai-eval-agent/`](fair4ai-eval-agent/)** — Current agent (v2): a platform-agnostic AI agent that evaluates datasets for AI-readiness using the FAIR4AI-Bio checklist. Works with Claude Code, GitHub Copilot, and ChatGPT. See [`fair4ai-eval-agent/README.md`](fair4ai-eval-agent/README.md) for setup instructions.
+
+`fair4ai-eval-agent-v1/` — Archived Python script agent (OpenAI/Azure/Anthropic). Superseded by v2.
