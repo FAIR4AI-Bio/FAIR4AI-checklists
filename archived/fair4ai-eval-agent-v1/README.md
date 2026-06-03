@@ -309,7 +309,7 @@ The form CSV should contain:
 
 Default form: `form_ai_checklist_automated.csv` (135 questions across 9 sections)
 
-The code used to create this file from the [FAIR4AI Checklist form](https://forms.gle/P3MWmJJAi5vq248E8), is in the [checklist workflow directory](../checklist-workflow/00_README.md).
+The code used to create this file from the [FAIR4AI Checklist form](https://forms.gle/P3MWmJJAi5vq248E8), is in the [checklist workflow directory](../../checklist-editing-workflow/00_README.md).
 
 ### Input: Metadata Files
 

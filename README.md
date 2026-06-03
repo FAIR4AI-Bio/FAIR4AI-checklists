@@ -32,6 +32,6 @@ We are working from the idea that AI-Ready is meant as this data can be fed dire
 
 ## Dataset Evaluation Agent
 
-**[`fair4ai-eval-agent-v2/`](fair4ai-eval-agent-v2/)** — Current agent (v2): a platform-agnostic AI agent that evaluates datasets for AI-readiness using the FAIR4AI-Bio checklist. Works with Claude Code, GitHub Copilot, and ChatGPT. See [`fair4ai-eval-agent-v2/README.md`](fair4ai-eval-agent-v2/README.md) for setup instructions.
+**[`fair4ai-eval-agent/`](fair4ai-eval-agent/)** — Current agent (v2): a platform-agnostic AI agent that evaluates datasets for AI-readiness using the FAIR4AI-Bio checklist. Works with Claude Code, GitHub Copilot, and ChatGPT. See [`fair4ai-eval-agent/README.md`](fair4ai-eval-agent/README.md) for setup instructions.
 
-`fair4ai-eval-agent-v1/` — Archived Python script agent (OpenAI/Azure/Anthropic). Superseded by v2.
+`archived/fair4ai-eval-agent-v1/` — Archived Python script agent (OpenAI/Azure/Anthropic). Superseded by v2.
