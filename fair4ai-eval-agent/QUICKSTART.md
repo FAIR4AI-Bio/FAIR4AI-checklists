@@ -146,7 +146,7 @@ You can re-run the command on the same dataset after making improvements and com
 
 - **New checklist items**: add rows to the checklist CSV following the existing column structure. The agent reads the CSV fresh each run.
 - **New output fields**: edit the template JSON. The agent uses it as a structural reference, not a data source.
-- **Changing defaults**: update the checklist filename or template filename in `skills/evaluate-dataset.md` under the "Gather parameters" step.
+- **Changing defaults**: update the checklist filename or template filename in `.claude/commands/evaluate-dataset.md` under the "Gather parameters" step.
 
 ---
 
@@ -154,7 +154,8 @@ You can re-run the command on the same dataset after making improvements and com
 
 | File | Role |
 |------|------|
-| `skills/evaluate-dataset.md` | The skill definition — platform-agnostic prompt |
+| `.claude/commands/evaluate-dataset.md` | Defines the `/evaluate-dataset` command and evaluation workflow |
+| `CLAUDE.md` | Project context auto-loaded by Claude Code each session |
 | `CHECKLIST.csv` | Default checklist source |
 | `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-01-25.json` | Default output template |
 | `CHECKLIST_OVERVIEW.md` | Human-readable checklist summary (reference) |

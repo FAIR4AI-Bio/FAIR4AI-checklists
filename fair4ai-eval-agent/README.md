@@ -11,26 +11,20 @@ See `example_outputs/` for complete evaluation reports for two NEON datasets.
 ## Requirements
 
 - A dataset source: URL to a landing page, or a local directory containing metadata files (JSON-LD, EML, DataCite XML, README, etc.)
-- Access to **Claude Code**, **GitHub Copilot Chat**, or **ChatGPT**
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed
 
 ---
 
-## Setup: Claude Code
+## Setup
 
-Run these commands once from the **root of this repository**:
-
-```bash
-mkdir -p fair4ai-eval-agent/.claude/commands
-cp fair4ai-eval-agent/skills/evaluate-dataset.md \
-   fair4ai-eval-agent/.claude/commands/evaluate-dataset.md
-```
-
-Then open Claude Code with `fair4ai-eval-agent/` as the working directory:
+Open Claude Code with `fair4ai-eval-agent/` as the working directory:
 
 ```bash
 cd fair4ai-eval-agent
 claude
 ```
+
+No additional setup steps are required. The `/evaluate-dataset` command is defined in `.claude/commands/evaluate-dataset.md` and is tracked in this repository.
 
 In the Claude Code chat, type:
 
@@ -40,45 +34,16 @@ In the Claude Code chat, type:
 
 The agent will prompt you for the dataset source and other parameters. Press Enter to accept defaults for optional parameters.
 
-> **Note:** `.claude/` is in `.gitignore` — this setup step is local only and will not be committed to the repository.
-
 ---
 
-## Setup: GitHub Copilot
+## How the agent files work
 
-Run these commands once from the **root of this repository**:
+Claude Code reads two files automatically when you start a session in this directory:
 
-```bash
-mkdir -p fair4ai-eval-agent/.github
-cp fair4ai-eval-agent/skills/evaluate-dataset.md \
-   fair4ai-eval-agent/.github/copilot-instructions.md
-```
+- **`CLAUDE.md`** — project context loaded into every session: what the agent does, how the checklist is structured, the output JSON schema, and expected score patterns.
+- **`.claude/commands/evaluate-dataset.md`** — defines the `/evaluate-dataset` slash command. Contains the step-by-step evaluation workflow: gather parameters, load the checklist, fetch metadata, score each item, build the output JSON.
 
-Open the `fair4ai-eval-agent/` folder in VS Code. GitHub Copilot Chat will automatically apply the instructions from `.github/copilot-instructions.md`.
-
-Start a Copilot Chat session and provide the parameters in natural language, following the format in `QUICKSTART_evaluate-dataset.md`. For example:
-
-> "Please evaluate this dataset for AI-readiness using the FAIR4AI-Bio checklist. The dataset source is https://data.neonscience.org/data-products/DP1.10022.001. Use CHECKLIST.csv as the checklist file and save the output as FAIR4AI_eval_my_dataset_2026-05-12.json."
-
-> **Note:** Copilot Chat does not support named slash commands natively — provide parameters in natural language. `.github/` is in `.gitignore` and will not be committed.
-
----
-
-## Setup: ChatGPT
-
-### Option A: Custom GPT (recommended for repeated use)
-
-1. Go to [chatgpt.com](https://chatgpt.com) → **Explore GPTs** → **Create a GPT**
-2. In the **Instructions** field, paste the full contents of [`skills/evaluate-dataset.md`](skills/evaluate-dataset.md)
-3. Under **Knowledge**, upload [`CHECKLIST.csv`](CHECKLIST.csv)
-4. Save the GPT
-5. Start a conversation and provide your dataset source URL or paste metadata file contents
-
-### Option B: One-off conversation
-
-1. Open a new ChatGPT conversation
-2. Paste the full contents of `skills/evaluate-dataset.md` as your first message
-3. Follow up with your dataset source and parameters as described in `QUICKSTART_evaluate-dataset.md`
+To modify agent behavior, edit these files directly. Changes are tracked in git and shared across the team.
 
 ---
 
@@ -100,10 +65,11 @@ See `example_outputs/` for complete examples.
 
 | File | Description |
 |------|-------------|
-| `skills/evaluate-dataset.md` | Platform-agnostic skill definition — the canonical evaluation prompt |
+| `CLAUDE.md` | Project context auto-loaded by Claude Code each session |
+| `.claude/commands/evaluate-dataset.md` | Defines the `/evaluate-dataset` slash command and evaluation workflow |
 | `CHECKLIST.csv` | 80-item FAIR4AI-Bio checklist (8 sections, mapped to EML, DataCite, Schema.org, Croissant) |
 | `CHECKLIST_OVERVIEW.md` | Narrative description of all 8 checklist sections |
-| `QUICKSTART_evaluate-dataset.md` | Step-by-step usage guide with example sessions |
+| `QUICKSTART.md` | Step-by-step usage guide with example sessions |
 | `example_outputs/` | Complete evaluation reports for two NEON datasets |
 
 ---

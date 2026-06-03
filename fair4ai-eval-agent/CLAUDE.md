@@ -16,7 +16,7 @@ Type `/evaluate-dataset` in Claude Code chat. The agent will prompt for:
 4. **Output directory** *(optional)* — defaults to current working directory
 5. **Output filename** *(optional)* — defaults to `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json`
 
-For detailed usage examples, see `QUICKSTART_evaluate-dataset.md`.
+For detailed usage examples, see `QUICKSTART.md`.
 
 ## Checklist structure
 

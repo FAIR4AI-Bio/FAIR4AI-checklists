@@ -222,8 +222,7 @@ __marimo__/
 # Mac System
 .DS_Store
 
-# AI tool local configuration (set up locally per README instructions — not committed)
-.claude/
+# AI tool local configuration — track commands and settings, ignore machine-specific local overrides
+**/.claude/settings.local.json
 .github/
-**/.claude/
 **/.github/
