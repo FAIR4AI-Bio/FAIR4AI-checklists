@@ -1,9 +1,4 @@
-My notes:
-- service account: google-form-app@fair4ai.iam.gserviceaccount.com
-- local path to key: "C:\Users\esokol\OneDrive - Battelle Ecology\Documents\MY_KEYES\fair4ai-f47a43a6a4df.json"
-- target form: https://docs.google.com/forms/d/1gz570yBe2zDJFI__iIhLkWjK69Yy7KIkmVYiWYTQMLw/edit
-- target form id: 1gz570yBe2zDJFI__iIhLkWjK69Yy7KIkmVYiWYTQMLw
+Local notes placeholder.
 
-- working form (human edits) 
-    - https://docs.google.com/forms/d/1vznBIkNQ09XadHn1gJ_p64WotNqrgmel_ub3aQmWytc/edit
-    - form id: 1vznBIkNQ09XadHn1gJ_p64WotNqrgmel_ub3aQmWytc
+Do not commit credentials, local file paths, service-account emails, or Google Form IDs/URLs.
+Create a personal notes file locally and add it to `.gitignore` if needed.

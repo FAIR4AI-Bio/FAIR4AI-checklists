@@ -5,27 +5,18 @@
 
 echo "Setting environment variables for current session..."
 
-# Set environment variables
-export FORM_ID="1gz570yBe2zDJFI__iIhLkWjK69Yy7KIkmVYiWYTQMLw"
-export CREDS_PATH="/mnt/c/Users/esokol/OneDrive - Battelle Ecology/Documents/MY_KEYES/fair4ai-f47a43a6a4df.json"
+# Set environment variables (edit these or export them before sourcing this file)
+export FORM_ID="${FORM_ID:-YOUR_FORM_ID_HERE}"
+export CREDS_PATH="${CREDS_PATH:-/path/to/your/credentials.json}"
 
-echo "âœ“ FORM_ID set to: $FORM_ID"
-echo "âœ“ CREDS_PATH set to: $CREDS_PATH"
+echo "✓ FORM_ID set to: $FORM_ID"
+echo "✓ CREDS_PATH set to: $CREDS_PATH"
 
-# Add to ~/.bashrc for persistence if not already present
-if ! grep -q "# FAIR4AI environment variables" ~/.bashrc; then
-    echo "" >> ~/.bashrc
-    echo "# FAIR4AI environment variables" >> ~/.bashrc
-    echo "export FORM_ID=\"1gz570yBe2zDJFI__iIhLkWjK69Yy7KIkmVYiWYTQMLw\"" >> ~/.bashrc
-    echo "export CREDS_PATH=\"/mnt/c/Users/esokol/OneDrive - Battelle Ecology/Documents/MY_KEYES/fair4ai-f47a43a6a4df.json\"" >> ~/.bashrc
-    echo ""
-    echo "âœ“ Environment variables added to ~/.bashrc for persistence"
-    echo "  These will be available in all future bash sessions"
-else
-    echo ""
-    echo "âš  Environment variables already exist in ~/.bashrc"
-    echo "  If you need to update them, edit ~/.bashrc manually"
-fi
+# NOTE: This script intentionally does not modify ~/.bashrc.
+# If you want these values to persist across sessions, add the exports to your shell profile manually (e.g., ~/.bashrc, ~/.zshrc).
+# Example:
+#   export FORM_ID="..."
+#   export CREDS_PATH="..."
 
 echo ""
 echo "Environment variables set successfully!"
