@@ -1,6 +1,6 @@
 # FAIR4AI Dataset Evaluation Agent
 
-An AI agent that evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the **FAIR4AI-Bio checklist**. The agent reads a dataset's landing page or local metadata files, scores each of ~80 checklist items as *meets / partial / does not meet / N/A*, and produces a structured JSON report with FAIR4AI scores across five dimensions (Findable, Accessible, Interoperable, Reusable, AI-ready — each out of 10).
+An AI agent that evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the **FAIR4AI-Bio checklist**. The agent reads a dataset's landing page or local metadata files, rates each of the 96 checklist items as *meets / partial / does not meet / N/A* (per `RATING_RUBRIC.md`), and produces a structured JSON report with reproducible FAIR4AI scores across five dimensions (Findable, Accessible, Interoperable, Reusable, AI-ready) plus an overall score — each in **0–1, where 1 is "most FAIR4AI"**, computed by the `fair4ai-scoring` skill.
 
 The core thesis: **FAIR compliance is necessary but not sufficient for AI-ready data.** This agent surfaces the gap.
 
@@ -38,10 +38,12 @@ The agent will prompt you for the dataset source and other parameters. Press Ent
 
 ## How the agent files work
 
-Claude Code reads two files automatically when you start a session in this directory:
+Claude Code reads these files automatically when you start a session in this directory:
 
 - **`CLAUDE.md`** — project context loaded into every session: what the agent does, how the checklist is structured, the output JSON schema, and expected score patterns.
-- **`.claude/commands/evaluate-dataset.md`** — defines the `/evaluate-dataset` slash command. Contains the step-by-step evaluation workflow: gather parameters, load the checklist, fetch metadata, score each item, build the output JSON.
+- **`.claude/commands/evaluate-dataset.md`** — defines the `/evaluate-dataset` slash command. Contains the step-by-step evaluation workflow: gather parameters, load the checklist, fetch metadata, rate each item, build the output JSON, and compute scores.
+- **`RATING_RUBRIC.md`** — the authority for how each item's `meets / partial / does not meet / N/A` status is chosen (including the N/A rule).
+- **`.claude/skills/fair4ai-scoring/`** + **`scripts/compute_fair4ai_scores.py`** — the skill and deterministic tool that compute `summary.fair4ai_scores` (0–1) from the per-item statuses and each item's `FAIR4AI category`.
 
 To modify agent behavior, edit these files directly. Changes are tracked in git and shared across the team.
 
@@ -52,8 +54,8 @@ To modify agent behavior, edit these files directly. Changes are tracked in git 
 The JSON report has three top-level sections:
 
 - **`session`** — evaluation date, AI model, metadata sources used, dataset identity (title, DOI, landing page URL, citation), and evaluator information
-- **`responses`** — one object per checklist item with `section`, `sub_section`, `question`, `status` (`meets` / `partial` / `does not meet` / `N/A`), `evidence`, `notes`, and `recommendation`
-- **`summary`** — `strengths`, `gaps`, `overall_assessment` (2–3 sentence narrative), and `fair4ai_scores` (each dimension scored /10 with a one-line rationale)
+- **`responses`** — one object per checklist item with `section`, `sub_section`, `question`, `status` (`meets` / `partial` / `does not meet` / `N/A`), `evidence`, `notes`, `recommendation`, and `fair4ai_category` (the dimension(s) the item counts toward)
+- **`summary`** — `strengths`, `gaps`, `overall_assessment` (2–3 sentence narrative), and `fair4ai_scores` (each dimension plus an overall score in 0–1, with per-dimension `details` counts) computed by the `fair4ai-scoring` skill
 
 Output filename convention: `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json`
 

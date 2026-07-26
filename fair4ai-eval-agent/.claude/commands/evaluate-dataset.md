@@ -32,16 +32,20 @@ After the user responds, confirm the resolved parameters (substituting defaults 
 
 ## Step 2: Load the checklist
 
-Read the checklist CSV file. Each non-blank row is a checklist item. Key columns:
+Read the checklist CSV file (`CHECKLIST.csv`, 96 items). Each row with a non-blank `Item` is a checklist item. Key columns:
 
-| CSV column | Maps to JSON field |
+| CSV column | Maps to JSON field / use |
 |---|---|
 | `Broad categories` | `section` |
-| `sub category` | `sub_section` |
-| `items` | basis for `question` |
-| `Proposed definition` / `note` | context to interpret the criterion |
+| `Sub category` | `sub_section` |
+| `Item` | basis for `question` |
+| `Proposed definition` / `Note` | context to interpret the criterion |
+| `FAIR4AI category` | copied verbatim into each response's `fair4ai_category` |
+| `Use-case scope (Condition)` | drives the **N/A** decision (see Step 4) |
+| `Required (core, auto, or recommended)` | emphasis in the narrative (core gaps weigh more) |
+| `Applies-at-level` | context for what "present" means (dataset / event / occurrence / media-annotation) |
 
-Skip rows where `items` is blank, starts with `-`, or where `Broad categories` is `Other`. Rewrite each `items` value as a complete, clear question for the `question` field.
+Skip only rows where `Item` is blank. (This checklist has no leading-`-` rows and no `Other` category.) For the few rows with a blank `Broad categories` (some CARE/governance rows), fall back to the `Sub category` value for the `section` label. Rewrite each `Item` value as a complete, clear question for the `question` field.
 
 ## Step 3: Fetch dataset metadata
 
@@ -61,19 +65,27 @@ If metadata retrieval is incomplete or fails for some sources, note this in the 
 
 ## Step 4: Evaluate each checklist item
 
-For every checklist item, assess the dataset metadata and fill in four fields:
+`RATING_RUBRIC.md` is the authority for how to choose a status — read it and apply it. For every checklist item, assess the dataset metadata and fill in five fields:
 
-- **`status`**: one of exactly four values:
-  - `"meets"` — criterion is clearly and fully satisfied by the metadata
-  - `"partial"` — criterion is addressed but incompletely or only implicitly
-  - `"does not meet"` — criterion is not addressed at all, or actively absent
-  - `"N/A"` — criterion is not applicable to this dataset type (e.g., derived-dataset questions for a primary dataset)
+- **`status`**: one of exactly four values (rubric §2):
+  - `"meets"` — the information the item asks for is clearly present and evidence-locatable in the metadata
+  - `"partial"` — the information is present but incomplete, ambiguous, buried in free text, or not machine-locatable
+  - `"does not meet"` — the item applies to this dataset but the information is absent or not findable (includes dangling links that do not resolve)
+  - `"N/A"` — the item does not apply to this dataset (see the N/A rule below)
+
+  **Evidence is required for `meets` and `partial`** (rubric §2). If you cannot cite concrete evidence, the correct status is `does not meet`, not `meets`.
+
+  **N/A rule (rubric §3):** an item is `N/A` only when its `Use-case scope (Condition)` does not apply to this dataset — a **scope mismatch** (e.g. `Derived/compiled datasets` items for a primary dataset; `Human/sensitive data` items for non-sensitive data; `Experimental data` items for observational data) or a **modality mismatch** (e.g. `Text/NLP` language for an image/tabular dataset; sensor/instrument items for a dataset with no such captures). Items scoped `All use cases` are **never** N/A. The `Required` tier (`core`/`auto`/`recommended`) never triggers N/A — a missing in-scope item is `does not meet`, just lower-emphasis.
+
+  **Blended criteria (rubric §4):** when the `Criteria: Structural/Scientific/Provenance` column lists more than one facet, rate each applicable facet and take the **lower** status.
 
 - **`evidence`**: quote or cite specific metadata fields, field names, or values that support the status. For `"does not meet"`, state explicitly what is absent.
 
-- **`notes`**: caveats, edge cases, or secondary observations not captured in evidence.
+- **`notes`**: caveats, edge cases, or secondary observations not captured in evidence. For `"N/A"`, name the scope/modality that is absent.
 
 - **`recommendation`**: if status is `"partial"` or `"does not meet"`, provide specific and actionable guidance — name the field, standard, or format the dataset should adopt, and briefly explain why it matters for AI/ML reuse. Leave as `""` if status is `"meets"` or `"N/A"`.
+
+- **`fair4ai_category`**: copy the item's `FAIR4AI category` value **verbatim** from the checklist (a pipe-separated subset of `Findable | Accessible | Interoperable | Reusable | AI-ready`, or blank for context-only items). This field drives the reproducible scoring in Step 5 — do not omit it.
 
 When evidence is ambiguous, assign `"partial"` rather than guessing in either direction, and explain the ambiguity in `notes`.
 
@@ -107,43 +119,56 @@ Construct the full evaluation document using the structure below. Do not omit an
   "responses": [
     {
       "section": "<Broad categories value from CSV>",
-      "sub_section": "<sub category value from CSV>",
+      "sub_section": "<Sub category value from CSV>",
       "question": "<item text rewritten as a complete question>",
       "status": "<meets | partial | does not meet | N/A>",
       "evidence": "<specific evidence from metadata>",
       "notes": "<additional context or blank>",
-      "recommendation": "<actionable guidance, or blank string>"
+      "recommendation": "<actionable guidance, or blank string>",
+      "fair4ai_category": "<FAIR4AI category value copied verbatim from CSV, e.g. 'Accessible | Reusable', or blank>"
     }
   ],
   "summary": {
     "strengths": ["<notable strength>", "..."],
     "gaps": ["<notable gap>", "..."],
     "overall_assessment": "<2-3 sentence narrative summary>",
-    "fair4ai_scores": {
-      "findable": "<X/10 — one-line rationale>",
-      "accessible": "<X/10 — one-line rationale>",
-      "interoperable": "<X/10 — one-line rationale>",
-      "reusable": "<X/10 — one-line rationale>",
-      "ai_ready": "<X/10 — one-line rationale>"
-    }
+    "fair4ai_scores": "<computed by the fair4ai-scoring skill in this step — leave as an empty object {} until then>"
   }
 }
 ```
 
-Score each FAIR4AI dimension out of 10 using this guidance:
-- **Findable**: PID/DOI, rich metadata, keywords, landing page
-- **Accessible**: download, API, open formats, clear license, access conditions documented
-- **Interoperable**: use of standards (EML, DwC, schema.org, ENVO, etc.), machine-readable formats, linked controlled vocabularies
-- **Reusable**: attribution, provenance, methods documentation, license clarity, checksums
-- **AI-ready**: annotation provenance, split guidance, bias/limitations documented, class distributions, missing-data semantics, AI/ML usage history, issue reporting
+Do **not** estimate the FAIR4AI scores yourself. Instead, build `responses[]` (each with its `status` and `fair4ai_category`) and the rest of the `summary`, write the file (Step 6), then invoke the **`fair4ai-scoring`** skill:
 
-## Step 6: Write the output and report to the user
+```bash
+python scripts/compute_fair4ai_scores.py <output.json>
+```
+
+The skill computes `summary.fair4ai_scores` deterministically from the per-item statuses and their `fair4ai_category` values: `meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A → excluded`; per-dimension score = mean of contributing items (an item mapped to several dimensions counts in each); overall = **equal-weight** mean of the scored dimensions. All scores are in **0–1, where 1 is "most FAIR4AI"**. It writes this block back into the file:
+
+```json
+"fair4ai_scores": {
+  "findable": 0.83, "accessible": 0.75, "interoperable": 0.6,
+  "reusable": 0.7, "ai_ready": 0.33, "overall": 0.64,
+  "details": {
+    "findable": { "n_scored": 6, "meets": 4, "partial": 2, "does_not_meet": 0, "na": 1 }
+  }
+}
+```
+
+(The `FAIR4AI category` mapping in the checklist assigns each item to the dimension(s) it counts toward, using: Findable = PID/DOI, rich metadata, keywords, landing page; Accessible = download/API/open formats/license/access conditions; Interoperable = standards (EML, DwC, schema.org, ENVO), machine-readable formats, controlled vocab; Reusable = attribution, provenance, methods docs, license clarity, checksums; AI-ready = annotation provenance, split guidance, bias/limitations, class distributions, missing-data semantics, AI/ML usage history, issue reporting.)
+
+## Step 6: Write the output, compute scores, and report to the user
 
 1. Generate the output filename: `FAIR4AI_eval_<dataset-name-sanitized>_<YYYY-MM-DD>.json` (replace spaces and special characters with underscores in the dataset name portion).
-2. Write the JSON file to the specified output directory.
-3. Report to the user:
+2. Write the JSON file to the specified output directory (with `fair4ai_scores` as an empty object for now).
+3. Compute the scores reproducibly by invoking the **`fair4ai-scoring`** skill on the file just written:
+   ```bash
+   python scripts/compute_fair4ai_scores.py <output.json>
+   ```
+   This populates `summary.fair4ai_scores` (0–1 per dimension + overall + per-dimension `details`). Resolve any `WARNING:` it prints (e.g., a scoreable item missing its `fair4ai_category`) and re-run.
+4. Report to the user:
    - Full path of the output file written
    - Total checklist items evaluated
    - Count breakdown by status (meets / partial / does not meet / N/A)
-   - FAIR4AI scores (one line each)
+   - The computed **0–1** FAIR4AI scores per dimension **and the overall score**, noting they are script-computed (reproducible), not estimated
    - Top 3 highest-priority recommendations (those for "does not meet" items first, then "partial")

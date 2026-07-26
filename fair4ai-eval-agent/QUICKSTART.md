@@ -70,7 +70,8 @@ One object per checklist item, organized by `section` and `sub_section` to match
   "status": "does not meet",
   "evidence": "No mention of checksums in any metadata source reviewed.",
   "notes": "",
-  "recommendation": "Generate and publish SHA-256 checksums for all released data files..."
+  "recommendation": "Generate and publish SHA-256 checksums for all released data files...",
+  "fair4ai_category": "Reusable"
 }
 ```
 
@@ -84,7 +85,7 @@ One object per checklist item, organized by `section` and `sub_section` to match
 - `strengths` — list of notable positives
 - `gaps` — list of notable gaps
 - `overall_assessment` — 2–3 sentence narrative
-- `fair4ai_scores` — scores out of 10 for Findable, Accessible, Interoperable, Reusable, and AI-ready, each with a one-line rationale
+- `fair4ai_scores` — reproducible scores in **0–1** (1 = "most FAIR4AI") for Findable, Accessible, Interoperable, Reusable, and AI-ready, plus an `overall` score and per-dimension `details` counts, computed by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`)
 
 ---
 
