@@ -12,7 +12,7 @@ Type `/evaluate-dataset` in Claude Code chat. The agent will prompt for:
 
 1. **Dataset source** *(required)* — URL to a landing page, or a local path to a directory of metadata files
 2. **Checklist file** *(optional)* — defaults to `CHECKLIST.csv`
-3. **Template file** *(optional)* — defaults to `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-01-25.json`
+3. **Template file** *(optional)* — defaults to `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` (the current-schema example)
 4. **Output directory** *(optional)* — defaults to current working directory
 5. **Output filename** *(optional)* — defaults to `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json`
 

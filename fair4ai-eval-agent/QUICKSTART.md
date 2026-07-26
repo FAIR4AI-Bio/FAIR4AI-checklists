@@ -1,6 +1,6 @@
 # Quickstart: `/evaluate-dataset`
 
-This slash command evaluates a biodiversity, ecology, or environmental science dataset against the FAIR4AI-Bio checklist and produces a structured JSON evaluation report.
+This skill evaluates a biodiversity, ecology, or environmental science dataset against the FAIR4AI-Bio checklist and produces a structured JSON evaluation report. Invoke it as `/evaluate-dataset`.
 
 ---
 
@@ -30,7 +30,7 @@ The agent will ask for five inputs. Only #1 is required — hit Enter to accept 
 |---|-----------|-----------|---------|
 | 1 | **Dataset source** — URL to a landing page, or local path to a directory of metadata files | Yes | — |
 | 2 | **Checklist file** — path to the checklist CSV | No | `CHECKLIST.csv` in the current directory |
-| 3 | **Template file** — path to the output structure template JSON | No | `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-01-25.json` in the current directory |
+| 3 | **Template file** — path to the output structure template JSON | No | `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` in the current directory |
 | 4 | **Output directory** — where to save the report | No | Current working directory |
 | 5 | **Output filename** | No | `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json` |
 
@@ -147,7 +147,7 @@ You can re-run the command on the same dataset after making improvements and com
 
 - **New checklist items**: add rows to the checklist CSV following the existing column structure. The agent reads the CSV fresh each run.
 - **New output fields**: edit the template JSON. The agent uses it as a structural reference, not a data source.
-- **Changing defaults**: update the checklist filename or template filename in `.claude/commands/evaluate-dataset.md` under the "Gather parameters" step.
+- **Changing defaults**: update the checklist filename or template filename in `.claude/skills/evaluate-dataset/SKILL.md` under the "Gather parameters" step.
 
 ---
 
@@ -155,8 +155,11 @@ You can re-run the command on the same dataset after making improvements and com
 
 | File | Role |
 |------|------|
-| `.claude/commands/evaluate-dataset.md` | Defines the `/evaluate-dataset` command and evaluation workflow |
+| `.claude/skills/evaluate-dataset/SKILL.md` | The `/evaluate-dataset` skill and evaluation workflow |
+| `.claude/skills/fair4ai-scoring/SKILL.md` | The `/fair4ai-scoring` skill (deterministic 0–1 scoring) |
+| `scripts/compute_fair4ai_scores.py` | Scoring tool the fair4ai-scoring skill runs |
+| `RATING_RUBRIC.md` | Authority for the `meets / partial / does not meet / N/A` rating |
 | `CLAUDE.md` | Project context auto-loaded by Claude Code each session |
 | `CHECKLIST.csv` | Default checklist source |
-| `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-01-25.json` | Default output template |
+| `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` | Default output template (current schema) |
 | `CHECKLIST_OVERVIEW.md` | Human-readable checklist summary (reference) |

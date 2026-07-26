@@ -1,5 +1,6 @@
 ---
-description: Evaluate a dataset for AI-readiness in biodiversity/ecology using the FAIR4AI-Bio checklist. Produces a structured JSON evaluation report.
+name: evaluate-dataset
+description: Evaluate a dataset for AI-readiness in biodiversity/ecology using the FAIR4AI-Bio checklist. Produces a structured JSON evaluation report. Invoke as /evaluate-dataset, or whenever asked to score/assess a dataset's FAIR4AI or AI-readiness.
 ---
 
 You are evaluating a dataset for AI-readiness in biodiversity, ecology, and environmental science using the FAIR4AI-Bio checklist.
@@ -19,7 +20,7 @@ Please provide the following. Press Enter to accept the default for any optional
    Default: `CHECKLIST.csv` in the current working directory.
 
 3. **Template file** *(optional)* — Path to the output template JSON to use as structural reference.
-   Default: `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-01-25.json` in the current working directory.
+   Default: `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` in the current working directory (the current-schema example, with `fair4ai_category` on every response and script-computed 0–1 `fair4ai_scores`).
 
 4. **Output directory** *(optional)* — Directory where the evaluation JSON will be saved.
    Default: current working directory.

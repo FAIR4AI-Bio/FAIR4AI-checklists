@@ -36,8 +36,7 @@ On Windows use `python` (not `python3`). The script is stdlib-only — no instal
 
 The script reads `responses[]` from the JSON. Each response must carry:
 
-- `status` — one of `meets`, `partial`, `does not meet`, `N/A` (case-insensitive;
-  `partially meets` is also accepted).
+- `status` — one of `meets`, `partial`, `does not meet`, `N/A` (case-insensitive).
 - `fair4ai_category` — copied verbatim from the checklist's `FAIR4AI category`
   column: one or more of `Findable | Accessible | Interoperable | Reusable |
   AI-ready`, pipe-separated. Blank for context-only (non-scored) items.

@@ -46,10 +46,11 @@ _CATEGORY_ALIASES = {
 }
 
 # status string (normalized) -> numeric score, or None if excluded.
+# The four canonical statuses match RATING_RUBRIC.md and the agent exactly:
+# meets | partial | does not meet | N/A.
 _STATUS_SCORE = {
     "meets": 1.0,
     "partial": 0.5,
-    "partiallymeets": 0.5,
     "doesnotmeet": 0.0,
     "na": None,
     "n/a": None,
