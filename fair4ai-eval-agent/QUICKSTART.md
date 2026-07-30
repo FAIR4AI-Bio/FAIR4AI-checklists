@@ -143,6 +143,38 @@ You can re-run the command on the same dataset after making improvements and com
 
 ---
 
+## Batch mode — evaluating many datasets
+
+To evaluate a whole list of datasets in one run, use the companion skill:
+
+```
+/batch-evaluate-datasets
+```
+
+**Input** — point it at a dataset list in any of three formats:
+- a **CSV** (ideally `email,name,dataset_short_name,url,notes`, but it maps other column layouts too),
+- a **Markdown** file (a table with a URL column, `- Name — URL` bullets, or `[Name](URL)` links),
+- a **plain-text** file (one `name, url` or bare URL per line).
+
+The skill normalizes whatever you give it into a standard `batch_datasets_<date>.csv` (kept as an
+artifact), then asks which model the per-dataset sub-agents should use — default **Claude Haiku 4.5**
+(`claude-haiku-4-5-20251001`). See `example_inputs/` for ready-to-use `.csv` and `.md` samples.
+
+**What it does** — launches one sub-agent per dataset in parallel (waves of 5), each running
+`/evaluate-dataset` non-interactively, validates every result (96 responses, valid statuses,
+non-null scores), then compiles the outputs.
+
+**Output** — one self-contained, resumable **run folder** (`batch_run_<date>/`) containing: the
+normalized CSV, every per-dataset `FAIR4AI_eval_*.json`, a `confidence_map.json`, a compiled
+`fair4ai_scores_summary_<date>.csv`, a summary figure (`fair4ai_score_distributions_<date>.{png,pdf,svg}`),
+a narrative `FAIR4AI_summary_report_<date>.md`, and a `batch_evaluate_progress.md` tracker. Re-invoking
+the skill on an existing run folder **resumes** — only pending/failed datasets are re-run.
+
+> The summary figure needs `numpy` + `matplotlib` (`pip install -r scripts/requirements-viz.txt`).
+> If they're missing, the figure is skipped and the CSV + report are still produced.
+
+---
+
 ## Updating the checklist or template
 
 - **New checklist items**: add rows to the checklist CSV following the existing column structure. The agent reads the CSV fresh each run.
@@ -155,9 +187,13 @@ You can re-run the command on the same dataset after making improvements and com
 
 | File | Role |
 |------|------|
-| `.claude/skills/evaluate-dataset/SKILL.md` | The `/evaluate-dataset` skill and evaluation workflow |
+| `.claude/skills/evaluate-dataset/SKILL.md` | The `/evaluate-dataset` skill and evaluation workflow (also supports Batch / non-interactive mode) |
 | `.claude/skills/fair4ai-scoring/SKILL.md` | The `/fair4ai-scoring` skill (deterministic 0–1 scoring) |
+| `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` skill (parallel batch → CSV + figure + report) |
 | `scripts/compute_fair4ai_scores.py` | Scoring tool the fair4ai-scoring skill runs |
+| `scripts/compile_fair4ai_results.py` | Compiles a batch's evaluation JSONs into a scores CSV + aggregates |
+| `scripts/make_fair4ai_figure.py` | Renders the batch summary figure (needs numpy + matplotlib) |
+| `example_inputs/` | Sample `.csv` / `.md` batch input lists |
 | `RATING_RUBRIC.md` | Authority for the `meets / partial / does not meet / N/A` rating |
 | `CLAUDE.md` | Project context auto-loaded by Claude Code each session |
 | `CHECKLIST.csv` | Default checklist source |

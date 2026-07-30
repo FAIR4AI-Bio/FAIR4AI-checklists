@@ -31,6 +31,35 @@ Please provide the following. Press Enter to accept the default for any optional
 
 After the user responds, confirm the resolved parameters (substituting defaults for any blanks) before proceeding.
 
+## Batch / non-interactive mode
+
+When you are invoked by a **batch coordinator** (the `batch-evaluate-datasets` skill) rather than
+directly by a person, you will be given all parameters up front in your prompt. In that case:
+
+- **Skip Step 1's interactive prompt entirely.** Do not ask the user anything. Treat the supplied
+  values (dataset source, checklist file, template file, output directory, output filename, and
+  evaluator name/email) as the resolved parameters and proceed directly to Step 2.
+- Run Steps 2–6 exactly as written, including computing scores with `compute_fair4ai_scores.py`.
+- **End your turn by returning the structured result** below as your final message (in addition to
+  writing the JSON file) — the coordinator parses this instead of re-opening your file:
+
+  ```json
+  {
+    "short_name": "<dataset_short_name>",
+    "output_path": "<full path to the JSON you wrote>",
+    "n_responses": 96,
+    "meets": <int>, "partial": <int>, "does_not_meet": <int>, "na": <int>,
+    "overall": <the summary.fair4ai_scores.overall value>,
+    "confidence": "high | medium | low",
+    "one_line_note": "<one sentence: what metadata you retrieved and the headline finding>"
+  }
+  ```
+
+  `confidence` is **your self-assessed retrieval confidence** — how complete the metadata you could
+  actually fetch was: `high` (rich metadata fully retrieved), `medium` (partial retrieval), `low`
+  (landing page thin or retrieval largely failed; treat scores as provisional). Note any retrieval
+  limitation in `session.evaluator.evaluation_description` as usual.
+
 ## Step 2: Load the checklist
 
 Read the checklist CSV file (`CHECKLIST.csv`, 96 items). Each row with a non-blank `Item` is a checklist item. Key columns:

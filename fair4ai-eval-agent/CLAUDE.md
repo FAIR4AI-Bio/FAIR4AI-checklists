@@ -18,6 +18,24 @@ Type `/evaluate-dataset` in Claude Code chat. The agent will prompt for:
 
 For detailed usage examples, see `QUICKSTART.md`.
 
+## Running a batch
+
+Type `/batch-evaluate-datasets` to evaluate a whole list of datasets at once. It reads a flexible
+input list (`.txt`/`.csv`/`.md`), normalizes it to a standard CSV, coordinates one sub-agent per
+dataset in parallel (waves of 5; default model **Claude Haiku 4.5**, `claude-haiku-4-5-20251001` —
+it asks), then writes all evaluation JSONs plus a compiled scores CSV, a summary figure, and a
+narrative report into one self-contained, resumable **run folder** (`batch_run_<date>/`). Sub-agents
+run `evaluate-dataset` in its **Batch / non-interactive mode**.
+
+## Batch scripts & dependencies
+
+- `scripts/compute_fair4ai_scores.py` — scoring (stdlib-only); the scoring authority for every run.
+- `scripts/compile_fair4ai_results.py` — compiles evaluation JSONs → scores CSV + `AGG:{...}`
+  aggregates (stdlib-only).
+- `scripts/make_fair4ai_figure.py` — 6-panel score-distribution figure. **Needs `numpy` +
+  `matplotlib`** (`scripts/requirements-viz.txt`); the figure step degrades gracefully if they're
+  absent, so scoring/compilation never depend on the plotting stack.
+
 ## Checklist structure
 
 `CHECKLIST.csv` has 8 sections (`Broad categories` column) and 96 items. Key columns: `Item`, `Proposed definition`, `Criteria: Structural/Scientific/Provenance`, `Broad categories`, `Sub category`, `Note`, `Required (core, auto, or recommended)`, `Use-case scope (Condition)`, `Applies-at-level`, `mappedEML`, `mappedDataCite`, `mappedSOSO`, `mappedCroissant`, `Croissant scope`, and `FAIR4AI category` (the dimension(s) each item counts toward for scoring).

@@ -36,6 +36,33 @@ The agent will prompt you for the dataset source and other parameters. Press Ent
 
 ---
 
+## Batch evaluation
+
+To evaluate **many datasets at once**, use the `/batch-evaluate-datasets` skill:
+
+```
+/batch-evaluate-datasets
+```
+
+It reads a **flexible dataset list** — a `.txt`, `.csv`, or `.md` file — parses out each dataset and its URL regardless of layout, and normalizes it into a standard CSV (`email,name,dataset_short_name,url,notes`). It then coordinates **one sub-agent per dataset in parallel** (launched in waves of 5 by default), each running the `/evaluate-dataset` workflow non-interactively. The default sub-agent model is **Claude Haiku 4.5** (`claude-haiku-4-5-20251001`); the skill asks whether to use it or a different model.
+
+Every artifact of a run is written into one self-contained **run folder** (default `batch_run_<date>/`):
+
+```
+batch_run_<date>/
+  batch_datasets_<date>.csv               # normalized reference list (from any input format)
+  batch_evaluate_progress.md              # resumable progress tracker
+  confidence_map.json
+  evaluation_results/FAIR4AI_eval_*.json  # one full 96-item evaluation per dataset
+  fair4ai_scores_summary_<date>.csv       # compiled per-dataset scores + status counts
+  fair4ai_score_distributions_<date>.{png,pdf,svg}   # summary figure
+  FAIR4AI_summary_report_<date>.md        # cross-dataset narrative report
+```
+
+The run is **resumable** — re-invoking the skill on an existing run folder reads `batch_evaluate_progress.md` and re-runs only the datasets that are still pending or failed. The summary **figure** needs `numpy` + `matplotlib` (`pip install -r scripts/requirements-viz.txt`); if they're absent the figure is skipped and the CSV + report are still produced (scoring and compilation are stdlib-only).
+
+---
+
 ## How the agent files work
 
 Claude Code reads these files automatically when you start a session in this directory:
@@ -44,6 +71,7 @@ Claude Code reads these files automatically when you start a session in this dir
 - **`.claude/skills/evaluate-dataset/SKILL.md`** — the `/evaluate-dataset` skill. Contains the step-by-step evaluation workflow: gather parameters, load the checklist, fetch metadata, rate each item, build the output JSON, and compute scores.
 - **`RATING_RUBRIC.md`** — the authority for how each item's `meets / partial / does not meet / N/A` status is chosen (including the N/A rule).
 - **`.claude/skills/fair4ai-scoring/SKILL.md`** + **`scripts/compute_fair4ai_scores.py`** — the skill and deterministic tool that compute `summary.fair4ai_scores` (0–1) from the per-item statuses and each item's `FAIR4AI category`.
+- **`.claude/skills/batch-evaluate-datasets/SKILL.md`** — the `/batch-evaluate-datasets` skill: reads a dataset list, coordinates parallel per-dataset sub-agents, and compiles a scores CSV, summary figure, and report into one run folder. It reuses `evaluate-dataset` (in Batch / non-interactive mode) plus the `scripts/compile_fair4ai_results.py` and `scripts/make_fair4ai_figure.py` helpers.
 
 Both capabilities live under `.claude/skills/` (one skill per directory, each with a `SKILL.md`). To modify agent behavior, edit these files directly. Changes are tracked in git and shared across the team.
 
@@ -68,9 +96,14 @@ See `example_outputs/` for complete examples.
 | File | Description |
 |------|-------------|
 | `CLAUDE.md` | Project context auto-loaded by Claude Code each session |
-| `.claude/skills/evaluate-dataset/SKILL.md` | The `/evaluate-dataset` skill and evaluation workflow |
+| `.claude/skills/evaluate-dataset/SKILL.md` | The `/evaluate-dataset` skill and evaluation workflow (supports Batch / non-interactive mode) |
 | `.claude/skills/fair4ai-scoring/SKILL.md` | The `/fair4ai-scoring` skill wrapping the scoring script |
+| `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` skill: parallel batch evaluation → scores CSV + figure + report |
 | `scripts/compute_fair4ai_scores.py` | Deterministic 0–1 FAIR4AI scoring tool (stdlib-only) |
+| `scripts/compile_fair4ai_results.py` | Compiles a folder of evaluation JSONs into a scores CSV + aggregates (stdlib-only) |
+| `scripts/make_fair4ai_figure.py` | Renders the 6-panel score-distribution figure (needs numpy + matplotlib) |
+| `scripts/requirements-viz.txt` | Optional deps (numpy, matplotlib) for the figure only |
+| `example_inputs/` | Sample batch input lists (`.csv` and `.md`) for `/batch-evaluate-datasets` |
 | `CHECKLIST.csv` | 96-item FAIR4AI-Bio checklist (8 sections; each item mapped to EML, DataCite, Schema.org, Croissant, and its FAIR4AI dimension(s)) |
 | `RATING_RUBRIC.md` | Authority for choosing each item's `meets / partial / does not meet / N/A` status |
 | `CHECKLIST_OVERVIEW.md` | Narrative description of all 8 checklist sections |
