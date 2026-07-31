@@ -224,5 +224,3 @@ __marimo__/
 
 # AI tool local configuration — track commands and settings, ignore machine-specific local overrides
 **/.claude/settings.local.json
-.github/
-**/.github/
