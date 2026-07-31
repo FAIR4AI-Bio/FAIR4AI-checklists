@@ -1,0 +1,4 @@
+Local notes placeholder.
+
+Do not commit credentials, local file paths, service-account emails, or Google Form IDs/URLs.
+Create a personal notes file locally and add it to `.gitignore` if needed.

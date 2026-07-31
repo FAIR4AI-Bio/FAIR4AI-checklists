@@ -1,428 +1,124 @@
-# FAIR4AI Automated Evaluation Agent
+# FAIR4AI Dataset Evaluation Agent
 
-An AI-powered system that automatically evaluates datasets against the [FAIR4AI checklist form](https://forms.gle/P3MWmJJAi5vq248E8) using Large Language Models (LLMs). The agent checks metadata files or dataset landing pages for the information requested in the checklist to provide comprehensive FAIR (Findable, Accessible, Interoperable, Reusable) assessments.
+An AI agent that evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the **FAIR4AI-Bio checklist**. The agent reads a dataset's landing page or local metadata files, rates each of the 96 checklist items as *meets / partial / does not meet / N/A* (per `RATING_RUBRIC.md`), and produces a structured JSON report with reproducible FAIR4AI scores across five dimensions (Findable, Accessible, Interoperable, Reusable, AI-ready) plus an overall score — each in **0–1, where 1 is "most FAIR4AI"**, computed by the `fair4ai-scoring` skill.
 
-## Overview
+The core thesis: **FAIR compliance is necessary but not sufficient for AI-ready data.** This agent surfaces the gap.
 
-**What it does:**
-- Reads dataset metadata (JSON files or extracts from URLs)
-- Uses AI (OpenAI GPT, Azure OpenAI, or Anthropic Claude) to answer 135 FAIR4AI evaluation questions
-- Provides evidence-based responses with citations from metadata
-- Generates structured outputs in JSON and CSV formats with FAIR score estimates
-
-**Key Features:**
-- ✅ Multiple LLM providers supported (OpenAI, Azure OpenAI, Anthropic Claude)
-- ✅ URL metadata extraction from dataset landing pages
-- ✅ Graphical user interface (no command-line required)
-- ✅ Organized output with custom directories
-- ✅ Automatic FAIR score estimates and evaluation summaries
-- ✅ Progress tracking and error handling
-
-**System Requirements:**
-- Python 3.8 or higher
-- API key for OpenAI, Azure OpenAI, or Anthropic
+See `example_outputs/` for complete evaluation reports for several NEON datasets.
 
 ---
 
-## Quick Start
+## Requirements
 
-### 1. Install Dependencies
-We recommend creating a [virtual environment](https://imageomics.github.io/Collaborative-distributed-science-guide/wiki-guide/Virtual-Environments/) in which to install the requirements as described below.
-
-```bash
-pip install -r requirements_agent.txt
-```
-
-### 2. Set Up API Keys
-
-Get the API key(s) from your preferred provider(s) through the links below. Note that Azure OpenAI  is recommended for enterprise.
-
-**Get API Keys:**
-- OpenAI: https://platform.openai.com/api-keys
-- Azure OpenAI: https://portal.azure.com
-- Anthropic: https://console.anthropic.com/
-
-Now that you have at least one agent API key, it's time to set up the rest of your environment:
-
-1. Make a copy of the [example environment file](.env.example) file and name it `.env`.
-2. Paste the API key(s) that you got into the appropriate constant definitions (e.g., `OPENAI_API_KEY=sk-your-openai-key-here`).
-3. Remove or comment out unused constants.
-
-More details on API keys and setup, including options for setting up your environment without a `.env` file, are provided in [docs/agent-api-setup](docs/agent-api-setup.md).
-
-### 3. Run the Agent
-
-**Using GUI (Easiest):**
-```bash
-python fair4ai_agent_ui.py
-```
-
-**Using Command Line:**
-```bash
-# From metadata files
-python fair4ai_agent.py --metadata metadata_downloads/*.json --output my_evaluation
-
-# From URL
-python fair4ai_agent.py --url "https://data.example.com/dataset" --output-dir results/my_dataset
-```
-
-**Windows Quick Run:**
-- Double-click `run_agent.ps1` or `run_agent.bat`
-- Outputs will be saved in your working directory in a subfolder named `evaluation_results`
-
-That's it! Your evaluation results will be saved as JSON and CSV files.
+- A dataset source: URL to a landing page, or a local directory containing metadata files (JSON-LD, EML, DataCite XML, README, etc.)
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed
 
 ---
 
-## Usage Guide
+## Setup
 
-### Command-Line Interface
-
-#### Basic Usage
+Open Claude Code with `fair4ai-eval-agent/` as the working directory:
 
 ```bash
-python fair4ai_agent.py --metadata metadata_downloads/*.json --output my_evaluation
+cd fair4ai-eval-agent
+claude
 ```
 
-This will:
-- Use default form questions from `form_ai_checklist_automated.csv`
-- Process all JSON files in `metadata_downloads/`
-- Use OpenAI GPT-4o-mini (default, most cost-effective)
-- Generate `my_evaluation.json` and `my_evaluation.csv` in current directory
+No additional setup steps are required. The `/evaluate-dataset` skill is defined in `.claude/skills/evaluate-dataset/SKILL.md` and is tracked in this repository.
 
-#### URL-Based Evaluation
+In the Claude Code chat, type:
 
-Extract metadata directly from dataset landing pages:
-
-```bash
-python fair4ai_agent.py \
-  --url "https://data.neonscience.org/data-products/DP1.10022.001" \
-  --output-dir results/neon_beetles \
-  --output evaluation
+```
+/evaluate-dataset
 ```
 
-The agent will:
-1. Fetch the landing page HTML
-2. Extract JSON-LD/Schema.org metadata from `<script>` tags
-3. Extract meta tags ([Open Graph](https://ogp.me/), [Dublin Core](https://www.dublincore.org/specifications/dublin-core/), etc.)
-4. Download linked JSON files
-5. Save all extracted metadata to output directory
-6. Run the evaluation using extracted metadata
-
-Supported URLs include those for NEON, DataONE, Zenodo, Dryad, Hugging Face Datasets, and other repositories with structured metadata.
-
-#### Command-Line Options
-
-| Option | Description | Default | Example |
-|--------|-------------|---------|---------|
-| `--form` | Path to form questions CSV | `form_ai_checklist_automated.csv` | `--form custom_form.csv` |
-| `--metadata` | Metadata file(s) (JSON) | None | `--metadata *.json` |
-| `--url` | Dataset landing page URL | None | `--url "https://..."` |
-| `--output` | Output file prefix | `fair4ai_evaluation` | `--output neon_beetles` |
-| `--output-dir` | Output directory | Current directory | `--output-dir results/` |
-| `--dataset-name` | Dataset name | Auto-detected | `--dataset-name "My Dataset"` |
-| `--provider` | LLM provider | `openai` | `--provider azure` |
-| `--model` | Model name | `gpt-4o-mini` | `--model gpt-4o` |
-| `--azure-endpoint` | Azure endpoint URL | From env var | `--azure-endpoint https://...` |
-| `--azure-api-version` | Azure API version | `2025-01-01-preview` | `--azure-api-version 2024-08-01-preview` |
-
-**Note:** Either `--metadata` or `--url` is required (not both).
-
-#### Advanced Examples
-
-```bash
-# Use Anthropic Claude
-python fair4ai_agent.py \
-  --provider anthropic \
-  --model claude-3-5-sonnet-20241022 \
-  --metadata metadata_downloads/*.json \
-  --output detailed_eval
-
-# Use Azure OpenAI with specific deployment
-python fair4ai_agent.py \
-  --provider azure \
-  --model your-gpt4-deployment \
-  --metadata metadata_downloads/*.json \
-  --output azure_eval
-
-# Organize outputs in custom directory
-python fair4ai_agent.py \
-  --metadata metadata_downloads/*.json \
-  --output-dir evaluations/project_alpha \
-  --output dataset_v2_evaluation \
-  --dataset-name "Research Dataset v2.0"
-```
-
-### Graphical User Interface
-
-#### Launching the GUI
-
-```bash
-python fair4ai_agent_ui.py
-```
-
-#### GUI Components
-
-**1. Input Source Selection**
-- **Metadata Files** (default): Select one or more local JSON files
-  - Click "Add Files..." to browse and select files
-  - Click "Clear" to remove all selected files
-- **Dataset URL**: Enter the URL of a dataset landing page
-  - Must start with `http://` or `https://`
-
-**2. Form Questions**
-- Select the FAIR4AI questions CSV file
-- Default: `form_ai_checklist_automated.csv`
-
-**3. LLM Provider Configuration**
-- **Provider Options**: OpenAI, Azure, or Anthropic
-- **Model Selection**: Choose from available models
-  - OpenAI: `gpt-4o-mini` (default), `gpt-4o`, `gpt-4-turbo`
-  - Azure: Your deployment name
-  - Anthropic: `claude-3-5-sonnet-20241022` (default)
-- **Azure Advanced Options**:
-  - Azure Endpoint (auto-loaded from environment)
-  - Azure API Version (auto-loaded from environment)
-
-**4. Output Configuration**
-- **Output Directory**: Where to save all output files
-  - Click "Browse..." to select existing directory
-  - Click "New Folder..." to create new subfolder with custom name
-- **Output File Prefix**: Base name for output files
-  - Creates `{prefix}.json` and `{prefix}.csv`
-- **Output Preview**: Shows filenames and directory path
-
-**5. Execution Controls**
-- **Run Evaluation**: Starts the evaluation
-- **Stop**: Cancel ongoing evaluation
-- **Clear Log**: Clears the log window
-- **Progress Bar**: Shows completion percentage
-- **Log Window**: Real-time messages and status updates
-
-#### Example Workflow: URL-Based Evaluation
-
-1. Launch GUI: `python fair4ai_agent_ui.py`
-2. Click "Dataset URL" radio button
-3. Enter: `https://data.neonscience.org/data-products/DP1.10022.001`
-4. Click "Browse..." → Navigate to `results/`
-5. Click "New Folder..." → Enter `neon_beetles`
-6. Set prefix: `evaluation`
-7. Click "Run Evaluation"
-8. Wait for completion (progress bar shows status)
-9. Review outputs in `results/neon_beetles/`:
-   - `url_metadata_extracted.json`
-   - `url_metadata_jsonld_*.json`
-   - `evaluation.json`
-   - `evaluation.csv`
-
-#### Example Workflow: File-Based Evaluation
-
-1. Launch GUI
-2. Click "Metadata Files" (default)
-3. Click "Add Files..." → Select all JSON metadata files
-4. Select/create output directory
-5. Set output prefix
-6. Click "Run Evaluation"
-7. Check log for progress and results
-
-### Python API
-
-Use the agent programmatically in your own scripts:
-
-```python
-from fair4ai_agent import FAIR4AIAgent
-
-# Initialize agent with default provider (OpenAI)
-agent = FAIR4AIAgent(llm_provider="openai", model="gpt-4o-mini")
-
-# Run evaluation with metadata files
-json_path, csv_path = agent.run_evaluation(
-    form_csv="form_ai_checklist_automated.csv",
-    metadata_files=["metadata_downloads/dataset_metadata.json"],
-    output_prefix="my_evaluation",
-    output_dir="results/",
-    dataset_name="My Research Dataset"
-)
-
-print(f"Results saved to {json_path} and {csv_path}")
-```
-
-**With URL extraction:**
-
-```python
-agent = FAIR4AIAgent(llm_provider="openai")
-
-json_path, csv_path = agent.run_evaluation(
-    form_csv="form_ai_checklist_automated.csv",
-    dataset_url="https://data.example.com/dataset",
-    output_prefix="evaluation",
-    output_dir="results/my_dataset"
-)
-```
-
-**With Azure OpenAI:**
-
-```python
-agent = FAIR4AIAgent(
-    llm_provider="azure",
-    model="your-deployment-name",
-    azure_endpoint="https://your-resource.openai.azure.com/",
-    azure_api_version="2025-01-01-preview"
-)
-
-json_path, csv_path = agent.run_evaluation(
-    form_csv="form_ai_checklist_automated.csv",
-    metadata_files=["metadata.json"],
-    output_prefix="azure_evaluation"
-)
-```
-
-**With Anthropic Claude:**
-
-```python
-agent = FAIR4AIAgent(
-    llm_provider="anthropic",
-    model="claude-3-5-sonnet-20241022"
-)
-
-json_path, csv_path = agent.run_evaluation(
-    form_csv="form_ai_checklist_automated.csv",
-    metadata_files=["metadata.json"],
-    output_prefix="claude_evaluation"
-)
-```
+The agent will prompt you for the dataset source and other parameters. Press Enter to accept defaults for optional parameters.
 
 ---
 
-## Input and Output
+## Batch evaluation
 
-### Input: Form Questions CSV
+To evaluate **many datasets at once**, use the `/batch-evaluate-datasets` skill:
 
-The form CSV should contain:
-- `position`: Question order
-- `section`: Section name (e.g., "Provenance", "Data Access")
-- `title`: Question text
-- `description`: Additional context
-- `question_type`: Type (textQuestion, choiceQuestion, SECTION_BREAK, textItem)
-- `options`: Multiple choice options (pipe-separated)
-- `required`: Whether required (TRUE/FALSE)
-
-Default form: `form_ai_checklist_automated.csv` (135 questions across 9 sections)
-
-The code used to create this file from the [FAIR4AI Checklist form](https://forms.gle/P3MWmJJAi5vq248E8), is in the [checklist workflow directory](../checklist-workflow/00_README.md).
-
-### Input: Metadata Files
-
-Any JSON-formatted metadata files. The agent supports:
-- Schema.org JSON-LD
-- NEON API metadata
-- EML (Ecological Metadata Language)
-- ML Croissant
-- Custom metadata formats
-
-The agent loads all provided JSON files and presents them to the LLM as context.
-
-### Input: URL Metadata Extraction
-
-When using `--url`, the agent extracts:
-
-1. **JSON-LD Scripts**: `<script type="application/ld+json">` tags
-   - Schema.org Dataset/DataCatalog markup
-   - Saved as `url_metadata_jsonld_0.json`, `url_metadata_jsonld_1.json`, etc.
-
-2. **Meta Tags**: Dataset information from HTML meta tags
-   - Open Graph: `og:title`, `og:description`, `og:image`, etc.
-   - Dublin Core: `dc.title`, `dc.creator`, `dc.date`, etc.
-   - Twitter Cards: `twitter:title`, `twitter:description`, etc.
-   - Standard: `description`, `keywords`, `author`, etc.
-   - Saved as `url_metadata_extracted.json`
-
-3. **Linked JSON Files**: Downloads files linked with `<a href="*.json">`
-   - Saved with original filename or as `url_metadata_linked_*.json`
-
-### Output Files
-
-#### Directory Structure
-
-**From Metadata Files:**
 ```
-output_directory/
-├── {prefix}.json  # FAIR4AI evaluation results (structured)
-└── {prefix}.csv   # FAIR4AI evaluation results (tabular)
+/batch-evaluate-datasets
 ```
 
-**From URL:**
-```
-output_directory/
-├── url_metadata_extracted.json      # Extracted meta tags
-├── url_metadata_jsonld_0.json       # Schema.org JSON-LD
-├── url_metadata_jsonld_1.json       # Additional JSON-LD (if present)
-├── url_metadata_linked_*.json       # Downloaded linked files
-├── {prefix}.json                    # FAIR4AI evaluation results
-└── {prefix}.csv                     # FAIR4AI evaluation results
-```
-`prefix` is the name passed to the `--output` parameter.
+It reads a **flexible dataset list** — a `.txt`, `.csv`, or `.md` file — parses out each dataset and its URL regardless of layout, and normalizes it into a standard CSV (`email,name,dataset_short_name,url,notes`). It then coordinates **one sub-agent per dataset in parallel** (launched in waves of 5 by default), each running the `/evaluate-dataset` workflow non-interactively. The default sub-agent model is **Claude Haiku 4.5** (`claude-haiku-4-5-20251001`); the skill asks whether to use it or a different model.
 
-#### JSON Output Format
+Every artifact of a run is written into one self-contained **run folder** (default `batch_run_<date>/`):
 
-```json
-{
-  "metadata": {
-    "generated_date": "2026-01-28",
-    "dataset_evaluated": "NEON Ground Beetles",
-    "dataset_url": "https://data.neonscience.org/...",
-    "llm_provider": "azure",
-    "llm_model": "gpt-4o-mini",
-    "form_file": "form_ai_checklist_automated.csv",
-    "metadata_files_analyzed": [
-      "url_metadata_jsonld_0.json",
-      "url_metadata_extracted.json"
-    ],
-    "evaluation_tool_version": "2.0"
-  },
-  "responses": [
-    {
-      "section": "Provenance",
-      "question": "Citation provided?",
-      "response_choices": "Yes | No",
-      "response": "Yes",
-      "evidence": "Citation found in schema.org JSON-LD metadata under 'citation' field...",
-      "notes": "Citation provided but not in BibTeX format"
-    }
-  ],
-  "summary": {
-    "overall_assessment": "The dataset demonstrates strong FAIR compliance...",
-    "strengths": [
-      "Comprehensive metadata with Schema.org markup",
-      "Clear licensing and access information",
-      "Well-documented data collection methods"
-    ],
-    "weaknesses": [
-      "Missing machine-readable provenance",
-      "Limited interoperability standards documented"
-    ],
-    "fair_score_estimate": {
-      "findable": "9/10 - Strong persistent identifiers and rich metadata",
-      "accessible": "8/10 - Clear access protocols with some authentication requirements",
-      "interoperable": "7/10 - Standard formats used but limited vocabulary mappings",
-      "reusable": "8/10 - Good licensing and attribution but some documentation gaps"
-    },
-    "recommendations": [
-      "Add machine-readable provenance using PROV-O or similar standard",
-      "Document semantic vocabularies and ontologies used"
-    ]
-  }
-}
+```
+batch_run_<date>/
+  batch_datasets_<date>.csv               # normalized reference list (from any input format)
+  batch_evaluate_progress.md              # resumable progress tracker
+  confidence_map.json
+  evaluation_results/FAIR4AI_eval_*.json  # one full 96-item evaluation per dataset
+  fair4ai_scores_summary_<date>.csv       # compiled per-dataset scores + status counts
+  fair4ai_score_distributions_<date>.{png,pdf,svg}   # summary figure
+  FAIR4AI_summary_report_<date>.md        # cross-dataset narrative report
 ```
 
-#### CSV Output Format
+The run is **resumable** — re-invoking the skill on an existing run folder reads `batch_evaluate_progress.md` and re-runs only the datasets that are still pending or failed. The summary **figure** needs `numpy` + `matplotlib` (`pip install -r scripts/requirements-viz.txt`); if they're absent the figure is skipped and the CSV + report are still produced (scoring and compilation are stdlib-only).
 
-Tabular format for easy analysis in Excel, R, or Python:
+---
 
-```csv
-section,question,response_choices,response,evidence,notes
-Provenance,Citation provided?,Yes | No,Yes,Citation found in schema.org...,Citation provided but not in BibTeX format
-Provenance,Summary or Abstract,Yes | No,Yes,productAbstract field contains...,""
-General Information,Dataset title,NA,NEON Ground Beetles Sampled...,Found in 'name' field of JSON-LD,""
-...
-```
+## How the agent files work
+
+Claude Code reads these files automatically when you start a session in this directory:
+
+- **`CLAUDE.md`** — project context loaded into every session: what the agent does, how the checklist is structured, the output JSON schema, and expected score patterns.
+- **`.claude/skills/evaluate-dataset/SKILL.md`** — the `/evaluate-dataset` skill. Contains the step-by-step evaluation workflow: gather parameters, load the checklist, fetch metadata, rate each item, build the output JSON, and compute scores.
+- **`RATING_RUBRIC.md`** — the authority for how each item's `meets / partial / does not meet / N/A` status is chosen (including the N/A rule).
+- **`.claude/skills/fair4ai-scoring/SKILL.md`** + **`scripts/compute_fair4ai_scores.py`** — the skill and deterministic tool that compute `summary.fair4ai_scores` (0–1) from the per-item statuses and each item's `FAIR4AI category`.
+- **`.claude/skills/batch-evaluate-datasets/SKILL.md`** — the `/batch-evaluate-datasets` skill: reads a dataset list, coordinates parallel per-dataset sub-agents, and compiles a scores CSV, summary figure, and report into one run folder. It reuses `evaluate-dataset` (in Batch / non-interactive mode) plus the `scripts/compile_fair4ai_results.py` and `scripts/make_fair4ai_figure.py` helpers.
+
+Both capabilities live under `.claude/skills/` (one skill per directory, each with a `SKILL.md`). To modify agent behavior, edit these files directly. Changes are tracked in git and shared across the team.
+
+---
+
+## Output format
+
+The JSON report has three top-level sections:
+
+- **`session`** — evaluation date, AI model, metadata sources used, dataset identity (title, DOI, landing page URL, citation), and evaluator information
+- **`responses`** — one object per checklist item with `section`, `sub_section`, `question`, `status` (`meets` / `partial` / `does not meet` / `N/A`), `evidence`, `notes`, `recommendation`, and `fair4ai_category` (the dimension(s) the item counts toward)
+- **`summary`** — `strengths`, `gaps`, `overall_assessment` (2–3 sentence narrative), and `fair4ai_scores` (each dimension plus an overall score in 0–1, with per-dimension `details` counts) computed by the `fair4ai-scoring` skill
+
+Output filename convention: `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json`
+
+See `example_outputs/` for complete examples.
+
+---
+
+## Files in this directory
+
+| File | Description |
+|------|-------------|
+| `CLAUDE.md` | Project context auto-loaded by Claude Code each session |
+| `.claude/skills/evaluate-dataset/SKILL.md` | The `/evaluate-dataset` skill and evaluation workflow (supports Batch / non-interactive mode) |
+| `.claude/skills/fair4ai-scoring/SKILL.md` | The `/fair4ai-scoring` skill wrapping the scoring script |
+| `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` skill: parallel batch evaluation → scores CSV + figure + report |
+| `scripts/compute_fair4ai_scores.py` | Deterministic 0–1 FAIR4AI scoring tool (stdlib-only) |
+| `scripts/compile_fair4ai_results.py` | Compiles a folder of evaluation JSONs into a scores CSV + aggregates (stdlib-only) |
+| `scripts/make_fair4ai_figure.py` | Renders the 6-panel score-distribution figure (needs numpy + matplotlib) |
+| `scripts/requirements-viz.txt` | Optional deps (numpy, matplotlib) for the figure only |
+| `example_inputs/` | Sample batch input lists (`.csv` and `.md`) for `/batch-evaluate-datasets` |
+| `CHECKLIST.csv` | 96-item FAIR4AI-Bio checklist (8 sections; each item mapped to EML, DataCite, Schema.org, Croissant, and its FAIR4AI dimension(s)) |
+| `RATING_RUBRIC.md` | Authority for choosing each item's `meets / partial / does not meet / N/A` status |
+| `CHECKLIST_OVERVIEW.md` | Narrative description of all 8 checklist sections |
+| `QUICKSTART.md` | Step-by-step usage guide with example sessions |
+| `example_outputs/` | Complete evaluation reports for NEON datasets (example outputs) |
+
+---
+
+## Checklist sections
+
+1. **General Information** — bibliographic metadata, data dictionary, machine-readiness flag
+2. **Data Structure** — file formats, dataset organization, variables, technical specs
+3. **Source Data** — collection type, instrumentation/sensor metadata, sampling design
+4. **Data Processing** — transformations, gap-filling, annotation provenance, train/val/test split definitions
+5. **Data Quality** — completeness, consistency, integrity, timeliness
+6. **Guidance & Recommendations** — biases, class imbalance, non-detections, prior AI/ML usage history
+7. **Data Access** — delivery options, format openness, license (SPDX identifier), privacy controls
+8. **Provenance** — citation (DOI, ORCIDs, checksums), processing platform, CARE Principles and ethical governance

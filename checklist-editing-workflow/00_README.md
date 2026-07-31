@@ -264,18 +264,18 @@ To safely work with this repository:
 ### Files to Add to .gitignore:
 ```gitignore
 # Sensitive configuration files
-checklist-workflow/01_set_env_vars.ps1
-checklist-workflow/01_set_env_vars.sh
-checklist-workflow/00_my_local_notes.txt
+checklist-editing-workflow/01_set_env_vars.ps1
+checklist-editing-workflow/01_set_env_vars.sh
+checklist-editing-workflow/00_my_local_notes.txt
 
 # Service account credentials
 *.json
 !package.json
 
 # Generated data files (optional)
-checklist-workflow/form_download.csv
-checklist-workflow/form_download.json
-checklist-workflow/form_upload.csv
+checklist-editing-workflow/form_download.csv
+checklist-editing-workflow/form_download.json
+checklist-editing-workflow/form_upload.csv
 ```
 
 ### Files Safe to Commit:

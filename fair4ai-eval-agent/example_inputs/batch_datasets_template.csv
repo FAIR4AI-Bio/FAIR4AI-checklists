@@ -1,0 +1,3 @@
+email,name,dataset_short_name,url,notes
+esokol@battelleecology.org,Eric Sokol,neon_beetles,https://data.neonscience.org/data-products/DP1.10022.001,NEON Ground Beetles
+campolongo.4@osu.edu,Elizabeth Campolongo,img_tol_200m,https://huggingface.co/datasets/imageomics/TreeOfLife-200M,TreeOfLife-200M image dataset

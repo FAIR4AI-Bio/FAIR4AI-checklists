@@ -1,0 +1,8 @@
+# Optional dependencies — needed ONLY for the batch summary figure
+# (scripts/make_fair4ai_figure.py). The evaluation, scoring, and compilation
+# scripts are stdlib-only and do not need these.
+#
+#   python -m pip install -r scripts/requirements-viz.txt
+#
+numpy
+matplotlib

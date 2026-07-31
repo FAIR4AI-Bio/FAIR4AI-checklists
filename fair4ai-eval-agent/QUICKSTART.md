@@ -1,0 +1,201 @@
+# Quickstart: `/evaluate-dataset`
+
+This skill evaluates a biodiversity, ecology, or environmental science dataset against the FAIR4AI-Bio checklist and produces a structured JSON evaluation report. Invoke it as `/evaluate-dataset`.
+
+---
+
+## What it does
+
+The agent reads the checklist CSV, fetches or reads the dataset's metadata, and scores each checklist item as **meets / partial / does not meet / N/A**. For every gap it finds, it writes a specific, actionable recommendation. The result is saved as a JSON file you can share, archive, or use to track improvements over time.
+
+---
+
+## How to invoke it
+
+In the Claude Code chat, type:
+
+```
+/evaluate-dataset
+```
+
+The agent will immediately prompt you for the parameters it needs.
+
+---
+
+## Parameters
+
+The agent will ask for five inputs. Only #1 is required — hit Enter to accept the default for any of the others.
+
+| # | Parameter | Required? | Default |
+|---|-----------|-----------|---------|
+| 1 | **Dataset source** — URL to a landing page, or local path to a directory of metadata files | Yes | — |
+| 2 | **Checklist file** — path to the checklist CSV | No | `CHECKLIST.csv` in the current directory |
+| 3 | **Template file** — path to the output structure template JSON | No | `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` in the current directory |
+| 4 | **Output directory** — where to save the report | No | Current working directory |
+| 5 | **Output filename** | No | `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json` |
+
+---
+
+## Supported dataset sources
+
+**URLs** — the agent fetches the landing page and looks for:
+- `<script type="application/ld+json">` (schema.org / JSON-LD)
+- Linked EML, DataCite XML, or DarwinCore Archive files
+- REST API endpoints (it tries common patterns for NEON, GBIF, DataONE, Zenodo, Dryad, Hugging Face, etc.)
+
+**Local paths** — the agent reads all files in the directory, prioritizing:
+- schema.org JSON-LD, EML XML, DataCite XML
+- README and documentation markdown files
+- Any CSV, JSON, or text files with metadata content
+
+Richer metadata sources produce more accurate evaluations. If the landing page is thin, point the agent to a directory of downloaded metadata files instead.
+
+---
+
+## What the output looks like
+
+The JSON report has three top-level blocks:
+
+### `session`
+Who ran the evaluation, when, using which source files, and basic dataset identity (title, landing page URL, citation).
+
+### `responses`
+One object per checklist item, organized by `section` and `sub_section` to match the checklist CSV. Each response contains:
+
+```json
+{
+  "section": "Data Quality",
+  "sub_section": "Integrity",
+  "question": "The dataset implements checksums for file integrity verification.",
+  "status": "does not meet",
+  "evidence": "No mention of checksums in any metadata source reviewed.",
+  "notes": "",
+  "recommendation": "Generate and publish SHA-256 checksums for all released data files...",
+  "fair4ai_category": "Reusable"
+}
+```
+
+**Status values:**
+- `meets` — criterion is fully satisfied
+- `partial` — criterion is addressed but incompletely
+- `does not meet` — criterion is absent
+- `N/A` — criterion does not apply to this dataset type
+
+### `summary`
+- `strengths` — list of notable positives
+- `gaps` — list of notable gaps
+- `overall_assessment` — 2–3 sentence narrative
+- `fair4ai_scores` — reproducible scores in **0–1** (1 = "most FAIR4AI") for Findable, Accessible, Interoperable, Reusable, and AI-ready, plus an `overall` score and per-dimension `details` counts, computed by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`)
+
+---
+
+## Example sessions
+
+### Evaluating from a URL
+```
+/evaluate-dataset
+
+Dataset source: https://data.neonscience.org/data-products/DP1.10022.001
+Checklist file: [Enter]
+Template file: [Enter]
+Output directory: [Enter]
+Output filename: [Enter]
+```
+Output file: `FAIR4AI_eval_Ground_beetles_sampled_from_pitfall_traps_2026-04-30.json`
+
+---
+
+### Evaluating from local metadata files
+```
+/evaluate-dataset
+
+Dataset source: C:/Users/me/datasets/my-beetle-survey/metadata/
+Checklist file: [Enter]
+Template file: [Enter]
+Output directory: C:/Users/me/datasets/my-beetle-survey/
+Output filename: FAIR4AI_eval_my-beetle-survey.json
+```
+
+---
+
+### Using a custom checklist
+```
+/evaluate-dataset
+
+Dataset source: https://www.gbif.org/dataset/abc123
+Checklist file: C:/projects/FAIR4AI/updated_checklist_v2.csv
+Template file: [Enter]
+Output directory: [Enter]
+Output filename: [Enter]
+```
+
+---
+
+## After the evaluation
+
+At the end of the session the agent prints:
+- The full path of the saved JSON file
+- A status count summary (e.g., "42 meets · 18 partial · 11 does not meet · 9 N/A")
+- FAIR4AI scores at a glance
+- Top 3 priority recommendations
+
+You can re-run the command on the same dataset after making improvements and compare outputs to track progress.
+
+---
+
+## Batch mode — evaluating many datasets
+
+To evaluate a whole list of datasets in one run, use the companion skill:
+
+```
+/batch-evaluate-datasets
+```
+
+**Input** — point it at a dataset list in any of three formats:
+- a **CSV** (ideally `email,name,dataset_short_name,url,notes`, but it maps other column layouts too),
+- a **Markdown** file (a table with a URL column, `- Name — URL` bullets, or `[Name](URL)` links),
+- a **plain-text** file (one `name, url` or bare URL per line).
+
+The skill normalizes whatever you give it into a standard `batch_datasets_<date>.csv` (kept as an
+artifact), then asks which model the per-dataset sub-agents should use — default **Claude Haiku 4.5**
+(`claude-haiku-4-5-20251001`). See `example_inputs/` for ready-to-use `.csv` and `.md` samples.
+
+**What it does** — launches one sub-agent per dataset in parallel (waves of 5), each running
+`/evaluate-dataset` non-interactively, validates every result (96 responses, valid statuses,
+non-null scores), then compiles the outputs.
+
+**Output** — one self-contained, resumable **run folder** (`batch_run_<date>/`) containing: the
+normalized CSV, every per-dataset `FAIR4AI_eval_*.json`, a `confidence_map.json`, a compiled
+`fair4ai_scores_summary_<date>.csv`, a summary figure (`fair4ai_score_distributions_<date>.{png,pdf,svg}`),
+a narrative `FAIR4AI_summary_report_<date>.md`, and a `batch_evaluate_progress.md` tracker. Re-invoking
+the skill on an existing run folder **resumes** — only pending/failed datasets are re-run.
+
+> The summary figure needs `numpy` + `matplotlib` (`pip install -r scripts/requirements-viz.txt`).
+> If they're missing, the figure is skipped and the CSV + report are still produced.
+
+---
+
+## Updating the checklist or template
+
+- **New checklist items**: add rows to the checklist CSV following the existing column structure. The agent reads the CSV fresh each run.
+- **New output fields**: edit the template JSON. The agent uses it as a structural reference, not a data source.
+- **Changing defaults**: update the checklist filename or template filename in `.claude/skills/evaluate-dataset/SKILL.md` under the "Gather parameters" step.
+
+---
+
+## Files involved
+
+| File | Role |
+|------|------|
+| `.claude/skills/evaluate-dataset/SKILL.md` | The `/evaluate-dataset` skill and evaluation workflow (also supports Batch / non-interactive mode) |
+| `.claude/skills/fair4ai-scoring/SKILL.md` | The `/fair4ai-scoring` skill (deterministic 0–1 scoring) |
+| `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` skill (parallel batch → CSV + figure + report) |
+| `scripts/compute_fair4ai_scores.py` | Scoring tool the fair4ai-scoring skill runs |
+| `scripts/compile_fair4ai_results.py` | Compiles a batch's evaluation JSONs into a scores CSV + aggregates |
+| `scripts/make_fair4ai_figure.py` | Renders the batch summary figure (needs numpy + matplotlib) |
+| `example_inputs/` | Sample `.csv` / `.md` batch input lists |
+| `RATING_RUBRIC.md` | Authority for the `meets / partial / does not meet / N/A` rating |
+| `CLAUDE.md` | Project context auto-loaded by Claude Code each session |
+| `CHECKLIST.csv` | Default checklist source |
+| `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` | Default output template (current schema) |
+| `CHECKLIST_OVERVIEW.md` | Human-readable checklist summary (reference) |
