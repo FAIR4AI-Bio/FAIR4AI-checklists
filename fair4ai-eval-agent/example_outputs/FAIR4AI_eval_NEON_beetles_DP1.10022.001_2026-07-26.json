@@ -32,7 +32,8 @@
       "evidence": "No funder or funding organization is stated in the product API metadata. NEON is NSF-funded but this is not recorded in the record.",
       "notes": "",
       "recommendation": "Add funder information (e.g., NSF) using DataCite fundingReferences/funderName or schema.org funder so credit and funding provenance are machine-readable.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -42,7 +43,8 @@
       "evidence": "No award or grant numbers appear in the metadata.",
       "notes": "",
       "recommendation": "Add the NSF cooperative agreement / award numbers via DataCite fundingReferences/awardNumber.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -52,7 +54,8 @@
       "evidence": "The abstract and SOPs credit parataxonomists and external expert taxonomists (Carnegie Museum of Natural History; Essig Museum, UC Berkeley), but only at the role/organization level.",
       "notes": "Contributions described by role, not attributed to named individuals.",
       "recommendation": "Name individual contributors (or provide ORCIDs) for the parataxonomist and expert-taxonomist steps to make attribution explicit.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -62,7 +65,8 @@
       "evidence": "productAbstract states the data provide quality-controlled ground-beetle abundance and diversity for biodiversity monitoring at NEON terrestrial sites.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable | AI-ready"
+      "fair4ai_category": "Reusable | AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "General Information",
@@ -72,7 +76,8 @@
       "evidence": "Data are delivered as structured relational tables via the NEON REST API with documented table relationships (bet_fielddata and child tables), enabling programmatic ingestion.",
       "notes": "Machine-ingestable; scientific fitness is task-specific.",
       "recommendation": "",
-      "fair4ai_category": "AI-ready | Interoperable"
+      "fair4ai_category": "AI-ready | Interoperable",
+      "criteria": "Structural"
     },
     {
       "section": "General Information",
@@ -82,7 +87,8 @@
       "evidence": "No list of intended ML tasks is provided; the product is described for ecological monitoring, not for a specific ML task.",
       "notes": "",
       "recommendation": "Add a short list of supported tasks (e.g., species-occurrence modeling, richness estimation) so downstream ML users can judge task-readiness.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "General Information",
@@ -92,7 +98,8 @@
       "evidence": "Each annual RELEASE carries a DOI (e.g., RELEASE-2026 doi:10.48443/q9ne-6b77); biorepository specimens link out via DarwinCore archives; change logs document processing history.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "General Information",
@@ -102,7 +109,8 @@
       "evidence": "The product is tabular occurrence/specimen data with no free-text/NLP corpus; the item is scoped to Text/NLP data.",
       "notes": "Modality mismatch (no textual data product).",
       "recommendation": "",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
       "section": "General Information",
@@ -112,7 +120,8 @@
       "evidence": "productDescription gives a concise summary ('Taxonomically identified ground beetles and the plots and times from which they were collected').",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Scientific"
     },
     {
       "section": "General Information",
@@ -122,7 +131,8 @@
       "evidence": "22 keywords are provided (e.g., Carabidae, ground beetles, pitfall traps, biodiversity, invasive species, DNA barcoding).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": ""
     },
     {
       "section": "General Information",
@@ -132,7 +142,8 @@
       "evidence": "Variables are described in the NEON beetle User Guide and per-table descriptions, but a single machine-readable data dictionary is not linked directly from the structured product metadata.",
       "notes": "",
       "recommendation": "Publish a machine-readable data dictionary (CSV/JSON) linked from the product record with field names, types, units, and allowed values for every variable.",
-      "fair4ai_category": "Interoperable | Reusable"
+      "fair4ai_category": "Interoperable | Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "General Information",
@@ -142,7 +153,8 @@
       "evidence": "The product has a persistent landing page: https://data.neonscience.org/data-products/DP1.10022.001.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -152,7 +164,8 @@
       "evidence": "The NEON data portal serves as the curation and distribution repository, with documented processing pipelines referenced in the change logs.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Structural"
     },
     {
       "section": "General Information",
@@ -162,7 +175,8 @@
       "evidence": "No example or load code is referenced in the product metadata (NEON's neonUtilities tooling exists but is not linked from this record).",
       "notes": "",
       "recommendation": "Link example access code (e.g., a neonUtilities snippet or notebook) from the product metadata to lower the barrier to programmatic reuse.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural"
     },
     {
       "section": "General Information",
@@ -172,7 +186,8 @@
       "evidence": "No peer-reviewed dataset-descriptor publication is referenced; only NEON protocol and science-design documents are linked.",
       "notes": "",
       "recommendation": "Link a peer-reviewed data-descriptor DOI if/when one exists.",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -182,7 +197,8 @@
       "evidence": "The source is clearly described as primary field collection via pitfall trapping at NEON terrestrial sites, with lab sorting and taxonomic identification.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -192,7 +208,8 @@
       "evidence": "Fifteen biorepository specimen collections are linked (e.g., CARC-AP, EMEC, INV) with DarwinCore archive access.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -202,7 +219,8 @@
       "evidence": "No 'cited by' publications are referenced in the metadata.",
       "notes": "",
       "recommendation": "Add a machine-readable 'cited by' list (DataCite relatedIdentifier[IsCitedBy]) as literature accumulates.",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": ""
     },
     {
       "section": "General Information",
@@ -212,7 +230,8 @@
       "evidence": "NEON (National Ecological Observatory Network) is identified as the organizational creator; no individual creators are named.",
       "notes": "",
       "recommendation": "Add individual creators/collectors with ORCIDs alongside the organizational creator.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "General Information",
@@ -222,7 +241,8 @@
       "evidence": "productName: 'Ground beetles sampled from pitfall traps'.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance"
     },
     {
       "section": "General Information",
@@ -232,7 +252,8 @@
       "evidence": "A comprehensive productAbstract describes sampling, sorting, identification, archiving, and the expert-taxonomist uncertainty subset.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Scientific"
     },
     {
       "section": "General Information",
@@ -242,7 +263,8 @@
       "evidence": "Temporal coverage spans 2013-07 to the present (2026), with collection dates recorded per sampling bout in bet_fielddata.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -252,177 +274,195 @@
       "evidence": "NEON is the publisher; data are served from https://data.neonscience.org.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable | Accessible"
+      "fair4ai_category": "Findable | Accessible",
+      "criteria": "Provenance/Structural"
     },
     {
-      "section": "Data Structure",
+      "section": "Data structure",
       "sub_section": "Data format",
       "question": "Are the file format(s) documented?",
       "status": "partial",
       "evidence": "Data are delivered as tabular files (NEON convention is CSV) and JSON via API, but explicit file-format declarations are not present in the retrieved product metadata.",
       "notes": "NEON standard is CSV, but the format is not explicitly declared in the record reviewed.",
       "recommendation": "Declare file formats explicitly (e.g., text/csv, application/json) via schema.org encodingFormat or DataCite formats.",
-      "fair4ai_category": "Interoperable | Accessible"
+      "fair4ai_category": "Interoperable | Accessible",
+      "criteria": "Structural"
     },
     {
-      "section": "Data Structure",
+      "section": "Data structure",
       "sub_section": "Data format",
       "question": "Is the dataset structure / layout described?",
       "status": "meets",
       "evidence": "The record documents multiple related tables (bet_fielddata, bet_sorting, bet_parataxonomistID, bet_expertTaxonomistID, bet_archivepooling, bet_identificationHistory) and their roles.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
-      "section": "Data Structure",
+      "section": "Data structure",
       "sub_section": "Data format",
       "question": "Are the individual data instances / files described?",
       "status": "meets",
       "evidence": "Each table is described with its content and expected latency (e.g., bet_fielddata 75 days; expert IDs 600 days).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
-      "section": "Data Structure",
+      "section": "Data structure",
       "sub_section": "Data organization",
       "question": "Is the organization of records/files and their relationships described?",
       "status": "meets",
       "evidence": "productRemarks documents the record model: one record per trapID/plotID/collectDate in bet_fielddata, with zero-to-many child records across sorting, pinning, and expert tables.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
-      "section": "Data Structure",
+      "section": "Data structure",
       "sub_section": "Features",
       "question": "Are features/attributes documented?",
       "status": "meets",
       "evidence": "Fields for counts, taxonomic identities, vertebrate bycatch, location, and dates are documented across tables and detailed in the User Guide.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable | AI-ready"
+      "fair4ai_category": "Interoperable | AI-ready",
+      "criteria": "Structural/Scientific"
     },
     {
-      "section": "Data Structure",
+      "section": "Data structure",
       "sub_section": "Technical specs",
       "question": "Are technical specifications (sizes, record counts) documented?",
       "status": "partial",
       "evidence": "Sampling specifications are given (trap counts per site by era, trap volumes), but digital file sizes and record counts are not stated in the metadata.",
       "notes": "",
       "recommendation": "Add file sizes and approximate record counts per table so users can estimate compute/storage before download.",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
       "section": "Source Data",
-      "sub_section": "Collection",
+      "sub_section": "collection",
       "question": "Is the collection date or date range documented?",
       "status": "meets",
       "evidence": "Collection dates are recorded per bout; temporal coverage 2013-07 to present is documented.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Source Data",
-      "sub_section": "Collection",
+      "sub_section": "collection",
       "question": "Is the type of source data collected documented?",
       "status": "meets",
       "evidence": "Source data type is documented: field observations plus physical specimens collected via pitfall traps, followed by lab sorting and identification.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Provenance"
     },
     {
       "section": "Source Data",
-      "sub_section": "Collection",
+      "sub_section": "collection",
       "question": "Is the specific upstream data source (link/identifier) provided?",
       "status": "N/A",
       "evidence": "This is a primary dataset; the item is scoped to derived/compiled datasets that link to upstream sources.",
       "notes": "Scope mismatch (primary, not derived).",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Source Data",
-      "sub_section": "Collection",
+      "sub_section": "collection",
       "question": "Is the curation rationale documented?",
       "status": "meets",
       "evidence": "The rationale is documented in the abstract and science-design document: standardized long-term monitoring of ground-beetle abundance and diversity.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Provenance"
     },
     {
       "section": "Source Data",
-      "sub_section": "Collection",
+      "sub_section": "collection",
       "question": "Is it documented whether this is part of a larger collection/series?",
       "status": "meets",
       "evidence": "Documented as part of NEON's Terrestrial Observation System (TOS), collected across all NEON terrestrial sites.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "Source Data",
-      "sub_section": "Instrumentation",
+      "sub_section": "instrumentation",
       "question": "Is sensor/instrument metadata provided (link)?",
       "status": "N/A",
       "evidence": "productSensor is empty; collection is by physical pitfall trapping, not sensor/instrument captures (camera trap, drone, bioacoustics, telemetry, remote sensing).",
       "notes": "Modality mismatch; trap configuration itself is documented under methods. Flagged as a scope-boundary case for the instrument.",
       "recommendation": "",
-      "fair4ai_category": "Reusable | AI-ready"
+      "fair4ai_category": "Reusable | AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Source Data",
-      "sub_section": "Methods",
+      "sub_section": "methods",
       "question": "Is quantitative spatial/temporal resolution documented?",
       "status": "meets",
       "evidence": "Spatial resolution: traps ~20 m from plot center in cardinal directions with per-trap locations. Temporal resolution: biweekly sampling during the growing season (temperatures >4 C).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "AI-ready | Reusable"
+      "fair4ai_category": "AI-ready | Reusable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Source Data",
-      "sub_section": "Preparation",
+      "sub_section": "preparation",
       "question": "Is data preparation/processing described?",
       "status": "meets",
       "evidence": "Preparation is described: sorting, pinning vs. 95% ethanol archiving, taxonomic identification, and manual QA in the processing pipeline.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific"
     },
     {
       "section": "Data Processing",
-      "sub_section": "Correction / standardization of values",
+      "sub_section": "Correction/standardization of values",
       "question": "Is data gridding / interpolation documented?",
       "status": "N/A",
       "evidence": "The product is point/plot occurrence data; the item is scoped to spatial/remote-sensing gridded products.",
       "notes": "Scope mismatch (not gridded).",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
-      "sub_section": "Correction / standardization of values",
+      "sub_section": "Correction/standardization of values",
       "question": "Are units consistent and documented?",
       "status": "meets",
       "evidence": "Measured variables use standardized units (e.g., meters, decimal degrees); higher taxonomy is standardized against NEON taxon tables.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable | Reusable"
+      "fair4ai_category": "Interoperable | Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
-      "sub_section": "Correction / standardization of values",
+      "sub_section": "Correction/standardization of values",
       "question": "Has data anonymization been applied/documented?",
       "status": "N/A",
       "evidence": "No personal or human-subject data are present; the item is scoped to human/sensitive data.",
       "notes": "Scope mismatch (no personal data). Sensitive-species obfuscation is assessed separately under Security/Privacy.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
@@ -432,7 +472,8 @@
       "evidence": "A 'samplingImpractical' flag (added 2020) distinguishes temporarily missing from permanently unavailable data; from 2020 a record is generated per scheduled trap even when not collected.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
@@ -442,17 +483,19 @@
       "evidence": "Missing data are flagged rather than imputed; the flagging approach is described but there is no explicit gap-filling method statement.",
       "notes": "",
       "recommendation": "State explicitly that gaps are flagged (not imputed) and document all flag values and meanings in a machine-readable form.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
-      "sub_section": "Labeling / re-labeling",
+      "sub_section": "Labeling/re-labeling",
       "question": "Is labeling/re-labeling documented?",
       "status": "meets",
       "evidence": "Taxonomic labeling is described; relabeling from expert taxonomists is tracked, with prior determinations archived in bet_identificationHistory (added 2024).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Data Processing",
@@ -462,7 +505,8 @@
       "evidence": "Quality control is referenced (ATBD NEON.DOC.005424) and manual QA is described, but specific outlier-detection criteria are not stated.",
       "notes": "",
       "recommendation": "Document the specific thresholds/rules used to flag or remove anomalous records, distinguishing manual review from automated flags.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Data Processing",
@@ -472,7 +516,8 @@
       "evidence": "This is primary observational data not organized into ML splits; the item is scoped to supervised-ML train/val/test datasets.",
       "notes": "Scope mismatch. Site- or year-based split guidance would help ML reuse and is a candidate future addition (informational, not a penalty).",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Quality",
@@ -482,7 +527,8 @@
       "evidence": "Documented as an active, provisional, ongoing monitoring product with annual RELEASEs; new data continue to be added.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Quality",
@@ -492,7 +538,8 @@
       "evidence": "A quality-controlled product with multi-level QA: field technicians, parataxonomists, and a subset verified by expert taxonomists; QC governed by an ATBD.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural"
     },
     {
       "section": "Data Quality",
@@ -502,7 +549,8 @@
       "evidence": "Taxonomy follows NEON taxon tables (a controlled vocabulary), but direct machine-resolvable URIs to the vocabularies are not provided in the structured metadata.",
       "notes": "",
       "recommendation": "Provide resolvable URIs to the controlled vocabularies used (NEON taxon tables, ITIS/Catalogue of Life) rather than prose references.",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Data Quality",
@@ -512,7 +560,8 @@
       "evidence": "A subset of specimens (up to 467 per site per year) is verified by external expert taxonomists to estimate parataxonomist uncertainty; internal QA is applied.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Provenance"
     },
     {
       "section": "Data Quality",
@@ -522,7 +571,8 @@
       "evidence": "Per-table data latency is documented (bet_fielddata 75 days; sorting/parataxonomist/archive 330 days; expert IDs 600 days), and the product is updated on an ongoing basis.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Guidance & Recommendations",
@@ -532,7 +582,8 @@
       "evidence": "Parataxonomist uncertainty is estimated via expert re-identification and sampling-effort changes are logged, but broader geographic/detection biases are not explicitly discussed as bias.",
       "notes": "",
       "recommendation": "Add an explicit bias section covering site-selection (geographic) bias, seasonal/habitat detection bias, and parataxonomist-vs-expert discrepancy rates.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -542,7 +593,8 @@
       "evidence": "Limitations that imply reuse risks are logged (sampling-effort reductions affecting temporal comparability; species obfuscation), but they are not framed as explicit reuse risks.",
       "notes": "",
       "recommendation": "Frame the documented limitations as concrete reuse risks (e.g., naive temporal comparisons across the 40->30->18 trap changes).",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -552,7 +604,8 @@
       "evidence": "Limitations are documented via change logs: reduced sampling effort over time (budget), sensitive-species obfuscation, and COVID-19/flooding sampling gaps.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -562,7 +615,8 @@
       "evidence": "The metadata make clear the data are standardized observational monitoring (no treatments/controls), i.e., not experimental.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -572,7 +626,8 @@
       "evidence": "The data are observational, so an experimental-design description does not apply.",
       "notes": "Scope mismatch (not experimental).",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -582,7 +637,8 @@
       "evidence": "No supported ML tasks are listed in the metadata.",
       "notes": "",
       "recommendation": "List in-scope ML tasks (e.g., species classification, occupancy/richness modeling) to signal task-readiness.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Guidance & Recommendations",
@@ -592,7 +648,8 @@
       "evidence": "No model-evaluation or benchmark results are reported for this dataset.",
       "notes": "",
       "recommendation": "If the dataset is used in benchmarks, link the results; otherwise note none exist yet.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Guidance & Recommendations",
@@ -602,7 +659,8 @@
       "evidence": "The purpose (biodiversity monitoring, abundance/diversity assessment) is stated, but specific analytical/ML usage recommendations are not provided in the structured metadata.",
       "notes": "",
       "recommendation": "Add explicit usage guidance (recommended split strategies, confounders to control for, appropriate downstream tasks).",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Guidance & Recommendations",
@@ -612,7 +670,8 @@
       "evidence": "No record of prior AI/ML use (models trained/benchmarked) is provided.",
       "notes": "",
       "recommendation": "Document any published AI/ML uses (DataCite relatedIdentifier[IsCitedBy]); add a placeholder inviting reports of AI/ML use.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -622,7 +681,8 @@
       "evidence": "No explicit guidance on inappropriate or discouraged uses is provided.",
       "notes": "",
       "recommendation": "Document uses to avoid (e.g., naive temporal comparisons across sampling-design changes; fine-scale modeling on obfuscated records).",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -632,267 +692,294 @@
       "evidence": "No issue-reporting mechanism (issue tracker, contact email) is present in the product metadata.",
       "notes": "",
       "recommendation": "Provide a direct issue-reporting channel (support email or issue-tracker URL) in the metadata.",
-      "fair4ai_category": "AI-ready | Reusable"
+      "fair4ai_category": "AI-ready | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Data Access",
-      "sub_section": "Delivery options",
+      "sub_section": "Delivery Options",
       "question": "Is the dataset available for direct download?",
       "status": "meets",
       "evidence": "The product is available for download through the NEON data portal.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "Delivery options",
+      "sub_section": "Delivery Options",
       "question": "Is the dataset accessible via an API?",
       "status": "meets",
       "evidence": "Metadata and data are accessible via the NEON REST API (https://data.neonscience.org/api/v0/products/DP1.10022.001).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "Delivery options",
+      "sub_section": "Delivery Options",
       "question": "Is the API type documented?",
       "status": "meets",
       "evidence": "The NEON API is RESTful, returning JSON.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "Delivery options",
+      "sub_section": "Delivery Options",
       "question": "Is API reference/documentation available?",
       "status": "meets",
       "evidence": "NEON publishes API documentation for its REST endpoints, covering products, sites, and data endpoints.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "Delivery options",
+      "sub_section": "Delivery Options",
       "question": "Is the API rate limit documented?",
       "status": "partial",
       "evidence": "NEON documents API rate limits in its general API documentation, but the limit is not stated in this product record.",
       "notes": "",
       "recommendation": "Reference the applicable API rate limit (and token-based increase) from the product record for programmatic users.",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "Delivery options",
+      "sub_section": "Delivery Options",
       "question": "Is cloud access documented?",
       "status": "partial",
       "evidence": "Cloud-hosted access is not documented in the product metadata.",
       "notes": "",
       "recommendation": "Document whether data are mirrored to a cloud platform (e.g., cloud-optimized formats) to support large-scale workflows.",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "Format accessibility",
+      "sub_section": "Format accessibility (open, proprietary, etc.)",
       "question": "Is the data provided in a machine-readable format?",
       "status": "meets",
       "evidence": "Data/metadata are machine-readable: JSON via API and tabular data tables.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable | Accessible"
+      "fair4ai_category": "Interoperable | Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "Format accessibility",
+      "sub_section": "Format accessibility (open, proprietary, etc.)",
       "question": "Is the data provided in an open (non-proprietary) format?",
       "status": "meets",
       "evidence": "Formats are non-proprietary (JSON, and CSV data tables per NEON convention; DarwinCore archives for specimens).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible | Interoperable"
+      "fair4ai_category": "Accessible | Interoperable",
+      "criteria": "Structural/Provenance"
     },
     {
       "section": "Data Access",
-      "sub_section": "Format accessibility",
+      "sub_section": "Format accessibility (open, proprietary, etc.)",
       "question": "Is the data available in multiple formats?",
       "status": "meets",
       "evidence": "Basic and expanded data packages are offered, plus DarwinCore archives for biorepository specimens.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "License / usage rights",
+      "sub_section": "License/ Usage Rights",
       "question": "Is a license documented?",
       "status": "meets",
       "evidence": "Data are released under NEON's data policy/citation terms and carry per-release DOIs (e.g., 10.48443/q9ne-6b77).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible | Reusable"
+      "fair4ai_category": "Accessible | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Data Access",
-      "sub_section": "License / usage rights",
+      "sub_section": "License/ Usage Rights",
       "question": "Is the license standardized / machine-readable?",
       "status": "partial",
       "evidence": "License terms are provided as a NEON data-policy URL; no SPDX identifier is supplied.",
       "notes": "",
       "recommendation": "Adopt an SPDX identifier (e.g., CC-BY-4.0) so the license is machine-readable for AI/ML registries (Hugging Face, Croissant).",
-      "fair4ai_category": "Accessible | Reusable"
+      "fair4ai_category": "Accessible | Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "Security / privacy",
+      "sub_section": "Security / Privacy",
       "question": "Is the presence/handling of sensitive information documented?",
       "status": "meets",
       "evidence": "Sensitive-species handling is documented: taxonomic IDs of species of concern are 'fuzzed', with state/federal obfuscation described in the change logs.",
       "notes": "No personal/human-subject data present.",
       "recommendation": "",
-      "fair4ai_category": "Accessible | Reusable"
+      "fair4ai_category": "Accessible | Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "Data Access",
-      "sub_section": "Security / privacy",
+      "sub_section": "Security / Privacy",
       "question": "Are access restrictions documented?",
       "status": "partial",
       "evidence": "Obfuscation of sensitive taxa and some site-level restrictions are described, but the full criteria and affected records are not enumerated.",
       "notes": "",
       "recommendation": "List which taxa/sites are subject to obfuscation and the criteria used, so users can anticipate degraded location data.",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Data Access",
-      "sub_section": "Security / privacy",
+      "sub_section": "Security / Privacy",
       "question": "Is a secure/conditional access procedure documented?",
       "status": "N/A",
       "evidence": "The data are openly and freely accessible with no authentication; there is no conditional/secured access gateway (sensitive taxa are obfuscated in place rather than access-gated).",
       "notes": "Scope mismatch (not restricted-access data).",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Provenance",
-      "sub_section": "Citation for this dataset",
+      "sub_section": "citation for \"this dataset\"",
       "question": "Is the author of the dataset identified?",
       "status": "partial",
       "evidence": "NEON is identified as the organizational author; no individual author is named.",
       "notes": "",
       "recommendation": "Name individual authors with ORCIDs in addition to the organizational author.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Citation for this dataset",
+      "sub_section": "citation for \"this dataset\"",
       "question": "Is an author ORCID provided?",
       "status": "does not meet",
       "evidence": "No ORCIDs are provided in the metadata.",
       "notes": "",
       "recommendation": "Add ORCIDs for creators/collectors/curators.",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Citation for this dataset",
+      "sub_section": "citation for \"this dataset\"",
       "question": "Is the curator identified?",
       "status": "partial",
       "evidence": "The Terrestrial Observation System (TOS) science team is identified as curator; no individual curators are named.",
       "notes": "",
       "recommendation": "Name individual curators (and external taxonomists) with ORCIDs.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Citation for this dataset",
+      "sub_section": "citation for \"this dataset\"",
       "question": "Is the dataset-card author identified?",
       "status": "does not meet",
       "evidence": "No individual dataset-documentation author is identified; attribution is organizational only.",
       "notes": "",
       "recommendation": "Identify the individual(s) responsible for the dataset documentation.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Citation for this dataset",
+      "sub_section": "citation for \"this dataset\"",
       "question": "Is a dataset-card contact provided?",
       "status": "does not meet",
       "evidence": "No documentation contact (person or email) is provided in the metadata.",
       "notes": "",
       "recommendation": "Add a direct contact (named person or group inbox) for documentation questions.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Citation for this dataset",
+      "sub_section": "citation for \"this dataset\"",
       "question": "Is an expert/domain contact provided?",
       "status": "does not meet",
       "evidence": "No named domain-expert contact is provided; only organizational URLs.",
       "notes": "",
       "recommendation": "Provide a domain-expert contact for scientific questions about the data.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Citation for this dataset",
+      "sub_section": "citation for \"this dataset\"",
       "question": "Is a data citation provided?",
       "status": "meets",
       "evidence": "A citable form is available via per-release DOIs (e.g., RELEASE-2026 doi:10.48443/q9ne-6b77) under NEON's citation policy.",
       "notes": "No BibTeX form is provided, but a resolvable DOI citation exists.",
       "recommendation": "",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Is provenance tracking to source datasets provided?",
       "status": "N/A",
       "evidence": "Primary dataset; the item is scoped to derived/compiled datasets.",
       "notes": "Scope mismatch (primary, not derived).",
       "recommendation": "",
-      "fair4ai_category": "Reusable | Findable"
+      "fair4ai_category": "Reusable | Findable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Are source-data producers identified?",
       "status": "N/A",
       "evidence": "Primary dataset; not derived from other datasets.",
       "notes": "Scope mismatch.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Are citations for subsumed datasets provided?",
       "status": "N/A",
       "evidence": "Primary dataset; no subsumed source datasets.",
       "notes": "Scope mismatch.",
       "recommendation": "",
-      "fair4ai_category": "Reusable | Findable"
+      "fair4ai_category": "Reusable | Findable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Are source-data DOIs / permalinks provided?",
       "status": "N/A",
       "evidence": "Primary dataset; no upstream source datasets to cite.",
       "notes": "Scope mismatch.",
       "recommendation": "",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Are source-data checksums provided?",
       "status": "N/A",
       "evidence": "Primary dataset; no upstream source package to checksum.",
       "notes": "Scope mismatch.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Provenance",
@@ -902,7 +989,8 @@
       "evidence": "Each annual RELEASE has a DOI (RELEASE-2021 10.48443/tx5f-dy17 through RELEASE-2026 10.48443/q9ne-6b77).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Provenance",
@@ -912,77 +1000,85 @@
       "evidence": "No file checksums (e.g., SHA-256) are mentioned in the metadata.",
       "notes": "",
       "recommendation": "Publish SHA-256 checksums for released files to enable integrity verification.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Provenance",
-      "sub_section": "Processing platform / software",
+      "sub_section": "Processing platform/software",
       "question": "Is the processing platform/software documented and cited?",
       "status": "partial",
       "evidence": "The change logs reference a generic processing pipeline and transitions (e.g., 2017 codebase transition), but specific software tools and versions are not named.",
       "notes": "",
       "recommendation": "Name the specific processing software/versions and link to code repositories or DOIs.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Provenance",
-      "sub_section": "Storage conditions (CARE)",
+      "sub_section": "Provenance",
       "question": "Are storage conditions / specimen custody documented?",
       "status": "meets",
       "evidence": "Physical-specimen storage is documented: pinning and 95% ethanol archiving, with 15 biorepository collections (biorepo.neonscience.org) holding the material.",
       "notes": "In scope via the physical-specimen condition.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Governance",
-      "sub_section": "Permissions (CARE)",
+      "sub_section": "Governance",
       "question": "Is permission to take the observations documented?",
       "status": "N/A",
       "evidence": "The item is scoped to CARE-governed / Indigenous/community data; NEON ground-beetle sampling on standardized research sites is not governed under these conditions.",
       "notes": "Scope mismatch (not CARE/Indigenous-governed data).",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Governance",
-      "sub_section": "Permissions (CARE)",
+      "sub_section": "Governance",
       "question": "Is the agent granting collection permission documented?",
       "status": "N/A",
       "evidence": "Scoped to CARE-governed / Indigenous/community data; not applicable to this dataset.",
       "notes": "Scope mismatch.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Governance",
-      "sub_section": "Stewardship (CARE)",
+      "sub_section": "Governance",
       "question": "Are the people stewarding the observations documented?",
       "status": "N/A",
       "evidence": "Scoped to CARE-governed / Indigenous/community data; not applicable to this dataset.",
       "notes": "Scope mismatch.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
-      "section": "Provenance",
-      "sub_section": "Collection (CARE)",
+      "section": "Governance",
+      "sub_section": "Collection",
       "question": "Is the timestamp of observation recorded?",
       "status": "meets",
       "evidence": "Collection timestamps (collectDate, and setDate-based ISO-week eventIDs) are recorded per sampling event.",
       "notes": "In scope (all use cases / time-series).",
       "recommendation": "",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
-      "section": "Provenance",
-      "sub_section": "Collection (CARE)",
+      "section": "Governance",
+      "sub_section": "Collection",
       "question": "Are the actions and timestamps leading to each observation documented (CARE provenance)?",
       "status": "N/A",
       "evidence": "The item captures CARE-specific provenance (actors/operations/preferences leading to a data point) for governed data; this dataset is not CARE-governed.",
       "notes": "Scope mismatch. NEON change logs provide processing-level provenance, but not CARE actor-level provenance.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     }
   ],
   "summary": {
@@ -1007,47 +1103,82 @@
     ],
     "overall_assessment": "NEON Ground Beetles (DP1.10022.001) is strongly FAIR-compliant: persistent DOIs, rich standardized metadata, API access, open formats, and thorough methods/QC documentation. The main shortfalls are AI-readiness affordances (no ML-task or usage guidance, no AI/ML usage history, implicit-only bias documentation) and attribution/contact details (individual names, ORCIDs, funding, issue reporting). The N/A rule fired as designed on derived-dataset, text/NLP, experimental, ML-split, and CARE-governance items that do not apply to this primary observational dataset.",
     "fair4ai_scores": {
-      "findable": 0.824,
-      "accessible": 0.833,
-      "interoperable": 0.833,
-      "reusable": 0.622,
-      "ai_ready": 0.556,
-      "overall": 0.733,
-      "details": {
-        "findable": {
-          "n_scored": 17,
-          "meets": 14,
-          "partial": 0,
-          "does_not_meet": 3,
-          "na": 3
-        },
-        "accessible": {
-          "n_scored": 15,
-          "meets": 10,
-          "partial": 5,
-          "does_not_meet": 0,
-          "na": 1
-        },
-        "interoperable": {
-          "n_scored": 12,
-          "meets": 8,
-          "partial": 4,
-          "does_not_meet": 0,
-          "na": 1
-        },
-        "reusable": {
-          "n_scored": 37,
-          "meets": 19,
-          "partial": 8,
-          "does_not_meet": 10,
-          "na": 13
-        },
-        "ai_ready": {
-          "n_scored": 18,
-          "meets": 8,
-          "partial": 4,
-          "does_not_meet": 6,
-          "na": 3
+      "traditional_fair": {
+        "findable": 0.824,
+        "accessible": 0.833,
+        "interoperable": 0.833,
+        "reusable": 0.622,
+        "overall": 0.778,
+        "details": {
+          "findable": {
+            "n_scored": 17,
+            "meets": 14,
+            "partial": 0,
+            "does_not_meet": 3,
+            "na": 3
+          },
+          "accessible": {
+            "n_scored": 15,
+            "meets": 10,
+            "partial": 5,
+            "does_not_meet": 0,
+            "na": 1
+          },
+          "interoperable": {
+            "n_scored": 12,
+            "meets": 8,
+            "partial": 4,
+            "does_not_meet": 0,
+            "na": 1
+          },
+          "reusable": {
+            "n_scored": 37,
+            "meets": 19,
+            "partial": 8,
+            "does_not_meet": 10,
+            "na": 13
+          }
+        }
+      },
+      "ai_fair": {
+        "ml_ready": 0.732,
+        "ai_ready_for_task": 0.712,
+        "traceable": 0.673,
+        "care_compliance": 1.0,
+        "overall": 0.779,
+        "components": {
+          "structural": {
+            "score": 0.732,
+            "n_scored": 41,
+            "meets": 24,
+            "partial": 12,
+            "does_not_meet": 5,
+            "na": 7
+          },
+          "scientific": {
+            "score": 0.692,
+            "n_scored": 39,
+            "meets": 23,
+            "partial": 8,
+            "does_not_meet": 8,
+            "na": 5
+          },
+          "provenance": {
+            "score": 0.614,
+            "n_scored": 35,
+            "meets": 18,
+            "partial": 7,
+            "does_not_meet": 10,
+            "na": 10
+          },
+          "governance": {
+            "score": 1.0,
+            "n_scored": 1,
+            "meets": 1,
+            "partial": 0,
+            "does_not_meet": 0,
+            "na": 4
+          }
         }
       }
     }

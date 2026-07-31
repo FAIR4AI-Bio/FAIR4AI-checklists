@@ -1,19 +1,22 @@
 #!/usr/bin/env python
 """Multipanel figure summarizing FAIR4AI-Bio scores across a batch of datasets.
 
-One panel per FAIR4AI category (Findable, Accessible, Interoperable, Reusable,
-AI-ready, Overall). Each panel shows the distribution of per-dataset scores as a
-histogram over the 0-1 range, with every dataset drawn as a point (rug) along the
-bottom, mean/median marker lines, and a summary-stats inset (n, mean, median, SD,
-range).
+A 2-row, 5-column grid, one row per assessment:
+  - Top row  — Traditional FAIR: Findable, Accessible, Interoperable, Reusable,
+    Overall FAIR.
+  - Bottom row — AI-FAIR: ML-ready, AI-ready for task, Traceable, CARE compliance,
+    Overall AI-FAIR.
+Each panel shows the distribution of per-dataset scores as a histogram over the 0-1
+range, with every dataset drawn as a point (rug) along the bottom, mean/median marker
+lines, and a summary-stats inset (n, mean, median, SD, range).
 
 Reads:  the scores summary CSV from compile_fair4ai_results.py (one row per dataset).
 Writes: <out-base>.{png,pdf,svg}
 
 Design tokens (colors, ink, grid) follow the dataviz skill's validated reference
-palette; the 6 categorical hues passed the palette validator (light mode). Color is
-decorative here — every panel is titled and its stats are printed, so identity never
-rests on color alone.
+palette (light mode); the two "Overall" columns share a green family so the rows read
+as parallel assessments. Color is decorative here — every panel is titled and its
+stats are printed, so identity never rests on color alone.
 
 This is the ONLY part of the pipeline that needs third-party packages (numpy +
 matplotlib, see scripts/requirements-viz.txt). Scoring and compilation stay
@@ -52,15 +55,25 @@ MUTED = "#898781"      # axis / labels
 GRID = "#e1e0d9"       # hairline gridline
 BASELINE = "#c3c2b7"   # axis / baseline
 
-# categorical hues, fixed order (validated); one per panel
-CATEGORIES = [
-    ("findable",     "Findable",      "#2a78d6"),  # blue
-    ("accessible",   "Accessible",    "#eb6834"),  # orange
-    ("interoperable", "Interoperable", "#1baf7a"),  # aqua
-    ("reusable",     "Reusable",      "#eda100"),  # yellow
-    ("ai_ready",     "AI-ready",      "#e87ba4"),  # magenta
-    ("overall",      "Overall",       "#008300"),  # green
+# categorical hues, fixed order; one per panel. Laid out as two rows/assessments.
+# Top row = Traditional FAIR, bottom row = AI-FAIR; the two "Overall" columns share a
+# green family (light / dark) so the rows read as parallel summaries.
+FAIR_ROW = [
+    ("findable",      "Findable",       "#2a78d6"),  # blue
+    ("accessible",    "Accessible",     "#eb6834"),  # orange
+    ("interoperable", "Interoperable",  "#1baf7a"),  # aqua
+    ("reusable",      "Reusable",       "#eda100"),  # yellow
+    ("overall_fair",  "Overall FAIR",   "#008300"),  # green
 ]
+AI_ROW = [
+    ("ml_ready",           "ML-ready",         "#e87ba4"),  # magenta
+    ("ai_ready_for_task",  "AI-ready for task", "#8a5cd6"),  # purple
+    ("traceable",          "Traceable",        "#2ba6b8"),  # teal
+    ("care_compliance",    "CARE compliance",  "#d64550"),  # red
+    ("overall_ai_fair",    "Overall AI-FAIR",  "#0a5d2c"),  # dark green
+]
+ROWS = [FAIR_ROW, AI_ROW]
+CATEGORIES = FAIR_ROW + AI_ROW  # flat, row-major (matches axes.flat order)
 
 
 def load_scores(csv_path):
@@ -103,9 +116,9 @@ def main(argv=None):
 
     title = args.title or f"FAIR4AI-Bio scores across {n_rows} datasets"
     subtitle = args.subtitle or (
-        "Traditional FAIR dimensions tend to score well; AI-readiness is usually the "
-        "weakest dimension — FAIR is necessary but not sufficient for AI-ready data.   "
-        "Solid line = mean · dashed = median · dots = individual datasets.")
+        "Top row = Traditional FAIR · bottom row = AI-FAIR.  Traditional FAIR tends to "
+        "score well while AI-FAIR lags — FAIR is necessary but not sufficient for "
+        "AI-ready data.   Solid line = mean · dashed = median · dots = individual datasets.")
     model_bit = f" with {args.model}" if args.model else ""
     footnote = args.footnote or (
         f"n = {n_rows} datasets · FAIR4AI-Bio checklist (96 items) · evaluated {date}"
@@ -136,7 +149,7 @@ def main(argv=None):
 
     rng = np.random.default_rng(42)  # deterministic jitter for the rug
 
-    fig, axes = plt.subplots(2, 3, figsize=(13.5, 7.4), constrained_layout=True)
+    fig, axes = plt.subplots(2, 5, figsize=(20.5, 7.8), constrained_layout=True)
     fig.patch.set_facecolor(SURFACE)
 
     for ax, (key, label, hue) in zip(axes.flat, CATEGORIES):

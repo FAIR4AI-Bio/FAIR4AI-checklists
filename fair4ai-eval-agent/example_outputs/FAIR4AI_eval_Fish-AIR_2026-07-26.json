@@ -38,7 +38,8 @@
       "evidence": "Every page states support from NSF HDR Institute Grant #2118240 (Imageomics), NSF OAC #1940322 (BGNN), and a Tulane University subaward from Ohio State University.",
       "notes": "Funders named in narrative acknowledgements rather than a structured funder field.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -48,7 +49,8 @@
       "evidence": "Award numbers given explicitly: NSF #2118240 (Imageomics) and NSF OAC #1940322 (BGNN).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -58,7 +60,8 @@
       "evidence": "Team page lists collaborators (Virginia Tech, Drexel University) and source institutions are acknowledged; batch.csv records a 'contactor' (Xiaojun Wang).",
       "notes": "Collaborators are named on the website but there is no structured non-author contributor list in the dataset metadata.",
       "recommendation": "Add an EML associatedParty / DataCite contributor list (with roles) in metadata.xml so downstream tools can attribute non-author contributors machine-readably.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -68,7 +71,8 @@
       "evidence": "EML abstract explains the purpose: gathering lateral-view whole-fish specimen images from repositories for Biology Guided Neural Network studies, with taxonomic cleanup (Eschmeyer's Catalog, WoRMS) and manual image-quality metadata capture.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable | AI-ready"
+      "fair4ai_category": "Reusable | AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "General Information",
@@ -78,7 +82,8 @@
       "evidence": "Delivered as a Darwin Core Archive: meta.xml maps every CSV column to a resolvable term URI, EML 2.2.0 metadata.xml is present, and data is served over a JSON API.",
       "notes": "Structurally ingestible, but there is no explicit conformsTo / machine-ready-for-task declaration, and some core fields (e.g., verbatimIdentification, scientificName) carry 'None' values.",
       "recommendation": "Add a Croissant cr:conformsTo (or equivalent) statement and populate empty taxonomic fields so a pipeline can rely on machine-readiness without human interpretation.",
-      "fair4ai_category": "AI-ready | Interoperable"
+      "fair4ai_category": "AI-ready | Interoperable",
+      "criteria": "Structural"
     },
     {
       "section": "General Information",
@@ -88,7 +93,8 @@
       "evidence": "No task list is declared. Pipeline types (bounding box, segmentation, landmark) appear as batch/pipeline enums but are not framed as ML tasks the dataset is engineered for.",
       "notes": "",
       "recommendation": "Declare the intended tasks (e.g., 'fish species classification', 'specimen segmentation') in a structured field so users know what the data were assembled to do.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "General Information",
@@ -98,7 +104,8 @@
       "evidence": "ARK identifiers per multimedia object and per batch; batch.csv records source institution, bibliographicCitation and URL; one source (OSUM) resolves to a GBIF DOI (10.15468/subsl8).",
       "notes": "Traceability exists but most sources are linked by portal URL rather than a persistent identifier, and there is no DataCite IsDerivedFrom relation.",
       "recommendation": "Record source linkages as relatedIdentifier[IsDerivedFrom] with DOIs where available to make the provenance chain machine-traversable.",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "General Information",
@@ -108,7 +115,8 @@
       "evidence": "",
       "notes": "Modality mismatch: Fish-AIR is an image dataset with tabular specimen metadata; no NLP/textual corpus.",
       "recommendation": "",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
       "section": "General Information",
@@ -118,7 +126,8 @@
       "evidence": "Site tagline 'the largest and most detailed AI-Ready fish image dataset with integrated Image Quality Management System'; EML abstract present.",
       "notes": "The first abstract paragraph is an auto-generated query dump ('{genus: None, family: None, dataset: GLIN}'), not a curated 1-2 sentence summary.",
       "recommendation": "Populate sc:abstract / a concise summary field with a curated 1-2 sentence description instead of the query echo, to aid catalog rendering and limit context needed by agents.",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Scientific"
     },
     {
       "section": "General Information",
@@ -128,7 +137,8 @@
       "evidence": "EML keywordSet present with keywords 'metadata' and 'neural network'.",
       "notes": "Keywords are sparse and generic; they omit obvious domain terms (fish, ichthyology, specimen imaging, taxonomy, biodiversity).",
       "recommendation": "Expand sc:keywords with domain and taxonomic terms so the dataset is discoverable by ecologists and ML practitioners searching those topics.",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": ""
     },
     {
       "section": "General Information",
@@ -138,7 +148,8 @@
       "evidence": "meta.xml maps each CSV column to a term URI drawn from Darwin Core (dwc:scientificName, dwc:genus, dwc:family), Audubon Core (ac:accessURI), Dublin Core (dc:format, dcterms:license), Adobe XMP, PLUS, and the Fish-AIR AIR vocabulary; rdf.owl and the vocabulary page (air v3.0, namespace https://fishair.org/air/terms/) define the custom terms.",
       "notes": "Units for a few quantitative AIR terms (size, width, height, quality) are not explicitly declared alongside the term.",
       "recommendation": "",
-      "fair4ai_category": "Interoperable | Reusable"
+      "fair4ai_category": "Interoperable | Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "General Information",
@@ -148,7 +159,8 @@
       "evidence": "https://fishair.org (home) and https://fishair.org/data.html describe the dataset and project.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -158,7 +170,8 @@
       "evidence": "batch.csv includes a 'codeRepository' (air:codeRepository) column and the project is the BGNN pipeline, but the column is empty in the delivered records.",
       "notes": "The processing code repository is implied (BGNN toolchain) but not linked in the metadata.",
       "recommendation": "Populate air:codeRepository with the URL of the processing/toolbox repository so users can reproduce or extend the pipelines.",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Structural"
     },
     {
       "section": "General Information",
@@ -168,7 +181,8 @@
       "evidence": "Interactive Swagger UI at https://fishair.org/api/docs plus an OpenAPI spec (/api/openapi.json) let users construct requests.",
       "notes": "No copy-paste code snippet or notebook is provided; users must assemble requests from the spec and supply an x-api-key.",
       "recommendation": "Provide an example request (curl/Python) showing an authenticated /multimedias/ call and how to unpack the returned DwC-A ZIP.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural"
     },
     {
       "section": "General Information",
@@ -178,7 +192,8 @@
       "evidence": "No dataset-descriptor paper is linked from the landing, access, home, or team pages, and the EML metadata contains no literatureCited.",
       "notes": "BGNN/Fish-AIR publications likely exist but are not surfaced in the retrievable metadata.",
       "recommendation": "Link the canonical descriptor paper via relatedIdentifier[IsDescribedBy] / sc:citation so users can cite and understand the dataset's provenance.",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -188,7 +203,8 @@
       "evidence": "Sources named across pages and in the package: GLIN (INHS, OSUM, UMMZ, FMNH, UWZM, JFBM), iDigBio, GBIF, Morphbank; citations.txt and batch.csv bibliographicCitation enumerate each source collection.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -198,7 +214,8 @@
       "evidence": "The dataset is part of the BGNN/Imageomics effort and derived from named source collections; batch records carry source URLs.",
       "notes": "Relations are expressed as prose/URLs, not as machine-readable relatedIdentifier[References] / sc:isPartOf links.",
       "recommendation": "Encode parent-collection and source relations as sc:isPartOf / DataCite relatedIdentifier so the dataset joins the linked-data graph.",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -208,7 +225,8 @@
       "evidence": "No citing/derived publications are listed in the metadata or on the pages retrieved.",
       "notes": "",
       "recommendation": "Add relatedIdentifier[IsCitedBy] links (auto-generatable from a DOI's citation graph) to surface downstream reuse.",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": ""
     },
     {
       "section": "General Information",
@@ -218,7 +236,8 @@
       "evidence": "EML creator: Tulane University Biodiversity Research Institute (onlineUrl https://www.tubri.org); named contacts include Yasin Bakis, Xiaojun Wang, Dom Jebbia, and Henry L. Bart with roles and emails.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "General Information",
@@ -228,7 +247,8 @@
       "evidence": "EML title 'Biology Guided Neural Network - Images and Associated Metadata'; product brand 'Fish-AIR (Fish AI-Readiness)'.",
       "notes": "Title contains minor typos and is generic; consider a version/subset-specific title.",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance"
     },
     {
       "section": "General Information",
@@ -238,7 +258,8 @@
       "evidence": "EML dataset/abstract includes a methods-rich paragraph describing image gathering, taxonomic cleanup, filtering to lateral whole-fish views, and manual IQ metadata capture.",
       "notes": "First paragraph is an auto-generated query echo; the second is a substantive description.",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Scientific"
     },
     {
       "section": "General Information",
@@ -248,7 +269,8 @@
       "evidence": "The abstract states collection-event metadata from FishNet2 was associated with the images, but the delivered CSVs carry only image createDate/modifyDate (digitization dates, e.g. 2020-03-02), not specimen field-collection dates.",
       "notes": "Original collection dates are referenced as available upstream but are not present in this package.",
       "recommendation": "Include dwc:eventDate / specimen collection dates in the multimedia or an occurrence extension so temporal fitness-for-use can be judged.",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "General Information",
@@ -258,7 +280,8 @@
       "evidence": "dcterms:publisher populated (BGNN/TUBRI) in extendedImageMetadata.csv and imageQualityMetadata.csv; published via fishair.org / TUBRI.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable | Accessible"
+      "fair4ai_category": "Findable | Accessible",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Data structure",
@@ -268,7 +291,8 @@
       "evidence": "dc:format = 'jpg' for images in multimedia.csv and extendedImageMetadata.csv; metadata delivered as CSV and XML.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable | Accessible"
+      "fair4ai_category": "Interoperable | Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data structure",
@@ -278,7 +302,8 @@
       "evidence": "meta.xml declares a core (multimedia.csv) plus three extensions (extendedImageMetadata, imageQualityMetadata, batch), and the ZIP presents a clear Fish-AIR/<institution>/<ARK>/ file tree.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
       "section": "Data structure",
@@ -288,7 +313,8 @@
       "evidence": "meta.xml enumerates each CSV file, its role (core vs extension), and its full field list; rdf.owl accompanies the vocabulary.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
       "section": "Data structure",
@@ -298,7 +324,8 @@
       "evidence": "Darwin Core Archive structure links the multimedia core to extensions by shared ARKID key; batchARKID relates images to batch provenance; parentARKID supports progeny tracing.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
       "section": "Data structure",
@@ -308,7 +335,8 @@
       "evidence": "Columns include dwc:scientificName, genus, family, verbatimIdentification, plus a rich image-quality feature set (specimenView, specimenAngle, brightness, quality score, partsMissing, allPartsVisible, containsScaleBar, etc.), all mapped to terms in meta.xml.",
       "notes": "The extensive per-image quality features are a notable AI-readiness strength.",
       "recommendation": "",
-      "fair4ai_category": "Interoperable | AI-ready"
+      "fair4ai_category": "Interoperable | AI-ready",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data structure",
@@ -318,7 +346,8 @@
       "evidence": "extendedImageMetadata.csv gives per-image size (bytes), width, and height (e.g., 1513155 bytes, 5616x3744).",
       "notes": "Per-image specs are present, but the delivered metadata does not state overall dataset size, record/image counts, or subset sizes.",
       "recommendation": "Publish overall counts (images, taxa) and total size (e.g., sc:contentSize) so users can gauge scale before download.",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
     },
     {
       "section": "Source Data",
@@ -328,7 +357,8 @@
       "evidence": "Abstract notes collection-event metadata was associated upstream; batch/image dates reflect digitization/processing (2020-2022), not specimen collection.",
       "notes": "In-scope for a compiled biodiversity dataset, but original collection dates are not delivered in this package.",
       "recommendation": "Surface specimen collection dates (dwc:eventDate) per record to support time-aware splits and temporal reasoning.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Source Data",
@@ -338,7 +368,8 @@
       "evidence": "Abstract describes harvesting via the iDigBio portal, institutions shipping hard drives of images, and FishNet2 collection metadata; batch.csv pipeline='Source File' and datasetName='GLIN' identify the harvest channel.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Provenance"
     },
     {
       "section": "Source Data",
@@ -348,7 +379,8 @@
       "evidence": "batch.csv links each source with air:URL and dcterms:bibliographicCitation (e.g., INHS portal, JFBM Bell Atlas, UMMZ IPT, FMNH IPT, OSUM via GBIF DOI); citations.txt duplicates these.",
       "notes": "One source URL (UWZM) is blank in the sample.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Source Data",
@@ -358,7 +390,8 @@
       "evidence": "Abstract and project pages explain the curation rationale: assembling AI-ready fish specimen imagery for biology-guided neural network research.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Provenance"
     },
     {
       "section": "Source Data",
@@ -368,7 +401,8 @@
       "evidence": "Described as part of the BGNN / Imageomics effort and the Fish-AIR collection; batch datasetName groups records under GLIN.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "Source Data",
@@ -378,7 +412,8 @@
       "evidence": "",
       "notes": "Modality mismatch: these are digitized photographs of preserved museum specimens, not camera-trap, drone, bioacoustic, telemetry, or remote-sensing captures.",
       "recommendation": "",
-      "fair4ai_category": "Reusable | AI-ready"
+      "fair4ai_category": "Reusable | AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Source Data",
@@ -388,7 +423,8 @@
       "evidence": "Image pixel dimensions (width/height) and file size are recorded per image; imageQualityMetadata records containsScaleBar (True/False) per image.",
       "notes": "Pixel dimensions are present, but no physical/measurement resolution (mm/pixel, DPI) is given even though scalebars are flagged as present.",
       "recommendation": "Where a scalebar is present, derive and record physical resolution (mm/pixel) so morphometric ML uses are supportable.",
-      "fair4ai_category": "AI-ready | Reusable"
+      "fair4ai_category": "AI-ready | Reusable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Source Data",
@@ -398,7 +434,8 @@
       "evidence": "Abstract describes image preparation: filtering to lateral views of external surfaces of whole fish specimens and manual IQ capture; basisOfMultimedia enum distinguishes complete_fish, cleared_stained, xray, etc.",
       "notes": "Image-preparation steps are described; physical specimen preparation/preservation is not detailed in this package.",
       "recommendation": "Document specimen preparation/preservation (e.g., ethanol/formalin) in methodStep so users understand appearance-affecting treatments.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific"
     },
     {
       "section": "Data Processing",
@@ -408,7 +445,8 @@
       "evidence": "",
       "notes": "Scope mismatch: not a spatial/remote-sensing or gridded product; the data are discrete specimen images and tabular metadata.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
@@ -418,7 +456,8 @@
       "evidence": "Quantitative fields (size in bytes, width/height in pixels, quality score 1-10, brightness) are populated; taxonomic names standardized to accepted authorities.",
       "notes": "Units are conventional but not explicitly declared (e.g., no sc:unitCode / EML unit for size, width, height).",
       "recommendation": "Declare units for quantitative AIR terms (pixels, bytes, score scale) via cr:field/dataType or EML unit so values are unambiguous to pipelines.",
-      "fair4ai_category": "Interoperable | Reusable"
+      "fair4ai_category": "Interoperable | Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
@@ -428,7 +467,8 @@
       "evidence": "",
       "notes": "Scope mismatch: no human-subject or personally identifiable content — the data are fish specimen images.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
@@ -438,7 +478,8 @@
       "evidence": "",
       "notes": "Scope mismatch: not time-series/continuous/gridded data; gap-filling does not apply to a discrete image collection.",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
@@ -448,7 +489,8 @@
       "evidence": "",
       "notes": "Scope mismatch: not time-series/continuous/gridded data.",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Processing",
@@ -458,7 +500,8 @@
       "evidence": "imageQualityMetadata records resourceCreationTechnique='Manual' for IQ labels (specimenView, angle, occlusion, quality score, etc.); abstract states taxonomic names were updated/cleaned using Eschmeyer's Catalog of Fishes and WoRMS, with verbatimIdentification retained alongside the reconciled scientificName.",
       "notes": "Clear disclosure of what was labeled (IQ features, taxonomy) and how (manual + naming authorities) — an AI-readiness strength.",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Data Processing",
@@ -468,7 +511,8 @@
       "evidence": "Abstract describes filtering images to confirm the intended kind (lateral views of whole specimens), effectively excluding non-conforming images; basisOfMultimedia flags non-specimen/error images.",
       "notes": "Image-level filtering is described, but no statistical outlier handling for the quantitative measurements is documented.",
       "recommendation": "State the inclusion/exclusion criteria and any measurement-outlier handling explicitly in qualityControl for reproducibility.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Data Processing",
@@ -478,7 +522,8 @@
       "evidence": "No split fields, split RecordSets, or split guidance appear in the package or API schema.",
       "notes": "",
       "recommendation": "Provide recommended train/val/test splits (e.g., cr:RecordSet/cr:split) or explicit splitting guidance so supervised-ML users get reproducible, leakage-free partitions.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Quality",
@@ -488,7 +533,8 @@
       "evidence": "EML maintenance notes 'The latest update date of this dataset is 2022-09-27'; the batch/pipeline design implies ongoing additions.",
       "notes": "A maintenance date is given but completeness is not explicitly asserted, and some records carry 'None' taxonomic values.",
       "recommendation": "Add an explicit completeness/maintenance status (complete vs ongoing) in dataset/maintenance so users know whether records will change.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
     },
     {
       "section": "Data Quality",
@@ -498,7 +544,8 @@
       "evidence": "A dedicated Image Quality Management System applies per-image manual QC: imageQualityMetadata records a 1-10 quality score plus flags (allPartsVisible, partsMissing, partsFolded, onFocus, uniformBackground, brightness, colorIssue, accessionNumberValidity).",
       "notes": "Rich, structured QC is a leading strength of this dataset.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural"
     },
     {
       "section": "Data Quality",
@@ -508,7 +555,8 @@
       "evidence": "Taxonomy reconciled to Eschmeyer's Catalog of Fishes and WoRMS; Darwin Core terms (scientificName/genus/family) used; IQ categoricals use constrained value sets (specimenView left/top, specimenAngle numeric, quality 1-10); DatasetName/BasisTypes/Pipeline are enumerated in the API schema.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable"
+      "fair4ai_category": "Interoperable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Data Quality",
@@ -518,7 +566,8 @@
       "evidence": "TUBRI provides a Scientific Curator (Henry L. Bart) and taxonomic expertise; IQ metadata was manually captured/reviewed.",
       "notes": "Curator involvement is evident, but no formal peer-review or curation-sign-off statement is provided.",
       "recommendation": "State the review/curation process and level (e.g., curator-reviewed) so users can weigh data integrity.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Provenance"
     },
     {
       "section": "Data Quality",
@@ -528,7 +577,8 @@
       "evidence": "Maintenance date (2022-09-27) and an ongoing batch-ingestion model are shown, and dates appear per batch.",
       "notes": "An update cadence/frequency is not defined.",
       "recommendation": "Declare an update frequency or versioning cadence (dates/date[Updated], maintenanceUpdateFrequency) for users depending on freshness.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Guidance & Recommendations",
@@ -538,7 +588,8 @@
       "evidence": "No bias statement is present. Implicit biases (only lateral whole-fish images, only certain Great Lakes-region institutions, taxonomic skew) are not disclosed.",
       "notes": "",
       "recommendation": "Add a structured bias list (type + severity) covering taxonomic, geographic, and imaging-view selection effects that could skew model training.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -548,7 +599,8 @@
       "evidence": "No reuse-risk statement is present in the metadata or pages.",
       "notes": "",
       "recommendation": "Document reuse risks (e.g., mislabeled 'None' taxonomy, non-specimen objects flagged in IQ) so downstream users avoid misguided conclusions.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -558,7 +610,8 @@
       "evidence": "Per-image IQ flags expose individual issues, but no dataset-level limitations statement is provided.",
       "notes": "",
       "recommendation": "Summarize dataset-level limitations (coverage gaps, unfilled taxonomy, view restriction) so users can judge fitness-for-use.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -568,7 +621,8 @@
       "evidence": "",
       "notes": "Scope mismatch: this is a compiled observational specimen-imaging dataset, not a designed experiment.",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -578,7 +632,8 @@
       "evidence": "",
       "notes": "Scope mismatch: not experimental data.",
       "recommendation": "",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -588,7 +643,8 @@
       "evidence": "No supported-ML-task list is provided; pipeline enums (bounding box, segmentation, landmark) describe processing products, not declared supported tasks.",
       "notes": "",
       "recommendation": "List supported ML tasks (e.g., species classification, specimen segmentation, landmark detection) so users can match the data to their use case.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Guidance & Recommendations",
@@ -598,7 +654,8 @@
       "evidence": "No model-evaluation or leaderboard results are reported.",
       "notes": "",
       "recommendation": "If models have been trained/benchmarked, report task metrics so users have performance baselines.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Guidance & Recommendations",
@@ -608,7 +665,8 @@
       "evidence": "No usage-recommendation list is present beyond the CC BY-NC non-commercial license constraint.",
       "notes": "",
       "recommendation": "Provide recommended in-scope uses as a task list so users know what the data are fit for.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
     },
     {
       "section": "Guidance & Recommendations",
@@ -618,7 +676,8 @@
       "evidence": "Although the dataset was built for BGNN neural-network research, no AI/ML usage history (models, benchmarks) is documented in the metadata.",
       "notes": "",
       "recommendation": "Record AI/ML usage history via relatedIdentifier[IsCitedBy] / links to trained models so provenance of downstream use is visible.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -628,7 +687,8 @@
       "evidence": "No out-of-scope-use statement is present.",
       "notes": "",
       "recommendation": "List out-of-scope tasks (e.g., live-specimen color analysis given preservation effects) to prevent misuse.",
-      "fair4ai_category": "AI-ready"
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
     },
     {
       "section": "Guidance & Recommendations",
@@ -638,7 +698,8 @@
       "evidence": "Contact emails are provided (e.g., xwang48@tulane.edu for API keys; team page lists all members).",
       "notes": "A general contact exists, but there is no dedicated issue tracker / sc:discussionUrl for data problems.",
       "recommendation": "Add a sc:discussionUrl or issue-reporting link so users can flag data errors and see resolutions.",
-      "fair4ai_category": "AI-ready | Reusable"
+      "fair4ai_category": "AI-ready | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Data Access",
@@ -648,7 +709,8 @@
       "evidence": "Each record carries an ac:accessURI direct https JPEG link; the API's zipfile option returns a downloadable DwC-A package (verified via /api/multimedia_public/?dataset=GLIN).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
@@ -658,7 +720,8 @@
       "evidence": "A RESTful JSON Fish-AIR API is documented at https://fishair.org/api/ with an OpenAPI spec and Swagger docs.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
@@ -668,7 +731,8 @@
       "evidence": "Described as a RESTful JSON API; OpenAPI spec enumerates GET/POST endpoints (/multimedias/, /batch/, /fish-images/, /create_your_key) with an APIKeyHeader security scheme.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
@@ -678,7 +742,8 @@
       "evidence": "Swagger UI at https://fishair.org/api/docs and a machine-readable OpenAPI spec at /api/openapi.json.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
@@ -688,7 +753,8 @@
       "evidence": "No rate-limit information is stated on the access page or in the OpenAPI spec.",
       "notes": "",
       "recommendation": "Document rate limits (requests/minute, page-size caps) so programmatic and agentic users can plan bulk harvesting.",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
@@ -698,7 +764,8 @@
       "evidence": "Images and metadata are served from internet-hosted fishair.org endpoints (accessURI https links; API-served ZIPs).",
       "notes": "Web-server hosting is provided, but there is no cloud-native/object-store (e.g., S3) access path documented for large-scale retrieval.",
       "recommendation": "For large-scale ML use, expose cloud-native/object-store access or bulk mirrors to reduce per-request overhead.",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
@@ -708,7 +775,8 @@
       "evidence": "Metadata delivered as CSV and XML (EML, DwC-A meta.xml, RDF/OWL) and served as JSON via the API; images as JPEG.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Interoperable | Accessible"
+      "fair4ai_category": "Interoperable | Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
@@ -718,7 +786,8 @@
       "evidence": "JPEG images, CSV/XML/RDF metadata, and JSON API responses are all open, non-proprietary formats.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible | Interoperable"
+      "fair4ai_category": "Accessible | Interoperable",
+      "criteria": "Structural/Provenance"
     },
     {
       "section": "Data Access",
@@ -728,7 +797,8 @@
       "evidence": "Images (JPEG) plus metadata in multiple formats (CSV tables, EML XML, DwC-A meta.xml, RDF/OWL) and JSON via the API.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Data Access",
@@ -738,7 +808,8 @@
       "evidence": "dcterms:license populated per record (e.g., 'CC BY-NC', 'CC0 1.0'); the access page states the dataset license is CC BY-NC, with a note to check per-multimedia licenses separately.",
       "notes": "Per-object licenses vary (CC0 1.0 vs CC BY-NC), which is disclosed.",
       "recommendation": "",
-      "fair4ai_category": "Accessible | Reusable"
+      "fair4ai_category": "Accessible | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Data Access",
@@ -748,7 +819,8 @@
       "evidence": "Licenses are given as recognizable Creative Commons labels ('CC BY-NC', 'CC0 1.0') in a dcterms:license field.",
       "notes": "Labels are human-recognizable but not expressed as SPDX identifiers or resolvable license URIs.",
       "recommendation": "Encode licenses as SPDX identifiers or CC license URIs (rightsIdentifierScheme='SPDX' / sc:license URL) so rights are machine-actionable.",
-      "fair4ai_category": "Accessible | Reusable"
+      "fair4ai_category": "Accessible | Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Data Access",
@@ -758,7 +830,8 @@
       "evidence": "",
       "notes": "Scope mismatch: preserved fish specimen images contain no human-subject or personally identifiable content, and no sensitive-locality handling is implicated by the delivered fields.",
       "recommendation": "",
-      "fair4ai_category": "Accessible | Reusable"
+      "fair4ai_category": "Accessible | Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
       "section": "Data Access",
@@ -768,7 +841,8 @@
       "evidence": "Full API access requires a valid x-api-key ('Without a valid x-api-key ... your request will not be processed'), and the CC BY-NC license imposes a non-commercial condition.",
       "notes": "Conditions are stated in prose on the access page, not as a machine-readable sc:conditionsOfAccess.",
       "recommendation": "Express access conditions (key required; non-commercial) via sc:conditionsOfAccess so agents can respect them programmatically.",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Data Access",
@@ -778,7 +852,8 @@
       "evidence": "Access page and OpenAPI spec describe how to obtain a key: POST /create_your_key (or /get_your_key) with contact details, or email Xiaojun Wang (xwang48@tulane.edu).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Accessible"
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
     },
     {
       "section": "Provenance",
@@ -788,7 +863,8 @@
       "evidence": "EML creator organizationName 'Tulane University Biodiversity Research Institute'; batch.csv air:creator records the source producer per batch.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
@@ -798,7 +874,8 @@
       "evidence": "No ORCID identifiers appear on the team page, in the EML, or in the package.",
       "notes": "",
       "recommendation": "Add ORCIDs for named creators/contacts (EML userId directory='orcid') to disambiguate people and strengthen attribution.",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
@@ -808,7 +885,8 @@
       "evidence": "TUBRI curates the dataset; Henry L. Bart is listed as Scientific Curator (metadata.xml contact and team page).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
@@ -818,7 +896,8 @@
       "evidence": "Dom Jebbia is listed as Information Architect (metadata.xml) / Metadata Specialist (team page).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
@@ -828,7 +907,8 @@
       "evidence": "Dom Jebbia contact email djebbia@andrew.cmu.edu given in metadata.xml and team page.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
@@ -838,7 +918,8 @@
       "evidence": "Henry L. Bart (Scientific Curator, taxonomy) hbartjr@tulane.edu and Yasin Bakis (Administrative POC) ybakis@tulane.edu are provided as expert contacts.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
@@ -848,57 +929,63 @@
       "evidence": "citations.txt supplies a dataset citation: 'Multimedia of Fish Specimen and associated metadata. Fish-AIR. Biology guided Neural Network. Tulane University Biodiversity Research Institute (https://fishair.org).'",
       "notes": "A citation string exists but lacks a DOI, year, and structured (e.g., BibTeX) form.",
       "recommendation": "Provide a complete, DOI-anchored citation (authors, year, version) in a structured format so the dataset is reliably citable.",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Are links to the source dataset(s) from which this dataset is derived provided (provenance tracking)?",
       "status": "partial",
       "evidence": "batch.csv links each source via air:URL + dcterms:bibliographicCitation (INHS, JFBM, UMMZ, FMNH, UWZM, OSUM); citations.txt lists them; OSUM resolves to a GBIF DOI.",
       "notes": "Sources are linked, but mostly by portal URL rather than persistent identifier, and not via a formal IsDerivedFrom relation in the EML.",
       "recommendation": "Record each source as relatedIdentifier[IsDerivedFrom] (DOI preferred) to make the derivation chain explicit and machine-traversable.",
-      "fair4ai_category": "Reusable | Findable"
+      "fair4ai_category": "Reusable | Findable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Are the producers of the original source dataset(s) identified?",
       "status": "meets",
       "evidence": "Source producers named in batch.csv/citations.txt: INHS, JFBM (Bell Atlas), University of Michigan Museum of Zoology, Field Museum (FMNH), University of Wisconsin-Madison Zoological Museum, and OSUM (Daly M, Johnson N 2018).",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Are full citations for the subsumed/original dataset(s) provided?",
       "status": "meets",
       "evidence": "citations.txt and batch.csv dcterms:bibliographicCitation give full citations for each source collection, including access dates and portal URLs.",
       "notes": "",
       "recommendation": "",
-      "fair4ai_category": "Reusable | Findable"
+      "fair4ai_category": "Reusable | Findable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Is a DOI provided for the source dataset(s) used to derive this dataset?",
       "status": "partial",
       "evidence": "One source resolves to a DOI: OSUM via 'https://doi.org/10.15468/subsl8 accessed via GBIF.org on 2022-05-17'.",
       "notes": "Only one of the several sources carries a DOI; the rest are portal URLs.",
       "recommendation": "Where source collections publish DOIs (many GBIF/IPT resources do), record them so each derivation link is persistent.",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Provenance",
-      "sub_section": "Derived dataset?",
+      "sub_section": "Derived dataset",
       "question": "Are checksums of the source data provided for integrity verification?",
       "status": "does not meet",
       "evidence": "No source-data checksums (e.g., SHA-256) appear in the package or schema.",
       "notes": "",
       "recommendation": "Record source-package or per-file checksums (cr:FileObject/sha256) so users can verify integrity of derived content against sources.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Provenance",
@@ -908,7 +995,8 @@
       "evidence": "The dataset and each multimedia object carry ARK persistent identifiers (e.g., ark:/89609/dtstp137p2qg via https://bgnn.tulane.edu), and the AIR vocabulary is versioned.",
       "notes": "A persistent identifier scheme (ARK) is used, but not a DOI as the item specifically requests.",
       "recommendation": "Mint a DOI (e.g., via DataCite) for the dataset/versions to align with citation and indexing norms while retaining ARKs for objects.",
-      "fair4ai_category": "Findable"
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Provenance",
@@ -918,7 +1006,8 @@
       "evidence": "No checksum fields are present in metadata.xml, meta.xml, or the CSV tables.",
       "notes": "",
       "recommendation": "Add cr:FileObject/sha256 (or EML physical/authentication) checksums for image archives and metadata files to enable integrity verification.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Provenance",
@@ -928,17 +1017,19 @@
       "evidence": "Pipeline types are named (batch.csv pipeline enum: 'Source File', 'bounding box', 'segmentation', 'landmark'); processing performed under the BGNN toolchain.",
       "notes": "Pipeline categories are recorded, but specific software names/versions and the code repository (air:codeRepository) are not populated.",
       "recommendation": "Record processing software and versions (and populate air:codeRepository) so derivation steps are reproducible.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
-      "section": "Provenance/Ethical + CARE?",
-      "sub_section": "",
+      "section": "Provenance",
+      "sub_section": "Provenance",
       "question": "Are storage conditions (origin, movement, and storage location of specimens/data over time) documented?",
       "status": "partial",
       "evidence": "dwc:ownerInstitutionCode records the holding institution per specimen (e.g., OSUM, INHS, JFBM); accessURI shows the hosting path.",
       "notes": "The current holding institution is identified, but physical-specimen storage/movement history over time is not documented.",
       "recommendation": "Document specimen storage/custody (institution, movement history) for physical-specimen provenance under CARE-aligned practice.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
     },
     {
       "section": "Governance",
@@ -948,17 +1039,19 @@
       "evidence": "",
       "notes": "Scope mismatch: museum-held fish specimen images, not Indigenous/community-governed (CARE) data; permission-to-collect governance does not apply.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
-      "section": "Ethical + CARE",
+      "section": "Governance",
       "sub_section": "Governance",
       "question": "Is the agent who granted permission to collect the observations identified?",
       "status": "N/A",
       "evidence": "",
       "notes": "Scope mismatch: not Indigenous/community-governed (CARE) data.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
       "section": "Governance",
@@ -968,27 +1061,30 @@
       "evidence": "",
       "notes": "Scope mismatch: not Indigenous/community-governed (CARE) data.",
       "recommendation": "",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     },
     {
-      "section": "Collection",
+      "section": "Governance",
       "sub_section": "Collection",
       "question": "Is the timestamp of observation (when the resource/knowledge was collected/observed) recorded?",
       "status": "partial",
       "evidence": "The package records image createDate/modifyDate (digitization) and batch processing dates; the abstract states specimen collection-event metadata was associated upstream (FishNet2).",
       "notes": "Digitization/processing timestamps are present, but original observation/collection timestamps are not in the delivered records.",
       "recommendation": "Include the original observation/collection timestamp (dwc:eventDate / date[Collected]) per record to support temporal analyses and time-aware splits.",
-      "fair4ai_category": "Findable | Reusable"
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance/Scientific"
     },
     {
-      "section": "Collection",
+      "section": "Governance",
       "sub_section": "Collection",
       "question": "Are the actions and timestamps taken toward the observation (provenance of each data point) recorded?",
       "status": "partial",
       "evidence": "batch.csv captures processing actions and timestamps (pipeline, createDate/modifyDate, creator, contactor) and ARK parent/child relations support progeny tracing.",
       "notes": "Batch-level processing provenance with timestamps is present, but not a full per-observation action/provenance graph.",
       "recommendation": "Extend provenance to a per-record action log (operations, actors, timestamps) to approach a complete provenance graph.",
-      "fair4ai_category": "Reusable"
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
     }
   ],
   "summary": {
@@ -1006,47 +1102,82 @@
     ],
     "overall_assessment": "Fish-AIR is a well-engineered, standards-based compiled image dataset with strong Findable/Accessible/Interoperable characteristics — a Darwin Core Archive with multi-standard term mapping, a documented REST API, open formats, and clear source provenance. Its standout AI-readiness feature is a structured per-image quality-metadata system, and labeling/curation are well disclosed. However, it shows the typical AI-readiness gaps for biodiversity data: no ML split guidance, no declared tasks or usage history, no bias/limitations documentation, and no class-distribution statistics, compounded by missing checksums, a DOI, ORCIDs, and machine-readable licenses.",
     "fair4ai_scores": {
-      "findable": 0.575,
-      "accessible": 0.833,
-      "interoperable": 0.875,
-      "reusable": 0.663,
-      "ai_ready": 0.281,
-      "overall": 0.645,
-      "details": {
-        "findable": {
-          "n_scored": 20,
-          "meets": 6,
-          "partial": 11,
-          "does_not_meet": 3,
-          "na": 0
-        },
-        "accessible": {
-          "n_scored": 15,
-          "meets": 11,
-          "partial": 3,
-          "does_not_meet": 1,
-          "na": 1
-        },
-        "interoperable": {
-          "n_scored": 12,
-          "meets": 9,
-          "partial": 3,
-          "does_not_meet": 0,
-          "na": 1
-        },
-        "reusable": {
-          "n_scored": 43,
-          "meets": 18,
-          "partial": 21,
-          "does_not_meet": 4,
-          "na": 7
-        },
-        "ai_ready": {
-          "n_scored": 16,
-          "meets": 3,
-          "partial": 3,
-          "does_not_meet": 10,
-          "na": 5
+      "traditional_fair": {
+        "findable": 0.575,
+        "accessible": 0.833,
+        "interoperable": 0.875,
+        "reusable": 0.663,
+        "overall": 0.737,
+        "details": {
+          "findable": {
+            "n_scored": 20,
+            "meets": 6,
+            "partial": 11,
+            "does_not_meet": 3,
+            "na": 0
+          },
+          "accessible": {
+            "n_scored": 15,
+            "meets": 11,
+            "partial": 3,
+            "does_not_meet": 1,
+            "na": 1
+          },
+          "interoperable": {
+            "n_scored": 12,
+            "meets": 9,
+            "partial": 3,
+            "does_not_meet": 0,
+            "na": 1
+          },
+          "reusable": {
+            "n_scored": 43,
+            "meets": 18,
+            "partial": 21,
+            "does_not_meet": 4,
+            "na": 7
+          }
+        }
+      },
+      "ai_fair": {
+        "ml_ready": 0.619,
+        "ai_ready_for_task": 0.566,
+        "traceable": 0.651,
+        "care_compliance": 0.5,
+        "overall": 0.584,
+        "components": {
+          "structural": {
+            "score": 0.619,
+            "n_scored": 42,
+            "meets": 18,
+            "partial": 16,
+            "does_not_meet": 8,
+            "na": 6
+          },
+          "scientific": {
+            "score": 0.514,
+            "n_scored": 36,
+            "meets": 12,
+            "partial": 13,
+            "does_not_meet": 11,
+            "na": 8
+          },
+          "provenance": {
+            "score": 0.683,
+            "n_scored": 41,
+            "meets": 20,
+            "partial": 16,
+            "does_not_meet": 5,
+            "na": 4
+          },
+          "governance": {
+            "score": 0.5,
+            "n_scored": 2,
+            "meets": 0,
+            "partial": 2,
+            "does_not_meet": 0,
+            "na": 3
+          }
         }
       }
     }

@@ -8,11 +8,14 @@ evaluated (each dataset producing a `FAIR4AI_eval_<short_name>_<date>.json` scor
   - reads the batch's normalized source CSV (schema: email,name,dataset_short_name,url,notes)
     to map each short_name -> {url, email, name};
   - glob-matches each short_name's evaluation JSON in the results directory and pulls its
-    title, six 0-1 scores, per-status counts, and response count;
+    title, the two-assessment 0-1 scores (Traditional FAIR: F/A/I/R + overall_fair; AI-FAIR:
+    ml_ready/ai_ready_for_task/traceable/care_compliance + overall_ai_fair), per-status
+    counts, and response count;
   - optionally joins a per-dataset confidence level from a confidence-map JSON;
-  - writes a one-row-per-dataset summary CSV (sorted by overall score, high to low); and
-  - prints an `AGG:{json}` line with cross-dataset aggregates (means, n, missing list,
-    by-confidence groupings) that the coordinator uses to author the summary report.
+  - writes a one-row-per-dataset summary CSV (sorted by AI-FAIR overall, high to low); and
+  - prints an `AGG:{json}` line with cross-dataset aggregates (fair/ai-fair means, overall
+    means, n, missing list, by-confidence groupings) that the coordinator uses to author the
+    summary report.
 
 Stdlib-only (no third-party dependencies), so batch scoring/compilation never depends on
 the plotting stack. The figure is produced separately by `make_fair4ai_figure.py`.
@@ -34,10 +37,12 @@ import json
 import os
 import sys
 
-DIMS = ["findable", "accessible", "interoperable", "reusable", "ai_ready"]
+FAIR_DIMS = ["findable", "accessible", "interoperable", "reusable"]
+AI_CATS = ["ml_ready", "ai_ready_for_task", "traceable", "care_compliance"]
 CSV_COLS = [
     "dataset_short_name", "title", "url", "evaluator_email",
-    "findable", "accessible", "interoperable", "reusable", "ai_ready", "overall",
+    "findable", "accessible", "interoperable", "reusable", "overall_fair",
+    "ml_ready", "ai_ready_for_task", "traceable", "care_compliance", "overall_ai_fair",
     "n_meets", "n_partial", "n_does_not_meet", "n_na", "confidence", "json_file",
 ]
 
@@ -130,31 +135,38 @@ def main(argv=None):
         with open(jpath, encoding="utf-8") as f:
             doc = json.load(f)
         scores = (doc.get("summary", {}) or {}).get("fair4ai_scores", {}) or {}
+        tf = scores.get("traditional_fair", {}) or {}
+        af = scores.get("ai_fair", {}) or {}
         counts = count_statuses(doc)
         rows.append({
             "short_name": sn,
             "title": (doc.get("session", {}).get("dataset", {}) or {}).get("title") or "",
             "url": src[sn]["url"],
             "email": src[sn]["email"],
-            "scores": {d: scores.get(d) for d in DIMS},
-            "overall": scores.get("overall"),
+            "fair": {d: tf.get(d) for d in FAIR_DIMS},
+            "overall_fair": tf.get("overall"),
+            "ai": {c: af.get(c) for c in AI_CATS},
+            "overall_ai_fair": af.get("overall"),
             "counts": counts,
             "n_responses": len(doc.get("responses", [])),
             "confidence": confidence.get(sn, ""),
             "json_file": os.path.basename(jpath),
         })
 
-    # --- write CSV (sorted by overall desc, nulls/missing last) ---
+    # --- write CSV (sorted by AI-FAIR overall desc, nulls/missing last) ---
     scored = [r for r in rows if not r.get("missing")]
     os.makedirs(os.path.dirname(out_csv) or ".", exist_ok=True)
     with open(out_csv, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
         w.writerow(CSV_COLS)
-        for r in sorted(scored, key=lambda x: (x["overall"] is None, -(x["overall"] or 0))):
+        for r in sorted(scored, key=lambda x: (x["overall_ai_fair"] is None,
+                                               -(x["overall_ai_fair"] or 0))):
             w.writerow([
                 r["short_name"], r["title"], r["url"], r["email"],
-                r["scores"]["findable"], r["scores"]["accessible"], r["scores"]["interoperable"],
-                r["scores"]["reusable"], r["scores"]["ai_ready"], r["overall"],
+                r["fair"]["findable"], r["fair"]["accessible"], r["fair"]["interoperable"],
+                r["fair"]["reusable"], r["overall_fair"],
+                r["ai"]["ml_ready"], r["ai"]["ai_ready_for_task"], r["ai"]["traceable"],
+                r["ai"]["care_compliance"], r["overall_ai_fair"],
                 r["counts"]["meets"], r["counts"]["partial"], r["counts"]["does not meet"],
                 r["counts"]["N/A"], r["confidence"], r["json_file"],
             ])
@@ -164,8 +176,10 @@ def main(argv=None):
     agg = {
         "n_total": len(scored),
         "missing": [r["short_name"] for r in rows if r.get("missing")],
-        "dim_means": {d: mean([r["scores"][d] for r in scored]) for d in DIMS},
-        "overall_mean": mean([r["overall"] for r in scored]),
+        "fair_means": {d: mean([r["fair"][d] for r in scored]) for d in FAIR_DIMS},
+        "overall_fair_mean": mean([r["overall_fair"] for r in scored]),
+        "ai_fair_means": {c: mean([r["ai"][c] for r in scored]) for c in AI_CATS},
+        "overall_ai_fair_mean": mean([r["overall_ai_fair"] for r in scored]),
         "by_confidence": {},
         "csv_path": out_csv,
     }

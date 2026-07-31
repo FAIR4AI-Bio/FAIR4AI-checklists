@@ -49,7 +49,8 @@ directly by a person, you will be given all parameters up front in your prompt. 
     "output_path": "<full path to the JSON you wrote>",
     "n_responses": 96,
     "meets": <int>, "partial": <int>, "does_not_meet": <int>, "na": <int>,
-    "overall": <the summary.fair4ai_scores.overall value>,
+    "overall_fair": <summary.fair4ai_scores.traditional_fair.overall>,
+    "overall_ai_fair": <summary.fair4ai_scores.ai_fair.overall>,
     "confidence": "high | medium | low",
     "one_line_note": "<one sentence: what metadata you retrieved and the headline finding>"
   }
@@ -66,10 +67,11 @@ Read the checklist CSV file (`CHECKLIST.csv`, 96 items). Each row with a non-bla
 
 | CSV column | Maps to JSON field / use |
 |---|---|
-| `Broad categories` | `section` |
+| `Broad categories` | `section` — copy **verbatim** (the `Governance` value routes CARE scoring) |
 | `Sub category` | `sub_section` |
 | `Item` | basis for `question` |
 | `Proposed definition` / `Note` | context to interpret the criterion |
+| `Criteria: Structural/Scientific/Provenance` | copied verbatim into each response's `criteria` |
 | `FAIR4AI category` | copied verbatim into each response's `fair4ai_category` |
 | `Use-case scope (Condition)` | drives the **N/A** decision (see Step 4) |
 | `Required (core, auto, or recommended)` | emphasis in the narrative (core gaps weigh more) |
@@ -95,7 +97,7 @@ If metadata retrieval is incomplete or fails for some sources, note this in the 
 
 ## Step 4: Evaluate each checklist item
 
-`RATING_RUBRIC.md` is the authority for how to choose a status — read it and apply it. For every checklist item, assess the dataset metadata and fill in five fields:
+`RATING_RUBRIC.md` is the authority for how to choose a status — read it and apply it. For every checklist item, assess the dataset metadata and fill in six fields:
 
 - **`status`**: one of exactly four values (rubric §2):
   - `"meets"` — the information the item asks for is clearly present and evidence-locatable in the metadata
@@ -115,7 +117,9 @@ If metadata retrieval is incomplete or fails for some sources, note this in the 
 
 - **`recommendation`**: if status is `"partial"` or `"does not meet"`, provide specific and actionable guidance — name the field, standard, or format the dataset should adopt, and briefly explain why it matters for AI/ML reuse. Leave as `""` if status is `"meets"` or `"N/A"`.
 
-- **`fair4ai_category`**: copy the item's `FAIR4AI category` value **verbatim** from the checklist (a pipe-separated subset of `Findable | Accessible | Interoperable | Reusable | AI-ready`, or blank for context-only items). This field drives the reproducible scoring in Step 5 — do not omit it.
+- **`fair4ai_category`**: copy the item's `FAIR4AI category` value **verbatim** from the checklist (a pipe-separated subset of `Findable | Accessible | Interoperable | Reusable | AI-ready`, or blank for context-only items). Drives the **Traditional FAIR** assessment in Step 5 — do not omit it.
+
+- **`criteria`**: copy the item's `Criteria: Structural/Scientific/Provenance` value **verbatim** from the checklist (one or more of `Structural | Scientific | Provenance`, e.g. `Structural/Scientific`, or blank). Drives the **AI-FAIR** assessment in Step 5. Combined with the `section` value (which must be the Broad category verbatim, so a `Governance` section routes to CARE scoring), this is what makes AI-readiness measurable — do not omit it.
 
 When evidence is ambiguous, assign `"partial"` rather than guessing in either direction, and explain the ambiguity in `notes`.
 
@@ -155,7 +159,8 @@ Construct the full evaluation document using the structure below. Do not omit an
       "evidence": "<specific evidence from metadata>",
       "notes": "<additional context or blank>",
       "recommendation": "<actionable guidance, or blank string>",
-      "fair4ai_category": "<FAIR4AI category value copied verbatim from CSV, e.g. 'Accessible | Reusable', or blank>"
+      "fair4ai_category": "<FAIR4AI category value copied verbatim from CSV, e.g. 'Accessible | Reusable', or blank>",
+      "criteria": "<Criteria value copied verbatim from CSV, e.g. 'Structural/Scientific', or blank>"
     }
   ],
   "summary": {
@@ -173,19 +178,29 @@ Do **not** estimate the FAIR4AI scores yourself. Instead, build `responses[]` (e
 python scripts/compute_fair4ai_scores.py <output.json>
 ```
 
-The skill computes `summary.fair4ai_scores` deterministically from the per-item statuses and their `fair4ai_category` values: `meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A → excluded`; per-dimension score = mean of contributing items (an item mapped to several dimensions counts in each); overall = **equal-weight** mean of the scored dimensions. All scores are in **0–1, where 1 is "most FAIR4AI"**. It writes this block back into the file:
+The skill computes `summary.fair4ai_scores` deterministically as **two assessments** (per item: `meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A`/blank → excluded; any all-N/A dimension/facet is `null` and omitted from means). All scores are **0–1, where 1 is "most FAIR4AI"**:
+
+- **Traditional FAIR** — from `fair4ai_category` (the `AI-ready` token is ignored): per-dimension mean for `findable`/`accessible`/`interoperable`/`reusable`, then `overall` = equal-weight mean of the non-null dimensions.
+- **AI-FAIR** — from `criteria` + the Governance section: facet base scores `structural`/`scientific`/`provenance` (`criteria`) and `governance` (section); then `ml_ready` = structural, `ai_ready_for_task` = mean(structural, scientific), `traceable` = mean(provenance, structural), `care_compliance` = governance, and `overall` = equal-weight mean of the four.
+
+It writes this block back into the file:
 
 ```json
 "fair4ai_scores": {
-  "findable": 0.83, "accessible": 0.75, "interoperable": 0.6,
-  "reusable": 0.7, "ai_ready": 0.33, "overall": 0.64,
-  "details": {
-    "findable": { "n_scored": 6, "meets": 4, "partial": 2, "does_not_meet": 0, "na": 1 }
+  "traditional_fair": {
+    "findable": 0.82, "accessible": 0.83, "interoperable": 0.83, "reusable": 0.62,
+    "overall": 0.78,
+    "details": { "findable": { "n_scored": 17, "meets": 14, "partial": 0, "does_not_meet": 3, "na": 3 } }
+  },
+  "ai_fair": {
+    "ml_ready": 0.73, "ai_ready_for_task": 0.71, "traceable": 0.67,
+    "care_compliance": 1.0, "overall": 0.78,
+    "components": { "structural": { "score": 0.73, "n_scored": 41, "meets": 24, "partial": 12, "does_not_meet": 5, "na": 7 } }
   }
 }
 ```
 
-(The `FAIR4AI category` mapping in the checklist assigns each item to the dimension(s) it counts toward, using: Findable = PID/DOI, rich metadata, keywords, landing page; Accessible = download/API/open formats/license/access conditions; Interoperable = standards (EML, DwC, schema.org, ENVO), machine-readable formats, controlled vocab; Reusable = attribution, provenance, methods docs, license clarity, checksums; AI-ready = annotation provenance, split guidance, bias/limitations, class distributions, missing-data semantics, AI/ML usage history, issue reporting.)
+(Two checklist columns drive the two assessments. `FAIR4AI category` → Traditional FAIR: Findable = PID/DOI, rich metadata, keywords, landing page; Accessible = download/API/open formats/license/access conditions; Interoperable = standards (EML, DwC, schema.org, ENVO), machine-readable formats, controlled vocab; Reusable = attribution, provenance, methods docs, license clarity, checksums. `Criteria` + the Governance section → AI-FAIR: Structural = machine-ingestable format/schema; Scientific = fitness for a scientific/ML task; Provenance = traceability of sources and processing; Governance = the CARE/ethical items in the Governance broad category.)
 
 ## Step 6: Write the output, compute scores, and report to the user
 
@@ -195,10 +210,10 @@ The skill computes `summary.fair4ai_scores` deterministically from the per-item 
    ```bash
    python scripts/compute_fair4ai_scores.py <output.json>
    ```
-   This populates `summary.fair4ai_scores` (0–1 per dimension + overall + per-dimension `details`). Resolve any `WARNING:` it prints (e.g., a scoreable item missing its `fair4ai_category`) and re-run.
+   This populates `summary.fair4ai_scores` with both assessments (Traditional FAIR + AI-FAIR, each 0–1 with per-dimension/facet `details`). Resolve any `WARNING:` it prints (e.g., a scoreable item missing its `fair4ai_category`, an unrecognized `criteria` value, or an item mapping to nothing) and re-run.
 4. Report to the user:
    - Full path of the output file written
    - Total checklist items evaluated
    - Count breakdown by status (meets / partial / does not meet / N/A)
-   - The computed **0–1** FAIR4AI scores per dimension **and the overall score**, noting they are script-computed (reproducible), not estimated
+   - Both **0–1** headline scores — **Overall FAIR** and **Overall AI-FAIR** — plus the four AI-FAIR categories (ml_ready, ai_ready_for_task, traceable, care_compliance), noting they are script-computed (reproducible), not estimated. Call out the FAIR-vs-AI-FAIR gap if present.
    - Top 3 highest-priority recommendations (those for "does not meet" items first, then "partial")

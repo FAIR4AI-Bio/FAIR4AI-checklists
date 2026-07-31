@@ -131,7 +131,7 @@ and passes the **Validation checklist**:
 
 - exactly **96** entries in `responses[]`;
 - every `status` is one of `meets | partial | does not meet | N/A`;
-- `summary.fair4ai_scores.overall` is present and **non-null**.
+- `summary.fair4ai_scores.traditional_fair.overall` and `.ai_fair.overall` are present and **non-null**.
 
 Re-run the scorer on each file to guarantee reproducible scores and **zero `WARNING:`**:
 ```bash
@@ -157,8 +157,9 @@ python scripts/compile_fair4ai_results.py \
   --out-csv "<run folder>/fair4ai_scores_summary_<DATE>.csv" \
   --date <DATE>
 ```
-Capture the printed `AGG:{...}` line — it carries `n_total`, per-dimension `dim_means`,
-`overall_mean`, the `missing` list, and `by_confidence` groupings you will cite in the report.
+Capture the printed `AGG:{...}` line — it carries `n_total`, `fair_means` (F/A/I/R),
+`overall_fair_mean`, `ai_fair_means` (ml_ready/ai_ready_for_task/traceable/care_compliance),
+`overall_ai_fair_mean`, the `missing` list, and `by_confidence` groupings you will cite in the report.
 
 ## Step 10: Build the summary figure (optional / graceful)
 
@@ -180,11 +181,16 @@ reference report (`example_outputs/` and prior runs). Include:
 - **Header** — date, checklist (96 items), evaluation model (the chosen sub-agent model),
   coordinator/aggregation model, scoring method (one line), retrieval method, and a **coverage** line
   (n evaluated of n listed; note any ⛔ excluded datasets).
-- **Scores at a glance** — a table of all datasets with the six 0–1 scores, **sorted by overall
-  desc**, plus a final **Mean (n=…)** row (use `dim_means`/`overall_mean` from the AGG line).
+- **Scores at a glance** — two tables (or one wide table), **sorted by Overall AI-FAIR desc**: a
+  **Traditional FAIR** table (findable / accessible / interoperable / reusable / Overall FAIR) and an
+  **AI-FAIR** table (ml_ready / ai_ready_for_task / traceable / care_compliance / Overall AI-FAIR),
+  each with a final **Mean (n=…)** row (use `fair_means`/`overall_fair_mean` and
+  `ai_fair_means`/`overall_ai_fair_mean` from the AGG line).
 - **Status breakdown** — per-dataset meets / partial / does not meet / N/A counts (from the CSV).
-- **Cross-dataset patterns** — the strongest and weakest dimensions, the recurring AI-ready gaps,
-  and any notable outliers. Anchor on the thesis: *FAIR ≠ AI-ready*.
+- **Cross-dataset patterns** — the strongest and weakest dimensions in each assessment, and the size
+  of the **Overall FAIR vs Overall AI-FAIR gap** across datasets. Anchor on the thesis: *FAIR ≠
+  AI-ready* — datasets that score well on Traditional FAIR still lag on AI-FAIR (especially CARE
+  compliance and the scientific facet).
 - **Per-dataset summaries** — a short paragraph + top gaps/recommendations per dataset.
 - **Caveats** — explicitly note that ratings were produced by the chosen sub-agent model, that this
   is a **metadata-only** evaluation, and flag low-confidence datasets.
@@ -197,7 +203,8 @@ Then mark the run ✅ complete in `batch_evaluate_progress.md`.
 
 - The **run folder** path and a listing of its contents.
 - **n evaluated / n failed**.
-- **Mean overall** score and the per-dimension means, noting they are script-computed (reproducible).
+- **Mean Overall FAIR** and **Mean Overall AI-FAIR** scores (and the per-dimension/per-category means),
+  noting they are script-computed (reproducible), and the typical FAIR-vs-AI-FAIR gap.
 - Paths to the normalized CSV, scores CSV, figure, and summary report.
 - The top 3–5 cross-dataset gaps.
 
@@ -214,9 +221,9 @@ parse without re-opening each file — a JSON object with these fields:
   "output_path": "<run folder>/evaluation_results/FAIR4AI_eval_neon_beetles_2026-07-30.json",
   "n_responses": 96,
   "meets": 45, "partial": 18, "does_not_meet": 16, "na": 17,
-  "overall": 0.733,
+  "overall_fair": 0.778, "overall_ai_fair": 0.779,
   "confidence": "high",
-  "one_line_note": "NEON API metadata retrieved in full; strong FAIR, weak AI-ready."
+  "one_line_note": "NEON API metadata retrieved in full; strong FAIR, weaker scientific facet."
 }
 ```
 
@@ -230,7 +237,8 @@ A dataset's evaluation JSON is **valid** only if all hold:
 - [ ] the file exists at the expected path;
 - [ ] `responses[]` has exactly **96** entries;
 - [ ] every response `status` ∈ `{meets, partial, does not meet, N/A}`;
-- [ ] `summary.fair4ai_scores.overall` exists and is non-null;
+- [ ] every response carries a `fair4ai_category`, a `criteria`, and a `section` (Broad category verbatim);
+- [ ] `summary.fair4ai_scores.traditional_fair.overall` and `.ai_fair.overall` both exist and are non-null;
 - [ ] re-running `compute_fair4ai_scores.py` on it prints **no `WARNING:`**.
 
 ## `batch_evaluate_progress.md` template (resumable tracker)
@@ -246,9 +254,9 @@ A dataset's evaluation JSON is **valid** only if all hold:
 
 Status legend: ⏳ pending · ✅ complete · ⚠️ needs attention · ⛔ failed
 
-| # | short_name | url | status | overall | confidence | json_file |
-|---|------------|-----|--------|---------|------------|-----------|
-| 1 | ...        | ... | ⏳     | —       | —          | —         |
+| # | short_name | url | status | overall_fair | overall_ai_fair | confidence | json_file |
+|---|------------|-----|--------|--------------|-----------------|------------|-----------|
+| 1 | ...        | ... | ⏳     | —            | —               | —          | —         |
 
 ## Run log
 - <DATE> — scaffolded run folder, normalized list (<n> datasets), scorer selftest PASS.

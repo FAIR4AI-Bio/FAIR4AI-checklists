@@ -1,8 +1,8 @@
 # FAIR4AI Dataset Evaluation Agent
 
-An AI agent that evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the **FAIR4AI-Bio checklist**. The agent reads a dataset's landing page or local metadata files, rates each of the 96 checklist items as *meets / partial / does not meet / N/A* (per `RATING_RUBRIC.md`), and produces a structured JSON report with reproducible FAIR4AI scores across five dimensions (Findable, Accessible, Interoperable, Reusable, AI-ready) plus an overall score — each in **0–1, where 1 is "most FAIR4AI"**, computed by the `fair4ai-scoring` skill.
+An AI agent that evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the **FAIR4AI-Bio checklist**. The agent reads a dataset's landing page or local metadata files, rates each of the 96 checklist items as *meets / partial / does not meet / N/A* (per `RATING_RUBRIC.md`), and produces a structured JSON report with **two reproducible assessments** — **Traditional FAIR** (Findable, Accessible, Interoperable, Reusable + an overall) and **AI-FAIR** (ML-ready, AI-ready for task, Traceable, CARE compliance + an overall) — each score in **0–1, where 1 is "most FAIR4AI"**, computed by the `fair4ai-scoring` skill.
 
-The core thesis: **FAIR compliance is necessary but not sufficient for AI-ready data.** This agent surfaces the gap.
+The core thesis: **FAIR compliance is necessary but not sufficient for AI-ready data.** Reporting FAIR and AI-FAIR side by side makes that gap measurable.
 
 See `example_outputs/` for complete evaluation reports for several NEON datasets.
 
@@ -70,7 +70,7 @@ Claude Code reads these files automatically when you start a session in this dir
 - **`CLAUDE.md`** — project context loaded into every session: what the agent does, how the checklist is structured, the output JSON schema, and expected score patterns.
 - **`.claude/skills/evaluate-dataset/SKILL.md`** — the `/evaluate-dataset` skill. Contains the step-by-step evaluation workflow: gather parameters, load the checklist, fetch metadata, rate each item, build the output JSON, and compute scores.
 - **`RATING_RUBRIC.md`** — the authority for how each item's `meets / partial / does not meet / N/A` status is chosen (including the N/A rule).
-- **`.claude/skills/fair4ai-scoring/SKILL.md`** + **`scripts/compute_fair4ai_scores.py`** — the skill and deterministic tool that compute `summary.fair4ai_scores` (0–1) from the per-item statuses and each item's `FAIR4AI category`.
+- **`.claude/skills/fair4ai-scoring/SKILL.md`** + **`scripts/compute_fair4ai_scores.py`** — the skill and deterministic tool that compute `summary.fair4ai_scores` (0–1) from the per-item statuses: Traditional FAIR from each item's `FAIR4AI category`, and AI-FAIR from each item's `Criteria` value plus the Governance section.
 - **`.claude/skills/batch-evaluate-datasets/SKILL.md`** — the `/batch-evaluate-datasets` skill: reads a dataset list, coordinates parallel per-dataset sub-agents, and compiles a scores CSV, summary figure, and report into one run folder. It reuses `evaluate-dataset` (in Batch / non-interactive mode) plus the `scripts/compile_fair4ai_results.py` and `scripts/make_fair4ai_figure.py` helpers.
 
 Both capabilities live under `.claude/skills/` (one skill per directory, each with a `SKILL.md`). To modify agent behavior, edit these files directly. Changes are tracked in git and shared across the team.
@@ -82,8 +82,8 @@ Both capabilities live under `.claude/skills/` (one skill per directory, each wi
 The JSON report has three top-level sections:
 
 - **`session`** — evaluation date, AI model, metadata sources used, dataset identity (title, DOI, landing page URL, citation), and evaluator information
-- **`responses`** — one object per checklist item with `section`, `sub_section`, `question`, `status` (`meets` / `partial` / `does not meet` / `N/A`), `evidence`, `notes`, `recommendation`, and `fair4ai_category` (the dimension(s) the item counts toward)
-- **`summary`** — `strengths`, `gaps`, `overall_assessment` (2–3 sentence narrative), and `fair4ai_scores` (each dimension plus an overall score in 0–1, with per-dimension `details` counts) computed by the `fair4ai-scoring` skill
+- **`responses`** — one object per checklist item with `section`, `sub_section`, `question`, `status` (`meets` / `partial` / `does not meet` / `N/A`), `evidence`, `notes`, `recommendation`, `fair4ai_category` (the FAIR dimension(s) the item counts toward), and `criteria` (the Structural/Scientific/Provenance facet(s) it counts toward)
+- **`summary`** — `strengths`, `gaps`, `overall_assessment` (2–3 sentence narrative), and `fair4ai_scores` (two nested blocks — `traditional_fair` and `ai_fair`, each with an overall score in 0–1 and per-dimension/per-facet `details`/`components` counts) computed by the `fair4ai-scoring` skill
 
 Output filename convention: `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json`
 
@@ -101,12 +101,12 @@ See `example_outputs/` for complete examples.
 | `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` skill: parallel batch evaluation → scores CSV + figure + report |
 | `scripts/compute_fair4ai_scores.py` | Deterministic 0–1 FAIR4AI scoring tool (stdlib-only) |
 | `scripts/compile_fair4ai_results.py` | Compiles a folder of evaluation JSONs into a scores CSV + aggregates (stdlib-only) |
-| `scripts/make_fair4ai_figure.py` | Renders the 6-panel score-distribution figure (needs numpy + matplotlib) |
+| `scripts/make_fair4ai_figure.py` | Renders the 2×5 two-row (FAIR + AI-FAIR) score-distribution figure (needs numpy + matplotlib) |
 | `scripts/requirements-viz.txt` | Optional deps (numpy, matplotlib) for the figure only |
 | `example_inputs/` | Sample batch input lists (`.csv` and `.md`) for `/batch-evaluate-datasets` |
-| `CHECKLIST.csv` | 96-item FAIR4AI-Bio checklist (8 sections; each item mapped to EML, DataCite, Schema.org, Croissant, and its FAIR4AI dimension(s)) |
+| `CHECKLIST.csv` | 96-item FAIR4AI-Bio checklist (9 sections; each item mapped to EML, DataCite, Schema.org, Croissant, its FAIR4AI dimension(s), and its Structural/Scientific/Provenance criteria) |
 | `RATING_RUBRIC.md` | Authority for choosing each item's `meets / partial / does not meet / N/A` status |
-| `CHECKLIST_OVERVIEW.md` | Narrative description of all 8 checklist sections |
+| `CHECKLIST_OVERVIEW.md` | Narrative description of all 9 checklist sections |
 | `QUICKSTART.md` | Step-by-step usage guide with example sessions |
 | `example_outputs/` | Complete evaluation reports for NEON datasets (example outputs) |
 
@@ -121,4 +121,5 @@ See `example_outputs/` for complete examples.
 5. **Data Quality** — completeness, consistency, integrity, timeliness
 6. **Guidance & Recommendations** — biases, class imbalance, non-detections, prior AI/ML usage history
 7. **Data Access** — delivery options, format openness, license (SPDX identifier), privacy controls
-8. **Provenance** — citation (DOI, ORCIDs, checksums), processing platform, CARE Principles and ethical governance
+8. **Provenance** — citation (DOI, ORCIDs, checksums), processing platform, source-data chain for derived datasets
+9. **Data Governance** — ethical / CARE governance (storage conditions, permission to collect, granting agent, implicated communities), per the CARE Data Governance specification (IEEE, 2025)
