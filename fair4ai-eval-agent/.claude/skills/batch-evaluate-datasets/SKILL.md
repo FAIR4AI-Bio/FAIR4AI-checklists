@@ -91,6 +91,9 @@ list and **confirm before launching** any sub-agents.
   ```bash
   python scripts/compute_fair4ai_scores.py --selftest
   ```
+  Invoke every Python call in this skill with the `python` command exactly as written —
+  never `python3` (on Windows it may resolve to the Microsoft Store redirector and open the
+  install manager). The scripts are stdlib-only, so no `pip`/install step is ever needed.
 - Seed (or refresh, on resume) **`<run folder>/batch_evaluate_progress.md`** — see the template at
   the end of this file. It records the resolved params, chosen model, run folder, and one row per
   dataset with status ⏳ pending (or the already-known status on resume).
@@ -116,6 +119,11 @@ Each sub-agent uses the **chosen model** and gets a prompt that:
 3. Requires the sub-agent to end by (a) writing the JSON, (b) running
    `python scripts/compute_fair4ai_scores.py <that file>` to populate scores, and (c) returning
    the **Structured result contract** (below) as its final message.
+4. States the **Interpreter rule**: *"Run all Python via the `python` command exactly as
+   written. Do **not** call `python3`, `pip`, `py -m pip`, or `python -m venv`, and never trigger
+   any Python installer — the scripts are stdlib-only and need no install. If `python` is
+   unavailable, use `py -3`, never `python3`."* (On this machine `python3` resolves to the
+   Microsoft Store App-Installer redirector and pops the "Python install manager".)
 
 After each wave completes, update `batch_evaluate_progress.md` (✅ / ⚠️ / ⛔ per dataset) so
 progress survives a lost session.

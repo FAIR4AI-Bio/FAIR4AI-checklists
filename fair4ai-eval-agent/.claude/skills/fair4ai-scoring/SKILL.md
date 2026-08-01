@@ -30,7 +30,9 @@ Options:
 - `--dry-run` — print the scores without modifying the file.
 - `--selftest` — run the script's internal correctness checks (no input file needed).
 
-On Windows use `python` (not `python3`). The script is stdlib-only — no install step.
+On Windows use `python` (not `python3` — it may resolve to the Microsoft Store redirector and
+open the install manager). The script is stdlib-only, so never run `pip`, `py -m pip`, or any
+Python-installer probe — no install step is ever needed. If `python` is unavailable, use `py -3`.
 
 ## Input contract
 

@@ -101,7 +101,7 @@ See `example_outputs/` for complete examples.
 | `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` skill: parallel batch evaluation → scores CSV + figure + report |
 | `scripts/compute_fair4ai_scores.py` | Deterministic 0–1 FAIR4AI scoring tool (stdlib-only) |
 | `scripts/compile_fair4ai_results.py` | Compiles a folder of evaluation JSONs into a scores CSV + aggregates (stdlib-only) |
-| `scripts/make_fair4ai_figure.py` | Renders the 2×5 two-row (FAIR + AI-FAIR) score-distribution figure (needs numpy + matplotlib) |
+| `scripts/make_fair4ai_figure.py` | Renders the 5×2 two-column (left = FAIR, right = AI-FAIR) score-distribution figure (needs numpy + matplotlib) |
 | `scripts/requirements-viz.txt` | Optional deps (numpy, matplotlib) for the figure only |
 | `example_inputs/` | Sample batch input lists (`.csv` and `.md`) for `/batch-evaluate-datasets` |
 | `CHECKLIST.csv` | 96-item FAIR4AI-Bio checklist (9 sections; each item mapped to EML, DataCite, Schema.org, Croissant, its FAIR4AI dimension(s), and its Structural/Scientific/Provenance criteria) |

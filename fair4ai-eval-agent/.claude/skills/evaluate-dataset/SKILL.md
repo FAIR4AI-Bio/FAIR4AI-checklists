@@ -40,6 +40,11 @@ directly by a person, you will be given all parameters up front in your prompt. 
   values (dataset source, checklist file, template file, output directory, output filename, and
   evaluator name/email) as the resolved parameters and proceed directly to Step 2.
 - Run Steps 2–6 exactly as written, including computing scores with `compute_fair4ai_scores.py`.
+- **Interpreter rule:** run all Python via the `python` command exactly as written. Do **not**
+  call `python3`, `pip`, `py -m pip`, or `python -m venv`, and never trigger any Python installer
+  — the scripts are stdlib-only and need no install. If `python` is unavailable, use `py -3`,
+  never `python3` (on Windows `python3` may resolve to the Microsoft Store redirector and open the
+  install manager).
 - **End your turn by returning the structured result** below as your final message (in addition to
   writing the JSON file) — the coordinator parses this instead of re-opening your file:
 

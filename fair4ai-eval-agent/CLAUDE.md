@@ -32,9 +32,16 @@ run `evaluate-dataset` in its **Batch / non-interactive mode**.
 - `scripts/compute_fair4ai_scores.py` — scoring (stdlib-only); the scoring authority for every run.
 - `scripts/compile_fair4ai_results.py` — compiles evaluation JSONs → scores CSV + `AGG:{...}`
   aggregates (stdlib-only).
-- `scripts/make_fair4ai_figure.py` — 2×5 two-row (Traditional FAIR + AI-FAIR) score-distribution
-  figure. **Needs `numpy` + `matplotlib`** (`scripts/requirements-viz.txt`); the figure step degrades
-  gracefully if they're absent, so scoring/compilation never depend on the plotting stack.
+- `scripts/make_fair4ai_figure.py` — 5×2 two-column (col 1 = Traditional FAIR, col 2 = AI-FAIR)
+  score-distribution figure. **Needs `numpy` + `matplotlib`** (`scripts/requirements-viz.txt`); the
+  figure step degrades gracefully if they're absent, so scoring/compilation never depend on the
+  plotting stack.
+
+**Interpreter:** always invoke the scripts with the `python` command — on Windows `python3` may
+resolve to the Microsoft Store App-Installer redirector and pop the "Python install manager". The
+scripts are stdlib-only (only the figure needs numpy+matplotlib, installed once by the user), so a
+sub-agent must never run `pip`, `py -m pip`, `python -m venv`, or any installer. If `python` is
+unavailable, use `py -3`, never `python3`.
 
 ## Checklist structure
 

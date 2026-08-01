@@ -1,22 +1,23 @@
 #!/usr/bin/env python
 """Multipanel figure summarizing FAIR4AI-Bio scores across a batch of datasets.
 
-A 2-row, 5-column grid, one row per assessment:
-  - Top row  — Traditional FAIR: Findable, Accessible, Interoperable, Reusable,
-    Overall FAIR.
-  - Bottom row — AI-FAIR: ML-ready, AI-ready for task, Traceable, CARE compliance,
-    Overall AI-FAIR.
-Each panel shows the distribution of per-dataset scores as a histogram over the 0-1
-range, with every dataset drawn as a point (rug) along the bottom, mean/median marker
-lines, and a summary-stats inset (n, mean, median, SD, range).
+A 5-row, 2-column grid, one column per assessment:
+  - Left column  — Traditional FAIR: Findable, Accessible, Interoperable, Reusable,
+    Overall FAIR (top to bottom).
+  - Right column — AI-FAIR: ML-ready, AI-ready for task, Traceable, CARE compliance,
+    Overall AI-FAIR (top to bottom).
+Panels in a column share the x-axis (score, 0-1); panels in a row share the y-axis
+(dataset count). Each panel shows the distribution of per-dataset scores as a histogram
+over the 0-1 range, with every dataset drawn as a point (rug) along the bottom,
+mean/median marker lines, and a summary-stats inset (n, mean, median, SD, range).
 
 Reads:  the scores summary CSV from compile_fair4ai_results.py (one row per dataset).
 Writes: <out-base>.{png,pdf,svg}
 
 Design tokens (colors, ink, grid) follow the dataviz skill's validated reference
-palette (light mode); the two "Overall" columns share a green family so the rows read
-as parallel assessments. Color is decorative here — every panel is titled and its
-stats are printed, so identity never rests on color alone.
+palette (light mode); the two "Overall" panels (bottom row) share a green family so the
+columns read as parallel assessments. Color is decorative here — every panel is titled
+and its stats are printed, so identity never rests on color alone.
 
 This is the ONLY part of the pipeline that needs third-party packages (numpy +
 matplotlib, see scripts/requirements-viz.txt). Scoring and compilation stay
@@ -55,35 +56,39 @@ MUTED = "#898781"      # axis / labels
 GRID = "#e1e0d9"       # hairline gridline
 BASELINE = "#c3c2b7"   # axis / baseline
 
-# categorical hues, fixed order; one per panel. Laid out as two rows/assessments.
-# Top row = Traditional FAIR, bottom row = AI-FAIR; the two "Overall" columns share a
-# green family (light / dark) so the rows read as parallel summaries.
-FAIR_ROW = [
+# categorical hues, fixed order; one per panel. Laid out as two columns/assessments.
+# Left column = Traditional FAIR, right column = AI-FAIR; the two "Overall" panels
+# (bottom row) share a green family (light / dark) so the columns read as parallel
+# summaries. FAIR_COL and AI_COL are paired by position — row i pairs FAIR_COL[i] with
+# AI_COL[i] (Findable↔ML-ready, …, Overall FAIR↔Overall AI-FAIR).
+FAIR_COL = [
     ("findable",      "Findable",       "#2a78d6"),  # blue
     ("accessible",    "Accessible",     "#eb6834"),  # orange
     ("interoperable", "Interoperable",  "#1baf7a"),  # aqua
     ("reusable",      "Reusable",       "#eda100"),  # yellow
     ("overall_fair",  "Overall FAIR",   "#008300"),  # green
 ]
-AI_ROW = [
+AI_COL = [
     ("ml_ready",           "ML-ready",         "#e87ba4"),  # magenta
     ("ai_ready_for_task",  "AI-ready for task", "#8a5cd6"),  # purple
     ("traceable",          "Traceable",        "#2ba6b8"),  # teal
     ("care_compliance",    "CARE compliance",  "#d64550"),  # red
     ("overall_ai_fair",    "Overall AI-FAIR",  "#0a5d2c"),  # dark green
 ]
-ROWS = [FAIR_ROW, AI_ROW]
-CATEGORIES = FAIR_ROW + AI_ROW  # flat, row-major (matches axes.flat order)
+COLUMNS = [FAIR_COL, AI_COL]
+COLUMN_HEADERS = ["Traditional FAIR", "AI-FAIR"]
+# flat, row-major to match axes.flat of a 5x2 grid: FAIR[0], AI[0], FAIR[1], AI[1], …
+PANELS = [p for pair in zip(FAIR_COL, AI_COL) for p in pair]
 
 
 def load_scores(csv_path):
     """Return {key: [floats]} for each panel, skipping null/blank dimension cells."""
-    data = {key: [] for key, _, _ in CATEGORIES}
+    data = {key: [] for key, _, _ in PANELS}
     n_rows = 0
     with open(csv_path, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
             n_rows += 1
-            for key, _, _ in CATEGORIES:
+            for key, _, _ in PANELS:
                 try:
                     data[key].append(float(row.get(key, "")))
                 except (TypeError, ValueError):
@@ -116,8 +121,8 @@ def main(argv=None):
 
     title = args.title or f"FAIR4AI-Bio scores across {n_rows} datasets"
     subtitle = args.subtitle or (
-        "Top row = Traditional FAIR · bottom row = AI-FAIR.  Traditional FAIR tends to "
-        "score well while AI-FAIR lags — FAIR is necessary but not sufficient for "
+        "Left column = Traditional FAIR · right column = AI-FAIR.  Traditional FAIR tends "
+        "to score well while AI-FAIR lags — FAIR is necessary but not sufficient for "
         "AI-ready data.   Solid line = mean · dashed = median · dots = individual datasets.")
     model_bit = f" with {args.model}" if args.model else ""
     footnote = args.footnote or (
@@ -142,17 +147,19 @@ def main(argv=None):
 
     # common y-limit (max bin count across panels) for comparability
     max_count = 0
-    for key, _, _ in CATEGORIES:
+    for key, _, _ in PANELS:
         counts, _ = np.histogram(np.asarray(data[key]), bins=BINS)
         max_count = max(max_count, int(counts.max()) if counts.size else 0)
     Y_MAX = max(1, max_count) + max(1, int(np.ceil(max(1, max_count) * 0.18)))
 
     rng = np.random.default_rng(42)  # deterministic jitter for the rug
 
-    fig, axes = plt.subplots(2, 5, figsize=(20.5, 7.8), constrained_layout=True)
+    fig, axes = plt.subplots(5, 2, figsize=(10.5, 15.5), sharex="col", sharey="row",
+                             constrained_layout=True)
     fig.patch.set_facecolor(SURFACE)
 
-    for ax, (key, label, hue) in zip(axes.flat, CATEGORIES):
+    for i, (ax, (key, label, hue)) in enumerate(zip(axes.flat, PANELS)):
+        row, col = i // 2, i % 2  # 5 rows × 2 cols, row-major
         vals = np.asarray(data[key], dtype=float)
         n = vals.size
         if n == 0:
@@ -199,8 +206,11 @@ def main(argv=None):
         ax.set_ylim(0, Y_MAX)
         ax.set_xticks(np.arange(0, 1.01, 0.2))
         ax.set_yticks(np.arange(0, Y_MAX + 1, max(1, Y_MAX // 5)))
-        ax.set_xlabel("score  (0–1,  1 = most FAIR4AI)", fontsize=9.5, color=INK_2)
-        ax.set_ylabel("datasets", fontsize=9.5, color=INK_2)
+        # shared axes: label only the outer edges (x on bottom row, y on left column)
+        if row == len(FAIR_COL) - 1:
+            ax.set_xlabel("score  (0–1,  1 = most FAIR4AI)", fontsize=9.5, color=INK_2)
+        if col == 0:
+            ax.set_ylabel("datasets", fontsize=9.5, color=INK_2)
         ax.yaxis.grid(True, color=GRID, linewidth=0.8, zorder=0)
         ax.set_axisbelow(True)
         for side in ("top", "right"):
@@ -210,12 +220,21 @@ def main(argv=None):
             ax.spines[side].set_linewidth(1.0)
         ax.tick_params(length=3)
 
-    # --- figure title / subtitle / footnote ---
-    fig.suptitle(title, x=0.008, ha="left", fontsize=17, fontweight="bold", color=INK)
-    fig.text(0.008, 0.945, subtitle, ha="left", fontsize=10, color=INK_2)
-    fig.text(0.008, 0.012, footnote, ha="left", fontsize=8, color=MUTED)
+    # reserve the top strip for title/subtitle/column-headers and the bottom for the footnote
+    fig.get_layout_engine().set(rect=(0.055, 0.028, 0.99, 0.90))
 
-    fig.get_layout_engine().set(rect=(0.006, 0.03, 0.988, 0.90))
+    # --- column headers (one per assessment), centered over each column ---
+    col_centers = [0.305, 0.775]  # figure-fraction x-centers of the two axis columns
+    for cx, header in zip(col_centers, COLUMN_HEADERS):
+        fig.text(cx, 0.912, header, ha="center", va="bottom", fontsize=14,
+                 fontweight="bold", color=INK)
+
+    # --- figure title / subtitle / footnote ---
+    fig.suptitle(title, x=0.008, y=0.988, ha="left", fontsize=17,
+                 fontweight="bold", color=INK)
+    fig.text(0.008, 0.955, subtitle, ha="left", va="top", fontsize=9.5,
+             color=INK_2, wrap=True)
+    fig.text(0.008, 0.006, footnote, ha="left", fontsize=8, color=MUTED, wrap=True)
 
     dpi_by_fmt = {"png": 220}
     for ext in [x.strip() for x in args.formats.split(",") if x.strip()]:
