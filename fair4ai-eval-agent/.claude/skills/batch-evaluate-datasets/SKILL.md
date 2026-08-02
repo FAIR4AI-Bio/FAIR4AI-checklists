@@ -109,11 +109,11 @@ Each sub-agent uses the **chosen model** and gets a prompt that:
 
 1. States: *"Operate in **Batch / non-interactive mode** per the `evaluate-dataset` skill
    (`.claude/skills/evaluate-dataset/SKILL.md`). Do not ask the user anything."*
-2. Supplies the resolved evaluate-dataset parameters for this dataset:
+2. Supplies the resolved evaluate-dataset parameters for this dataset, **as absolute paths**:
    - **Dataset source** = the row's `url`
-   - **Checklist file** = the batch checklist file
-   - **Template file** = the batch template file
-   - **Output directory** = `<run folder>/evaluation_results/`
+   - **Checklist file** = the batch checklist file (absolute path)
+   - **Template file** = the batch template file (absolute path)
+   - **Output directory** = `<run folder>/evaluation_results/` (absolute path)
    - **Output filename** = `FAIR4AI_eval_<short_name>_<DATE>.json`
    - **Evaluator name/email** = the row's `name` / `email` (or the batch defaults)
 3. Requires the sub-agent to end by (a) writing the JSON, (b) running
@@ -124,6 +124,14 @@ Each sub-agent uses the **chosen model** and gets a prompt that:
    any Python installer — the scripts are stdlib-only and need no install. If `python` is
    unavailable, use `py -3`, never `python3`."* (On this machine `python3` resolves to the
    Microsoft Store App-Installer redirector and pops the "Python install manager".)
+5. States the **File-hygiene rule**: *"Use the absolute paths given above. Do not rely on the
+   current working directory, do not read `CHECKLIST.csv` by a bare relative name, and do not `cd`
+   into the agent source tree. Write **exactly one file** — the evaluation JSON — into the supplied
+   output directory, using the Write tool directly (build the JSON yourself; do not author a
+   generator script that emits it). Do **not** create any helper `.py` script, intermediate/renamed
+   JSON, or scratch file, and **never** write into the agent source tree (`fair4ai-eval-agent/`,
+   where `CHECKLIST.csv`, the skills, and `scripts/` live)."* (Real runs left stray
+   `eval_*.py` / `*_evaluation.json` files in the agent repo — this rule prevents that.)
 
 After each wave completes, update `batch_evaluate_progress.md` (✅ / ⚠️ / ⛔ per dataset) so
 progress survives a lost session.

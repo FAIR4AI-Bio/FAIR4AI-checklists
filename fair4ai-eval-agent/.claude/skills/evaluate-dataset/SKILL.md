@@ -40,6 +40,15 @@ directly by a person, you will be given all parameters up front in your prompt. 
   values (dataset source, checklist file, template file, output directory, output filename, and
   evaluator name/email) as the resolved parameters and proceed directly to Step 2.
 - Run Steps 2–6 exactly as written, including computing scores with `compute_fair4ai_scores.py`.
+- **File-hygiene rule (critical in batch mode):** use the **absolute paths** the coordinator gives
+  you — the checklist, the template, and the **output directory**. Do **not** rely on the current
+  working directory: never read `CHECKLIST.csv` by a bare relative name, and never `cd` into the
+  agent source tree. **Write exactly one file — the evaluation JSON — into the supplied output
+  directory.** Do **not** create any other file (helper/generator `.py` scripts, intermediate or
+  renamed JSON, scratch notes) anywhere, and **never** write into the agent source tree
+  (`fair4ai-eval-agent/` — where `CHECKLIST.csv`, the skills, and `scripts/` live). Build the JSON
+  directly with the Write tool rather than authoring a script that emits it; if you genuinely need a
+  scratch file, it must go inside the output directory and be cleaned up.
 - **Interpreter rule:** run all Python via the `python` command exactly as written. Do **not**
   call `python3`, `pip`, `py -m pip`, or `python -m venv`, and never trigger any Python installer
   — the scripts are stdlib-only and need no install. If `python` is unavailable, use `py -3`,
@@ -210,7 +219,7 @@ It writes this block back into the file:
 ## Step 6: Write the output, compute scores, and report to the user
 
 1. Generate the output filename: `FAIR4AI_eval_<dataset-name-sanitized>_<YYYY-MM-DD>.json` (replace spaces and special characters with underscores in the dataset name portion).
-2. Write the JSON file to the specified output directory (with `fair4ai_scores` as an empty object for now).
+2. Write the JSON file to the **absolute** output directory you were given (with `fair4ai_scores` as an empty object for now), using the Write tool directly. This is the **only** file you create — do not emit a generator script, an intermediate/renamed JSON, or any scratch file, and never write into the agent source tree (`fair4ai-eval-agent/`).
 3. Compute the scores reproducibly by invoking the **`fair4ai-scoring`** skill on the file just written:
    ```bash
    python scripts/compute_fair4ai_scores.py <output.json>
