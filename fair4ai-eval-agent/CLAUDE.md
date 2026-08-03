@@ -6,6 +6,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working in this
 
 Evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the FAIR4AI-Bio checklist. Reads a dataset landing page or local metadata files, rates 96 checklist items (`meets | partial | does not meet | N/A`, per `RATING_RUBRIC.md`), and produces a structured JSON report with **two reproducible assessments** — **Traditional FAIR** (Findable, Accessible, Interoperable, Reusable + overall) and **AI-FAIR** (ml_ready, ai_ready_for_task, traceable, care_compliance + overall) — each score in **0–1, where 1 is "most FAIR4AI"**. Scores are computed deterministically by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`), not estimated. Reporting the two side by side operationalizes the thesis that FAIR is necessary but not sufficient for AI-ready data.
 
+## Skills
+
+Five skills under `.claude/skills/` (one directory each), with clean handoffs:
+
+- **`retrieve-metadata`** — fetch a dataset's metadata (URL or local path) and, by default, save it
+  under `retrieved_metadata/<short_name>/` so it can be reused without re-fetching.
+- **`evaluate-dataset`** — the single-dataset evaluation. Establishes a run folder, skips datasets
+  already evaluated (unless a re-run is requested), reuses downloaded metadata before calling
+  `retrieve-metadata`, rates the 96 items, and scores via `fair4ai-scoring`.
+- **`fair4ai-scoring`** — deterministic 0–1 scoring (`scripts/compute_fair4ai_scores.py`).
+- **`batch-evaluate-datasets`** — the batch **coordinator**: orchestrates one `evaluate-dataset`
+  sub-agent per dataset, then hands off to `summarize-outputs`.
+- **`summarize-outputs`** — compiles a directory of evaluation JSONs into a scores CSV, a summary
+  figure, and a narrative report; by default keeps only the newest run of each dataset.
+
 ## Running an evaluation
 
 Type `/evaluate-dataset` in Claude Code chat. The agent will prompt for:
@@ -13,25 +28,31 @@ Type `/evaluate-dataset` in Claude Code chat. The agent will prompt for:
 1. **Dataset source** *(required)* — URL to a landing page, or a local path to a directory of metadata files
 2. **Checklist file** *(optional)* — defaults to `CHECKLIST.csv`
 3. **Template file** *(optional)* — defaults to `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` (the current-schema example)
-4. **Output directory** *(optional)* — defaults to current working directory
-5. **Output filename** *(optional)* — defaults to `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json`
+4. **Output directory** *(optional)* — the workspace root; defaults to current working directory
+5. **Output filename** *(optional)* — defaults to `FAIR4AI_eval_<short_name>_<YYYY-MM-DD_HHMMSS>.json` (timestamp to the second, so re-runs never collide)
+6. **Rerun existing evaluation?** *(optional)* — defaults to **No**; when a prior evaluation of the dataset exists in the Output directory it is **skipped** (with a warning + a note in `evaluate_progress.md`) unless this is Yes or the request says "rerun"/"re-evaluate"
 
-For detailed usage examples, see `QUICKSTART.md`.
+Each run creates a run folder `<output dir>/fair4ai_run_<TS>/` with `retrieved_metadata/` (cached
+metadata) and `evaluation_results/` (the evaluation JSON). The skill looks for already-downloaded
+data before fetching. For detailed usage examples, see `QUICKSTART.md`.
 
 ## Running a batch
 
 Type `/batch-evaluate-datasets` to evaluate a whole list of datasets at once. It reads a flexible
 input list (`.txt`/`.csv`/`.md`), normalizes it to a standard CSV, coordinates one sub-agent per
 dataset in parallel (waves of 5; default model **Claude Haiku 4.5**, `claude-haiku-4-5-20251001` —
-it asks), then writes all evaluation JSONs plus a compiled scores CSV, a summary figure, and a
-narrative report into one self-contained, resumable **run folder** (`batch_run_<date>/`). Sub-agents
-run `evaluate-dataset` in its **Batch / non-interactive mode**.
+it asks) into one self-contained, resumable **run folder** (`batch_run_<date>/` with
+`evaluation_results/` + `retrieved_metadata/`), then **hands off to the `summarize-outputs` skill**
+for the compiled scores CSV, summary figure, and narrative report. Sub-agents run `evaluate-dataset`
+in its **Batch / non-interactive mode**.
 
-## Batch scripts & dependencies
+## Scripts & dependencies
 
 - `scripts/compute_fair4ai_scores.py` — scoring (stdlib-only); the scoring authority for every run.
-- `scripts/compile_fair4ai_results.py` — compiles evaluation JSONs → scores CSV + `AGG:{...}`
-  aggregates (stdlib-only).
+- `scripts/compile_fair4ai_results.py` — compiles a directory of evaluation JSONs → scores CSV +
+  `AGG:{...}` aggregates (stdlib-only). `--source-csv` is optional (datasets are otherwise derived
+  from the JSONs); `--dedup latest` (default) keeps only the newest run of each dataset, `--dedup all`
+  keeps every run.
 - `scripts/make_fair4ai_figure.py` — 5×2 two-column (col 1 = Traditional FAIR, col 2 = AI-FAIR)
   score-distribution figure. **Needs `numpy` + `matplotlib`** (`scripts/requirements-viz.txt`); the
   figure step degrades gracefully if they're absent, so scoring/compilation never depend on the

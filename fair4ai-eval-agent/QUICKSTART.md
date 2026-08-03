@@ -24,15 +24,18 @@ The agent will immediately prompt you for the parameters it needs.
 
 ## Parameters
 
-The agent will ask for five inputs. Only #1 is required — hit Enter to accept the default for any of the others.
+The agent will ask for six inputs. Only #1 is required — hit Enter to accept the default for any of the others.
 
 | # | Parameter | Required? | Default |
 |---|-----------|-----------|---------|
 | 1 | **Dataset source** — URL to a landing page, or local path to a directory of metadata files | Yes | — |
 | 2 | **Checklist file** — path to the checklist CSV | No | `CHECKLIST.csv` in the current directory |
 | 3 | **Template file** — path to the output structure template JSON | No | `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` in the current directory |
-| 4 | **Output directory** — where to save the report | No | Current working directory |
-| 5 | **Output filename** | No | `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json` |
+| 4 | **Output directory** — the workspace root where run folders are created | No | Current working directory |
+| 5 | **Output filename** | No | `FAIR4AI_eval_<short_name>_<YYYY-MM-DD_HHMMSS>.json` |
+| 6 | **Rerun existing evaluation?** — re-evaluate a dataset already evaluated in the Output directory | No | No |
+
+Each run creates a **run folder** `<output dir>/fair4ai_run_<TS>/` holding `retrieved_metadata/` (cached metadata) and `evaluation_results/` (the timestamped evaluation JSON). Before evaluating, the agent scans the Output directory for a prior `FAIR4AI_eval_<short_name>_*.json`; if one exists and Rerun is **No**, it **prints a warning, notes the skip in `evaluate_progress.md`, and stops** without re-evaluating. It also looks for already-downloaded metadata before fetching anew.
 
 ---
 
@@ -103,8 +106,9 @@ Checklist file: [Enter]
 Template file: [Enter]
 Output directory: [Enter]
 Output filename: [Enter]
+Rerun existing evaluation?: [Enter]
 ```
-Output file: `FAIR4AI_eval_Ground_beetles_sampled_from_pitfall_traps_2026-04-30.json`
+Output file: `fair4ai_run_2026-04-30_142530/evaluation_results/FAIR4AI_eval_neon_beetles_2026-04-30_142530.json`
 
 ---
 
@@ -142,7 +146,7 @@ At the end of the session the agent prints:
 - FAIR4AI scores at a glance
 - Top 3 priority recommendations
 
-You can re-run the command on the same dataset after making improvements and compare outputs to track progress.
+To re-evaluate the same dataset after making improvements, answer **Yes** to *Rerun existing evaluation?* (or say "rerun"/"re-evaluate"). Each re-run gets its own timestamped file and run folder, so you can compare outputs to track progress; re-runs reuse the cached metadata rather than re-fetching.
 
 ---
 
@@ -163,18 +167,38 @@ The skill normalizes whatever you give it into a standard `batch_datasets_<date>
 artifact), then asks which model the per-dataset sub-agents should use — default **Claude Haiku 4.5**
 (`claude-haiku-4-5-20251001`). See `example_inputs/` for ready-to-use `.csv` and `.md` samples.
 
-**What it does** — launches one sub-agent per dataset in parallel (waves of 5), each running
-`/evaluate-dataset` non-interactively, validates every result (96 responses, valid statuses,
-non-null scores), then compiles the outputs.
+**What it does** — as a **coordinator**, it launches one sub-agent per dataset in parallel (waves of
+5), each running `/evaluate-dataset` non-interactively, validates every result (96 responses, valid
+statuses, non-null scores), then **hands off to the `summarize-outputs` skill** for the compiled CSV,
+figure, and report.
 
 **Output** — one self-contained, resumable **run folder** (`batch_run_<date>/`) containing: the
-normalized CSV, every per-dataset `FAIR4AI_eval_*.json`, a `confidence_map.json`, a compiled
-`fair4ai_scores_summary_<date>.csv`, a summary figure (`fair4ai_score_distributions_<date>.{png,pdf,svg}`),
-a narrative `FAIR4AI_summary_report_<date>.md`, and a `batch_evaluate_progress.md` tracker. Re-invoking
-the skill on an existing run folder **resumes** — only pending/failed datasets are re-run.
+normalized CSV, a `retrieved_metadata/<short_name>/` cache per dataset, every per-dataset
+`evaluation_results/FAIR4AI_eval_<short_name>_<YYYY-MM-DD_HHMMSS>.json`, a `confidence_map.json`, a
+compiled `fair4ai_scores_summary_<date>.csv`, a summary figure
+(`fair4ai_score_distributions_<date>.{png,pdf,svg}`), a narrative `FAIR4AI_summary_report_<date>.md`,
+and a `batch_evaluate_progress.md` tracker. Re-invoking the skill on an existing run folder
+**resumes** — only pending/failed datasets are re-run. Timestamped filenames mean re-runs never
+collide, and `summarize-outputs` keeps only the newest run of each dataset by default.
 
 > The summary figure needs `numpy` + `matplotlib` (`pip install -r scripts/requirements-viz.txt`).
 > If they're missing, the figure is skipped and the CSV + report are still produced.
+
+---
+
+## Summarizing on its own — `/summarize-outputs`
+
+You can also summarize **any directory of evaluation JSONs** (a batch run folder's
+`evaluation_results/`, or a folder of single-run outputs) without re-evaluating:
+
+```
+/summarize-outputs
+```
+
+It compiles a scores CSV, builds the summary figure (graceful skip if numpy/matplotlib are absent),
+and authors the narrative report. By default it **dedups reruns** — keeping only the newest run of
+each dataset and noting the older ones it ignored — or pass dedup mode `all` to include every run.
+The dataset list is derived from the JSONs, so a source CSV is optional.
 
 ---
 
@@ -190,12 +214,14 @@ the skill on an existing run folder **resumes** — only pending/failed datasets
 
 | File | Role |
 |------|------|
-| `.claude/skills/evaluate-dataset/SKILL.md` | The `/evaluate-dataset` skill and evaluation workflow (also supports Batch / non-interactive mode) |
+| `.claude/skills/retrieve-metadata/SKILL.md` | The `/retrieve-metadata` skill (fetch + cache metadata into `retrieved_metadata/<short_name>/`) |
+| `.claude/skills/evaluate-dataset/SKILL.md` | The `/evaluate-dataset` skill and evaluation workflow (run folder, skip/rerun, downloaded-first; also supports Batch / non-interactive mode) |
 | `.claude/skills/fair4ai-scoring/SKILL.md` | The `/fair4ai-scoring` skill (deterministic 0–1 scoring) |
-| `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` skill (parallel batch → CSV + figure + report) |
+| `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` coordinator skill (parallel per-dataset evals → hands off to `summarize-outputs`) |
+| `.claude/skills/summarize-outputs/SKILL.md` | The `/summarize-outputs` skill (compile any results dir → CSV + figure + report, dedups reruns) |
 | `scripts/compute_fair4ai_scores.py` | Scoring tool the fair4ai-scoring skill runs |
-| `scripts/compile_fair4ai_results.py` | Compiles a batch's evaluation JSONs into a scores CSV + aggregates |
-| `scripts/make_fair4ai_figure.py` | Renders the batch summary figure (needs numpy + matplotlib) |
+| `scripts/compile_fair4ai_results.py` | Compiles a directory of evaluation JSONs into a scores CSV + aggregates (source CSV optional; dedups reruns) |
+| `scripts/make_fair4ai_figure.py` | Renders the summary figure (needs numpy + matplotlib) |
 | `example_inputs/` | Sample `.csv` / `.md` batch input lists |
 | `RATING_RUBRIC.md` | Authority for the `meets / partial / does not meet / N/A` rating |
 | `CLAUDE.md` | Project context auto-loaded by Claude Code each session |

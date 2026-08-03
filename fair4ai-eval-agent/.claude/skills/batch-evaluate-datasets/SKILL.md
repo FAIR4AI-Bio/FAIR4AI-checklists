@@ -1,16 +1,17 @@
 ---
 name: batch-evaluate-datasets
-description: Batch-evaluate many datasets against the FAIR4AI-Bio checklist by coordinating one sub-agent per dataset in parallel (default Claude Haiku 4.5). Reads a flexible dataset list (.txt/.csv/.md), saves all evaluation JSONs into one self-contained run folder, then compiles a scores CSV, a summary plot, and a Markdown report. Invoke as /batch-evaluate-datasets, or whenever asked to evaluate a list/CSV of datasets, run a batch, or produce a cross-dataset FAIR4AI summary.
+description: Coordinate a batch FAIR4AI-Bio evaluation of many datasets by dispatching one sub-agent per dataset in parallel (default Claude Haiku 4.5). Reads a flexible dataset list (.txt/.csv/.md), saves all evaluation JSONs into one self-contained run folder, then hands off to the summarize-outputs skill for the scores CSV, summary figure, and Markdown report. Invoke as /batch-evaluate-datasets, or whenever asked to evaluate a list/CSV of datasets or run a batch.
 ---
 
 You are the **coordinator** for a batch FAIR4AI-Bio evaluation. You read a list of datasets,
 dispatch one sub-agent per dataset to run the single-dataset `evaluate-dataset` workflow in
-**Batch / non-interactive mode**, collect and validate their outputs, then compile a scores
-CSV, a summary figure, and a narrative Markdown report. Every artifact of a run lives inside
-one **run folder** so a run is self-contained and resumable.
+**Batch / non-interactive mode**, collect and validate their outputs, then hand off to the
+**`summarize-outputs`** skill to compile the scores CSV, summary figure, and narrative report.
+Every artifact of a run lives inside one **run folder** so a run is self-contained and resumable.
 
-You (the coordinator) run the orchestration and author the two Markdown documents. The scoring,
-compilation, and figure are done by scripts. The per-dataset evaluations are done by sub-agents.
+You (the coordinator) run the orchestration and own the progress tracker
+(`batch_evaluate_progress.md`). The per-dataset evaluations are done by sub-agents; the
+cross-dataset summary (scoring compilation, figure, and report) is done by `summarize-outputs`.
 
 ---
 
@@ -47,7 +48,8 @@ Look at the resolved run folder:
   datasets are already ✅ complete (a valid evaluation JSON exists for them — verify per the
   Validation checklist) and which are ⏳ pending / ⚠️ / ⛔. You will **resume**: only pending and
   failed datasets get (re)launched in Step 6. Do not re-evaluate completed ones.
-- **Otherwise**, create the run folder and an `evaluation_results/` subfolder inside it.
+- **Otherwise**, create the run folder with two subfolders inside it: `evaluation_results/`
+  (per-dataset JSONs) and `retrieved_metadata/` (per-dataset cached metadata).
 
 ## Step 3: Confirm the sub-agent model
 
@@ -114,8 +116,13 @@ Each sub-agent uses the **chosen model** and gets a prompt that:
    - **Checklist file** = the batch checklist file (absolute path)
    - **Template file** = the batch template file (absolute path)
    - **Output directory** = `<run folder>/evaluation_results/` (absolute path)
-   - **Output filename** = `FAIR4AI_eval_<short_name>_<DATE>.json`
+   - **Metadata save location** = `<run folder>/retrieved_metadata/<short_name>/` (absolute path)
+   - **Output filename** = `FAIR4AI_eval_<short_name>_<TS>.json`, where `<TS>` is the
+     sub-agent's current timestamp to the second (`date +%Y-%m-%d_%H%M%S`) so re-runs never collide
    - **Evaluator name/email** = the row's `name` / `email` (or the batch defaults)
+   - Tell the sub-agent the run folder already exists: it must **not** create a new run folder
+     or run the interactive skip check — just save retrieved metadata to the Metadata save
+     location and write the evaluation JSON into the Output directory.
 3. Requires the sub-agent to end by (a) writing the JSON, (b) running
    `python scripts/compute_fair4ai_scores.py <that file>` to populate scores, and (c) returning
    the **Structured result contract** (below) as its final message.
@@ -126,12 +133,14 @@ Each sub-agent uses the **chosen model** and gets a prompt that:
    Microsoft Store App-Installer redirector and pops the "Python install manager".)
 5. States the **File-hygiene rule**: *"Use the absolute paths given above. Do not rely on the
    current working directory, do not read `CHECKLIST.csv` by a bare relative name, and do not `cd`
-   into the agent source tree. Write **exactly one file** — the evaluation JSON — into the supplied
-   output directory, using the Write tool directly (build the JSON yourself; do not author a
-   generator script that emits it). Do **not** create any helper `.py` script, intermediate/renamed
-   JSON, or scratch file, and **never** write into the agent source tree (`fair4ai-eval-agent/`,
-   where `CHECKLIST.csv`, the skills, and `scripts/` live)."* (Real runs left stray
-   `eval_*.py` / `*_evaluation.json` files in the agent repo — this rule prevents that.)
+   into the agent source tree. Your only writes are inside the run folder: retrieved metadata under
+   the **Metadata save location** (`retrieved_metadata/<short_name>/`) and **exactly one evaluation
+   JSON** into the supplied **Output directory** (`evaluation_results/`), using the Write tool
+   directly (build the JSON yourself; do not author a generator script that emits it). Do **not**
+   create any helper `.py` script, intermediate/renamed JSON, or scratch file, and **never** write
+   into the agent source tree (`fair4ai-eval-agent/`, where `CHECKLIST.csv`, the skills, and
+   `scripts/` live)."* (Real runs left stray `eval_*.py` / `*_evaluation.json` files in the agent
+   repo — this rule prevents that.)
 
 After each wave completes, update `batch_evaluate_progress.md` (✅ / ⚠️ / ⛔ per dataset) so
 progress survives a lost session.
@@ -149,13 +158,15 @@ and passes the **Validation checklist**:
 - every `status` is one of `meets | partial | does not meet | N/A`;
 - `summary.fair4ai_scores.traditional_fair.overall` and `.ai_fair.overall` are present and **non-null**.
 
-Re-run the scorer on each file to guarantee reproducible scores and **zero `WARNING:`**:
+Re-run the scorer on each file (use the sub-agent's returned `output_path`, i.e.
+`<run folder>/evaluation_results/FAIR4AI_eval_<short>_<TS>.json`) to guarantee reproducible scores
+and **zero `WARNING:`**:
 ```bash
-python scripts/compute_fair4ai_scores.py <run folder>/evaluation_results/FAIR4AI_eval_<short>_<DATE>.json
+python scripts/compute_fair4ai_scores.py <output_path>
 ```
 Resolve any warning (e.g. a scoreable item missing its `fair4ai_category`) and re-run. **Policy:**
 if a dataset fails validation, relaunch its sub-agent once; if it still fails, mark it ⛔ in the
-progress doc and exclude it from the compile step (note it in the report's coverage line).
+progress doc and exclude it from the summary (note it in the report's coverage line).
 
 ## Step 8: Write the confidence map
 
@@ -163,64 +174,35 @@ From the sub-agents' structured returns, assemble
 **`<run folder>/confidence_map.json`** = `{ "<short_name>": "high|medium|low", ... }` for every
 successfully evaluated dataset.
 
-## Step 9: Compile the scores CSV
+## Step 9: Summarize the outputs
 
-```bash
-python scripts/compile_fair4ai_results.py \
-  --results-dir "<run folder>/evaluation_results" \
-  --source-csv  "<run folder>/batch_datasets_<DATE>.csv" \
-  --confidence-map "<run folder>/confidence_map.json" \
-  --out-csv "<run folder>/fair4ai_scores_summary_<DATE>.csv" \
-  --date <DATE>
-```
-Capture the printed `AGG:{...}` line — it carries `n_total`, `fair_means` (F/A/I/R),
-`overall_fair_mean`, `ai_fair_means` (ml_ready/ai_ready_for_task/traceable/care_compliance),
-`overall_ai_fair_mean`, the `missing` list, and `by_confidence` groupings you will cite in the report.
+Hand off the completed run folder to the **`summarize-outputs`** skill, which compiles the scores
+CSV, builds the summary figure, and authors the narrative report. Invoke it with:
 
-## Step 10: Build the summary figure (optional / graceful)
+- **Results directory** = `<run folder>/evaluation_results`
+- **Output directory** = `<run folder>`
+- **Dedup mode** = `latest` (default — keeps the newest run of each dataset)
+- **Source CSV** = `<run folder>/batch_datasets_<DATE>.csv`
+- **Confidence map** = `<run folder>/confidence_map.json`
+- **Label** = `<DATE>` (so artifacts are named `..._<DATE>.{csv,md,png}`)
+- **Model label** = the chosen sub-agent model
+- **Report title / subtitle** = the user's values if supplied
 
-```bash
-python scripts/make_fair4ai_figure.py \
-  --in-csv "<run folder>/fair4ai_scores_summary_<DATE>.csv" \
-  --out-base "<run folder>/fair4ai_score_distributions_<DATE>" \
-  --model "<chosen model label>" --date <DATE>
-```
-This needs `numpy` + `matplotlib`. If the script exits non-zero with an import error, report
-*"figure skipped — install `scripts/requirements-viz.txt`"* and **continue** (the CSV and report
-are still produced). Pass `--title` / `--subtitle` if the user supplied custom text.
-
-## Step 11: Author the narrative summary report
-
-Write **`<run folder>/FAIR4AI_summary_report_<DATE>.md`**, mirroring the structure and tone of the
-reference report (`example_outputs/` and prior runs). Include:
-
-- **Header** — date, checklist (96 items), evaluation model (the chosen sub-agent model),
-  coordinator/aggregation model, scoring method (one line), retrieval method, and a **coverage** line
-  (n evaluated of n listed; note any ⛔ excluded datasets).
-- **Scores at a glance** — two tables (or one wide table), **sorted by Overall AI-FAIR desc**: a
-  **Traditional FAIR** table (findable / accessible / interoperable / reusable / Overall FAIR) and an
-  **AI-FAIR** table (ml_ready / ai_ready_for_task / traceable / care_compliance / Overall AI-FAIR),
-  each with a final **Mean (n=…)** row (use `fair_means`/`overall_fair_mean` and
-  `ai_fair_means`/`overall_ai_fair_mean` from the AGG line).
-- **Status breakdown** — per-dataset meets / partial / does not meet / N/A counts (from the CSV).
-- **Cross-dataset patterns** — the strongest and weakest dimensions in each assessment, and the size
-  of the **Overall FAIR vs Overall AI-FAIR gap** across datasets. Anchor on the thesis: *FAIR ≠
-  AI-ready* — datasets that score well on Traditional FAIR still lag on AI-FAIR (especially CARE
-  compliance and the scientific facet).
-- **Per-dataset summaries** — a short paragraph + top gaps/recommendations per dataset.
-- **Caveats** — explicitly note that ratings were produced by the chosen sub-agent model, that this
-  is a **metadata-only** evaluation, and flag low-confidence datasets.
-- **Artifacts** — a table linking the normalized CSV, scores CSV, figure, each JSON, and the
-  progress doc.
+`summarize-outputs` writes `fair4ai_scores_summary_<DATE>.csv`,
+`fair4ai_score_distributions_<DATE>.{png,pdf,svg}` (or reports "figure skipped" if numpy/matplotlib
+are absent), and `FAIR4AI_summary_report_<DATE>.md` into the run folder, and returns the headline
+means + top cross-dataset gaps. Any ⛔ datasets you excluded in Step 7 will surface in its
+coverage line.
 
 Then mark the run ✅ complete in `batch_evaluate_progress.md`.
 
-## Step 12: Report to the user
+## Step 10: Report to the user
 
 - The **run folder** path and a listing of its contents.
 - **n evaluated / n failed**.
-- **Mean Overall FAIR** and **Mean Overall AI-FAIR** scores (and the per-dimension/per-category means),
-  noting they are script-computed (reproducible), and the typical FAIR-vs-AI-FAIR gap.
+- **Mean Overall FAIR** and **Mean Overall AI-FAIR** scores (and the per-dimension/per-category means,
+  from `summarize-outputs`), noting they are script-computed (reproducible), and the typical
+  FAIR-vs-AI-FAIR gap.
 - Paths to the normalized CSV, scores CSV, figure, and summary report.
 - The top 3–5 cross-dataset gaps.
 
@@ -234,7 +216,7 @@ parse without re-opening each file — a JSON object with these fields:
 ```json
 {
   "short_name": "neon_beetles",
-  "output_path": "<run folder>/evaluation_results/FAIR4AI_eval_neon_beetles_2026-07-30.json",
+  "output_path": "<run folder>/evaluation_results/FAIR4AI_eval_neon_beetles_2026-07-30_142530.json",
   "n_responses": 96,
   "meets": 45, "partial": 18, "does_not_meet": 16, "na": 17,
   "overall_fair": 0.778, "overall_ai_fair": 0.779,
