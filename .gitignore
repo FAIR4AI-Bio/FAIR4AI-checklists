@@ -224,3 +224,8 @@ __marimo__/
 
 # AI tool local configuration — track commands and settings, ignore machine-specific local overrides
 **/.claude/settings.local.json
+
+# FAIR4AI eval-agent run folders — throwaway batch/single-run/test artifacts, not source
+fair4ai-eval-agent/test_run*/
+fair4ai-eval-agent/batch_run_*/
+fair4ai-eval-agent/fair4ai_run_*/

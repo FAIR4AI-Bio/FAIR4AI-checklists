@@ -30,7 +30,7 @@ The agent will ask for six inputs. Only #1 is required — hit Enter to accept t
 |---|-----------|-----------|---------|
 | 1 | **Dataset source** — URL to a landing page, or local path to a directory of metadata files | Yes | — |
 | 2 | **Checklist file** — path to the checklist CSV | No | `CHECKLIST.csv` in the current directory |
-| 3 | **Template file** — path to the output structure template JSON | No | `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` in the current directory |
+| 3 | **Template file** — path to the output structure template JSON | No | `example_outputs/FAIR4AI_eval_neon_beetles_2026-08-03_102743.json` in the current directory |
 | 4 | **Output directory** — the workspace root where run folders are created | No | Current working directory |
 | 5 | **Output filename** | No | `FAIR4AI_eval_<short_name>_<YYYY-MM-DD_HHMMSS>.json` |
 | 6 | **Rerun existing evaluation?** — re-evaluate a dataset already evaluated in the Output directory | No | No |
@@ -226,5 +226,5 @@ The dataset list is derived from the JSONs, so a source CSV is optional.
 | `RATING_RUBRIC.md` | Authority for the `meets / partial / does not meet / N/A` rating |
 | `CLAUDE.md` | Project context auto-loaded by Claude Code each session |
 | `CHECKLIST.csv` | Default checklist source |
-| `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` | Default output template (current schema) |
+| `example_outputs/FAIR4AI_eval_neon_beetles_2026-08-03_102743.json` | Default output template (current schema) |
 | `CHECKLIST_OVERVIEW.md` | Human-readable checklist summary (reference) |

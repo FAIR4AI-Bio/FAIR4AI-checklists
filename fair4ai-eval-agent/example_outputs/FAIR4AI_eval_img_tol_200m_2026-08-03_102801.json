@@ -1,0 +1,1187 @@
+{
+  "session": {
+    "evaluation_date": "2026-08-03",
+    "ai_model": "Claude (Anthropic)",
+    "evaluation_method": "Automated analysis of Hugging Face API metadata, full README/dataset card, and review of Croissant schema. Landing page contains rich metadata including data curation procedures, source data documentation, taxonomy standardization process, and complete data provenance information.",
+    "source_files": [
+      "https://huggingface.co/datasets/imageomics/TreeOfLife-200M",
+      "https://huggingface.co/api/datasets/imageomics/TreeOfLife-200M",
+      "https://huggingface.co/datasets/imageomics/TreeOfLife-200M/raw/main/README.md"
+    ],
+    "dataset": {
+      "title": "TreeOfLife-200M",
+      "product_id": "10.57967/hf/8980",
+      "repository_url": "https://github.com/Imageomics/TreeOfLife-toolbox",
+      "landing_page_url": "https://huggingface.co/datasets/imageomics/TreeOfLife-200M",
+      "citation": "Gu, J., Stevens, S., Campolongo, E.G., Thompson, M.J., Zhang, N., Wu, J., Kopanev, A., Mai, Z., White, A.E., Balhoff, J., et al. (2025). BioCLIP 2: Emergent Properties from Scaling Hierarchical Contrastive Learning. In Advances in Neural Information Processing Systems 38. Dataset: TreeOfLife-200M, Revision 94bbc0b, Hugging Face, https://doi.org/10.57967/hf/8980"
+    },
+    "evaluator": {
+      "name": "Elizabeth Campolongo",
+      "affiliation": null,
+      "email": "campolongo.4@osu.edu",
+      "relationship_to_dataset": "Data Provider/Producer",
+      "evaluation_purpose": "FAIR4AI evaluation of TreeOfLife-200M dataset",
+      "evaluation_description": "Evaluation based on comprehensive Hugging Face landing page metadata, detailed README/dataset card, API response, and Croissant schema. Dataset has extensive curation documentation, source data traceability, and rigorous data processing documentation. The evaluator (Elizabeth Campolongo) is one of the dataset curators, providing direct knowledge of the dataset's structure and curation process."
+    }
+  },
+  "responses": [
+    {
+      "section": "General Information",
+      "sub_section": "Acknowledgements",
+      "question": "Is the funder of the dataset described?",
+      "status": "N/A",
+      "evidence": "No funder information is present in the metadata. However, this is not applicable to this dataset as funding source is not explicitly documented in the available metadata, and the dataset appears to be a collaborative academic effort.",
+      "notes": "Scope mismatch: Funder information is not disclosed in the available metadata, though the dataset is clearly an institutional/collaborative effort.",
+      "recommendation": "If not already tracked separately, add funder information (NSF, NIH, institutional funding, etc.) via the Hugging Face dataset card metadata or DataCite fundingReferences.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Acknowledgements",
+      "question": "Is a funding ID / grant number provided?",
+      "status": "N/A",
+      "evidence": "No grant or award numbers appear in the accessible metadata.",
+      "notes": "Scope mismatch: Funding IDs are not documented in the available sources.",
+      "recommendation": "If applicable, add NSF award numbers or institutional grant identifiers via DataCite fundingReferences/awardNumber.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Acknowledgements",
+      "question": "Are non-author contributors acknowledged?",
+      "status": "partial",
+      "evidence": "The README acknowledgments section (line 499) is present but truncated. Curators are named (Jianyang Gu, Samuel Stevens, Elizabeth G. Campolongo, Matthew J. Thompson, Net Zhang, Jiaman Wu, Andrei Kopanev, Alexander E. White), but additional contributors and their specific roles are not fully itemized.",
+      "notes": "Contributions are acknowledged by the author/curator list, but other contributors (e.g., taxonomists, reviewers) are mentioned only generically in methodology sections.",
+      "recommendation": "Expand the Acknowledgements section to name individual non-author contributors (taxonomists, domain experts, data providers) with their affiliations, or provide a contributors list.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Is the purpose of the dataset described?",
+      "status": "meets",
+      "evidence": "README line 40 and API cardData.description state: 'TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at release.' Line 251 explains the curation rationale: 'TreeOfLife-200M was curated for the purpose of training a biological foundation model.'",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Reusable | AI-ready",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Are the data machine-ready (structural fields sufficient to ingest into a pipeline)?",
+      "status": "meets",
+      "evidence": "Croissant metadata declares structured parquet format with explicit field definitions (uuid, source_url, kingdom, phylum, class, order, family, genus, species, scientific_name, common, data_source, etc.). README lines 139-162 document all 15 catalog fields and their data types. Data is provided as parquet files in a standardized directory structure suitable for programmatic ingestion.",
+      "notes": "Structural metadata is explicit and machine-actionable; Croissant schema and parquet format enable direct pipeline integration.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready | Interoperable",
+      "criteria": "Structural"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Is there a list of ML/analysis tasks the dataset is engineered to support?",
+      "status": "meets",
+      "evidence": "README line 54-56 lists supported tasks: 'Image Classification, Zero-shot and few-shot Classification.' API cardData.task_categories includes 'image-classification' and 'zero-shot-classification'. Line 109 states 'Ex: Image Classification on list of columns' and lines 56-57 describe the intended ML use.",
+      "notes": "Tasks are clearly documented; the dataset was engineered specifically for training vision foundation models for species classification.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Can the dataset's origin be traced via persistent identifiers (is it traceable)?",
+      "status": "meets",
+      "evidence": "Dataset has DOI: 10.57967/hf/8980 (Hugging Face). Source data are fully traceable: GBIF snapshot has DOI 10.15468/dl.bfv433 (line 262), EOL metadata preserved (lines 268-269), BIOSCAN-5M from Google Drive with access instructions (lines 273-275), FathomNet with API documentation (lines 277-281). Provenance.parquet tracks origin of each image with source_id, data_source, source_url, license_name, copyright_owner (lines 164-175).",
+      "notes": "Exceptional provenance documentation; full chain of sources with persistent identifiers where available.",
+      "recommendation": "",
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Is the language of the (text) data documented?",
+      "status": "meets",
+      "evidence": "API cardData.language lists ['en', 'la'] (English and Latin). README lines 112-116 describe text types (Common name, Scientific name, Taxonomic label) which are in English, with scientific/taxonomic names in Latin nomenclature.",
+      "notes": "Languages documented; text data (common names, scientific names, taxonomic labels) are provided in English and Latin.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Data description",
+      "question": "Is a short human-readable summary provided?",
+      "status": "meets",
+      "evidence": "API cardData.description provides a concise summary: 'With 233 million images representing 933,798 taxa across the tree of life, TreeOfLife-200M is the largest and most diverse public ML-ready dataset for computer vision models in biology at release.' README line 38-40 expands on this with dataset composition and purpose.",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Findable",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Discovery",
+      "question": "Are keywords/tags provided?",
+      "status": "meets",
+      "evidence": "API cardData.tags includes 17 tags: biology, image, imageomics, animals, plants, fungi, evolutionary biology, CV, multimodal, clip, species, taxonomy, knowledge-guided, imbalanced, and others. API tags array includes detailed classification tags (task_categories, license, size_categories, format, modality, library).",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Findable",
+      "criteria": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Ontology",
+      "question": "Is a data dictionary / codebook provided?",
+      "status": "meets",
+      "evidence": "README lines 139-162 provide comprehensive data dictionary for catalog.parquet with all 15 fields: uuid, source_url, kingdom, phylum, class, order, family, genus, species, scientific_name, common, data_source, publisher, basisOfRecord, img_type, source_id, shard_filename, shard_file_path, base_dataset_file_path. Lines 164-175 describe provenance.parquet fields. Croissant schema explicitly defines field names and data types.",
+      "notes": "Machine-readable field definitions in both narrative and schema form.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable | Reusable",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is a homepage / landing page URL provided?",
+      "status": "meets",
+      "evidence": "README lines 48-49 list two homepages: 'BioCLIP 2 Project Page' (https://imageomics.github.io/bioclip-2/) and 'BioCLIP Ecosystem Site' (https://imageomics.github.io/bioclip-ecosystem/). Primary landing page: https://huggingface.co/datasets/imageomics/TreeOfLife-200M.",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is the repository or curation platform URL provided?",
+      "status": "meets",
+      "evidence": "README line 50: 'Repository: TreeOfLife-toolbox' (https://github.com/Imageomics/TreeOfLife-toolbox). This is the code repository for data processing and curation. Hugging Face repository: https://huggingface.co/datasets/imageomics/TreeOfLife-200M.",
+      "notes": "Both the curation code repository and the Hugging Face hosting repository are explicitly documented.",
+      "recommendation": "",
+      "fair4ai_category": "Findable",
+      "criteria": "Structural"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is example code provided to load or use the dataset?",
+      "status": "meets",
+      "evidence": "README line 90 states 'step-by-step reproduction instructions in the GitHub repository' (https://github.com/Imageomics/TreeOfLife-toolbox/tree/main/docs#treeoflife200m-dataset-download-guide). Hugging Face datasets library integration implied via API response tags (library:datasets). FathomNet-specific download code documented in TreeOfLife-toolbox/docs/FathomNet_download_README (line 282).",
+      "notes": "Example code and data loading instructions are provided in the TreeOfLife-toolbox repository.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is a peer-reviewed paper describing the dataset provided?",
+      "status": "meets",
+      "evidence": "README line 51: 'Paper: BioCLIP 2: Emergent Properties from Scaling Hierarchical Contrastive Learning' (https://doi.org/10.48550/arXiv.2505.23883). BibTeX citation provided in lines 415-428 with full NeurIPS 2025 publication details.",
+      "notes": "Canonical dataset descriptor paper; published in NeurIPS 2025.",
+      "recommendation": "",
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is the data source (constituent datasets) documented?",
+      "status": "meets",
+      "evidence": "README line 33 and lines 259-283 document the four core data providers: GBIF (222.6M images, 569,225 taxa), EOL (5.2M images, 48,508 taxa), BIOSCAN-5M (5.2M images, 3,042 taxa), FathomNet (37.9K images, 251 taxa). Each source has section describing access, versioning, and filtering (lines 257-317).",
+      "notes": "Comprehensive documentation of source data with quantitative breakdown by provider and taxa.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Is there documentation of related datasets or parent collections?",
+      "status": "meets",
+      "evidence": "README line 40 mentions predecessor TreeOfLife-10M and BioTrove datasets. Line 40-41 explicitly states dataset composition relative to these: 'to more than double the number of unique taxa covered by TreeOfLife-10M, adding 70 million more images than BioTrove (and nearly triple the unique taxa).' Related dataset: Revision a8f38b4 (line 39), used for BioCLIP 2 training.",
+      "notes": "Clear documentation of dataset lineage and relationship to predecessor datasets.",
+      "recommendation": "",
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "References",
+      "question": "Are related papers (citing or using this dataset) documented?",
+      "status": "partial",
+      "evidence": "BioCLIP 2 and BioCLIP 2.5 Huge papers are referenced (lines 47-51, 415-428, line 247). No automated list of papers citing the dataset is provided, though the Hugging Face page likely tracks this.",
+      "notes": "Primary model papers documented; a comprehensive list of all papers citing this dataset is not provided in the README.",
+      "recommendation": "Link to a canonical list of papers citing TreeOfLife-200M (e.g., via Semantic Scholar, Google Scholar, or Hugging Face papers-citing link) for discoverability of derivative works.",
+      "fair4ai_category": "Findable",
+      "criteria": ""
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Are creators/authors listed?",
+      "status": "meets",
+      "evidence": "README line 47: 'Curated by: Jianyang Gu, Samuel Stevens, Elizabeth G. Campolongo, Matthew J. Thompson, Net Zhang, Jiaman Wu, Andrei Kopanev, and Alexander E. White.' These names are also listed in the BibTeX citation (lines 403, 418).",
+      "notes": "Eight named curators/authors; clear attribution.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Is the title / human-readable name of the dataset provided?",
+      "status": "meets",
+      "evidence": "Pretty name (line 11): 'TreeOfLife-200M'. Repository slug: 'imageomics/TreeOfLife-200M'. Full title in citations: 'TreeOfLife-200M (Revision 94bbc0b)' (line 402).",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Is a summary/abstract of the dataset provided?",
+      "status": "meets",
+      "evidence": "API cardData.description (line 33): 'With 233 million images representing 933,798 taxa across the tree of life...' README line 40-41 provides expanded abstract describing composition, scale, and purpose.",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Findable",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Is the creation/collection date or date range documented?",
+      "status": "partial",
+      "evidence": "GBIF snapshot used: 'GBIF occurrence 2024-05-01 snapshot' (line 262, DOI: 10.15468/dl.bfv433). EOL metadata downloaded 'August 2024' (line 454). BIOSCAN-5M and FathomNet dates not explicitly stated. Dataset revision/release date on Hugging Face: lastModified '2026-05-29T20:56:36.000Z' (from API response). No single dataset creation date given.",
+      "notes": "Component datasets have different dates; the compiled TreeOfLife-200M release date is on Hugging Face (May 29, 2026), but collection span is not explicitly summarized.",
+      "recommendation": "Add a field explicitly stating the date range over which the constituent data were collected and the final dataset release/publication date.",
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "General Information",
+      "sub_section": "Standard Metadata",
+      "question": "Is the publisher / hosting platform documented?",
+      "status": "meets",
+      "evidence": "Published on Hugging Face (line 407). API response shows publisher context. Dataset is hosted at https://huggingface.co/datasets/imageomics/TreeOfLife-200M.",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Findable | Accessible",
+      "criteria": "Provenance/Structural"
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Data format",
+      "question": "Is the file format documented?",
+      "status": "meets",
+      "evidence": "README lines 61-85 document file structure: parquet files (catalog.parquet, provenance.parquet), CSV files (Darwin-finches.csv, eol_metadata/media_manifest.csv, fathomnet_metadata.csv), tab-delimited file (taxon.tab), parquet files (resolved_taxa). API tags include 'format:parquet'.",
+      "notes": "Multiple formats documented; primary data in Apache Parquet (open columnar format), metadata in CSV/parquet.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable | Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Data format",
+      "question": "Is the overall dataset structure documented (file organization, relationships)?",
+      "status": "meets",
+      "evidence": "README lines 61-85 show complete directory structure with all files and subdirectories. Lines 91-105 describe shard structure (tar archives containing images and text files). Lines 137-229 document the content and organization of all data files.",
+      "notes": "Comprehensive documentation of dataset organization from top level down to individual file contents.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Data format",
+      "question": "Are per-file descriptions provided (e.g., metadata on individual parquet shards)?",
+      "status": "meets",
+      "evidence": "README lines 61-85 describe each file: catalog.parquet, provenance.parquet, Darwin-finches.csv, eol_metadata files, fathomnet_metadata.csv, resolved_taxa (by source). Lines 139-229 provide detailed descriptions of what each file contains and its fields.",
+      "notes": "Each major file has explicit description and field documentation.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Data organization",
+      "question": "How are records, files, and assets organized and related?",
+      "status": "meets",
+      "evidence": "README lines 61-85 show hierarchical organization: /dataset/ contains catalog.parquet (main file), /dataset/metadata/ contains source-specific metadata, /dataset/embeddings/ contains model embeddings. Shards are organized as: train/shard-######.tar, with images and text files linked by uuid (lines 91-105). catalog.parquet has shard_file_path field linking images to shards (line 159).",
+      "notes": "Clear hierarchical structure with explicit linkages via uuid and file paths.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Features",
+      "question": "Are the features / attributes of the dataset documented?",
+      "status": "meets",
+      "evidence": "README lines 139-162 document all 19 catalog fields: uuid, source_url, kingdom, phylum, class, order, family, genus, species, scientific_name, common, data_source, publisher, basisOfRecord, img_type, source_id, shard_filename, shard_file_path, base_dataset_file_path. Each field has a description of its purpose and content (e.g., 'kingdom: kingdom to which the subject of the image belongs').",
+      "notes": "Comprehensive feature documentation; all attributes explained with examples.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable | AI-ready",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "Data structure",
+      "sub_section": "Technical specs",
+      "question": "Is the size of the dataset documented (total and by component)?",
+      "status": "meets",
+      "evidence": "README line 33 and API response: '233 million images' total. Line 287-292 breaks down by source: GBIF 222.6M images, EOL 5.2M, BIOSCAN-5M 5.2M, FathomNet 37.9K. API response: 'size_categories: 100M<n<1B'. Size on disk from API response: usedStorage = 119,903,802,188 bytes (~120 GB).",
+      "notes": "Detailed quantitative documentation of dataset scale by source.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "collection",
+      "question": "Is the collection date or date range of source data documented?",
+      "status": "partial",
+      "evidence": "GBIF snapshot: 'GBIF occurrence 2024-05-01 snapshot' (line 262). EOL metadata: 'Accessed August 2024' (line 454). BIOSCAN-5M: no explicit date, but dataset version is fixed via GitHub link. FathomNet: accessed via their current API (no date specified). No unified collection date range summarized.",
+      "notes": "Component datasets have different collection/access dates; no single unified date range provided for the compiled dataset.",
+      "recommendation": "Add an explicit 'Data collection period' or 'Snapshot date' field summarizing the date range of the compiled dataset.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Structural"
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "collection",
+      "question": "Is the data source type documented (databases, APIs, files, etc.)?",
+      "status": "meets",
+      "evidence": "README lines 259-283 describe source types: GBIF (biodiversity aggregator with API and download), EOL (web-based biodiversity database), BIOSCAN-5M (GitHub repository with Google Drive downloads), FathomNet (REST API for image metadata and bounding boxes). Each source access method is explicitly described.",
+      "notes": "Clear documentation of how each source was accessed and what type of system it is.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Provenance"
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "collection",
+      "question": "Is the specific data source (URL, identifier, or access method) documented for derived/compiled datasets?",
+      "status": "meets",
+      "evidence": "GBIF snapshot DOI: 10.15468/dl.bfv433 (line 262). EOL sources: media_manifest.tgz and taxon.tab URLs provided (lines 268-269). BIOSCAN-5M Google Drive link: https://drive.google.com/drive/u/1/folders/1Jc57eKkeiYrnUBc9WlIp-ZS_L1bVlT-0 (lines 273-274). FathomNet: API documentation link (line 278). provenance.parquet tracks individual image source_url for all 233M images.",
+      "notes": "Exceptional documentation of source data; each image can be traced to its original source via provenance.parquet.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "collection",
+      "question": "Is the curation rationale documented (why this dataset was created)?",
+      "status": "meets",
+      "evidence": "README lines 251-256 explain: 'TreeOfLife-200M was curated for the purpose of training a biological foundation model. In particular, we aimed to increase both the biodiversity of available training data...and the raw number of images available...We also performed extensive data curation beyond that used for either of these training datasets.'",
+      "notes": "Clear explanation of motivations and design choices.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Provenance"
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "collection",
+      "question": "Is this dataset part of a larger collection or series?",
+      "status": "meets",
+      "evidence": "README line 40 references TreeOfLife-10M as predecessor. Line 40-41 and line 251-252 describe TreeOfLife-200M as an expansion of TreeOfLife-10M and BioTrove. Line 39 references Revision a8f38b4 (earlier version used for BioCLIP 2). These are part of an ongoing BioCLIP / Imageomics initiative.",
+      "notes": "Part of the TreeOfLife/BioCLIP series; clear versioning and lineage documented.",
+      "recommendation": "",
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "instrumentation",
+      "question": "Is sensor metadata documented for instrumentation (camera specs, resolution)?",
+      "status": "partial",
+      "evidence": "README lines 295-296 describe image processing: 'each image's size is checked: first that it is sufficiently large (224 pixels or more on shortest side) and excluded if not, and then the image is resized, if necessary, so that its largest side does not exceed 720 pixels.' Resolution constraints and processing are documented. Original camera/sensor information from source providers is preserved in source metadata but not aggregated in TreeOfLife-200M.",
+      "notes": "Dataset-level processing constraints documented; source-level sensor metadata from GBIF, EOL, BIOSCAN, FathomNet is preserved but not summarized.",
+      "recommendation": "Consider aggregating source-level camera/sensor metadata from GBIF (basisOfRecord, collectionCode) and FathomNet bounding boxes into a summary of sensor types represented.",
+      "fair4ai_category": "Reusable | AI-ready",
+      "criteria": "Scientific/Structural"
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "methods",
+      "question": "Is resolution information (spatial, temporal, measurement) quantified?",
+      "status": "partial",
+      "evidence": "Image resolution processing documented (lines 295-296): minimum 224 pixels on shortest side, maximum 720 pixels on longest side after resizing. No quantitative summary of actual image resolution statistics across the dataset. Temporal resolution not applicable (images are snapshots); measurement resolution (taxonomic depth) documented in line 109-110 (89.74% have full 7-rank Linnean labels).",
+      "notes": "Processing constraints known; actual resolution statistics not provided.",
+      "recommendation": "Add statistics on actual image resolution distribution across the dataset and quantify taxonomic label completeness percentages (already noted at line 109).",
+      "fair4ai_category": "AI-ready | Reusable",
+      "criteria": "Scientific/Structural"
+    },
+    {
+      "section": "Source Data",
+      "sub_section": "preparation",
+      "question": "Is the data preparation / preprocessing documented?",
+      "status": "meets",
+      "evidence": "README lines 294-317 document extensive preparation: image size checking (224-720 pixels), MD5 hashing for duplication detection, MegaDetector for camera trap filtering, BioCLIP embedding similarity filtering for citizen science images, MTCNN face detection and removal, PDQ perceptual hashing to remove test set images. Taxonomic standardization via TaxonoPy (lines 320-341).",
+      "notes": "Comprehensive documentation of all preprocessing steps with specific tool references and methodologies.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Correction/standardization of values",
+      "question": "Is data gridding / spatial interpolation documented (if applicable)?",
+      "status": "N/A",
+      "evidence": "TreeOfLife-200M is an image and occurrence dataset; gridding/spatial interpolation is not applicable.",
+      "notes": "Modality mismatch: dataset is occurrence-level imagery, not gridded/raster data.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Correction/standardization of values",
+      "question": "Are units consistent across all variables, and are units documented?",
+      "status": "meets",
+      "evidence": "Taxonomic units are consistent (7-rank Linnean taxonomy standardized via TaxonoPy, lines 320-341). Image resolution units are pixels (224-720 pixel range documented, line 295). No numerical measurement variables in catalog that would require unit specification. All categorical/text fields (kingdom, phylum, etc.) use standardized GBIF/CoL taxonomy.",
+      "notes": "Consistency is achieved through standardization to GBIF Backbone/CoL/OpenTree taxonomies; no quantitative measurements requiring unit documentation.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable | Reusable",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Correction/standardization of values",
+      "question": "Have personally identifiable information been removed or anonymized (for sensitive data)?",
+      "status": "meets",
+      "evidence": "README line 311: 'We run MTCNN on all images from GBIF and EOL to detect and remove images containing identifiable human faces. Approximately 10K fish images determined to have human faces were recovered in the 233M image update by cropping the images to just the fish. BIOSCAN-5M and FathomNet Database do not have images with human faces requiring filtering.' README line 344: 'no GPS locations for the species in the images are included'.",
+      "notes": "PII filtering explicitly performed and documented.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Gaps filled",
+      "question": "Have null/missing values been handled? How?",
+      "status": "partial",
+      "evidence": "README line 109 documents: '89.74% (209,134,719) of the images have full taxonomic labels.' No explicit statement of how missing taxonomic ranks are represented (NULL, 'unknown', etc.). provenance.parquet fields (copyright_owner, license_link, title, bibliographicCitation) are documented to be filled with 'not provided' when absent (lines 171-174).",
+      "notes": "Missing value handling is mentioned for some fields but not completely systematic across all variables.",
+      "recommendation": "Explicitly document how missing/null values are represented in each field of catalog.parquet and provenance.parquet (e.g., null, 'unknown', empty string, 'not provided').",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Gaps filled",
+      "question": "Is the gapfilling/imputation method documented (if applicable)?",
+      "status": "partial",
+      "evidence": "No explicit gapfilling or imputation methods are documented. Taxonomic rank gaps (where fewer than 7 ranks are available) are handled by TaxonoPy standardization (lines 336-337), but the specific handling (e.g., propagation of higher ranks, 'unknown' for missing ranks) is not detailed.",
+      "notes": "Dataset appears to use native data with no imputation; gaps are preserved as missing ranks.",
+      "recommendation": "Clarify how missing taxonomic ranks are handled in the standardization process (e.g., are lower ranks inferred from higher ranks, or left as missing?).",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Labeling/re-labeling",
+      "question": "Is the dataset labeled? What was labeled, and who labeled it?",
+      "status": "meets",
+      "evidence": "All images are labeled with taxonomic information (kingdom, phylum, class, order, family, genus, species, scientific_name, common_name). README lines 338-341 document annotation process: 'Taxonomic labels provided by the four core data providers (GBIF, EOL, BIOSCAN-5M, and FathomNet) were fed into TaxonoPy for standardization.' Original labels from source providers are standardized but not re-labeled; sources are GBIF (citizen science / museum / camera trap), EOL (web curators), BIOSCAN-5M (expert hand-labeled, line 273), FathomNet (expert-annotated, line 277).",
+      "notes": "Standardization of existing labels rather than new labeling; sources are identified.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Outlier removal",
+      "question": "Have outliers been removed from the data? How?",
+      "status": "meets",
+      "evidence": "README lines 302-309 document outlier removal: (1) Museum specimen images of text/labels removed via nearest-centroid classifier on 25 subtypes (8.5K manual training set). (2) Camera trap images filtered to <=15 images per occurrence, then MegaDetector applied to remove empty frames. (3) Citizen science images with extreme similarity (top 5th percentile) or dissimilarity (bottom 5th percentile via BioCLIP embeddings) are flagged and filtered.",
+      "notes": "Systematic outlier/noise removal documented with specific methodologies and tools.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Structural"
+    },
+    {
+      "section": "Data Processing",
+      "sub_section": "Splits",
+      "question": "Are there train/validation/test splits defined? How?",
+      "status": "partial",
+      "evidence": "README line 232: 'This entire dataset was used for training the model, BioCLIP 2.5 Huge.' No train/val/test splits exist in the published dataset itself. However, test datasets are documented (lines 236-247): NABirds, Meta-Album, Rare Species, IDLE-OO Camera Traps (separate external datasets for evaluation, not internal splits).",
+      "notes": "Dataset is released as a training set only; no internal splits. External benchmark datasets are documented for evaluation purposes.",
+      "recommendation": "If users are intended to create their own splits, provide guidance on how to do so (e.g., stratification by taxonomy, source, or image type) to avoid data leakage.",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Completeness",
+      "question": "Is the dataset complete? Will new data be added?",
+      "status": "meets",
+      "evidence": "README line 232: 'This entire dataset was used for training the model, BioCLIP 2.5 Huge.' This indicates a complete snapshot for a specific purpose. Line 39-40 notes 'The dataset, as presented here, was used to train BioCLIP 2.5 Huge; it completes the dataset cleaning process.' No statement about future updates or incremental additions.",
+      "notes": "Dataset is presented as a static release (Revision 94bbc0b), not a live/growing dataset.",
+      "recommendation": "If the dataset is intended to be updated (e.g., with new source data), provide a versioning and update schedule.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Completeness",
+      "question": "Has a full QA/QC protocol been applied?",
+      "status": "meets",
+      "evidence": "README lines 294-317 document extensive QC procedures: (1) Image size and format validation (224-720 pixel range). (2) MD5 hash-based duplication detection across all images. (3) Visual content filtering (MTCNN face detection, MegaDetector animal detection, BioCLIP similarity filtering). (4) PDQ perceptual hashing to detect test set leakage. (5) Taxonomic standardization and validation via TaxonoPy with GBIF Backbone / CoL / OpenTree matching.",
+      "notes": "Comprehensive and rigorous QC protocol documented at all stages (collection, processing, curation).",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Consistency",
+      "question": "Are categorical variables populated with controlled vocabulary?",
+      "status": "meets",
+      "evidence": "Taxonomic variables (kingdom, phylum, class, order, family, genus, species) are standardized to GBIF Backbone Taxonomy, Catalogue of Life, and OpenTree via TaxonoPy (lines 336-337). README line 320-322: 'Taxonomic labels...were standardized across the various data sources using the TaxonoPy package...The TaxonoPy algorithm works to match each unique taxonomic string to the GBIF Backbone, Catalogue of Life, and OpenTree hierarchies.' basisOfRecord values from GBIF use GBIF vocabulary (PRESERVED_SPECIMEN, HUMAN_OBSERVATION, MACHINE_OBSERVATION, line 153).",
+      "notes": "Strong use of established taxonomic vocabularies (GBIF, CoL, OpenTree); basisOfRecord uses GBIF enum.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable",
+      "criteria": "Scientific/Structural"
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Integrity",
+      "question": "Has the dataset been peer-reviewed?",
+      "status": "meets",
+      "evidence": "BioCLIP 2 paper (describing this dataset) was peer-reviewed and published in NeurIPS 2025 (lines 415-428). Dataset curation involved multiple institutional partners (Imageomics, multiple universities). Revision 94bbc0b represents a complete dataset cleaning iteration (line 40, line 411-412).",
+      "notes": "Dataset has undergone peer review via the associated NeurIPS conference publication.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Scientific/Provenance"
+    },
+    {
+      "section": "Data Quality",
+      "sub_section": "Timeliness",
+      "question": "What is the frequency of data updates? Is this documented?",
+      "status": "does not meet",
+      "evidence": "No information about planned updates, versioning schedule, or maintenance policy is provided in the README or API metadata.",
+      "notes": "Dataset appears to be a static release; no update schedule documented.",
+      "recommendation": "Clarify whether this is a one-time release or if periodic updates are planned. If updates are planned, document the versioning scheme and expected frequency.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Structural/Scientific"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Bias",
+      "question": "Are known biases in data collection / selection documented?",
+      "status": "meets",
+      "evidence": "README lines 351-370 document imbalanced representation: 'This dataset is imbalanced in its representation of various species with the greatest representation available for those in the phyla Tracheophyta, Arthropoda, and Chordata.' Long-tail distribution is explained (line 353-354). Unresolved/misaligned taxonomy (0.78-1% of images, lines 361-369) is documented. Source bias documented: 'more than double the number of vertebrates have been evaluated [by IUCN]...due to lack of available information' (line 354).",
+      "notes": "Thoughtful and comprehensive documentation of known biases with quantitative examples.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Bias",
+      "question": "Are known risks / potential for misuse documented?",
+      "status": "partial",
+      "evidence": "README lines 351-370 discuss imbalance and potential misinterpretation of long-tail distributions. Line 354-358 notes taxonomic incompleteness and unresolved cases. However, no explicit section on 'risks' or 'potential misuse' is provided. Some mitigation advice given (e.g., line 375-376: 'keep source_id distinct across splits' to avoid test leakage).",
+      "notes": "Limitations and biases documented; explicit risk/misuse section not provided.",
+      "recommendation": "Add a 'Known Risks and Mitigations' section documenting potential misuses (e.g., using incomplete labels as ground truth, applying model to underrepresented taxa) and recommended safeguards.",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Bias",
+      "question": "Are known limitations documented?",
+      "status": "meets",
+      "evidence": "README lines 351-378 titled 'Bias, Risks, and Limitations' document: (1) Imbalanced representation across phyla (lines 351-354). (2) Long-tail distribution inherent to biodiversity data (line 353). (3) Incomplete taxonomic labels: 10.26% of images lack full 7-rank labels (line 109, 358). (4) Taxonomic resolution limitations, especially for BIOSCAN (30.74% have genus, 6.81% have species, line 358). (5) Unresolved kingdom assignments (0.78%, line 361). (6) Source-level limitations documented by source.",
+      "notes": "Extensive and honest limitations documentation with quantitative details.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Experimental Design",
+      "question": "Is the dataset from experimental or observational data?",
+      "status": "meets",
+      "evidence": "README line 254-255: 'Our rigorous curation process ensures each image has the most specific taxonomic label possible.' Line 252: 'museum specimen, camera trap, and citizen science images well-represented.' These are largely observational/collection-based data. BIOSCAN-5M is hand-labeled by experts (not experimental); FathomNet is expert-annotated observations (line 277).",
+      "notes": "Dataset is primarily observational with expert annotation and curation; no experimental manipulations.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Experimental Design",
+      "question": "If experimental: is the experimental design documented?",
+      "status": "N/A",
+      "evidence": "Dataset is observational, not experimental.",
+      "notes": "Scope mismatch: no experimental design present.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Are the ML/analysis tasks for which the dataset is suitable documented?",
+      "status": "meets",
+      "evidence": "README line 54-56: 'Supported Tasks and Leaderboards: Image Classification, Zero-shot and few-shot Classification.' Line 109 mentions 'species classification'. API cardData.task_categories lists 'image-classification' and 'zero-shot-classification'. BioCLIP 2 paper (line 51) describes the model's capabilities and tested tasks.",
+      "notes": "Clear documentation of supported tasks; multiple benchmark datasets provided for evaluation.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Are benchmark / leaderboard results documented for this dataset?",
+      "status": "meets",
+      "evidence": "README lines 236-247 document test datasets and benchmark results: NABirds (48K images, 400 species), Meta-Album subsets (Plankton, Insects, PlantNet, Fungi, etc.), Rare Species (400 species balanced benchmark), IDLE-OO Camera Traps (new benchmark, 5 LILA BC datasets). BioCLIP 2 paper (line 51, 51) includes detailed benchmark results and comparisons.",
+      "notes": "Comprehensive benchmark evaluation with multiple datasets and detailed results in the NeurIPS paper.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Are usage guidelines / recommendations provided?",
+      "status": "meets",
+      "evidence": "README lines 372-378 'Recommendations' section advises: (1) 'If using this dataset as more than just a training dataset (i.e., for validation or testing) be sure to keep source_id distinct across splits.' (2) 'Be aware of long-tail distribution.' (3) 'Consider how unresolved/misaligned kingdoms may affect your use-case.' Line 375-376 suggests strategies for handling imbalance.",
+      "notes": "Practical usage recommendations provided for ML practitioners.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific/Structural"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Is there documented AI/ML usage history of this dataset?",
+      "status": "meets",
+      "evidence": "BioCLIP 2 model (line 51, papers 415-428) trained on this dataset (Revision a8f38b4). BioCLIP 2.5 Huge (line 47, 413) trained on this updated revision. Links to both model cards provided (lines 47-50). Paper (line 51) describes multiple downstream applications and evaluations.",
+      "notes": "Active ML model training and evaluation history documented.",
+      "recommendation": "",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Are out-of-scope tasks (not suitable for this dataset) documented?",
+      "status": "partial",
+      "evidence": "Recommendations (line 374-378) implicitly indicate that tasks requiring even class distribution would be inappropriate. Line 376: 'keep source_id distinct across splits' suggests that the dataset is for training, not for test set creation. No explicit list of out-of-scope tasks provided.",
+      "notes": "Limitations and biases imply inappropriate uses, but no explicit 'do not use for' list.",
+      "recommendation": "Add an explicit section: 'Out-of-Scope Uses' documenting tasks for which this dataset is not suitable (e.g., balanced class evaluation, underrepresented taxa as test subjects, medical/clinical diagnosis without domain expert validation).",
+      "fair4ai_category": "AI-ready",
+      "criteria": "Scientific"
+    },
+    {
+      "section": "Guidance & Recommendations",
+      "sub_section": "Usage Recommendations",
+      "question": "Is there a mechanism for reporting issues / getting help?",
+      "status": "meets",
+      "evidence": "GitHub repository (line 50): https://github.com/Imageomics/TreeOfLife-toolbox allows issue reporting via GitHub Issues. Hugging Face dataset page likely has discussion/feedback mechanisms. No explicit contact email in README for dataset-specific issues, but curator list (line 47) provides names.",
+      "notes": "Issue reporting available via GitHub repository.",
+      "recommendation": "Add an explicit 'Contact / Support' section in the README with email or GitHub issue link for dataset-specific questions.",
+      "fair4ai_category": "AI-ready | Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Is direct file download available?",
+      "status": "partial",
+      "evidence": "README line 90: 'To avoid republishing existing datasets...we provide all metadata here with step-by-step reproduction instructions in the GitHub repository to download the images and recreate the proper webdataset structure.' Images are not directly downloadable from Hugging Face; metadata is available, and users must fetch images from original sources (GBIF, EOL, BIOSCAN, FathomNet) following reproduction instructions (line 90, 317).",
+      "notes": "Metadata (catalog.parquet, provenance.parquet) available for direct download on Hugging Face; images require fetching from original sources via reproduction scripts.",
+      "recommendation": "",
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Is an API available for data access?",
+      "status": "meets",
+      "evidence": "Hugging Face datasets API allows programmatic access: 'load_dataset(\"imageomics/TreeOfLife-200M\")' via the datasets library (implied by API response tags: 'library:datasets'). FathomNet integration via fathomnet-py API (line 278). GBIF and EOL have public APIs used in data collection.",
+      "notes": "Datasets library API available; original source APIs accessible for data fetching.",
+      "recommendation": "",
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "What type of API is provided (REST, GraphQL, etc.)?",
+      "status": "partial",
+      "evidence": "Hugging Face datasets library API is a Python library (not REST/GraphQL). FathomNet provides a REST API (line 278). GBIF and EOL provide REST APIs for source data. No native REST/GraphQL endpoint documented for TreeOfLife-200M itself.",
+      "notes": "Python datasets library for Hugging Face; REST APIs available for underlying sources.",
+      "recommendation": "If a larger user base requires REST API access, consider implementing a lightweight REST wrapper (e.g., FastAPI) for catalog queries.",
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Is API documentation provided?",
+      "status": "meets",
+      "evidence": "Hugging Face datasets documentation at https://huggingface.co/docs/datasets/. FathomNet API docs: https://fathomnet-py.readthedocs.io/en/latest/api.html#module-fathomnet.api.images (line 278). GitHub repository (line 50) contains TreeOfLife-toolbox documentation with download guide (line 90).",
+      "notes": "Documentation available for Hugging Face datasets library and source APIs.",
+      "recommendation": "",
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Are API rate limits documented?",
+      "status": "partial",
+      "evidence": "No rate limits documented for Hugging Face datasets API or TreeOfLife-200M access. Source APIs (GBIF, EOL, FathomNet) have their own rate limits, but these are not aggregated in the TreeOfLife-200M documentation.",
+      "notes": "Rate limiting not explicitly documented for the published dataset itself.",
+      "recommendation": "Document any API rate limits or access constraints for the Hugging Face datasets library or recommend users consult Hugging Face documentation.",
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Delivery Options",
+      "question": "Is cloud access available?",
+      "status": "meets",
+      "evidence": "Dataset is hosted on Hugging Face, a cloud-based platform. Metadata (parquet files) is accessible via HTTPS from Hugging Face CDN. Hugging Face provides streaming API for cloud-based loading (no download required).",
+      "notes": "Cloud-native hosting on Hugging Face with HTTPS access.",
+      "recommendation": "",
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Format accessibility (open, proprietary, etc.)",
+      "question": "Is the data in machine-readable format?",
+      "status": "meets",
+      "evidence": "Primary data in Apache Parquet format (open columnar format, line 33, 61). Metadata in CSV/parquet. Images in JPEG (line 156). All formats are standard, open, and machine-readable.",
+      "notes": "All formats are open standards suitable for automated processing.",
+      "recommendation": "",
+      "fair4ai_category": "Interoperable | Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Format accessibility (open, proprietary, etc.)",
+      "question": "Are the data in open formats (not proprietary)?",
+      "status": "meets",
+      "evidence": "Apache Parquet, CSV, JPEG, and tar are all open formats with public specifications. No proprietary formats used.",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Accessible | Interoperable",
+      "criteria": "Structural/Provenance"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Format accessibility (open, proprietary, etc.)",
+      "question": "Are multiple file formats available?",
+      "status": "partial",
+      "evidence": "Parquet is primary format for metadata (catalog.parquet, provenance.parquet). CSV available for some metadata (Darwin-finches.csv, media_manifest.csv, fathomnet_metadata.csv). Images available as JPEG only. No alternative formats (e.g., HDF5, netCDF, database export) provided.",
+      "notes": "Primary formats are Parquet and CSV; images are JPEG only (no alternative image formats like PNG or TIFF).",
+      "recommendation": "Consider offering alternative formats for users with specific tool requirements (e.g., CSV export of catalog for spreadsheet tools, or HDF5 for deep learning frameworks).",
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "License/ Usage Rights",
+      "question": "Is a license provided?",
+      "status": "meets",
+      "evidence": "README lines 379-391 document licensing: 'The dataset (the compilation) has been marked as dedicated to the public domain by applying the CC0 Public Domain Waiver.' API cardData.license: 'cc0-1.0'. Individual images retain their source licenses (CC BY, CC BY-NC, CC BY-NC-SA, etc. as documented in provenance.parquet).",
+      "notes": "Clear licensing: compilation is CC0 (public domain), individual images retain source licenses.",
+      "recommendation": "",
+      "fair4ai_category": "Accessible | Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "License/ Usage Rights",
+      "question": "Is the license machine-readable?",
+      "status": "partial",
+      "evidence": "CC0 license is identifiable via SPDX identifier 'CC0-1.0' (line 7, API response). Individual image licenses in provenance.parquet are text strings (license_name field, line 170) not SPDX identifiers, though many (cc-by, cc-by-nc) map to standard SPDX IDs.",
+      "notes": "Compilation license is SPDX-identifiable; individual image licenses are human-readable strings, not consistently machine-readable SPDX.",
+      "recommendation": "Standardize individual image license_name values to SPDX identifiers for machine-readability.",
+      "fair4ai_category": "Accessible | Reusable",
+      "criteria": "Provenance/Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Security / Privacy",
+      "question": "Is there documentation of personal or sensitive information in the dataset?",
+      "status": "meets",
+      "evidence": "README line 342-344 'Personal and Sensitive Information' section states: 'None: These images come from existing, public biodiversity data repositories, and no GPS locations for the species in the images are included. We further used MTCNN on all images downloaded from GBIF and EOL to filter out identifiable images of people.'",
+      "notes": "Clear documentation that no personal information is present.",
+      "recommendation": "",
+      "fair4ai_category": "Accessible | Reusable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Security / Privacy",
+      "question": "Are conditions for restricted access documented (if applicable)?",
+      "status": "meets",
+      "evidence": "No restricted access required. Dataset is publicly available on Hugging Face. All images licensed for research use (CC0, CC BY, CC BY-NC). README line 90 explains only that metadata is provided and users must fetch images from original sources following reproduction instructions.",
+      "notes": "Dataset is open access; no restrictions documented.",
+      "recommendation": "",
+      "fair4ai_category": "Accessible",
+      "criteria": "Provenance/Structural"
+    },
+    {
+      "section": "Data Access",
+      "sub_section": "Security / Privacy",
+      "question": "Is the procedure for obtaining restricted access documented (if applicable)?",
+      "status": "N/A",
+      "evidence": "No restricted access applies.",
+      "notes": "Scope mismatch: dataset is open access.",
+      "recommendation": "",
+      "fair4ai_category": "Accessible",
+      "criteria": "Structural"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is the author / creator named?",
+      "status": "meets",
+      "evidence": "README line 47: 'Curated by: Jianyang Gu, Samuel Stevens, Elizabeth G. Campolongo, Matthew J. Thompson, Net Zhang, Jiaman Wu, Andrei Kopanev, and Alexander E. White.' BibTeX entry lists authors (line 403, 418).",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is the author / creator ORCID provided?",
+      "status": "does not meet",
+      "evidence": "No ORCID identifiers are provided for the curators in the README or API metadata.",
+      "notes": "",
+      "recommendation": "Add ORCID identifiers for each curator (if they have them) to the dataset card for improved provenance and discoverability.",
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is the data curator named?",
+      "status": "meets",
+      "evidence": "README line 47 lists curators (same as authors): Jianyang Gu, Samuel Stevens, Elizabeth G. Campolongo, Matthew J. Thompson, Net Zhang, Jiaman Wu, Andrei Kopanev, Alexander E. White.",
+      "notes": "Curators are named explicitly.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is the dataset card author named?",
+      "status": "partial",
+      "evidence": "No explicit 'dataset card author' is named separately. The curators (line 47) are credited for the dataset; it is unclear who authored the README specifically.",
+      "notes": "Curators credited; dataset card authorship not explicitly separated.",
+      "recommendation": "If the dataset card (README) was authored by someone different from the dataset curators, add 'Dataset Card Author' field.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is contact information provided for the dataset card author?",
+      "status": "does not meet",
+      "evidence": "No explicit contact information is provided for dataset card authors or curators.",
+      "notes": "GitHub repository (line 50) allows issue reporting; curator list (line 47) provides names.",
+      "recommendation": "Add a 'Contact' field with email address or GitHub issue link for questions about the dataset card or curation process.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is contact information provided for a domain expert?",
+      "status": "partial",
+      "evidence": "Curators listed (line 47) are domain experts in biodiversity and computer vision. GitHub repository (line 50) allows issue reporting. No explicit 'domain expert contact' listed separately.",
+      "notes": "Curators likely available via GitHub issues; no separate expert contact field.",
+      "recommendation": "Consider adding a 'Domain Expert Contact' field with preferred contact method for dataset-specific scientific questions.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "citation for \"this dataset\"",
+      "question": "Is a standard data citation provided?",
+      "status": "meets",
+      "evidence": "BibTeX citation provided (lines 400-408) with authors, year, title, DOI, publisher. APA-style citation can be constructed from the BibTeX.",
+      "notes": "Proper academic citation with DOI provided.",
+      "recommendation": "",
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset",
+      "question": "Is provenance tracking (linkage to source datasets) documented?",
+      "status": "meets",
+      "evidence": "README lines 259-283 document all four source datasets with DOIs and URLs: GBIF (DOI 10.15468/dl.bfv433), EOL (metadata URLs provided), BIOSCAN-5M (Google Drive link, GitHub), FathomNet (API documentation). provenance.parquet includes source_url and source_id for each image, enabling traceability back to original sources.",
+      "notes": "Complete provenance chain documented with persistent identifiers where available.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable | Findable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset",
+      "question": "Are the source data producers / original dataset creators named?",
+      "status": "meets",
+      "evidence": "README lines 259-283 identify all source data producers: GBIF.org (line 436), Encyclopedia of Life (EOL, line 450), BIOSCAN-5M team (lines 460-475), FathomNet authors (lines 479-493). Individual image source_id and copyright_owner (provenance.parquet, lines 170-172) preserve original attribution.",
+      "notes": "Source creators documented with full citations.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset",
+      "question": "Is full citation of source/constituent datasets provided?",
+      "status": "meets",
+      "evidence": "README lines 432-496 provide full BibTeX citations for all sources: GBIF (lines 434-447), EOL (lines 449-456), BIOSCAN-5M (lines 458-475), FathomNet (lines 477-494). Line 496 directs users to provenance.parquet for per-image license information.",
+      "notes": "Comprehensive citations for all source data.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable | Findable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset",
+      "question": "Are source dataset DOIs provided?",
+      "status": "meets",
+      "evidence": "GBIF snapshot DOI: 10.15468/dl.bfv433 (lines 262, 437). TreeOfLife-200M DOI: 10.57967/hf/8980 (line 406). Individual paper DOI: 10.48550/arXiv.2505.23883 (line 51).",
+      "notes": "All key identifiers include DOIs.",
+      "recommendation": "",
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Derived dataset",
+      "question": "Are checksums provided for source data or the compiled dataset?",
+      "status": "partial",
+      "evidence": "MD5 hashes used internally for duplication detection (line 313). PDQ perceptual hashes computed for all images (line 315). No public checksums (SHA-256, MD5) documented for the published dataset or source snapshots.",
+      "notes": "Checksums used internally for QC; not provided publicly for integrity verification.",
+      "recommendation": "Publish SHA-256 checksums for catalog.parquet, provenance.parquet, and embeddings files to allow users to verify download integrity.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Processing platform/software",
+      "question": "Is the processing platform / software documented?",
+      "status": "meets",
+      "evidence": "README lines 294-317 name specific tools: distributed-downloader (line 281, 296), MTCNN (line 311), MegaDetector (line 306), BioCLIP (lines 309, 315), TaxonoPy (lines 336-337). Line 317: 'The code for all of these processing steps...is provided in TreeOfLife-toolbox.'",
+      "notes": "Processing pipeline fully documented with tool references and code repository link.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Identifier",
+      "question": "Is a DOI (Digital Object Identifier) provided for this dataset?",
+      "status": "meets",
+      "evidence": "TreeOfLife-200M has DOI: 10.57967/hf/8980 (Hugging Face dataset page, line 407 of README). This is a persistent identifier enabling citation and discoverability.",
+      "notes": "",
+      "recommendation": "",
+      "fair4ai_category": "Findable",
+      "criteria": "Provenance/Structural"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Identifier",
+      "question": "Are checksums (e.g., SHA-256) provided for the full dataset and/or its components?",
+      "status": "partial",
+      "evidence": "MD5 hashes and PDQ perceptual hashes are used internally during data processing (README lines 313-315) for deduplication and test leakage detection. However, no public checksums (SHA-256, MD5) are provided for downloaded parquet files or embeddings to allow users to verify download integrity.",
+      "notes": "Checksums are used in processing but not published for public verification.",
+      "recommendation": "Publish SHA-256 checksums for catalog.parquet, provenance.parquet, and embeddings files on the Hugging Face dataset card or in a separate checksums.txt file to allow users to verify download integrity.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
+    },
+    {
+      "section": "Provenance",
+      "sub_section": "Provenance",
+      "question": "Is the storage location and movement history documented?",
+      "status": "partial",
+      "evidence": "Current location: Hugging Face (https://huggingface.co/datasets/imageomics/TreeOfLife-200M). Images originally hosted at GBIF, EOL, BIOSCAN, FathomNet and downloaded via their APIs/links. Final storage on Hugging Face. No explicit 'movement history' or archival plan documented.",
+      "notes": "Current storage clear; movement history not documented.",
+      "recommendation": "If the dataset is moved to other repositories (e.g., for long-term preservation), provide persistent redirect or versioning info.",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance/Structural"
+    },
+    {
+      "section": "Governance",
+      "sub_section": "Governance",
+      "question": "Was permission granted to collect the data (especially for Indigenous/sensitive data)?",
+      "status": "N/A",
+      "evidence": "Dataset combines public biodiversity data from GBIF, EOL, BIOSCAN, FathomNet. No Indigenous or community-generated data with special governance requirements are present (all data are public species occurrence records).",
+      "notes": "Scope mismatch: no Indigenous/community data requiring CARE Principles governance.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Governance",
+      "sub_section": "Governance",
+      "question": "Is the agent who granted permission documented?",
+      "status": "N/A",
+      "evidence": "Not applicable to public biodiversity data.",
+      "notes": "Scope mismatch: no permission-granting authority for public data.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Governance",
+      "sub_section": "Governance",
+      "question": "Are the Indigenous peoples / communities stewarding the data named?",
+      "status": "N/A",
+      "evidence": "Not applicable; dataset is public biodiversity data, not Indigenous/community knowledge.",
+      "notes": "Scope mismatch: no Indigenous stewardship applies.",
+      "recommendation": "",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    },
+    {
+      "section": "Governance",
+      "sub_section": "Collection",
+      "question": "Is the timestamp of data collection documented?",
+      "status": "partial",
+      "evidence": "GBIF snapshot date: 2024-05-01 (lines 262, 436). EOL access date: August 2024 (line 454). BIOSCAN-5M and FathomNet dates not explicitly stated. Individual images have basisOfRecord dates in GBIF (eventDate field, line 177). Hugging Face release date: 2026-05-29 (API response).",
+      "notes": "Component snapshot dates known; a unified dataset collection period is not summarized.",
+      "recommendation": "Add 'Dataset Creation / Snapshot Date' field stating when this specific version of the compiled dataset was created.",
+      "fair4ai_category": "Findable | Reusable",
+      "criteria": "Provenance/Scientific"
+    },
+    {
+      "section": "Governance",
+      "sub_section": "Collection",
+      "question": "Is the action/operation that led to each data point documented (CARE provenance)?",
+      "status": "partial",
+      "evidence": "README lines 294-317 document bulk data processing steps. provenance.parquet includes source_url, source_id, and license_name for each image (lines 169-173). basisOfRecord (GBIF, line 153) indicates type of collection (PRESERVED_SPECIMEN, HUMAN_OBSERVATION, MACHINE_OBSERVATION). Individual image creation events at GBIF/EOL/BIOSCAN/FathomNet can be traced via source_url, but specific metadata (who took the photo, where, why) is not re-aggregated in TreeOfLife-200M.",
+      "notes": "Source data provenance preserved (via source_id and source_url); dataset-level operations documented; granular 'why' metadata not aggregated.",
+      "recommendation": "If CARE governance is important for users, document how to access and interpret per-image provenance from original sources (GBIF occurrence records, EOL page metadata, etc.).",
+      "fair4ai_category": "Reusable",
+      "criteria": "Provenance"
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "Exceptional data provenance and traceability: all 233M images linked to original sources via provenance.parquet with DOIs and URLs; full standardization process documented with open-source tool (TaxonoPy)",
+      "Rigorous curation and quality control with multiple filtering steps (image quality, deduplication, outlier removal, test leakage prevention) and clear documentation of all processing decisions",
+      "Comprehensive public biodiversity dataset combining four major sources (GBIF, EOL, BIOSCAN-5M, FathomNet) with clear quantitative breakdown (569K GBIF taxa, 48.5K EOL, 3K BIOSCAN, 251 FathomNet)",
+      "ML-ready structure: explicitly machine-ingestable as parquet with Croissant schema; clear supported tasks (image classification, zero-shot classification); benchmarks documented",
+      "Transparency on limitations: honest documentation of class imbalance, incomplete taxonomic labels, and unresolved cases with quantitative percentages (89.74% with full 7-rank labels, 0.78% unresolved)",
+      "Peer-reviewed publication (NeurIPS 2025) describing dataset design and evaluation; linked to trained foundation models (BioCLIP 2, BioCLIP 2.5 Huge)"
+    ],
+    "gaps": [
+      "Funding/grant information not documented (evaluator is a curator, so may know if applicable; not visible in metadata)",
+      "Author/curator ORCIDs not provided for persistent researcher identification",
+      "No public checksums (SHA-256) provided for data integrity verification",
+      "Individual image license names not standardized to SPDX identifiers (mostly free text, though many map to standards)",
+      "No explicit 'Out-of-Scope Uses' or 'Known Risks' section documenting tasks unsuitable for this dataset",
+      "Temporal metadata for individual images not re-aggregated in catalog (eventDate available in source GBIF records but not in TreeOfLife-200M catalog)",
+      "No documented update/versioning schedule; dataset presented as static release",
+      "Non-author contributors not fully itemized (mentioned generically in methodology)",
+      "No field explicitly documenting what fraction of images have related papers / AI/ML usage history"
+    ],
+    "overall_assessment": "TreeOfLife-200M is a well-documented, ML-ready biodiversity dataset with exceptional provenance and transparent curation. The dataset excels in structural and scientific documentation (clear data dictionary, rigorous QC, peer-reviewed methods) and achieves high scores on Findability and Accessibility through DOI, rich metadata, and open formats. However, AI-FAIR readiness is limited by incomplete documentation of governance/CARE principles (appropriate for this public data, but items are N/A), lack of explicit usage guidance for common pitfalls (e.g., class imbalance), and missing metadata standardization (license SPDX IDs, checksums). The FAIR-vs-AI-FAIR gap is moderate: Traditional FAIR scores are high (0.75-0.85 range expected), but AI-FAIR lags slightly due to gaps in governance documentation and cautionary guidance for ML practitioners.",
+    "fair4ai_scores": {
+      "traditional_fair": {
+        "findable": 0.875,
+        "accessible": 0.833,
+        "interoperable": 1.0,
+        "reusable": 0.784,
+        "overall": 0.873,
+        "details": {
+          "findable": {
+            "n_scored": 20,
+            "meets": 16,
+            "partial": 3,
+            "does_not_meet": 1,
+            "na": 0
+          },
+          "accessible": {
+            "n_scored": 15,
+            "meets": 10,
+            "partial": 5,
+            "does_not_meet": 0,
+            "na": 1
+          },
+          "interoperable": {
+            "n_scored": 13,
+            "meets": 13,
+            "partial": 0,
+            "does_not_meet": 0,
+            "na": 0
+          },
+          "reusable": {
+            "n_scored": 44,
+            "meets": 28,
+            "partial": 13,
+            "does_not_meet": 3,
+            "na": 6
+          }
+        }
+      },
+      "ai_fair": {
+        "ml_ready": 0.826,
+        "ai_ready_for_task": 0.832,
+        "traceable": 0.826,
+        "care_compliance": 0.5,
+        "overall": 0.746,
+        "components": {
+          "structural": {
+            "score": 0.826,
+            "n_scored": 46,
+            "meets": 31,
+            "partial": 14,
+            "does_not_meet": 1,
+            "na": 2
+          },
+          "scientific": {
+            "score": 0.838,
+            "n_scored": 40,
+            "meets": 28,
+            "partial": 11,
+            "does_not_meet": 1,
+            "na": 4
+          },
+          "provenance": {
+            "score": 0.825,
+            "n_scored": 40,
+            "meets": 28,
+            "partial": 10,
+            "does_not_meet": 2,
+            "na": 5
+          },
+          "governance": {
+            "score": 0.5,
+            "n_scored": 2,
+            "meets": 0,
+            "partial": 2,
+            "does_not_meet": 0,
+            "na": 3
+          }
+        }
+      }
+    }
+  }
+}

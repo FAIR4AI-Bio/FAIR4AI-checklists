@@ -20,7 +20,7 @@ Please provide the following. Press Enter to accept the default for any optional
    Default: `CHECKLIST.csv` in the current working directory.
 
 3. **Template file** *(optional)* — Path to the output template JSON to use as structural reference.
-   Default: `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` in the current working directory (the current-schema example, with `fair4ai_category` on every response and script-computed 0–1 `fair4ai_scores`).
+   Default: `example_outputs/FAIR4AI_eval_neon_beetles_2026-08-03_102743.json` in the current working directory (the current-schema example, with `fair4ai_category` on every response and script-computed 0–1 `fair4ai_scores`).
 
 4. **Output directory** *(optional)* — Workspace directory where this run's run folder will be created. Skip/reuse checks scan across the run folders it contains.
    Default: current working directory.

@@ -4,7 +4,7 @@ An AI agent that evaluates biodiversity, ecology, and environmental science data
 
 The core thesis: **FAIR compliance is necessary but not sufficient for AI-ready data.** Reporting FAIR and AI-FAIR side by side makes that gap measurable.
 
-See `example_outputs/` for complete evaluation reports for several NEON datasets.
+See `example_outputs/` for complete evaluation reports for two example datasets — a NEON observational dataset (ground beetles) and the TreeOfLife-200M image corpus (Hugging Face).
 
 ---
 
@@ -113,7 +113,7 @@ See `example_outputs/` for complete examples.
 | `RATING_RUBRIC.md` | Authority for choosing each item's `meets / partial / does not meet / N/A` status |
 | `CHECKLIST_OVERVIEW.md` | Narrative description of all 9 checklist sections |
 | `QUICKSTART.md` | Step-by-step usage guide with example sessions |
-| `example_outputs/` | Complete evaluation reports for NEON datasets (example outputs) |
+| `example_outputs/` | Complete example evaluation reports (a NEON observational dataset + the TreeOfLife-200M image corpus) — newest also serves as the output template |
 
 ---
 

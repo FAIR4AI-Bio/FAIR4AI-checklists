@@ -31,7 +31,7 @@ Press Enter to accept the default for any optional parameter.
    Default: `batch_run_<YYYY-MM-DD>/` in the current working directory.
 3. **Checklist file** *(optional)* — Default: `CHECKLIST.csv` in the current working directory.
 4. **Template file** *(optional)* — Default:
-   `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json`.
+   `example_outputs/FAIR4AI_eval_neon_beetles_2026-08-03_102743.json`.
 5. **Run date** *(optional)* — Default: today, `YYYY-MM-DD`.
 6. **Wave size** *(optional)* — how many sub-agents to run concurrently. Default: `5`.
 7. **Report title / subtitle** *(optional)* — Defaults derived from the dataset count and date.
