@@ -25,7 +25,7 @@ This rubric is also intended to be publishable as an interim community standard:
 publishers what would raise a dataset's AI-readiness score tomorrow, without mandating a
 schema today (FD-1, future direction 4).
 
-Read alongside: `CHECKLIST_OVERVIEW.md` (the 9 sections), `NOTES_workflow.md` (the Q–D–M
+Read alongside: `CHECKLIST_OVERVIEW.md` (the 8 sections), `NOTES_workflow.md` (the Q–D–M
 frame), and FD-1 (why vocabularies are deferred).
 
 ---
@@ -90,15 +90,13 @@ present metadata.)
 
 ## 4. Grouped guidance by criteria type
 
-The `Criteria: Structural/Scientific/Provenance/Governance` column (col 3) tags what *kind* of
-readiness each item probes, using canonical tokens (`Structural`, `Scientific`,
-`Provenance`, `Governance`) and their `/`-joined blends (e.g. `Structural/Scientific`,
-`Provenance/Scientific`, `Provenance/Governance`). This column drives the **AI-FAIR** assessment
-(see §6): the first three tokens are scoring facets; `Governance` routes the item to the
-`care_compliance` category. When an item lists more than one facet, rate it against **each**
-applicable facet and take the **lower** rating as the item's rating (an item that is structurally
-fine but scientifically unusable is only `partial`). The definitions in §2 still govern; the
-guidance below says what "present / incomplete / absent" concretely look like for each facet.
+The `Criteria: Structural/Scientific/Provenance` column (col 3) tags what *kind* of
+readiness each item probes. Many items carry a **blend** (e.g. `Structural/Scientific`,
+`Provenance/Scientific`, `scientific + structural`). When an item lists more than one
+facet, rate it against **each** applicable facet and take the **lower** rating as the
+item's rating (an item that is structurally fine but scientifically unusable is only
+`partial`). The definitions in §2 still govern; the guidance below says what
+"present / incomplete / absent" concretely look like for each facet.
 
 ### 4a. Structural criteria
 *Machine-readability, formats, schema, organization, resolvable mappings.* Ask: **could a
@@ -141,21 +139,6 @@ rights, and responsibility be established and trusted?**
 - **`does not meet`** — origin, license, or responsible party cannot be established from the
   metadata.
 
-### 4d. Governance criteria (CARE)
-*Consent, permissions, stewardship, and responsible-party disclosure for governed / CARE /
-Indigenous or community data.* Ask: **are the ethical/CARE conditions for using these data
-disclosed and honorable?** (Based on the CARE Data Governance specification published with IEEE
-in 2025.) This facet feeds the `care_compliance` category (§6).
-
-- **`meets`** — the governance conditions the item asks for are disclosed: permission-to-collect,
-  the agent granting permission, the people/communities stewarding the observations, and the
-  actions/provenance that led to a data point are stated clearly enough to honor.
-- **`partial`** — governance is gestured at but incomplete (e.g. a community named without the
-  permission/stewardship terms; consent implied but not documented).
-- **`does not meet`** — a governance/CARE disclosure that is **in scope** (governed / CARE /
-  Indigenous or community data) is absent. Note: for data with no such governance dimension the
-  correct rating is `N/A` (scope mismatch, §3), **not** `does not meet`.
-
 ---
 
 ## 5. Worked examples
@@ -176,8 +159,7 @@ as *2018 NEON Ethanol-preserved Ground Beetles*). Ratings are illustrative.
 ## 6. Relationship to the `fair4ai-eval-agent`
 
 The agent (`/evaluate-dataset`) answers each checklist item from a dataset's metadata and
-emits, per item, a `status` plus an `evidence` string, `notes`, `recommendation`, and the
-`fair4ai_category` / `criteria` / `section` values copied verbatim from the checklist, then
+emits, per item, a `status` plus an `evidence` string, `notes`, and `recommendation`, then
 computes a `summary.fair4ai_scores` block. The four `status` values are exactly the rubric
 levels in §2 — `meets`, `partial`, `does not meet`, `N/A` — so nothing needs translating:
 
@@ -188,29 +170,11 @@ levels in §2 — `meets`, `partial`, `does not meet`, `N/A` — so nothing need
 | `does not meet` | `notes` may say where it was expected |
 | `N/A` | `notes` should name the scope/modality that is absent |
 
-The scores are computed deterministically from these four `status` values by the
-**`fair4ai-scoring`** skill (`scripts/compute_fair4ai_scores.py`): `meets → 1`,
-`partial → 0.5`, `does not meet → 0`, `N/A`/blank → excluded. The script produces **two
-complementary assessments**, both in 0–1 (1 = most FAIR4AI):
-
-- **Traditional FAIR** — findable / accessible / interoperable / reusable, keyed off the
-  checklist's `FAIR4AI category` column (the historical `AI-ready` token is ignored here);
-  `overall` = equal-weight mean of the non-null dimensions.
-- **AI-FAIR** — four categories built from the `Criteria` column (§4): `ml_ready` (structural),
-  `ai_ready_for_task` (structural + scientific), `traceable` (provenance + structural), and
-  `care_compliance` (the `Governance` facet — see below); `overall` = equal-weight mean of the four.
-
-**Governance / CARE.** The governance items (based on the CARE Data Governance specification
-published with IEEE in 2025) carry `Governance` in their `Criteria` column and are scored as
-their own `care_compliance` category. This is what makes ethical/CARE readiness a first-class,
-separately visible score rather than being absorbed into "reusable". The five governance items
-also remain in the **Governance** broad category (`section`), and the scorer treats an item as
-governance if **either** its `criteria` includes `Governance` **or** its `section` is
-`Governance` — so evaluations produced before Governance became a Criteria facet still score.
-The agent should still copy both `criteria` and the Broad category label **verbatim**. Rate these
-items with the same four levels and the §4d governance guidance; a missing permission/steward/
-consent disclosure that is in scope is `does not meet`, while data with no governance dimension
-at all is `N/A`.
+The scores in `summary.fair4ai_scores` are then computed deterministically from these four
+`status` values by the **`fair4ai-scoring`** skill (`scripts/compute_fair4ai_scores.py`):
+`meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A → excluded`, means taken per
+FAIR4AI dimension (from the checklist's `FAIR4AI category` column) and combined with equal
+weight into an overall score in 0–1.
 
 ---
 

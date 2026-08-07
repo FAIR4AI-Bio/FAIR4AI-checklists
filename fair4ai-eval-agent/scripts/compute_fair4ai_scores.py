@@ -11,13 +11,15 @@ It produces TWO complementary assessments:
      off each response's `fair4ai_category` (the checklist `FAIR4AI category`
      column). The historical `AI-ready` token is ignored here.
   2. AI-FAIR -- four categories keyed off each response's `criteria` (the
-     checklist `Criteria: Structural/Scientific/Provenance` column) and the
-     Governance section:
+     checklist `Criteria: Structural/Scientific/Provenance/Governance` column)
+     and, for backward compatibility, the Governance section:
         - ml_ready          = the structural facet score
         - ai_ready_for_task = mean(structural, scientific) facet scores
         - traceable         = mean(provenance, structural) facet scores
-        - care_compliance   = the governance score (items whose section/Broad
-                              category is "Governance")
+        - care_compliance   = the governance score (items whose `criteria`
+                              includes "Governance", OR -- for older evaluations
+                              produced before Governance became a Criteria facet
+                              -- whose section/Broad category is "Governance")
 
 Scoring rules (see RATING_RUBRIC.md and the fair4ai-scoring skill):
   - Per-item score:  meets -> 1.0 | partial -> 0.5 | does not meet -> 0.0
@@ -63,6 +65,11 @@ _FAIR_ALIASES = {
 }
 
 # AI-FAIR facet base scores derived from the `criteria` column, in fixed order.
+# These three feed ml_ready / ai_ready_for_task / traceable. Governance is a fourth
+# recognized `criteria` token but is NOT listed here: it feeds only care_compliance
+# (via _criteria_has_governance / the Governance section), so the three-facet math is
+# unchanged. A Governance-tagged item keeps whatever structural/scientific/provenance
+# tokens it also carries and still feeds those facets too.
 CRITERIA_FACETS = ["structural", "scientific", "provenance"]
 
 # status string (normalized) -> numeric score, or None if excluded.
@@ -117,19 +124,32 @@ def parse_criteria(raw):
     "scientific + structural", "Provenance, could be scientific",
     "structural (only needed for NLP)"). Returns (facets, unknown_tokens); a
     non-blank value that matches no facet is reported as unknown.
+
+    "Governance" is a recognized token (it routes to care_compliance via
+    _criteria_has_governance, not to the three scoring facets), so a value that
+    contains only "Governance" is NOT reported as unknown.
     """
     if not raw or not str(raw).strip():
         return [], []
     text = str(raw).lower()
     facets = [f for f in CRITERIA_FACETS if f in text]
     unknown = []
-    if not facets and any(ch.isalnum() for ch in text):
+    if not facets and "governance" not in text and any(ch.isalnum() for ch in text):
         unknown.append(str(raw).strip())
     return facets, unknown
 
 
+def _criteria_has_governance(criteria):
+    """True when a response's `criteria` value includes the Governance token."""
+    return "governance" in _norm(criteria)
+
+
 def _is_governance(section):
-    """True when a response's section (checklist Broad category) is Governance."""
+    """True when a response's section (checklist Broad category) is Governance.
+
+    Retained as a backward-compatible fallback for evaluations produced before
+    Governance became a `criteria` facet; new evaluations detect it from `criteria`.
+    """
     return "governance" in _norm(section)
 
 
@@ -211,7 +231,10 @@ def score_document(doc):
         facets, crit_unknown = parse_criteria(resp.get("criteria", ""))
         for tok in crit_unknown:
             warnings.append(f"response[{i}]: unrecognized criteria value {tok!r} (ignored)")
-        is_gov = _is_governance(resp.get("section", ""))
+        # Governance is primarily a `criteria` facet now; fall back to the Governance
+        # section so evaluations produced before that change still score care_compliance.
+        # The union adds each qualifying item to the gov bucket exactly once.
+        is_gov = _criteria_has_governance(resp.get("criteria", "")) or _is_governance(resp.get("section", ""))
 
         if not (fair_keys or facets or is_gov):
             # An item that maps to no FAIR dimension, no criteria facet, and is not
@@ -360,6 +383,19 @@ def selftest():
     assert s2["ai_fair"]["ml_ready"] == 1.0
     assert s2["ai_fair"]["ai_ready_for_task"] == 1.0, "scientific null must drop out of the mean"
     assert s2["ai_fair"]["care_compliance"] is None                          # no governance items
+
+    # governance detected from the `criteria` facet (new schema), not just the section;
+    # a Governance-tagged item still feeds its other facets (here: provenance).
+    doc3 = {"responses": [
+        {"status": "meets", "fair4ai_category": "", "criteria": "Provenance/Governance", "section": "Provenance"},
+        {"status": "does not meet", "fair4ai_category": "", "criteria": "Governance", "section": "Data Access"},
+    ]}
+    s3, w3 = score_document(doc3)
+    assert s3["ai_fair"]["care_compliance"] == 0.5, s3["ai_fair"]["care_compliance"]        # (1 + 0)/2
+    assert s3["ai_fair"]["components"]["governance"]["n_scored"] == 2, s3["ai_fair"]["components"]["governance"]
+    assert s3["ai_fair"]["components"]["provenance"]["n_scored"] == 1, "Provenance/Governance must still feed provenance"
+    assert not any("unrecognized criteria" in w for w in w3), w3   # 'Governance' must not warn as unknown
+    assert not any("excluded from all assessments" in w for w in w3), w3  # governance-only item is mapped
 
     # idempotency
     scores_again, _ = score_document(doc)

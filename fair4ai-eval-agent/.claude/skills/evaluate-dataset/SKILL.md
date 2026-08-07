@@ -119,11 +119,11 @@ Read the checklist CSV file (`CHECKLIST.csv`, 96 items). Each row with a non-bla
 
 | CSV column | Maps to JSON field / use |
 |---|---|
-| `Broad categories` | `section` — copy **verbatim** (the `Governance` value routes CARE scoring) |
+| `Broad categories` | `section` — copy **verbatim** (still a backward-compatible fallback for routing CARE scoring) |
 | `Sub category` | `sub_section` |
 | `Item` | basis for `question` |
 | `Proposed definition` / `Note` | context to interpret the criterion |
-| `Criteria: Structural/Scientific/Provenance` | copied verbatim into each response's `criteria` |
+| `Criteria: Structural/Scientific/Provenance/Governance` | copied verbatim into each response's `criteria` (a `Governance` token routes CARE scoring) |
 | `FAIR4AI category` | copied verbatim into each response's `fair4ai_category` |
 | `Use-case scope (Condition)` | drives the **N/A** decision (see Step 5) |
 | `Required (core, auto, or recommended)` | emphasis in the narrative (core gaps weigh more) |
@@ -169,7 +169,7 @@ with what is available.
 
   **N/A rule (rubric §3):** an item is `N/A` only when its `Use-case scope (Condition)` does not apply to this dataset — a **scope mismatch** (e.g. `Derived/compiled datasets` items for a primary dataset; `Human/sensitive data` items for non-sensitive data; `Experimental data` items for observational data) or a **modality mismatch** (e.g. `Text/NLP` language for an image/tabular dataset; sensor/instrument items for a dataset with no such captures). Items scoped `All use cases` are **never** N/A. The `Required` tier (`core`/`auto`/`recommended`) never triggers N/A — a missing in-scope item is `does not meet`, just lower-emphasis.
 
-  **Blended criteria (rubric §4):** when the `Criteria: Structural/Scientific/Provenance` column lists more than one facet, rate each applicable facet and take the **lower** status.
+  **Blended criteria (rubric §4):** when the `Criteria: Structural/Scientific/Provenance/Governance` column lists more than one facet, rate each applicable facet and take the **lower** status.
 
 - **`evidence`**: quote or cite specific metadata fields, field names, or values that support the status. For `"does not meet"`, state explicitly what is absent.
 
@@ -179,7 +179,7 @@ with what is available.
 
 - **`fair4ai_category`**: copy the item's `FAIR4AI category` value **verbatim** from the checklist (a pipe-separated subset of `Findable | Accessible | Interoperable | Reusable | AI-ready`, or blank for context-only items). Drives the **Traditional FAIR** assessment in Step 6 — do not omit it.
 
-- **`criteria`**: copy the item's `Criteria: Structural/Scientific/Provenance` value **verbatim** from the checklist (one or more of `Structural | Scientific | Provenance`, e.g. `Structural/Scientific`, or blank). Drives the **AI-FAIR** assessment in Step 6. Combined with the `section` value (which must be the Broad category verbatim, so a `Governance` section routes to CARE scoring), this is what makes AI-readiness measurable — do not omit it.
+- **`criteria`**: copy the item's `Criteria: Structural/Scientific/Provenance/Governance` value **verbatim** from the checklist (one or more of `Structural | Scientific | Provenance | Governance`, e.g. `Structural/Scientific` or `Provenance/Governance`, or blank). Drives the **AI-FAIR** assessment in Step 6 — a `Governance` token routes the item to CARE scoring. Copy the `section` value (the Broad category) verbatim too; a `Governance` section still routes to CARE scoring as a backward-compatible fallback. This is what makes AI-readiness measurable — do not omit it.
 
 When evidence is ambiguous, assign `"partial"` rather than guessing in either direction, and explain the ambiguity in `notes`.
 
@@ -241,7 +241,7 @@ python scripts/compute_fair4ai_scores.py <output.json>
 The skill computes `summary.fair4ai_scores` deterministically as **two assessments** (per item: `meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A`/blank → excluded; any all-N/A dimension/facet is `null` and omitted from means). All scores are **0–1, where 1 is "most FAIR4AI"**:
 
 - **Traditional FAIR** — from `fair4ai_category` (the `AI-ready` token is ignored): per-dimension mean for `findable`/`accessible`/`interoperable`/`reusable`, then `overall` = equal-weight mean of the non-null dimensions.
-- **AI-FAIR** — from `criteria` + the Governance section: facet base scores `structural`/`scientific`/`provenance` (`criteria`) and `governance` (section); then `ml_ready` = structural, `ai_ready_for_task` = mean(structural, scientific), `traceable` = mean(provenance, structural), `care_compliance` = governance, and `overall` = equal-weight mean of the four.
+- **AI-FAIR** — from `criteria` (with the Governance section as a fallback): facet base scores `structural`/`scientific`/`provenance` and `governance`, all read from `criteria` (an item counts toward `governance` if its `criteria` includes `Governance`, or — for older evaluations — its `section` is `Governance`); then `ml_ready` = structural, `ai_ready_for_task` = mean(structural, scientific), `traceable` = mean(provenance, structural), `care_compliance` = governance, and `overall` = equal-weight mean of the four.
 
 It writes this block back into the file:
 
@@ -260,7 +260,7 @@ It writes this block back into the file:
 }
 ```
 
-(Two checklist columns drive the two assessments. `FAIR4AI category` → Traditional FAIR: Findable = PID/DOI, rich metadata, keywords, landing page; Accessible = download/API/open formats/license/access conditions; Interoperable = standards (EML, DwC, schema.org, ENVO), machine-readable formats, controlled vocab; Reusable = attribution, provenance, methods docs, license clarity, checksums. `Criteria` + the Governance section → AI-FAIR: Structural = machine-ingestable format/schema; Scientific = fitness for a scientific/ML task; Provenance = traceability of sources and processing; Governance = the CARE/ethical items in the Governance broad category.)
+(Two checklist columns drive the two assessments. `FAIR4AI category` → Traditional FAIR: Findable = PID/DOI, rich metadata, keywords, landing page; Accessible = download/API/open formats/license/access conditions; Interoperable = standards (EML, DwC, schema.org, ENVO), machine-readable formats, controlled vocab; Reusable = attribution, provenance, methods docs, license clarity, checksums. `Criteria` → AI-FAIR: Structural = machine-ingestable format/schema; Scientific = fitness for a scientific/ML task; Provenance = traceability of sources and processing; Governance = the CARE/ethical items carrying the `Governance` criteria token, i.e. the Governance broad-category items.)
 
 ## Step 7: Write the output, compute scores, and report to the user
 

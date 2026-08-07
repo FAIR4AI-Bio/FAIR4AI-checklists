@@ -85,7 +85,7 @@ All five capabilities live under `.claude/skills/` (one skill per directory, eac
 The JSON report has three top-level sections:
 
 - **`session`** — evaluation date, AI model, metadata sources used, dataset identity (title, DOI, landing page URL, citation), and evaluator information
-- **`responses`** — one object per checklist item with `section`, `sub_section`, `question`, `status` (`meets` / `partial` / `does not meet` / `N/A`), `evidence`, `notes`, `recommendation`, `fair4ai_category` (the FAIR dimension(s) the item counts toward), and `criteria` (the Structural/Scientific/Provenance facet(s) it counts toward)
+- **`responses`** — one object per checklist item with `section`, `sub_section`, `question`, `status` (`meets` / `partial` / `does not meet` / `N/A`), `evidence`, `notes`, `recommendation`, `fair4ai_category` (the FAIR dimension(s) the item counts toward), and `criteria` (the Structural/Scientific/Provenance/Governance facet(s) it counts toward)
 - **`summary`** — `strengths`, `gaps`, `overall_assessment` (2–3 sentence narrative), and `fair4ai_scores` (two nested blocks — `traditional_fair` and `ai_fair`, each with an overall score in 0–1 and per-dimension/per-facet `details`/`components` counts) computed by the `fair4ai-scoring` skill
 
 Output filename convention: `FAIR4AI_eval_<short_name>_<YYYY-MM-DD_HHMMSS>.json` (timestamp to the second, so re-runs of a dataset never collide). Single runs write it to `<output dir>/fair4ai_run_<TS>/evaluation_results/`.
@@ -109,7 +109,7 @@ See `example_outputs/` for complete examples.
 | `scripts/make_fair4ai_figure.py` | Renders the 5×2 two-column (left = FAIR, right = AI-FAIR) score-distribution figure (needs numpy + matplotlib) |
 | `scripts/requirements-viz.txt` | Optional deps (numpy, matplotlib) for the figure only |
 | `example_inputs/` | Sample batch input lists (`.csv` and `.md`) for `/batch-evaluate-datasets` |
-| `CHECKLIST.csv` | 96-item FAIR4AI-Bio checklist (9 sections; each item mapped to EML, DataCite, Schema.org, Croissant, its FAIR4AI dimension(s), and its Structural/Scientific/Provenance criteria) |
+| `CHECKLIST.csv` | 96-item FAIR4AI-Bio checklist (9 sections; each item mapped to EML, DataCite, Schema.org, Croissant, its FAIR4AI dimension(s), and its Structural/Scientific/Provenance/Governance criteria) |
 | `RATING_RUBRIC.md` | Authority for choosing each item's `meets / partial / does not meet / N/A` status |
 | `CHECKLIST_OVERVIEW.md` | Narrative description of all 9 checklist sections |
 | `QUICKSTART.md` | Step-by-step usage guide with example sessions |

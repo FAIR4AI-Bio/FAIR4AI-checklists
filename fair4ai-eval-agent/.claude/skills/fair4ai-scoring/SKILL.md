@@ -44,12 +44,14 @@ The script reads `responses[]` from the JSON. Each response must carry:
   AI-ready`, pipe-separated. Blank for context-only (non-scored) items. Drives the
   **Traditional FAIR** assessment (the `AI-ready` token is ignored here).
 - `criteria` — copied verbatim from the checklist's `Criteria:
-  Structural/Scientific/Provenance` column: one or more of `Structural`,
-  `Scientific`, `Provenance` (e.g. `Structural/Scientific`), or blank. Drives the
-  **AI-FAIR** assessment.
-- `section` — the checklist **Broad category** verbatim. Items whose section is
-  `Governance` feed the AI-FAIR `care_compliance` category, so this must be copied
-  exactly (case-insensitive match on `governance`).
+  Structural/Scientific/Provenance/Governance` column: one or more of `Structural`,
+  `Scientific`, `Provenance`, `Governance` (e.g. `Structural/Scientific`,
+  `Provenance/Governance`), or blank. Drives the **AI-FAIR** assessment; a
+  `Governance` token feeds the `care_compliance` category.
+- `section` — the checklist **Broad category** verbatim. Retained as a
+  backward-compatible fallback for `care_compliance`: an item also feeds it if its
+  section is `Governance` (case-insensitive match on `governance`), so evaluations
+  produced before Governance became a `criteria` facet still score.
 
 If a scoreable item is missing its `fair4ai_category`, the script excludes it from
 Traditional FAIR; the parser also warns on an unrecognized `criteria` value or a
@@ -70,10 +72,12 @@ rounded to 3 decimals.
   contributing item scores; an item mapped to *k* dimensions counts in each.
 - `overall` = **equal-weight** mean of the (up to four) non-null dimension scores.
 
-**AI-FAIR** (from `criteria` + the Governance section) — first four **facet base
-scores** (means of contributing items): `structural`, `scientific`, `provenance`
-(from `criteria`), and `governance` (items whose `section` is Governance). Then the
-four categories are **equal-weight means of their non-null facet components**:
+**AI-FAIR** (from `criteria`, with the Governance section as a fallback) — first four
+**facet base scores** (means of contributing items): `structural`, `scientific`,
+`provenance`, and `governance`, all read from `criteria` (an item feeds `governance`
+if its `criteria` includes `Governance`, or — for older evaluations — its `section`
+is Governance). Then the four categories are **equal-weight means of their non-null
+facet components**:
 
 - `ml_ready` = `structural`
 - `ai_ready_for_task` = mean(`structural`, `scientific`)
