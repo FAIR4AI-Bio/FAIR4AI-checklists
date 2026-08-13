@@ -177,7 +177,7 @@ as *2018 NEON Ethanol-preserved Ground Beetles*). Ratings are illustrative.
 
 The agent (`/evaluate-dataset`) answers each checklist item from a dataset's metadata and
 emits, per item, a `status` plus an `evidence` string, `notes`, `recommendation`, and the
-`fair4ai_category` / `criteria` / `section` values copied verbatim from the checklist, then
+`fair_category` / `criteria` / `section` values copied verbatim from the checklist, then
 computes a `summary.fair4ai_scores` block. The four `status` values are exactly the rubric
 levels in §2 — `meets`, `partial`, `does not meet`, `N/A` — so nothing needs translating:
 
@@ -194,7 +194,7 @@ The scores are computed deterministically from these four `status` values by the
 complementary assessments**, both in 0–1 (1 = most FAIR4AI):
 
 - **Traditional FAIR** — findable / accessible / interoperable / reusable, keyed off the
-  checklist's `FAIR4AI category` column (the historical `AI-ready` token is ignored here);
+  checklist's `FAIR category` column;
   `overall` = equal-weight mean of the non-null dimensions.
 - **AI-FAIR** — four categories built from the `Criteria` column (§4): `ml_ready` (structural),
   `ai_ready_for_task` (structural + scientific), `traceable` (provenance + structural), and

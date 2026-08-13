@@ -164,7 +164,7 @@ and **zero `WARNING:`**:
 ```bash
 python scripts/compute_fair4ai_scores.py <output_path>
 ```
-Resolve any warning (e.g. a scoreable item missing its `fair4ai_category`) and re-run. **Policy:**
+Resolve any warning (e.g. a scoreable item missing its `fair_category`) and re-run. **Policy:**
 if a dataset fails validation, relaunch its sub-agent once; if it still fails, mark it ⛔ in the
 progress doc and exclude it from the summary (note it in the report's coverage line).
 
@@ -235,7 +235,7 @@ A dataset's evaluation JSON is **valid** only if all hold:
 - [ ] the file exists at the expected path;
 - [ ] `responses[]` has exactly **96** entries;
 - [ ] every response `status` ∈ `{meets, partial, does not meet, N/A}`;
-- [ ] every response carries a `fair4ai_category`, a `criteria`, and a `section` (Broad category verbatim);
+- [ ] every response carries a `fair_category`, a `criteria`, and a `section` (Broad category verbatim);
 - [ ] `summary.fair4ai_scores.traditional_fair.overall` and `.ai_fair.overall` both exist and are non-null;
 - [ ] re-running `compute_fair4ai_scores.py` on it prints **no `WARNING:`**.
 

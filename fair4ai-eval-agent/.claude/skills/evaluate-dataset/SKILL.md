@@ -20,7 +20,7 @@ Please provide the following. Press Enter to accept the default for any optional
    Default: `CHECKLIST.csv` in the current working directory.
 
 3. **Template file** *(optional)* — Path to the output template JSON to use as structural reference.
-   Default: `example_outputs/FAIR4AI_eval_neon_beetles_2026-08-03_102743.json` in the current working directory (the current-schema example, with `fair4ai_category` on every response and script-computed 0–1 `fair4ai_scores`).
+   Default: `example_outputs/FAIR4AI_eval_neon_beetles_2026-08-03_102743.json` in the current working directory (the current-schema example, with `fair_category` on every response and script-computed 0–1 `fair4ai_scores`).
 
 4. **Output directory** *(optional)* — Workspace directory where this run's run folder will be created. Skip/reuse checks scan across the run folders it contains.
    Default: current working directory.
@@ -124,7 +124,7 @@ Read the checklist CSV file (`CHECKLIST.csv`, 96 items). Each row with a non-bla
 | `Item` | basis for `question` |
 | `Proposed definition` / `Note` | context to interpret the criterion |
 | `Criteria: Structural/Scientific/Provenance/Governance` | copied verbatim into each response's `criteria` (a `Governance` token routes CARE scoring) |
-| `FAIR4AI category` | copied verbatim into each response's `fair4ai_category` |
+| `FAIR category` | copied verbatim into each response's `fair_category` |
 | `Use-case scope (Condition)` | drives the **N/A** decision (see Step 5) |
 | `Required (core, auto, or recommended)` | emphasis in the narrative (core gaps weigh more) |
 | `Applies-at-level` | context for what "present" means (dataset / event / occurrence / media-annotation) |
@@ -169,6 +169,11 @@ with what is available.
 
   **N/A rule (rubric §3):** an item is `N/A` only when its `Use-case scope (Condition)` does not apply to this dataset — a **scope mismatch** (e.g. `Derived/compiled datasets` items for a primary dataset; `Human/sensitive data` items for non-sensitive data; `Experimental data` items for observational data) or a **modality mismatch** (e.g. `Text/NLP` language for an image/tabular dataset; sensor/instrument items for a dataset with no such captures). Items scoped `All use cases` are **never** N/A. The `Required` tier (`core`/`auto`/`recommended`) never triggers N/A — a missing in-scope item is `does not meet`, just lower-emphasis.
 
+  **Worked examples — disclosure items must not be scored as gaps for a clean dataset.** These items are phrased as conditional statements (documentation *when such content/restriction is present*), so a dataset that lacks the condition is a **scope mismatch → `N/A`**, never `does not meet`:
+  - *Personal and Sensitive Information* (scope `Human/sensitive data; endangered species`): a dataset with **no** personal or sensitive content → **`N/A`** (name the absent dimension in `notes`). Rate `meets` only when such content is present *and* its handling is documented.
+  - *Restricted Data Access* (scope `Restricted/sensitive data`): a fully open dataset with **no** access restriction → **`N/A`**. Rate `meets` when access is restricted *and* the conditions are documented.
+  Scoring one of these `does not meet` for a clean, open dataset is a **polarity error** — it would wrongly drag down Accessible/Reusable for exactly the datasets that have nothing to disclose.
+
   **Blended criteria (rubric §4):** when the `Criteria: Structural/Scientific/Provenance/Governance` column lists more than one facet, rate each applicable facet and take the **lower** status.
 
 - **`evidence`**: quote or cite specific metadata fields, field names, or values that support the status. For `"does not meet"`, state explicitly what is absent.
@@ -177,7 +182,7 @@ with what is available.
 
 - **`recommendation`**: if status is `"partial"` or `"does not meet"`, provide specific and actionable guidance — name the field, standard, or format the dataset should adopt, and briefly explain why it matters for AI/ML reuse. Leave as `""` if status is `"meets"` or `"N/A"`.
 
-- **`fair4ai_category`**: copy the item's `FAIR4AI category` value **verbatim** from the checklist (a pipe-separated subset of `Findable | Accessible | Interoperable | Reusable | AI-ready`, or blank for context-only items). Drives the **Traditional FAIR** assessment in Step 6 — do not omit it.
+- **`fair_category`**: copy the item's `FAIR category` value **verbatim** from the checklist (a pipe-separated subset of `Findable | Accessible | Interoperable | Reusable`, or blank for AI-FAIR-only / context-only items). Drives the **Traditional FAIR** assessment in Step 6 — do not omit it.
 
 - **`criteria`**: copy the item's `Criteria: Structural/Scientific/Provenance/Governance` value **verbatim** from the checklist (one or more of `Structural | Scientific | Provenance | Governance`, e.g. `Structural/Scientific` or `Provenance/Governance`, or blank). Drives the **AI-FAIR** assessment in Step 6 — a `Governance` token routes the item to CARE scoring. Copy the `section` value (the Broad category) verbatim too; a `Governance` section still routes to CARE scoring as a backward-compatible fallback. This is what makes AI-readiness measurable — do not omit it.
 
@@ -219,7 +224,7 @@ Construct the full evaluation document using the structure below. Do not omit an
       "evidence": "<specific evidence from metadata>",
       "notes": "<additional context or blank>",
       "recommendation": "<actionable guidance, or blank string>",
-      "fair4ai_category": "<FAIR4AI category value copied verbatim from CSV, e.g. 'Accessible | Reusable', or blank>",
+      "fair_category": "<FAIR category value copied verbatim from CSV, e.g. 'Accessible | Reusable', or blank>",
       "criteria": "<Criteria value copied verbatim from CSV, e.g. 'Structural/Scientific', or blank>"
     }
   ],
@@ -232,7 +237,7 @@ Construct the full evaluation document using the structure below. Do not omit an
 }
 ```
 
-Do **not** estimate the FAIR4AI scores yourself. Instead, build `responses[]` (each with its `status` and `fair4ai_category`) and the rest of the `summary`, write the file (Step 7), then invoke the **`fair4ai-scoring`** skill:
+Do **not** estimate the FAIR4AI scores yourself. Instead, build `responses[]` (each with its `status` and `fair_category`) and the rest of the `summary`, write the file (Step 7), then invoke the **`fair4ai-scoring`** skill:
 
 ```bash
 python scripts/compute_fair4ai_scores.py <output.json>
@@ -240,7 +245,7 @@ python scripts/compute_fair4ai_scores.py <output.json>
 
 The skill computes `summary.fair4ai_scores` deterministically as **two assessments** (per item: `meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A`/blank → excluded; any all-N/A dimension/facet is `null` and omitted from means). All scores are **0–1, where 1 is "most FAIR4AI"**:
 
-- **Traditional FAIR** — from `fair4ai_category` (the `AI-ready` token is ignored): per-dimension mean for `findable`/`accessible`/`interoperable`/`reusable`, then `overall` = equal-weight mean of the non-null dimensions.
+- **Traditional FAIR** — from `fair_category`: per-dimension mean for `findable`/`accessible`/`interoperable`/`reusable`, then `overall` = equal-weight mean of the non-null dimensions.
 - **AI-FAIR** — from `criteria` (with the Governance section as a fallback): facet base scores `structural`/`scientific`/`provenance` and `governance`, all read from `criteria` (an item counts toward `governance` if its `criteria` includes `Governance`, or — for older evaluations — its `section` is `Governance`); then `ml_ready` = structural, `ai_ready_for_task` = mean(structural, scientific), `traceable` = mean(provenance, structural), `care_compliance` = governance, and `overall` = equal-weight mean of the four.
 
 It writes this block back into the file:
@@ -260,7 +265,7 @@ It writes this block back into the file:
 }
 ```
 
-(Two checklist columns drive the two assessments. `FAIR4AI category` → Traditional FAIR: Findable = PID/DOI, rich metadata, keywords, landing page; Accessible = download/API/open formats/license/access conditions; Interoperable = standards (EML, DwC, schema.org, ENVO), machine-readable formats, controlled vocab; Reusable = attribution, provenance, methods docs, license clarity, checksums. `Criteria` → AI-FAIR: Structural = machine-ingestable format/schema; Scientific = fitness for a scientific/ML task; Provenance = traceability of sources and processing; Governance = the CARE/ethical items carrying the `Governance` criteria token, i.e. the Governance broad-category items.)
+(Two checklist columns drive the two assessments. `FAIR category` → Traditional FAIR: Findable = PID/DOI, rich metadata, keywords, landing page; Accessible = download/API/open formats/license/access conditions; Interoperable = standards (EML, DwC, schema.org, ENVO), machine-readable formats, controlled vocab; Reusable = attribution, provenance, methods docs, license clarity, checksums. `Criteria` → AI-FAIR: Structural = machine-ingestable format/schema; Scientific = fitness for a scientific/ML task; Provenance = traceability of sources and processing; Governance = the CARE/ethical items carrying the `Governance` criteria token, i.e. the Governance broad-category items.)
 
 ## Step 7: Write the output, compute scores, and report to the user
 
@@ -270,7 +275,7 @@ It writes this block back into the file:
    ```bash
    python scripts/compute_fair4ai_scores.py <output.json>
    ```
-   This populates `summary.fair4ai_scores` with both assessments (Traditional FAIR + AI-FAIR, each 0–1 with per-dimension/facet `details`). Resolve any `WARNING:` it prints (e.g., a scoreable item missing its `fair4ai_category`, an unrecognized `criteria` value, or an item mapping to nothing) and re-run.
+   This populates `summary.fair4ai_scores` with both assessments (Traditional FAIR + AI-FAIR, each 0–1 with per-dimension/facet `details`). Resolve any `WARNING:` it prints (e.g., a scoreable item missing its `fair_category`, an unrecognized `criteria` value, or an item mapping to nothing) and re-run.
 4. Append an **"evaluated"** line to `<Output directory>/evaluate_progress.md` (see the log format in Step 2), noting the run folder, output file, and whether cached metadata was reused. *(Interactive mode only — in Batch mode the coordinator maintains its own progress tracker.)*
 5. Report to the user:
    - Full path of the output file written (and the run folder)

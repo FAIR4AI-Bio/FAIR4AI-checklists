@@ -66,7 +66,7 @@ unavailable, use `py -3`, never `python3`.
 
 ## Checklist structure
 
-`CHECKLIST.csv` has 9 sections (`Broad categories` column, including **Governance**) and 96 items. Key columns: `Item`, `Proposed definition`, `Criteria: Structural/Scientific/Provenance/Governance` (canonical tokens `Structural`/`Scientific`/`Provenance`/`Governance` and their `/`-joined blends; drives AI-FAIR), `Broad categories`, `Sub category`, `Note`, `Required (core, auto, or recommended)`, `Use-case scope (Condition)`, `Applies-at-level`, `mappedEML`, `mappedDataCite`, `mappedSOSO`, `mappedCroissant`, `Croissant scope`, and `FAIR4AI category` (the FAIR dimension(s) each item counts toward; drives Traditional FAIR). The five governance items carry `Governance` in their `Criteria` column, which drives the AI-FAIR `care_compliance` score; they also remain in the **Governance** broad category, and the scorer still accepts a `Governance` `section` as a backward-compatible fallback.
+`CHECKLIST.csv` has 9 sections (`Broad categories` column, including **Governance**) and 96 items. Key columns: `Item`, `Proposed definition`, `Criteria: Structural/Scientific/Provenance/Governance` (canonical tokens `Structural`/`Scientific`/`Provenance`/`Governance` and their `/`-joined blends; drives AI-FAIR), `Broad categories`, `Sub category`, `Note`, `Required (core, auto, or recommended)`, `Use-case scope (Condition)`, `Applies-at-level`, `mappedEML`, `mappedDataCite`, `mappedSOSO`, `mappedCroissant`, `Croissant scope`, and `FAIR category` (the FAIR dimension(s) each item counts toward; drives Traditional FAIR). The five governance items carry `Governance` in their `Criteria` column, which drives the AI-FAIR `care_compliance` score; they also remain in the **Governance** broad category, and the scorer still accepts a `Governance` `section` as a backward-compatible fallback.
 
 Skip only rows where `Item` is blank. `Use-case scope (Condition)` governs the `N/A` decision (see `RATING_RUBRIC.md` §3).
 
@@ -83,7 +83,7 @@ Skip only rows where `Item` is blank. `Use-case scope (Condition)` governs the `
     "evaluator": { "name": "...", "affiliation": "...", "email": "...", "relationship_to_dataset": "...", "evaluation_purpose": "...", "evaluation_description": "..." }
   },
   "responses": [
-    { "section": "...", "sub_section": "...", "question": "...", "status": "meets|partial|does not meet|N/A", "evidence": "...", "notes": "...", "recommendation": "...", "fair4ai_category": "Accessible | Reusable", "criteria": "Provenance/Structural" }
+    { "section": "...", "sub_section": "...", "question": "...", "status": "meets|partial|does not meet|N/A", "evidence": "...", "notes": "...", "recommendation": "...", "fair_category": "Accessible | Reusable", "criteria": "Structural/Provenance" }
   ],
   "summary": {
     "strengths": ["..."],
@@ -106,7 +106,7 @@ Skip only rows where `Item` is blank. `Use-case scope (Condition)` governs the `
 ```
 
 `summary.fair4ai_scores` is computed by the **`fair4ai-scoring`** skill (`scripts/compute_fair4ai_scores.py`), not written by hand. Per item: `meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A`/blank → excluded; any all-N/A dimension/facet is `null` and omitted from means. Two assessments (both 0–1):
-- **Traditional FAIR** — per-dimension mean from `fair4ai_category` (the `AI-ready` token is ignored); `overall` = equal-weight mean of the non-null dimensions.
+- **Traditional FAIR** — per-dimension mean from `fair_category`; `overall` = equal-weight mean of the non-null dimensions.
 - **AI-FAIR** — facet base scores `structural`/`scientific`/`provenance` and `governance`, all from `criteria` (an item feeds `governance` if its `criteria` includes `Governance`, or — for older evaluations — its `section` is Governance); then `ml_ready` = structural, `ai_ready_for_task` = mean(structural, scientific), `traceable` = mean(provenance, structural), `care_compliance` = governance; `overall` = equal-weight mean of the four. Categories combine by averaging sub-scores.
 
 ## Expected score patterns

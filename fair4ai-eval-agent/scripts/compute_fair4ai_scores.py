@@ -8,8 +8,7 @@ traceable, reproducible scores in the range 0-1, where 1 is "most FAIR4AI".
 It produces TWO complementary assessments:
 
   1. Traditional FAIR -- Findable / Accessible / Interoperable / Reusable, keyed
-     off each response's `fair4ai_category` (the checklist `FAIR4AI category`
-     column). The historical `AI-ready` token is ignored here.
+     off each response's `fair_category` (the checklist `FAIR category` column).
   2. AI-FAIR -- four categories keyed off each response's `criteria` (the
      checklist `Criteria: Structural/Scientific/Provenance/Governance` column)
      and, for backward compatibility, the Governance section:
@@ -51,17 +50,17 @@ import sys
 # Traditional-FAIR dimensions, in fixed display order.
 FAIR_DIMS = ["findable", "accessible", "interoperable", "reusable"]
 
-# Normalized FAIR4AI-category token -> canonical dimension key (or None to ignore).
+# Normalized FAIR-category token -> canonical dimension key.
 # Tokens are matched case-insensitively after stripping non-alphanumerics.
-# The historical "AI-ready" token maps to None: it no longer feeds any score
-# (AI-readiness is now measured by the AI-FAIR assessment via the criteria facets).
+# Any token that is not one of the four FAIR dimensions is reported as unknown.
+# (The deprecated "AI-ready" token was removed from the checklist; AI-readiness is
+# now measured only by the AI-FAIR assessment via the criteria facets, so a stray
+# "AI-ready" now surfaces loudly as an unknown token rather than being swallowed.)
 _FAIR_ALIASES = {
     "findable": "findable",
     "accessible": "accessible",
     "interoperable": "interoperable",
     "reusable": "reusable",
-    "aiready": None,   # AI-ready: ignored by traditional FAIR (not "unknown")
-    "airead": None,    # guard against a common typo
 }
 
 # AI-FAIR facet base scores derived from the `criteria` column, in fixed order.
@@ -94,10 +93,10 @@ def _norm_status(s):
 
 
 def parse_fair_categories(raw):
-    """Parse a pipe-separated FAIR4AI category string into canonical FAIR dims.
+    """Parse a pipe-separated FAIR category string into canonical FAIR dims.
 
-    Returns (keys, unknown_tokens). Blank/None -> ([], []). The `AI-ready` token
-    is silently ignored (it is not an unknown token).
+    Returns (keys, unknown_tokens). Blank/None -> ([], []). Any token that is not
+    one of the four FAIR dimensions is returned as unknown.
     """
     if not raw or not str(raw).strip():
         return [], []
@@ -218,16 +217,24 @@ def score_document(doc):
     warnings = []
     unmapped_scoreable = 0
 
-    for i, resp in enumerate(doc.get("responses", [])):
+    responses = doc.get("responses", []) if isinstance(doc, dict) else []
+    if not isinstance(responses, list):
+        warnings.append("'responses' is not a list; no items scored")
+        responses = []
+
+    for i, resp in enumerate(responses):
+        if not isinstance(resp, dict):
+            warnings.append(f"response[{i}]: not a JSON object (skipped)")
+            continue
         status_key = _norm_status(resp.get("status", ""))
         value = _STATUS_SCORE.get(status_key, "unknown")
         if value == "unknown":
             warnings.append(f"response[{i}]: unrecognized status {resp.get('status')!r} (excluded)")
             continue
 
-        fair_keys, fair_unknown = parse_fair_categories(resp.get("fair4ai_category", ""))
+        fair_keys, fair_unknown = parse_fair_categories(resp.get("fair_category", ""))
         for tok in fair_unknown:
-            warnings.append(f"response[{i}]: unknown FAIR4AI category token {tok!r} (ignored)")
+            warnings.append(f"response[{i}]: unknown FAIR category token {tok!r} (ignored)")
         facets, crit_unknown = parse_criteria(resp.get("criteria", ""))
         for tok in crit_unknown:
             warnings.append(f"response[{i}]: unrecognized criteria value {tok!r} (ignored)")
@@ -338,19 +345,21 @@ def selftest():
 
     doc = {
         "responses": [
-            {"status": "meets", "fair4ai_category": "Findable", "criteria": "Structural", "section": "General Information"},
-            {"status": "partial", "fair4ai_category": "Findable", "criteria": "Structural", "section": "General Information"},
-            {"status": "does not meet", "fair4ai_category": "Findable | Reusable", "criteria": "Scientific", "section": "Guidance"},
-            {"status": "meets", "fair4ai_category": "Accessible | Reusable", "criteria": "Provenance/Structural", "section": "Data Access"},
-            {"status": "partial", "fair4ai_category": "Reusable", "criteria": "Provenance", "section": "Provenance"},
-            {"status": "N/A", "fair4ai_category": "Interoperable", "criteria": "Structural", "section": "Data structure"},
-            {"status": "meets", "fair4ai_category": "AI-ready", "criteria": "Scientific", "section": "Guidance"},  # AI-ready token ignored
-            {"status": "meets", "fair4ai_category": "Reusable", "criteria": "Provenance", "section": "Governance"},
-            {"status": "partial", "fair4ai_category": "Reusable", "criteria": "Provenance", "section": "Governance"},
-            {"status": "meets", "fair4ai_category": "", "criteria": "", "section": "General Information"},  # unmapped scoreable
+            {"status": "meets", "fair_category": "Findable", "criteria": "Structural", "section": "General Information"},
+            {"status": "partial", "fair_category": "Findable", "criteria": "Structural", "section": "General Information"},
+            {"status": "does not meet", "fair_category": "Findable | Reusable", "criteria": "Scientific", "section": "Guidance"},
+            {"status": "meets", "fair_category": "Accessible | Reusable", "criteria": "Provenance/Structural", "section": "Data Access"},
+            {"status": "partial", "fair_category": "Reusable", "criteria": "Provenance", "section": "Provenance"},
+            {"status": "N/A", "fair_category": "Interoperable", "criteria": "Structural", "section": "Data structure"},
+            {"status": "meets", "fair_category": "NotADimension", "criteria": "Scientific", "section": "Guidance"},  # unknown FAIR token: warned + contributes nothing to FAIR
+            {"status": "meets", "fair_category": "Reusable", "criteria": "Provenance", "section": "Governance"},
+            {"status": "partial", "fair_category": "Reusable", "criteria": "Provenance", "section": "Governance"},
+            {"status": "meets", "fair_category": "", "criteria": "", "section": "General Information"},  # unmapped scoreable
         ]
     }
     scores, warnings = score_document(doc)
+    # A non-dimension FAIR token (e.g. the removed "AI-ready") is reported, not swallowed.
+    assert any("unknown FAIR category token" in w and "NotADimension" in w for w in warnings), warnings
     tf = scores["traditional_fair"]
     assert tf["findable"] == round((1 + 0.5 + 0) / 3, 3) == 0.5, tf["findable"]
     assert tf["accessible"] == 1.0, tf["accessible"]
@@ -377,7 +386,7 @@ def selftest():
 
     # a null facet is omitted: with scientific removed, ai_ready_for_task == ml_ready
     doc2 = {"responses": [
-        {"status": "meets", "fair4ai_category": "", "criteria": "Structural", "section": "x"},
+        {"status": "meets", "fair_category": "", "criteria": "Structural", "section": "x"},
     ]}
     s2, _ = score_document(doc2)
     assert s2["ai_fair"]["ml_ready"] == 1.0
@@ -387,8 +396,8 @@ def selftest():
     # governance detected from the `criteria` facet (new schema), not just the section;
     # a Governance-tagged item still feeds its other facets (here: provenance).
     doc3 = {"responses": [
-        {"status": "meets", "fair4ai_category": "", "criteria": "Provenance/Governance", "section": "Provenance"},
-        {"status": "does not meet", "fair4ai_category": "", "criteria": "Governance", "section": "Data Access"},
+        {"status": "meets", "fair_category": "", "criteria": "Provenance/Governance", "section": "Provenance"},
+        {"status": "does not meet", "fair_category": "", "criteria": "Governance", "section": "Data Access"},
     ]}
     s3, w3 = score_document(doc3)
     assert s3["ai_fair"]["care_compliance"] == 0.5, s3["ai_fair"]["care_compliance"]        # (1 + 0)/2
@@ -422,8 +431,18 @@ def main(argv=None):
     if not args.eval_json:
         ap.error("eval_json is required unless --selftest is given")
 
-    with open(args.eval_json, encoding="utf-8") as f:
-        doc = json.load(f)
+    try:
+        with open(args.eval_json, encoding="utf-8") as f:
+            doc = json.load(f)
+    except FileNotFoundError:
+        print(f"ERROR: file not found: {args.eval_json}", file=sys.stderr)
+        return 1
+    except json.JSONDecodeError as e:
+        print(f"ERROR: invalid JSON in {args.eval_json}: {e}", file=sys.stderr)
+        return 1
+    if not isinstance(doc, dict):
+        print(f"ERROR: {args.eval_json} does not contain a JSON object", file=sys.stderr)
+        return 1
 
     scores, warnings = score_document(doc)
 

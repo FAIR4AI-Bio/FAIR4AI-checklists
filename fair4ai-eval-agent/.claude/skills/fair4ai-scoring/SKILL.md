@@ -12,7 +12,7 @@ computed by a deterministic Python script — never estimate them by hand.
 ## When to use
 
 - During `/evaluate-dataset`, after Step 4 (every response has a `status` and a
-  `fair4ai_category`) and before writing/reporting the file, to populate
+  `fair_category`) and before writing/reporting the file, to populate
   `summary.fair4ai_scores`.
 - Any time you need to (re)compute scores for an existing evaluation JSON.
 
@@ -39,10 +39,10 @@ Python-installer probe — no install step is ever needed. If `python` is unavai
 The script reads `responses[]` from the JSON. Each response must carry:
 
 - `status` — one of `meets`, `partial`, `does not meet`, `N/A` (case-insensitive).
-- `fair4ai_category` — copied verbatim from the checklist's `FAIR4AI category`
-  column: one or more of `Findable | Accessible | Interoperable | Reusable |
-  AI-ready`, pipe-separated. Blank for context-only (non-scored) items. Drives the
-  **Traditional FAIR** assessment (the `AI-ready` token is ignored here).
+- `fair_category` — copied verbatim from the checklist's `FAIR category`
+  column: one or more of `Findable | Accessible | Interoperable | Reusable`,
+  pipe-separated. Blank for AI-FAIR-only / context-only (non-scored) items. Drives the
+  **Traditional FAIR** assessment.
 - `criteria` — copied verbatim from the checklist's `Criteria:
   Structural/Scientific/Provenance/Governance` column: one or more of `Structural`,
   `Scientific`, `Provenance`, `Governance` (e.g. `Structural/Scientific`,
@@ -53,7 +53,7 @@ The script reads `responses[]` from the JSON. Each response must carry:
   section is `Governance` (case-insensitive match on `governance`), so evaluations
   produced before Governance became a `criteria` facet still score.
 
-If a scoreable item is missing its `fair4ai_category`, the script excludes it from
+If a scoreable item is missing its `fair_category`, the script excludes it from
 Traditional FAIR; the parser also warns on an unrecognized `criteria` value or a
 scoreable item that maps to nothing at all. Fix the response rather than ignoring
 the warning.
@@ -66,7 +66,7 @@ blank facet) is **excluded**. A dimension/facet with zero scored items is `null`
 The script computes **two assessments**, both in **0–1 where 1 is "most FAIR4AI"**,
 rounded to 3 decimals.
 
-**Traditional FAIR** (from `fair4ai_category`):
+**Traditional FAIR** (from `fair_category`):
 
 - Per-dimension score (`findable`/`accessible`/`interoperable`/`reusable`) = mean of
   contributing item scores; an item mapped to *k* dimensions counts in each.
