@@ -81,7 +81,7 @@ and report are still produced). Pass `--title` / `--subtitle` if custom text was
 Write **`<output dir>/FAIR4AI_summary_report_<LABEL>.md`**, mirroring the structure and
 tone of the reference reports (`example_outputs/` and prior runs). Include:
 
-- **Header** — label/date, checklist (96 items), evaluation model (the model label),
+- **Header** — label/date, checklist (89 items), evaluation model (the model label),
   summarizer model (this session), scoring method (one line), and a **coverage** line:
   n datasets summarized; note any `missing` datasets and, when `dedup=latest`, that
   older re-runs were **superseded** (list them from the AGG `superseded` field).

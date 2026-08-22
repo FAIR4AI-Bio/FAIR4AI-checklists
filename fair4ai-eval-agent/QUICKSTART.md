@@ -63,19 +63,18 @@ The JSON report has three top-level blocks:
 Who ran the evaluation, when, using which source files, and basic dataset identity (title, landing page URL, citation).
 
 ### `responses`
-One object per checklist item, organized by `section` and `sub_section` to match the checklist CSV. Each response contains:
+One object per checklist item, in checklist-CSV order. Each response contains:
 
 ```json
 {
-  "section": "Data Quality",
-  "sub_section": "Integrity",
-  "question": "The dataset implements checksums for file integrity verification.",
+  "item": "File Integrity Verification",
+  "requirement_definition": "The dataset implements checksums for file integrity verification.",
   "status": "does not meet",
   "evidence": "No mention of checksums in any metadata source reviewed.",
   "notes": "",
   "recommendation": "Generate and publish SHA-256 checksums for all released data files...",
   "fair_category": "Reusable",
-  "criteria": "Provenance/Structural"
+  "ai_fair_criteria": "Provenance | Structural"
 }
 ```
 
@@ -91,7 +90,7 @@ One object per checklist item, organized by `section` and `sub_section` to match
 - `overall_assessment` — 2–3 sentence narrative
 - `fair4ai_scores` — reproducible scores in **0–1** (1 = "most FAIR4AI") in two nested blocks computed by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`):
   - `traditional_fair` — Findable, Accessible, Interoperable, Reusable + an `overall`, with per-dimension `details` counts (from each item's `fair_category`)
-  - `ai_fair` — ML-ready, AI-ready for task, Traceable, CARE compliance + an `overall`, with per-facet `components` counts (from each item's `criteria` plus the Governance section)
+  - `ai_fair` — ML-ready, AI-ready for task, Traceable, CARE compliance + an `overall`, with per-facet `components` counts (from each item's `ai_fair_criteria`)
 
 ---
 
@@ -168,7 +167,7 @@ artifact), then asks which model the per-dataset sub-agents should use — defau
 (`claude-haiku-4-5-20251001`). See `example_inputs/` for ready-to-use `.csv` and `.md` samples.
 
 **What it does** — as a **coordinator**, it launches one sub-agent per dataset in parallel (waves of
-5), each running `/evaluate-dataset` non-interactively, validates every result (96 responses, valid
+5), each running `/evaluate-dataset` non-interactively, validates every result (89 responses, valid
 statuses, non-null scores), then **hands off to the `summarize-outputs` skill** for the compiled CSV,
 figure, and report.
 

@@ -126,7 +126,7 @@ def main(argv=None):
         "AI-ready data.   Solid line = mean · dashed = median · dots = individual datasets.")
     model_bit = f" with {args.model}" if args.model else ""
     footnote = args.footnote or (
-        f"n = {n_rows} datasets · FAIR4AI-Bio checklist (96 items) · evaluated {date}"
+        f"n = {n_rows} datasets · FAIR4AI-Bio checklist (89 items) · evaluated {date}"
         f"{model_bit} · scores computed by compute_fair4ai_scores.py")
 
     # --- global font / rc ---

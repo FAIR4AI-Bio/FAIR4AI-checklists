@@ -43,18 +43,20 @@ The script reads `responses[]` from the JSON. Each response must carry:
   column: one or more of `Findable | Accessible | Interoperable | Reusable`,
   pipe-separated. Blank for AI-FAIR-only / context-only (non-scored) items. Drives the
   **Traditional FAIR** assessment.
-- `criteria` — copied verbatim from the checklist's `Criteria:
-  Structural/Scientific/Provenance/Governance` column: one or more of `Structural`,
-  `Scientific`, `Provenance`, `Governance` (e.g. `Structural/Scientific`,
-  `Provenance/Governance`), or blank. Drives the **AI-FAIR** assessment; a
-  `Governance` token feeds the `care_compliance` category.
-- `section` — the checklist **Broad category** verbatim. Retained as a
-  backward-compatible fallback for `care_compliance`: an item also feeds it if its
-  section is `Governance` (case-insensitive match on `governance`), so evaluations
-  produced before Governance became a `criteria` facet still score.
+- `ai_fair_criteria` — copied verbatim from the checklist's `AI FAIR Criteria:
+  Structural | Scientific | Provenance | Governance` column: one or more of `Structural`,
+  `Scientific`, `Provenance`, `Governance` (e.g. `Structural | Scientific`,
+  `Provenance | Governance`), or blank. Drives the **AI-FAIR** assessment; a
+  `Governance` token feeds the `care_compliance` category. (The scorer also reads a
+  legacy `criteria` field if `ai_fair_criteria` is absent.)
+- `section` — *legacy only.* Older evaluations carried the checklist **Broad category**
+  here; the scorer still reads it as a backward-compatible fallback for
+  `care_compliance` (an item also feeds it if its section is `Governance`), but current
+  evaluations no longer emit `section` — governance is fully detectable from
+  `ai_fair_criteria`.
 
 If a scoreable item is missing its `fair_category`, the script excludes it from
-Traditional FAIR; the parser also warns on an unrecognized `criteria` value or a
+Traditional FAIR; the parser also warns on an unrecognized `ai_fair_criteria` value or a
 scoreable item that maps to nothing at all. Fix the response rather than ignoring
 the warning.
 
@@ -72,10 +74,10 @@ rounded to 3 decimals.
   contributing item scores; an item mapped to *k* dimensions counts in each.
 - `overall` = **equal-weight** mean of the (up to four) non-null dimension scores.
 
-**AI-FAIR** (from `criteria`, with the Governance section as a fallback) — first four
-**facet base scores** (means of contributing items): `structural`, `scientific`,
-`provenance`, and `governance`, all read from `criteria` (an item feeds `governance`
-if its `criteria` includes `Governance`, or — for older evaluations — its `section`
+**AI-FAIR** (from `ai_fair_criteria`, with the legacy Governance section as a fallback) —
+first four **facet base scores** (means of contributing items): `structural`, `scientific`,
+`provenance`, and `governance`, all read from `ai_fair_criteria` (an item feeds `governance`
+if its `ai_fair_criteria` includes `Governance`, or — for older evaluations — its `section`
 is Governance). Then the four categories are **equal-weight means of their non-null
 facet components**:
 

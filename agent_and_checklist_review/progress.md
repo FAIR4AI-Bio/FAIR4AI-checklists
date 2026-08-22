@@ -21,7 +21,7 @@ frame is the **Question–Data–Model (Q–D–M) Triangle**; the checklist eva
 
 Two assessments are computed deterministically by `compute_fair4ai_scores.py`:
 - **Traditional FAIR** (from `FAIR category`): findable / accessible / interoperable / reusable.
-- **AI-FAIR** (from `Criteria`): `ml_ready` (structural), `ai_ready_for_task` (structural+scientific),
+- **AI-FAIR** (from `AI FAIR Criteria`): `ml_ready` (structural), `ai_ready_for_task` (structural+scientific),
   `traceable` (provenance+structural), `care_compliance` (governance).
 
 ---
@@ -41,6 +41,7 @@ for the full gap/recommendation detail those iterations produced.)*
 | 6 | v20260726 (no CSV change) | repo clean-up | Aligned rubric labels to the agent's 4 machine statuses; consolidated skills under `.claude/skills/`; single current-format example output | ✅ |
 | 7 | **CHECKLIST.csv** (this repo) | **Governance→Criteria + review scaffolding** (2026-08-07) | **(a)** Migrated the persona review into this folder. **(b)** Moved **Governance** into the `Criteria` column: renamed the header to `Criteria: Structural/Scientific/Provenance/Governance` and appended `/Governance` to the 5 governance rows (kept the `Governance` Broad-category section). **(c)** Rewired `compute_fair4ai_scores.py` so `care_compliance` reads governance from `Criteria` (union with the `Governance` section as a backward-compatible fallback); `--selftest` PASS; both example outputs re-score identically (AI-FAIR 0.746 / 0.603, care 0.5 / 0.3). **(d)** Updated `RATING_RUBRIC.md` (§4d + §6), `CLAUDE.md`, `CHECKLIST_OVERVIEW.md`, `README.md`, and both skills. **(e)** Logged the review proposals below (§3–§5). | ✅ applied + proposals logged |
 | 8 | **CHECKLIST.csv** 16→15 cols (this repo) | **Apply reviewed proposals 4a–4c + full scorer refactor** (2026-08-12) | **(A)** Reworded items 72/73 as conditional disclosure **statements** (good state = `meets`/`N/A`, never `does not meet` for a clean dataset); **(B)** added 72/73 as worked **N/A** examples in `evaluate-dataset/SKILL.md`. **(C)** Filled/re-tagged `Criteria`: 9 *Keywords/Tags*→`Structural/Scientific`, 17 *Related paper*→`Scientific/Provenance`, 47 *controlled vocabulary*→`Structural`, 42 *Labeling*→`Scientific/Provenance` (left 60 *Reporting Issues* as `Provenance`). **(D/P1)** Dropped the sparse `use case` column (folded 7 notes into `Note`), 16→15 cols. **(E/P3-P4)** Canonicalized every blended `Criteria` to **Structural<Scientific<Provenance<Governance**; `Data structure`→`Data Structure`. **(F/P5)** Filled the one blank `Required` (*Preparation*→`core`). **(G/P2)** Renamed column `FAIR4AI category`→`FAIR category`, removed the dead `AI-ready` token, audited all 96 FAIR mappings (21 carried `AI-ready`: 6 kept another dim, 11 retagged `Reusable`, 4 left blank as pure-ML). **Refactored the scorer**: renamed JSON field `fair4ai_category`→`fair_category`, removed legacy AI-ready code, hardened exception handling, updated `--selftest` (PASS). Synced all docs/skills/rubric. Example outputs pending regeneration (old field name superseded). | ✅ applied (examples pending regen) |
+| 9 | **CHECKLIST.csv** restructured into a true rating instrument, **96→89 items** (this repo) | **Eric's hand-edit (with Gemini) + agent/rubric/scorer/docs sync** (2026-08-21) | Eric rebuilt the CSV: consolidated overlapping items 96→89, renamed `Proposed definition`→`Requirement Definition`, **added four per-item rating columns** `Scoring: Meets / Partial / Does Not Meet / NA` (item-specific rubric text, previously only general in `RATING_RUBRIC.md`), renamed the criteria header to `AI FAIR Criteria: Structural \| Scientific \| Provenance \| Governance` with values now ` \| `-separated, and **removed** `Use-case scope (Condition)`, `Required (…)`, and `Applies-at-level`. **Agent sync:** made the per-item `Scoring:` cells the authoritative item-level rubric (RATING_RUBRIC.md → general framework), keyed the **N/A rule off `Scoring: NA`**, and changed the `responses[]` schema to `item, requirement_definition, status, evidence, notes, recommendation, fair_category, ai_fair_criteria` — **dropping `section`/`sub_section`/`question`**. Verified `care_compliance` survives dropping `section` (all governance items carry the `Governance` facet; scorer keeps a legacy `section` fallback). **Scorer:** reads `ai_fair_criteria` (falls back to legacy `criteria`); `--selftest` PASS (new + legacy schema). Synced `RATING_RUBRIC.md`, all five skills, `CLAUDE.md`, `README.md`, `QUICKSTART.md`, `make_fair4ai_figure.py`. **Regenerated both example outputs** via full live re-run (89 items, new schema). | ✅ applied |
 
 ---
 
@@ -165,6 +166,46 @@ siblings, which are all `core`); confirm the tier.
 
 ---
 
+## 4e. Iteration 9 — CHECKLIST.csv restructured into a rating instrument (96 → 89)
+
+**Decision (with Eric, via AskUserQuestion):** (1) the per-item `Scoring:` columns are the
+**authoritative item-level rubric**; `RATING_RUBRIC.md` is the general framework. (2) Regenerate both
+example outputs with a **full live re-run**. (3) New `responses[]` field set:
+`item, requirement_definition, status, evidence, notes, recommendation, fair_category, ai_fair_criteria`
+— **drop `section`/`sub_section`** (and the old `question`), after verifying they are not needed for scoring.
+
+**What Eric changed in the CSV** (source of truth — not edited by the agent):
+- Consolidated overlapping items **96 → 89**.
+- Renamed `Proposed definition` → `Requirement Definition`.
+- **Added four per-item rating columns** — `Scoring: Meets`, `Scoring: Partial`,
+  `Scoring: Does Not Meet`, `Scoring: NA` — carrying item-specific guidance for each status.
+- Renamed the criteria header to `AI FAIR Criteria: Structural | Scientific | Provenance | Governance`;
+  criteria **values now use ` | `** as the separator (was `/`).
+- **Removed** `Use-case scope (Condition)`, `Required (core, auto, or recommended)`, `Applies-at-level`.
+- 9 Broad categories unchanged (General Information, Provenance, Data Access, Governance, Guidance and
+  Recommendations, Source Data, Data Structure, Data Processing, Data Quality).
+
+**Sync applied across the agent:**
+- **Scorer** (`compute_fair4ai_scores.py`): reads `ai_fair_criteria` (falls back to legacy `criteria`);
+  governance still detected via `_criteria_has_governance(...)` with the legacy `Governance` `section`
+  kept only as a backward-compatible fallback. Docstrings updated; `--selftest` extended with a
+  new-schema case (`ai_fair_criteria`, ` | `, no `section` → `care_compliance` correct) and a legacy
+  case — **PASS**. Confirmed dropping `section` does **not** break `care_compliance`: every
+  governance item carries the `Governance` facet in `ai_fair_criteria`.
+- **Rubric**: per-item `Scoring:` cells named as authoritative (per-item cell wins); **N/A rule keyed
+  off `Scoring: NA`** (the deleted `Use-case scope`/`Required` references removed); §4 rebased on the
+  new header + ` | `; §5 worked examples rebased on real item names; §6 field set updated.
+- **Skills**: `evaluate-dataset` (Step 3 column map, Step 5 rating framework, Step 6 JSON, field-copy
+  specs, explainer), `fair4ai-scoring`, `batch-evaluate-datasets` (validation + counts),
+  `summarize-outputs` — all 96→89, new field set, `section`/`sub_section` dropped (legacy-only in the
+  scorer). `retrieve-metadata` unchanged.
+- **Docs**: `CLAUDE.md`, `README.md`, `QUICKSTART.md` (counts, checklist-structure prose, output
+  schema); `make_fair4ai_figure.py` caption 96→89. `CHECKLIST_OVERVIEW.md` needed no change.
+- **Example outputs regenerated** via full live re-run of both datasets (NEON Ground Beetles +
+  TreeOfLife-200M) — 89 items each in the new schema. *(Scores recorded in "Where things stand" below.)*
+
+---
+
 ## 5. Planned next steps
 
 1. **Confirm the Iteration-8 flagged mappings** (§4d) — Eric to accept/override the ~20 judgment-call
@@ -198,3 +239,41 @@ evidence of how the current instrument behaves. To be run in a later session.
    check whether the new Governance/Criteria facet improved A4/A5 coverage.
 4. **Emit proposals** — concrete checklist/rubric edits (new items, re-tags, rubric clarifications),
    appended here as the next iteration and cross-referenced into `gap_analysis_results.md`.
+
+---
+---
+
+Where things stand (through Iteration 9, 2026-08-21):
+
+  - Checklist matured from metadata template → evaluation instrument, then (Iter 9) into a true
+    **rating instrument**: 96 → **89 items**, each row now carrying its own `Scoring: Meets / Partial /
+    Does Not Meet / NA` guidance. The per-item `Scoring:` cells are the authoritative item-level rubric;
+    `RATING_RUBRIC.md` is the general framework.
+  - Governance became a Criteria facet (Iter 7) and is now fully self-contained in `ai_fair_criteria`
+    (Iter 9 verified `care_compliance` no longer depends on the `section` field; the scorer keeps a
+    legacy `Governance`-section fallback for old JSONs only).
+  - Iteration 8 applied a large batch of reviewed proposals (72/73 polarity fix, Criteria re-tags,
+    column trims, `FAIR4AI category`→`FAIR category`, AI-ready token removal, scorer refactor).
+  - Iteration 9 restructured the CSV (Eric, with Gemini) and synced everything downstream:
+    - Renamed `Proposed definition`→`Requirement Definition`; added the four `Scoring:` columns;
+      renamed the criteria header to `AI FAIR Criteria: …` with ` | ` values; removed
+      `Use-case scope`, `Required`, and `Applies-at-level`.
+    - New `responses[]` schema: `item, requirement_definition, status, evidence, notes,
+      recommendation, fair_category, ai_fair_criteria` — `section`/`sub_section`/`question` dropped.
+    - Scorer reads `ai_fair_criteria` (legacy `criteria` fallback); N/A rule keyed off `Scoring: NA`;
+      `--selftest` PASS (new + legacy). All skills/docs/rubric synced; figure caption 96→89.
+    - **Regenerated both example outputs** via full live re-run (89 items, new schema):
+      - **TreeOfLife-200M** — Overall FAIR **0.781** (F 0.750 / A 0.812 / I 0.867 / R 0.696),
+        Overall AI-FAIR **0.714** (ml_ready 0.770, ai_ready_for_task 0.731, traceable 0.754,
+        care_compliance 0.600); scorer ran clean, no warnings.
+      - **NEON Ground Beetles** — *(scores pending; live re-run in progress)*.
+
+  Next steps (from §5 + §4d)
+
+  1. Eric confirms the ~20 flagged FAIR category judgment calls in §4d (e.g. whether Is machine ready stays Interoperable, whether Splits/Supported ML Tasks/Benchmark results stay blank, whether governance/CARE items should also count toward Reusable), plus the Preparation → core tier. *(Carried over from Iter 8; note the item-name references predate the 96→89 consolidation.)*
+  2. ✅ Example outputs regenerated (Iter 9) — now on the 89-item checklist and new schema; unblocks the archetype review.
+  3. Run the scaffolded archetype-driven review round (A1–A7 in personas_and_archetypes.md): map archetypes → score categories, read the regenerated outputs through each lens, do a per-archetype gap pass, and emit proposals as the next iteration.
+  4. Sync the checklist into the Google Sheet mirror.
+  5. Deferred/future: revisit FD-1 (controlled ML-task vocabularies); scope P1 gaps R6–R9 (sensor block, taxonomic backbone, sampling design, record-level annotation provenance) as new rated criteria.
+
+  The immediate follow-up is the archetype-driven review round (#3), now unblocked by the regenerated example outputs. Eric's §4d sign-off (#1) can proceed in parallel.

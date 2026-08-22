@@ -9,13 +9,14 @@ It produces TWO complementary assessments:
 
   1. Traditional FAIR -- Findable / Accessible / Interoperable / Reusable, keyed
      off each response's `fair_category` (the checklist `FAIR category` column).
-  2. AI-FAIR -- four categories keyed off each response's `criteria` (the
-     checklist `Criteria: Structural/Scientific/Provenance/Governance` column)
-     and, for backward compatibility, the Governance section:
+  2. AI-FAIR -- four categories keyed off each response's `ai_fair_criteria` (the
+     checklist `AI FAIR Criteria: Structural | Scientific | Provenance | Governance`
+     column; older evaluations use the field name `criteria`) and, for backward
+     compatibility, the Governance section:
         - ml_ready          = the structural facet score
         - ai_ready_for_task = mean(structural, scientific) facet scores
         - traceable         = mean(provenance, structural) facet scores
-        - care_compliance   = the governance score (items whose `criteria`
+        - care_compliance   = the governance score (items whose criteria value
                               includes "Governance", OR -- for older evaluations
                               produced before Governance became a Criteria facet
                               -- whose section/Broad category is "Governance")
@@ -118,11 +119,13 @@ def parse_fair_categories(raw):
 def parse_criteria(raw):
     """Parse a Criteria string into canonical facet keys via substring matching.
 
-    Robust to the checklist's historically messy variants (casing, trailing `?`,
-    parentheticals, and `/`, `+`, or comma separators, e.g. "Structural/Scientific",
-    "scientific + structural", "Provenance, could be scientific",
-    "structural (only needed for NLP)"). Returns (facets, unknown_tokens); a
-    non-blank value that matches no facet is reported as unknown.
+    Robust to the checklist's variants (casing, trailing `?`, parentheticals, and
+    ` | `, `/`, `+`, or comma separators, e.g. "Structural | Scientific" (the current
+    checklist convention), "Structural/Scientific", "scientific + structural",
+    "Provenance, could be scientific", "structural (only needed for NLP)"). Facet
+    words are matched as substrings, so any of these separators resolves correctly.
+    Returns (facets, unknown_tokens); a non-blank value that matches no facet is
+    reported as unknown.
 
     "Governance" is a recognized token (it routes to care_compliance via
     _criteria_has_governance, not to the three scoring facets), so a value that
@@ -235,13 +238,16 @@ def score_document(doc):
         fair_keys, fair_unknown = parse_fair_categories(resp.get("fair_category", ""))
         for tok in fair_unknown:
             warnings.append(f"response[{i}]: unknown FAIR category token {tok!r} (ignored)")
-        facets, crit_unknown = parse_criteria(resp.get("criteria", ""))
+        # `ai_fair_criteria` is the current field name; `criteria` is accepted as a
+        # backward-compatible fallback for evaluations produced before the rename.
+        crit_raw = resp.get("ai_fair_criteria") or resp.get("criteria", "")
+        facets, crit_unknown = parse_criteria(crit_raw)
         for tok in crit_unknown:
             warnings.append(f"response[{i}]: unrecognized criteria value {tok!r} (ignored)")
-        # Governance is primarily a `criteria` facet now; fall back to the Governance
-        # section so evaluations produced before that change still score care_compliance.
-        # The union adds each qualifying item to the gov bucket exactly once.
-        is_gov = _criteria_has_governance(resp.get("criteria", "")) or _is_governance(resp.get("section", ""))
+        # Governance is primarily an `ai_fair_criteria` facet now; fall back to the
+        # Governance section so evaluations produced before that change still score
+        # care_compliance. The union adds each qualifying item to the gov bucket once.
+        is_gov = _criteria_has_governance(crit_raw) or _is_governance(resp.get("section", ""))
 
         if not (fair_keys or facets or is_gov):
             # An item that maps to no FAIR dimension, no criteria facet, and is not
@@ -405,6 +411,22 @@ def selftest():
     assert s3["ai_fair"]["components"]["provenance"]["n_scored"] == 1, "Provenance/Governance must still feed provenance"
     assert not any("unrecognized criteria" in w for w in w3), w3   # 'Governance' must not warn as unknown
     assert not any("excluded from all assessments" in w for w in w3), w3  # governance-only item is mapped
+
+    # new schema: the field is `ai_fair_criteria` with a ` | ` separator and NO `section`.
+    # Governance must be detected from the criteria value alone (no section fallback),
+    # and a ` | `-joined value must feed every facet it lists.
+    doc4 = {"responses": [
+        {"status": "meets", "fair_category": "Reusable",
+         "ai_fair_criteria": "Provenance | Governance"},
+        {"status": "partial", "fair_category": "Accessible | Reusable",
+         "ai_fair_criteria": "Scientific | Provenance | Governance"},
+    ]}
+    s4, w4 = score_document(doc4)
+    assert s4["ai_fair"]["care_compliance"] == 0.75, s4["ai_fair"]["care_compliance"]   # (1 + 0.5)/2
+    assert s4["ai_fair"]["components"]["provenance"]["n_scored"] == 2, s4["ai_fair"]["components"]["provenance"]
+    assert s4["ai_fair"]["components"]["scientific"]["n_scored"] == 1, "` | ` value must feed scientific"
+    assert not any("unrecognized criteria" in w for w in w4), w4
+    assert not any("excluded from all assessments" in w for w in w4), w4
 
     # idempotency
     scores_again, _ = score_document(doc)

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working in this
 
 ## What this agent does
 
-Evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the FAIR4AI-Bio checklist. Reads a dataset landing page or local metadata files, rates 96 checklist items (`meets | partial | does not meet | N/A`, per `RATING_RUBRIC.md`), and produces a structured JSON report with **two reproducible assessments** — **Traditional FAIR** (Findable, Accessible, Interoperable, Reusable + overall) and **AI-FAIR** (ml_ready, ai_ready_for_task, traceable, care_compliance + overall) — each score in **0–1, where 1 is "most FAIR4AI"**. Scores are computed deterministically by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`), not estimated. Reporting the two side by side operationalizes the thesis that FAIR is necessary but not sufficient for AI-ready data.
+Evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the FAIR4AI-Bio checklist. Reads a dataset landing page or local metadata files, rates 89 checklist items (`meets | partial | does not meet | N/A`, per each item's per-row `Scoring:` guidance and the general framework in `RATING_RUBRIC.md`), and produces a structured JSON report with **two reproducible assessments** — **Traditional FAIR** (Findable, Accessible, Interoperable, Reusable + overall) and **AI-FAIR** (ml_ready, ai_ready_for_task, traceable, care_compliance + overall) — each score in **0–1, where 1 is "most FAIR4AI"**. Scores are computed deterministically by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`), not estimated. Reporting the two side by side operationalizes the thesis that FAIR is necessary but not sufficient for AI-ready data.
 
 ## Skills
 
@@ -14,7 +14,7 @@ Five skills under `.claude/skills/` (one directory each), with clean handoffs:
   under `retrieved_metadata/<short_name>/` so it can be reused without re-fetching.
 - **`evaluate-dataset`** — the single-dataset evaluation. Establishes a run folder, skips datasets
   already evaluated (unless a re-run is requested), reuses downloaded metadata before calling
-  `retrieve-metadata`, rates the 96 items, and scores via `fair4ai-scoring`.
+  `retrieve-metadata`, rates the 89 items, and scores via `fair4ai-scoring`.
 - **`fair4ai-scoring`** — deterministic 0–1 scoring (`scripts/compute_fair4ai_scores.py`).
 - **`batch-evaluate-datasets`** — the batch **coordinator**: orchestrates one `evaluate-dataset`
   sub-agent per dataset, then hands off to `summarize-outputs`.
@@ -66,9 +66,9 @@ unavailable, use `py -3`, never `python3`.
 
 ## Checklist structure
 
-`CHECKLIST.csv` has 9 sections (`Broad categories` column, including **Governance**) and 96 items. Key columns: `Item`, `Proposed definition`, `Criteria: Structural/Scientific/Provenance/Governance` (canonical tokens `Structural`/`Scientific`/`Provenance`/`Governance` and their `/`-joined blends; drives AI-FAIR), `Broad categories`, `Sub category`, `Note`, `Required (core, auto, or recommended)`, `Use-case scope (Condition)`, `Applies-at-level`, `mappedEML`, `mappedDataCite`, `mappedSOSO`, `mappedCroissant`, `Croissant scope`, and `FAIR category` (the FAIR dimension(s) each item counts toward; drives Traditional FAIR). The five governance items carry `Governance` in their `Criteria` column, which drives the AI-FAIR `care_compliance` score; they also remain in the **Governance** broad category, and the scorer still accepts a `Governance` `section` as a backward-compatible fallback.
+`CHECKLIST.csv` has 9 sections (`Broad categories` column, including **Governance**) and 89 items. Key columns: `Item`, `Requirement Definition`, four per-item rating-guidance columns `Scoring: Meets`, `Scoring: Partial`, `Scoring: Does Not Meet`, `Scoring: NA` (the **authoritative item-level rubric** — each cell tells you exactly what qualifies for that status on that item), `FAIR category` (the FAIR dimension(s) each item counts toward; drives Traditional FAIR), `AI FAIR Criteria: Structural | Scientific | Provenance | Governance` (canonical tokens `Structural`/`Scientific`/`Provenance`/`Governance` and their ` | `-joined blends; drives AI-FAIR), `Broad categories`, `Sub category`, `Note`, `mappedEML`, `mappedDataCite`, `mappedSOSO`, `mappedCroissant`, and `Croissant scope`. Governance items carry `Governance` in their `AI FAIR Criteria` column, which drives the AI-FAIR `care_compliance` score (the scorer also accepts a `Governance` `section` as a backward-compatible fallback for older evaluation files).
 
-Skip only rows where `Item` is blank. `Use-case scope (Condition)` governs the `N/A` decision (see `RATING_RUBRIC.md` §3).
+Skip only rows where `Item` is blank. The per-item `Scoring: NA` cell governs the `N/A` decision (see `RATING_RUBRIC.md` §3 for the general framework).
 
 ## Output JSON schema
 
@@ -83,7 +83,7 @@ Skip only rows where `Item` is blank. `Use-case scope (Condition)` governs the `
     "evaluator": { "name": "...", "affiliation": "...", "email": "...", "relationship_to_dataset": "...", "evaluation_purpose": "...", "evaluation_description": "..." }
   },
   "responses": [
-    { "section": "...", "sub_section": "...", "question": "...", "status": "meets|partial|does not meet|N/A", "evidence": "...", "notes": "...", "recommendation": "...", "fair_category": "Accessible | Reusable", "criteria": "Structural/Provenance" }
+    { "item": "...", "requirement_definition": "...", "status": "meets|partial|does not meet|N/A", "evidence": "...", "notes": "...", "recommendation": "...", "fair_category": "Accessible | Reusable", "ai_fair_criteria": "Structural | Provenance" }
   ],
   "summary": {
     "strengths": ["..."],
@@ -107,7 +107,7 @@ Skip only rows where `Item` is blank. `Use-case scope (Condition)` governs the `
 
 `summary.fair4ai_scores` is computed by the **`fair4ai-scoring`** skill (`scripts/compute_fair4ai_scores.py`), not written by hand. Per item: `meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A`/blank → excluded; any all-N/A dimension/facet is `null` and omitted from means. Two assessments (both 0–1):
 - **Traditional FAIR** — per-dimension mean from `fair_category`; `overall` = equal-weight mean of the non-null dimensions.
-- **AI-FAIR** — facet base scores `structural`/`scientific`/`provenance` and `governance`, all from `criteria` (an item feeds `governance` if its `criteria` includes `Governance`, or — for older evaluations — its `section` is Governance); then `ml_ready` = structural, `ai_ready_for_task` = mean(structural, scientific), `traceable` = mean(provenance, structural), `care_compliance` = governance; `overall` = equal-weight mean of the four. Categories combine by averaging sub-scores.
+- **AI-FAIR** — facet base scores `structural`/`scientific`/`provenance` and `governance`, all from `ai_fair_criteria` (an item feeds `governance` if its `ai_fair_criteria` includes `Governance`, or — for older evaluations — its `section` is Governance); then `ml_ready` = structural, `ai_ready_for_task` = mean(structural, scientific), `traceable` = mean(provenance, structural), `care_compliance` = governance; `overall` = equal-weight mean of the four. Categories combine by averaging sub-scores.
 
 ## Expected score patterns
 

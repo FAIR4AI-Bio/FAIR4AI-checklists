@@ -88,3 +88,92 @@ way to do so.
 - NeurIPS 2026 RAI metadata requirement: https://blog.neurips.cc/2026/05/04/responsible-ai-metadata-requirements-for-the-evaluations-and-datasets-track-neurips-2026/
 - OpenML — tasks: https://docs.openml.org/examples/30_extended/tasks_tutorial/
 - OpenML — basic concepts: https://github.com/openml/OpenML/wiki/Basic-Concepts
+
+
+
+--- 
+---
+
+# Notes on aligning checklist format with other similar efforts (8/19/2026)
+
+/plan The current iteration of the checklist is more of ***data dictionary definitions*** (it defines the entities/fields), whereas a checklist needs an ***evaluative criterion*** (it tests whether the dataset satisfies specific standards).
+
+make a plan to update the checklist to better align with how established FAIR and AI-Readiness frameworks handle this. Specifically, use the information in the "Item" and "Proposed definition" columns to create three new columns at the beginning of the .csv. The new columns should be "Label", "Criterion", and "Evaluation guidance". All content in the columns should be sentence case. Use the guidance below on how to populate these three new columns from the existing data in the spreadsheet.  
+
+---
+
+### How Established FAIR & AI-Readiness Frameworks Handle This
+
+#### 1. RDA FAIR Data Maturity Model (RDA FDMM)
+
+The Research Data Alliance standardizes indicators by pairing a **concise label** with an **evaluative declarative statement**:
+
+* **Indicator Label:** `RDA-R1.2-01M` (Provenance metadata)
+* **Indicator Criterion:** *"Metadata includes information on the lineage and provenance of the data."*
+* **Evaluation Guidance:** Specifies that compliance requires identifying data sources, processing history, and contributors.
+
+#### 2. ESIP AI-Ready Environmental Data Checklist
+
+The Earth Science Information Partners (ESIP) data readiness framework uses **question-based or condition-based criteria** specifically tailored for training pipelines:
+
+* **Item Label:** `Data Lineage & Provenance`
+* **Criterion/Question:** *"Is the provenance of the dataset tracked and documented, including source sensor/model and processing pipelines?"*
+* **Scoring:** Yes / Partial / No / NA.
+
+#### 3. FAIRplus / F-UJI Automated Metrics
+
+FAIRplus and FAIRsFAIR separate the **Item Name** (human scannable) from the **Requirement Rule** and the **Maturity Rubric** (how to score):
+
+* **Item:** `Funding Reference`
+* **Requirement:** *"Dataset metadata explicitly specifies funding bodies and grant identifiers using persistent identifiers or structured text."*
+
+---
+
+### Recommended Structure for FAIR4AI-Bio
+
+For a 96-item checklist evaluated by human reviewers, the most effective standard is a **Declarative Requirement Pattern**.
+
+* **Item Label:** A short, scannable noun phrase (2–4 words).
+* **Definition / Requirement:** A single declarative assertion stating what the dataset metadata or payload must contain.
+* **Scoring Rubric (Internal or Tooltip):** What constitutes *Meets*, *Partial*, and *Does not meet*.
+
+---
+
+### Examples Across Different Dimensions of FAIR4AI-Bio
+
+| Item Label | Definition / Requirement Statement | Meets | Partial | Does Not Meet | NA |
+| --- | --- | --- | --- | --- | --- |
+| **Funder Information** | Dataset metadata identifies funding organizations and associated award or grant identifiers. | Funder name and grant/award ID (or ROR/Crossref PID) are explicitly documented. | Funder name is mentioned in unstructured text without award ID or PID. | No funding or financial sponsor information is documented. | Dataset was produced without external funding or grants. |
+| **Taxonomic Harmonization** | Biological entities are mapped to a standardized taxonomic authority (e.g., GBIF Backbone, ITIS, NCBI). | Valid scientific names and standard taxon keys/URIs are supplied for all records. | Scientific names are provided but contain uncurated typos, lack taxon IDs, or mix authorities. | Taxonomic names are informal, missing, or inconsistent with no authority mapping. | Dataset contains non-organismal environmental observations. |
+| **Label Quality & Annotation** | Supervised target labels include class definitions, quality metrics, and annotation protocols. | Machine-readable label ontology, class balance statistics, and validation protocols are provided. | Class labels are present, but documentation lacks bounding/segmentation guidelines or QA stats. | Raw observations provided without annotation definitions or ground-truth documentation. | Dataset intended strictly for unsupervised pre-training or uncurated raster feeds. |
+| **Spatial-Temporal Resolution** | Metadata explicitly specifies spatial coordinate reference systems (CRS), bounding box, and temporal sampling frequency. | Standardized CRS (e.g., EPSG:4326), spatial precision, and ISO 8601 timestamps are present across all records. | Spatial/temporal bounds exist in descriptive text but are not standardized or machine-actionable. | Georeferences or timestamps are missing, ambiguous, or lacking datum/CRS. | Data have no physical spatiotemporal attribute. |
+
+---
+
+### Rules of Thumb for Drafting the Remaining Items
+
+1. **Avoid purely naming the concept:** Instead of `"Data format"`, use `"Standardized Data Formats"`.
+2. **Start definitions with active verbs/conditions:** Use phrasing such as:
+* *"Dataset metadata specifies..."*
+* *"Data files adhere to..."*
+* *"Labels are mapped to..."*
+* *"Pipeline dependencies and environment specifications are provided for..."*
+
+
+3. **Clarify the line between `Meets` and `Partial`:**
+* **Meets:** Fully structured, standardized, and machine-actionable.
+* **Partial:** Present in human-readable or unstructured text (e.g., embedded in a PDF paper or freeform README), but missing standard vocabularies or identifiers.
+* **Does not meet:** Absent, ambiguous, or proprietary/inaccessible.
+* **NA:** The specific constraint does not logically apply to the dataset type.
+
+Update the progress.md document to document this plan to update the checklist, and the tasks that need to be tracked.
+
+
+Notes from Eric 8/21/2026 - I iterated with Gemini and edited the checklist by hand. I did the following
+1. I reviewed all items in the checklist personally
+2. Marked items that overlapped in content - iterated with Gemini to either consolidate those items or refine their definitions and requirements to be orthogonal
+3. Updated the categorizations based on the new requirement definitions
+4. reordered the items to be more logical to a human reading the checklist, with high level overview items at the top of the list. 
+
+These intermediate versions of the checklist are stored in /agent_and_checklist_review folder (this folder) with timestamps
+

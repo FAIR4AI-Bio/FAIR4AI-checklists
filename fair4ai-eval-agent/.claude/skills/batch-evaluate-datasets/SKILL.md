@@ -146,7 +146,7 @@ After each wave completes, update `batch_evaluate_progress.md` (✅ / ⚠️ / �
 progress survives a lost session.
 
 > **Stopped-but-complete:** if a sub-agent is stopped or errors mid-run but has **already written a
-> complete, valid 96-item evaluation JSON** (verify per the Validation checklist), keep that file and
+> complete, valid 89-item evaluation JSON** (verify per the Validation checklist), keep that file and
 > mark the dataset ✅ — do not needlessly re-run it. This happened in real reference runs.
 
 ## Step 7: Collect and validate every result
@@ -154,7 +154,7 @@ progress survives a lost session.
 For each expected `dataset_short_name`, confirm its JSON exists in `<run folder>/evaluation_results/`
 and passes the **Validation checklist**:
 
-- exactly **96** entries in `responses[]`;
+- exactly **89** entries in `responses[]`;
 - every `status` is one of `meets | partial | does not meet | N/A`;
 - `summary.fair4ai_scores.traditional_fair.overall` and `.ai_fair.overall` are present and **non-null**.
 
@@ -217,7 +217,7 @@ parse without re-opening each file — a JSON object with these fields:
 {
   "short_name": "neon_beetles",
   "output_path": "<run folder>/evaluation_results/FAIR4AI_eval_neon_beetles_2026-07-30_142530.json",
-  "n_responses": 96,
+  "n_responses": 89,
   "meets": 45, "partial": 18, "does_not_meet": 16, "na": 17,
   "overall_fair": 0.778, "overall_ai_fair": 0.779,
   "confidence": "high",
@@ -233,9 +233,9 @@ thin or retrieval largely failed; scores are provisional).
 
 A dataset's evaluation JSON is **valid** only if all hold:
 - [ ] the file exists at the expected path;
-- [ ] `responses[]` has exactly **96** entries;
+- [ ] `responses[]` has exactly **89** entries;
 - [ ] every response `status` ∈ `{meets, partial, does not meet, N/A}`;
-- [ ] every response carries a `fair_category`, a `criteria`, and a `section` (Broad category verbatim);
+- [ ] every response carries a `fair_category` and an `ai_fair_criteria` (both copied verbatim from the CSV);
 - [ ] `summary.fair4ai_scores.traditional_fair.overall` and `.ai_fair.overall` both exist and are non-null;
 - [ ] re-running `compute_fair4ai_scores.py` on it prints **no `WARNING:`**.
 
@@ -248,7 +248,7 @@ A dataset's evaluation JSON is **valid** only if all hold:
 **Input list:** <dataset list path>  →  normalized to `batch_datasets_<DATE>.csv`
 **Run date:** <DATE>
 **Evaluation model:** <chosen model>  ·  **Coordinator:** <session model>
-**Checklist:** <checklist file> (96 items)  ·  **Wave size:** <n>
+**Checklist:** <checklist file> (89 items)  ·  **Wave size:** <n>
 
 Status legend: ⏳ pending · ✅ complete · ⚠️ needs attention · ⛔ failed
 
