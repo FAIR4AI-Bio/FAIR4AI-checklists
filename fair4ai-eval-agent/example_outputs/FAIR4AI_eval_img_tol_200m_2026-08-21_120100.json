@@ -1,0 +1,1015 @@
+{
+  "session": {
+    "evaluation_date": "2026-08-21",
+    "ai_model": "claude-opus-4-8",
+    "evaluation_method": "FAIR4AI-Bio checklist (89 items) evaluated from cached metadata fixtures in example_inputs/example_metadata/img_tol_200m/ (Hugging Face API record, dataset card README, landing page, Croissant metadata); no live network fetch during rating.",
+    "source_files": [
+      "example_inputs/example_metadata/img_tol_200m/hf_api_dataset.md",
+      "example_inputs/example_metadata/img_tol_200m/README.md",
+      "example_inputs/example_metadata/img_tol_200m/landing_page.md",
+      "example_inputs/example_metadata/img_tol_200m/croissant_metadata.md",
+      "https://huggingface.co/datasets/imageomics/TreeOfLife-200M",
+      "https://huggingface.co/api/datasets/imageomics/TreeOfLife-200M/croissant"
+    ],
+    "dataset": {
+      "title": "TreeOfLife-200M",
+      "product_id": "imageomics/TreeOfLife-200M",
+      "repository_url": "https://huggingface.co/datasets/imageomics/TreeOfLife-200M",
+      "landing_page_url": "https://huggingface.co/datasets/imageomics/TreeOfLife-200M",
+      "citation": "HDR Imageomics Institute. TreeOfLife-200M. Hugging Face. https://doi.org/10.57967/hf/8980 (see also BioCLIP 2: Emergent Properties from Scaling Hierarchical Contrastive Learning)."
+    },
+    "evaluator": {
+      "name": "FAIR4AI Evaluation Agent",
+      "affiliation": "FAIR4AI-Bio",
+      "email": "",
+      "relationship_to_dataset": "third-party evaluator",
+      "evaluation_purpose": "Reproducible example evaluation for the FAIR4AI-Bio checklist agent (regression fixture).",
+      "evaluation_description": "Automated FAIR4AI-Bio evaluation of the TreeOfLife-200M image corpus from cached metadata fixtures."
+    }
+  },
+  "responses": [
+    {
+      "item": "Descriptive Dataset Title",
+      "requirement_definition": "Dataset has a clear, human-readable, descriptive title distinct from repository slugs or file path names.",
+      "status": "meets",
+      "evidence": "\"TreeOfLife-200M\" is a human-readable, meaningful title (Tree of Life, ~200M images) and the dataset card provides a descriptive overview subtitle rather than a bare file path.",
+      "notes": "",
+      "recommendation": "None; the title is descriptive.",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Comprehensive Dataset Abstract",
+      "requirement_definition": "Dataset metadata includes a scientific description, summary, or abstract describing background, methods, scope, and findings.",
+      "status": "meets",
+      "evidence": "The card gives a comprehensive description: scale (233M images, 933,798 taxa), four source providers, purpose (foundation-model training), curation pipeline, and coverage statistics.",
+      "notes": "",
+      "recommendation": "None; abstract is comprehensive.",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Dataset Purpose and Scope",
+      "requirement_definition": "Dataset documentation explicitly defines the primary scientific objectives, ecological research questions, target biological/environmental phenomena, and collection rationale.",
+      "status": "meets",
+      "evidence": "Purpose is explicit: training biology foundation models (BioCLIP 2 and BioCLIP 2.5 Huge) for computer vision, with defined scope (933,798 taxa across four biodiversity providers).",
+      "notes": "",
+      "recommendation": "None; purpose and scope are documented.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Dataset Persistent Identifier (DOI)",
+      "requirement_definition": "Dataset is assigned a globally unique, persistent, and resolvable Digital Object Identifier (DOI).",
+      "status": "meets",
+      "evidence": "A registered, resolvable DOI is assigned: 10.57967/hf/8980 (doi:10.57967/hf/8980).",
+      "notes": "",
+      "recommendation": "None; a resolvable DOI is present.",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Descriptive Keywords and Tags",
+      "requirement_definition": "Dataset metadata includes thematic keywords and taxonomy tags to facilitate discoverability in search catalogs.",
+      "status": "partial",
+      "evidence": "Rich free-text tags are provided (biology, image, imageomics, animals, plants, fungi, image-classification, zero-shot-classification, clip, taxonomy, multimodal), but they are not mapped to controlled vocabularies/ontologies with URIs.",
+      "notes": "",
+      "recommendation": "Map keyword tags to controlled vocabularies/ontologies with resolvable URIs.",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Project Homepage URL",
+      "requirement_definition": "Dataset metadata includes a resolvable URL pointing to the official project or resource landing page.",
+      "status": "meets",
+      "evidence": "The dataset is hosted by the HDR Imageomics Institute with a maintained Hugging Face dataset page and associated Imageomics project presence.",
+      "notes": "",
+      "recommendation": "None; a maintained project/landing page is provided.",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Code Repository Link",
+      "requirement_definition": "Dataset metadata links to the version-controlled code repository used for dataset curation, preprocessing, or pipeline ingestion.",
+      "status": "meets",
+      "evidence": "Curation code is identified as named, resolvable tooling (the TaxonoPy package for taxonomic standardization and the TreeOfLife processing toolbox), plus standard detectors (MegaDetector, MTCNN).",
+      "notes": "",
+      "recommendation": "Ensure each named tool (TaxonoPy, toolbox) carries a direct URL/PID in structured metadata.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Canonical Descriptor Publication",
+      "requirement_definition": "Dataset metadata references the canonical peer-reviewed publication or data paper describing the dataset.",
+      "status": "meets",
+      "evidence": "The canonical publication is cited: \"BioCLIP 2: Emergent Properties from Scaling Hierarchical Contrastive Learning\", which describes the dataset and models.",
+      "notes": "",
+      "recommendation": "None; a canonical descriptor publication is cited.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Data Publisher and Host",
+      "requirement_definition": "Dataset metadata explicitly identifies the publishing organization, data center, or hosting repository platform.",
+      "status": "meets",
+      "evidence": "Publisher is the HDR Imageomics Institute and the host/distribution platform is Hugging Face, both documented with URL and DOI.",
+      "notes": "",
+      "recommendation": "None; publisher and host are identified.",
+      "fair_category": "Findable | Accessible",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Formatted Data Citation",
+      "requirement_definition": "Dataset provides recommended, pre-formatted bibliographic citations in standard scientific styles (e.g., APA, BibTeX).",
+      "status": "meets",
+      "evidence": "Hugging Face provides a formatted citation (with the DOI 10.57967/hf/8980 and the associated BioCLIP 2 reference) usable for attribution.",
+      "notes": "",
+      "recommendation": "None; a pre-formatted citation with DOI is available.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Dataset Creators and Authors",
+      "requirement_definition": "Dataset metadata explicitly identifies all primary authors, scientific investigators, and creator organizations responsible for data generation and curation.",
+      "status": "partial",
+      "evidence": "Creation is attributed to the HDR Imageomics Institute (author: imageomics) with the associated BioCLIP 2 author team, but individual creators are not enumerated in structured creator records with affiliations.",
+      "notes": "",
+      "recommendation": "Provide structured creator records for individual authors with affiliations.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Author Persistent Identifiers",
+      "requirement_definition": "Dataset metadata provides persistent digital person identifiers (e.g., ORCID iDs) for all human authors and contributors to resolve identity ambiguities.",
+      "status": "does not meet",
+      "evidence": "Human authors exist (the BioCLIP 2 team), but no ORCID iDs or persistent person identifiers are provided in the dataset metadata.",
+      "notes": "",
+      "recommendation": "Add ORCID iDs for the dataset's human authors/contributors.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Data Curator Attribution",
+      "requirement_definition": "Dataset metadata distinguishes and attributes data curators who organized, cleaned, or formatted the dataset, e.g., for AI readiness.",
+      "status": "partial",
+      "evidence": "Extensive curation is described (TaxonoPy standardization, quality filtering, face removal, dedup), attributable to the Imageomics team, but individual curators are not named with roles/ORCIDs.",
+      "notes": "",
+      "recommendation": "Attribute curation personnel formally with roles and persistent identifiers.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Dataset Card Authorship",
+      "requirement_definition": "Dataset metadata attributes the specific authors responsible for writing and maintaining the dataset card / documentation.",
+      "status": "partial",
+      "evidence": "A detailed dataset card (README) exists and is authored/maintained by imageomics, but specific documentation authors are not explicitly designated.",
+      "notes": "",
+      "recommendation": "Name the authors/maintainers responsible for the dataset card.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Dataset Card Contact Point",
+      "requirement_definition": "Dataset documentation provides a monitored contact email or communication channel for documentation queries.",
+      "status": "partial",
+      "evidence": "The Hugging Face Community/Discussions tab provides a communication channel, but no dedicated, monitored documentation contact email is designated.",
+      "notes": "",
+      "recommendation": "Provide a monitored, documentation-specific contact endpoint.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Domain Expert Contact Point",
+      "requirement_definition": "Dataset metadata provides direct, monitored contact details for domain specialists qualified to resolve scientific, taxonomic, or ecological ambiguities during data reuse. Primary author or creator contact information may qualify if they represent the domain experts for the dataset.",
+      "status": "partial",
+      "evidence": "A generic community channel (HF Discussions) exists, but no named domain/taxonomic expert contact is structured in the metadata.",
+      "notes": "",
+      "recommendation": "Structure a named domain-expert contact for resolving scientific/taxonomic questions.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Funder Information",
+      "requirement_definition": "Dataset metadata explicitly identifies all funding entities and sponsoring organizations responsible for data creation.",
+      "status": "partial",
+      "evidence": "The dataset originates from the NSF HDR Imageomics Institute (funding identifiable via the program), but a structured funder record with a persistent organizational identifier is not present in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Add a structured funder record (NSF) with a ROR/Crossref Funder ID.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Grant and Award Identifier",
+      "requirement_definition": "Dataset metadata specifies formal grant, award, or contract numbers associated with funding sources.",
+      "status": "does not meet",
+      "evidence": "No specific grant/award numbers are provided in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Include the NSF award number(s) supporting the Imageomics Institute in funding metadata.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Contributor Acknowledgements",
+      "requirement_definition": "Dataset metadata acknowledges non-author contributors and specifies their roles in data collection, processing, or curation.",
+      "status": "partial",
+      "evidence": "Upstream data providers (GBIF, EOL, BIOSCAN-5M, FathomNet) and publisher institutions (museums, MNHN, Naturalis) are acknowledged, but without structured CRediT roles.",
+      "notes": "",
+      "recommendation": "Record non-author contributors/providers with structured roles.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Dataset License Specification",
+      "requirement_definition": "Dataset metadata explicitly defines legal terms of use, redistribution rights, and licensing terms.",
+      "status": "meets",
+      "evidence": "The compilation is explicitly dedicated to the public domain under CC0-1.0; the card also notes that individual images carry varied upstream licenses.",
+      "notes": "",
+      "recommendation": "None; a clear license is declared (with helpful per-source caveats).",
+      "fair_category": "Accessible | Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Standardized Machine-Readable License",
+      "requirement_definition": "Dataset license is expressed via standardized, machine-readable identifier schemes (e.g., SPDX identifier, Creative Commons URI).",
+      "status": "meets",
+      "evidence": "The license is expressed with the standard SPDX identifier CC0-1.0 (machine-readable).",
+      "notes": "",
+      "recommendation": "None; a standard SPDX license identifier is used.",
+      "fair_category": "Accessible | Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Collection Permits and Legal Governance",
+      "requirement_definition": "Dataset metadata documents formal scientific collection permits, landowner permissions, and ethical research authorizations.",
+      "status": "does not meet",
+      "evidence": "The dataset aggregates biodiversity records (including PRESERVED_SPECIMEN) from public providers, but documents no collection permits or legal-governance provenance for the underlying collections.",
+      "notes": "",
+      "recommendation": "Where applicable (e.g., preserved-specimen sources), summarize or link the collection-permit governance of constituent records.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Authorizing Agency Attribution",
+      "requirement_definition": "Dataset metadata explicitly identifies the governing agencies, Indigenous authorities, or institutions that granted collection permits.",
+      "status": "does not meet",
+      "evidence": "No permitting/authorizing agencies for the underlying collections are identified.",
+      "notes": "",
+      "recommendation": "Identify authorizing agencies for permit-bearing source records where feasible.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Indigenous and Community Stewardship",
+      "requirement_definition": "Dataset documentation identifies the Indigenous Peoples to whom the tangible object, material, or resource, or the intangible\nknowledges or information was generated, produced, or collected. Ref: IEEE CARE",
+      "status": "does not meet",
+      "evidence": "No Indigenous/community stewardship or CARE governance information is documented for the aggregated biodiversity imagery.",
+      "notes": "",
+      "recommendation": "Document CARE/Indigenous data-governance considerations for relevant source regions/taxa.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Sensitive Data Handling and Obfuscation",
+      "requirement_definition": "Dataset documentation demonstrates compliance with privacy, human subject, and endangered species protections, detailing any obfuscation, spatial fuzzing, or redaction protocols applied to the payload.",
+      "status": "partial",
+      "evidence": "PII is systematically handled — human faces are removed via MTCNN — but sensitive-locality obfuscation for threatened taxa (the dataset is ~70% threatened-species imagery) is not explicitly documented.",
+      "notes": "",
+      "recommendation": "Document locality-obfuscation handling for sensitive/threatened taxa in addition to face removal.",
+      "fair_category": "Accessible | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance | Governance"
+    },
+    {
+      "item": "Access Restriction Justification",
+      "requirement_definition": "Dataset metadata explicitly documents the conservation justifications, legal mandates, or policy criteria under which open public download is restricted or gated.",
+      "status": "N/A",
+      "evidence": "The dataset is fully open (CC0, public Hugging Face download) with no gated or restricted tiers.",
+      "notes": "N/A trigger: fully open access, no gated tiers.",
+      "recommendation": "N/A.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Scientific | Provenance | Governance"
+    },
+    {
+      "item": "Secure Access Procedure",
+      "requirement_definition": "Dataset provides a formal, documented pathway for vetted researchers to apply for and obtain secure access to restricted data.",
+      "status": "N/A",
+      "evidence": "Completely open access, so a secure-access application pathway does not apply.",
+      "notes": "N/A trigger: fully open access, no restricted tiers.",
+      "recommendation": "N/A.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Scientific | Provenance | Governance"
+    },
+    {
+      "item": "Direct Download Access",
+      "requirement_definition": "Dataset provides persistent, direct HTTP/HTTPS download endpoints bypassing interactive web forms or session cookies.",
+      "status": "meets",
+      "evidence": "Parquet files are directly and programmatically downloadable from Hugging Face (via the datasets library, pandas, Polars, and huggingface_hub) without interactive forms.",
+      "notes": "",
+      "recommendation": "None; direct programmatic download is available.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Cloud-Native Storage Access",
+      "requirement_definition": "Dataset is hosted in cloud-native, object-based storage (e.g., AWS S3, Google Cloud Storage, Azure Blob) supporting direct read.",
+      "status": "partial",
+      "evidence": "Data are parquet on Hugging Face and support streaming via the datasets library, but explicit cloud-native object-store URIs (S3/GCS) are not documented.",
+      "notes": "",
+      "recommendation": "Document cloud-native object-store URIs / requester-pays access for direct cloud compute.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Programmatic API Availability",
+      "requirement_definition": "Dataset provides a dedicated Application Programming Interface (API) for automated, granular, or streaming queries.",
+      "status": "meets",
+      "evidence": "The Hugging Face Hub/Datasets API supports programmatic and streaming access (used to retrieve this metadata), including subset/streaming queries.",
+      "notes": "",
+      "recommendation": "None; a working programmatic API is available.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "API Architecture Specification",
+      "requirement_definition": "Dataset documentation defines the architectural style and interface protocol of the API (e.g., REST, GraphQL, OGC WFS, STAC).",
+      "status": "partial",
+      "evidence": "Access is via the Hugging Face REST/Hub API, but a dataset-specific architectural specification (OpenAPI/STAC) is not declared in the metadata.",
+      "notes": "",
+      "recommendation": "Reference the API's formal architecture specification in metadata.",
+      "fair_category": "Accessible | Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "API Reference Documentation",
+      "requirement_definition": "Dataset provides comprehensive, interactive documentation (e.g., Swagger/OpenAPI, Postman collection) for its API.",
+      "status": "meets",
+      "evidence": "The Hugging Face Datasets library and Hub API are comprehensively documented with parameters and query examples, and the dataset lists compatible libraries (Datasets, pandas, Polars).",
+      "notes": "",
+      "recommendation": "None; comprehensive API/library documentation is available.",
+      "fair_category": "Accessible | Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "API Rate Limiting Policy",
+      "requirement_definition": "Dataset API documentation explicitly specifies rate limits, concurrency quotas, and request burst allowances.",
+      "status": "partial",
+      "evidence": "Hugging Face enforces platform-level rate limits, but explicit numeric quotas/throttling behavior are not documented in the dataset metadata.",
+      "notes": "",
+      "recommendation": "Reference the applicable HF rate-limit quotas in the dataset access notes.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Open and Non-Proprietary Formats",
+      "requirement_definition": "Dataset is distributed in open, non-proprietary formats that do not require licensed commercial software to read.",
+      "status": "meets",
+      "evidence": "Data are distributed as open, non-proprietary Parquet files.",
+      "notes": "",
+      "recommendation": "None; open formats are used.",
+      "fair_category": "Accessible | Interoperable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Multi-Format Distribution",
+      "requirement_definition": "Dataset provides alternative distribution formats optimized for diverse use cases (e.g., CSV for inspection, Parquet/Zarr for AI).",
+      "status": "partial",
+      "evidence": "The primary distribution is Parquet (with precomputed embeddings and FathomNet bounding-box data), a single widely supported format family rather than complementary human-inspection/AI formats.",
+      "notes": "",
+      "recommendation": "Consider a complementary human-inspectable export alongside Parquet.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Machine-Readable Serialization",
+      "requirement_definition": "Dataset is serialized in structured, machine-parseable data formats rather than presentation-focused layouts.",
+      "status": "meets",
+      "evidence": "All data are serialized as machine-readable Parquet.",
+      "notes": "",
+      "recommendation": "None; data are machine-readable.",
+      "fair_category": "Interoperable | Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Study Design Typology",
+      "requirement_definition": "Dataset metadata classifies the study design type, e.g., whether observations originate from manipulative experimental setups or observational field surveys, or some other study design type.",
+      "status": "meets",
+      "evidence": "The dataset is a compilation of observational biodiversity records, with a basis_of_record field classifying origins (HUMAN_OBSERVATION, PRESERVED_SPECIMEN, MACHINE_OBSERVATION).",
+      "notes": "",
+      "recommendation": "None; the observational origin typology is documented.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Experimental Factor Specification",
+      "requirement_definition": "Dataset documentation details experimental factors, treatment levels, control structures, and replication design.",
+      "status": "N/A",
+      "evidence": "The dataset is an observational aggregation, not a manipulative experiment, so treatment/control/replication design does not apply.",
+      "notes": "N/A trigger: observational (non-manipulative) data.",
+      "recommendation": "N/A.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Data Modality and Origin Type",
+      "requirement_definition": "Dataset metadata classifies the operational modality and collection origin (e.g., sensor telemetry, satellite, field survey, API).",
+      "status": "meets",
+      "evidence": "Modalities (Image, Text) and origin types are explicit: a data_source field, publisher field, and basis_of_record distinguishing human/preserved/machine observation.",
+      "notes": "",
+      "recommendation": "None; modality and origin type are classified.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Observation Temporal Extent",
+      "requirement_definition": "Dataset metadata specifies the precise date or date range during which field observations or raw measurements were collected.",
+      "status": "does not meet",
+      "evidence": "No temporal coverage (collection date range) for the underlying observations is documented in the dataset metadata.",
+      "notes": "",
+      "recommendation": "Aggregate and expose the temporal extent (min/max observation dates) of the source records.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Observation Timestamp Precision",
+      "requirement_definition": "Dataset documents timestamps (including UTC offset) for every individual observation event.",
+      "status": "does not meet",
+      "evidence": "Per-observation timestamps are not carried in the dataset's fields (columns are taxonomic/source/path fields; no event datetime).",
+      "notes": "",
+      "recommendation": "Where available upstream, carry per-observation ISO 8601 timestamps (with UTC offset).",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance | Governance"
+    },
+    {
+      "item": "Operational Event Logging and Context",
+      "requirement_definition": "Dataset captures messages, operations, actors, preferences, and context that led to a given data point (CARE provenance). Ref: IEEE CARE",
+      "status": "N/A",
+      "evidence": "The dataset is an aggregated image corpus of passive, single-instant records with no intermediate operational actions to log.",
+      "notes": "N/A trigger: passive single-instant records; no operational event stream.",
+      "recommendation": "N/A.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Sensor and Instrument Metadata",
+      "requirement_definition": "Dataset provides detailed instrument calibrations, hardware specifications, and sensor firmware metadata.",
+      "status": "N/A",
+      "evidence": "Imagery is aggregated from heterogeneous citizen-science, museum, and provider sources; per-sensor calibration/hardware metadata is not applicable to this compilation.",
+      "notes": "N/A trigger: heterogeneous aggregated imagery; per-instrument calibration metadata not applicable.",
+      "recommendation": "N/A.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Quantitative Resolution Metrics",
+      "requirement_definition": "Dataset specifies quantitative spatial, temporal, radiometric, or spectral resolutions (e.g., GSD, sampling rate).",
+      "status": "does not meet",
+      "evidence": "Image spatial resolution/GSD and other quantitative resolution metrics are not specified (source imagery is heterogeneous).",
+      "notes": "",
+      "recommendation": "Where feasible, summarize image resolution distributions or per-source resolution characteristics.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Specimen and Sample Preparation",
+      "requirement_definition": "Dataset documents physical sample preparation, preservation techniques, or laboratory extraction protocols.",
+      "status": "N/A",
+      "evidence": "This is an aggregation of digital imagery and metadata; physical specimen preparation is the domain of the upstream providers and is not part of this compilation.",
+      "notes": "N/A trigger: digital-image aggregation, no physical sample processing performed here.",
+      "recommendation": "N/A.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Physical Voucher Deposition and Identifiers",
+      "requirement_definition": "For specimen-derived datasets, metadata links observation records to permanently curated physical vouchers in recognized biorepositories, museums, or herbaria using standardized catalog identifiers.",
+      "status": "partial",
+      "evidence": "Preserved-specimen records (basis_of_record=PRESERVED_SPECIMEN) link back to source providers via source_id/source_url, but standardized Darwin Core voucher catalog identifiers are not uniformly provided.",
+      "notes": "",
+      "recommendation": "Carry standardized Darwin Core voucher identifiers (institutionCode/collectionCode/catalogNumber) for specimen-derived records.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance | Scientific"
+    },
+    {
+      "item": "Parent Observatory and Program Membership",
+      "requirement_definition": "Dataset metadata defines formal membership in an umbrella observatory network, long-term monitoring program, or standardized dataset series.",
+      "status": "meets",
+      "evidence": "The dataset is part of the HDR Imageomics Institute's TreeOfLife dataset series (successor to TreeOfLife-10M), an identifiable program membership.",
+      "notes": "",
+      "recommendation": "None; parent program/series membership is documented.",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Standardized File Formats",
+      "requirement_definition": "Dataset files are distributed in standard, well-documented file formats with explicit MIME/media types specified in metadata.",
+      "status": "meets",
+      "evidence": "Files use standard Parquet with the encoding format declared in the Croissant metadata.",
+      "notes": "",
+      "recommendation": "None; standardized formats with declared encoding are used.",
+      "fair_category": "Interoperable | Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Dataset Directory Structure",
+      "requirement_definition": "Dataset provides documentation of its internal directory hierarchy, archive layout, and file organization.",
+      "status": "partial",
+      "evidence": "The structure is described (catalog.parquet, per-source resolved-taxa parquet partitioned by bioscan/eol/fathomnet/gbif, embeddings, EOL manifests, FathomNet bounding boxes), but not as a complete formal file-tree schematic.",
+      "notes": "",
+      "recommendation": "Provide a complete file-tree/layout diagram of the package.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "File Instance Inventory",
+      "requirement_definition": "Dataset metadata includes an itemized inventory describing the contents, record counts, and roles of individual files or shards.",
+      "status": "partial",
+      "evidence": "A high-level inventory exists (per-provider image/taxa counts; ~119.9 GB total; named parquet/embedding/manifest files), but per-shard record counts and byte sizes are not itemized.",
+      "notes": "",
+      "recommendation": "Itemize per-file/shard record counts and byte sizes.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Relational Data Architecture",
+      "requirement_definition": "Dataset documentation defines relational schemas, primary/foreign keys, and linkages between multiple tables or modalities.",
+      "status": "partial",
+      "evidence": "The Croissant RecordSet formally defines fields and a uuid key, and per-record source fields link imagery to metadata, but cross-file relational schema (keys across catalog/partitions/embeddings) is not fully specified.",
+      "notes": "",
+      "recommendation": "Document the relational schema/keys linking catalog, per-source partitions, and embeddings.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Data Dictionary and Codebook",
+      "requirement_definition": "Dataset provides a comprehensive data dictionary defining all variables, column headers, data types, valid ranges, and units.",
+      "status": "meets",
+      "evidence": "A machine-readable Croissant RecordSet defines every field (uuid, taxonomic ranks, scientific_name, common, data_source, publisher, basis_of_record, img_type, source_id, path fields).",
+      "notes": "",
+      "recommendation": "None; a machine-readable data dictionary is provided.",
+      "fair_category": "Interoperable | Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Feature Attribute Specification",
+      "requirement_definition": "Dataset metadata specifies individual feature attributes, measurement variables, and target columns.",
+      "status": "meets",
+      "evidence": "All feature attributes/columns are specified in the Croissant record set and the dataset card (taxonomy, names, source metadata, image-type, path fields).",
+      "notes": "",
+      "recommendation": "None; feature attributes are specified.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Standardized Measurement Units",
+      "requirement_definition": "All quantitative variables have explicitly defined, community-standardized measurement units (e.g., SI units, UCUM).",
+      "status": "N/A",
+      "evidence": "Fields are categorical/textual (taxonomy, names, sources, paths) with no physical measurement variables requiring units.",
+      "notes": "N/A trigger: purely categorical/textual features; no physical measurements.",
+      "recommendation": "N/A.",
+      "fair_category": "Interoperable | Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Natural Language Specification",
+      "requirement_definition": "Dataset metadata specifies the natural language(s) of textual features and annotations using standard language tags.",
+      "status": "meets",
+      "evidence": "Languages are declared with standard codes: English (en) and Latin (la).",
+      "notes": "",
+      "recommendation": "None; language is declared with standard codes.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Technical and Storage Specifications",
+      "requirement_definition": "Dataset metadata details technical storage specifications, including total compressed archive size, uncompressed on-disk footprint, total file/record counts, and memory (RAM) requirements.",
+      "status": "partial",
+      "evidence": "Total storage (~119.9 GB) and record count (233M rows) are documented, but uncompressed footprint, per-file counts, and memory requirements are not fully specified.",
+      "notes": "",
+      "recommendation": "Add uncompressed size, per-file record counts, and memory requirements.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Machine Ingestion Readiness",
+      "requirement_definition": "Dataset structural packaging conforms to standardized specifications enabling automated programmatic ingestion.",
+      "status": "meets",
+      "evidence": "The dataset is Croissant 1.1 conformant Parquet, explicitly \"ML-ready\", and loads via the datasets library/pandas/Polars without custom engineering.",
+      "notes": "",
+      "recommendation": "None; the dataset conforms to a machine-actionable data contract.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Curation and Filtering Rationale",
+      "requirement_definition": "Dataset documentation describes the criteria, thresholds, and rationale used to curate, filter, or subsample the data.",
+      "status": "meets",
+      "evidence": "Curation is thoroughly documented: TaxonoPy taxonomic standardization to a 7-rank Linnean structure, image-quality filtering (museum specimen classifier, MegaDetector for camera traps, similarity checks for citizen science), human face removal (MTCNN), and duplication/leakage elimination via MD5 and PDQ hashes.",
+      "notes": "",
+      "recommendation": "None; curation and filtering rationale are well documented.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Outlier Detection and Filtering",
+      "requirement_definition": "Dataset documents statistical criteria, automated algorithms, or manual rules used to detect and remove outliers.",
+      "status": "partial",
+      "evidence": "Multiple filtering/detection methods are documented (MegaDetector, museum-specimen classifier, similarity checks, MD5/PDQ dedup), but specific numeric thresholds and discarded-record counts are not enumerated.",
+      "notes": "",
+      "recommendation": "Report the filtering thresholds and the number of records removed at each stage.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Spatial Gridding and Interpolation",
+      "requirement_definition": "Dataset specifies spatial gridding algorithms, interpolation methods, coordinate projection, and cell dimension parameters.",
+      "status": "N/A",
+      "evidence": "This is an image corpus, not gridded raster data, so gridding/interpolation parameters do not apply.",
+      "notes": "N/A trigger: non-gridded (image) data.",
+      "recommendation": "N/A.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Missing Data Imputation Status",
+      "requirement_definition": "Dataset metadata explicitly declares whether missing values, gaps, or dropouts have been imputed or left as nulls.",
+      "status": "meets",
+      "evidence": "Missingness is quantified and not imputed: ~89.74% of images have full taxonomic labels, with incomplete labels left as-is rather than filled.",
+      "notes": "",
+      "recommendation": "None; missingness is quantified and undocumented imputation is absent.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Gap-Filling Methodology",
+      "requirement_definition": "Dataset documentation describes the mathematical, statistical, or machine learning methodology used for gap imputation.",
+      "status": "N/A",
+      "evidence": "No gap filling/imputation of missing values is performed; incomplete taxonomic labels are retained as gaps.",
+      "notes": "N/A trigger: no gap filling/imputation performed.",
+      "recommendation": "N/A.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Annotation and Labeling Protocol",
+      "requirement_definition": "Dataset documents target label taxonomy, annotation protocols, curator expertise, and quality control consensus methods.",
+      "status": "meets",
+      "evidence": "Labeling is protocol-driven: taxonomic labels standardized via TaxonoPy to a consistent 7-rank Linnean taxonomy, with documented source-label handling and quality control.",
+      "notes": "",
+      "recommendation": "None; the annotation/labeling protocol is documented.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Machine Learning Data Splits",
+      "requirement_definition": "Dataset provides pre-partitioned train, validation, and test splits (or cross-validation folds) with explicit stratification protocols designed to prevent spatial, temporal, or taxonomic data leakage.",
+      "status": "partial",
+      "evidence": "A split field is present in the record set and data-leakage elimination (MD5/PDQ dedup) is documented, but the public structure shows a single \"train\" split without a fully specified train/val/test partitioning logic.",
+      "notes": "",
+      "recommendation": "Provide explicit train/val/test (or fold) assignments with documented, leakage-aware partitioning logic.",
+      "fair_category": "Interoperable | Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Dataset Completeness Verification",
+      "requirement_definition": "Dataset documentation provides a quantitative audit verifying that all planned sampling events, observation records, spatial grids, and media files are accounted for, with any missing data explicitly quantified.",
+      "status": "partial",
+      "evidence": "Coverage is quantified (89.74% images with full taxonomic labels; per-provider image/taxa counts), but a systematic planned-vs-actual completeness audit is not provided.",
+      "notes": "",
+      "recommendation": "Publish an expected-vs-present completeness audit across sources.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Quality Assurance Maturity Level",
+      "requirement_definition": "Dataset specifies its Quality Assurance / Quality Control (QA/QC) maturity level (e.g., raw, automated QA, expert curated).",
+      "status": "meets",
+      "evidence": "The dataset reflects a mature, heavily curated QA pipeline (classifier-based filtering, detector-based screening, dedup/leakage control), documented as an ML-ready release.",
+      "notes": "",
+      "recommendation": "State an explicit QA/QC maturity tier label to complement the documented pipeline.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Controlled Vocabulary Alignment",
+      "requirement_definition": "Categorical attributes and taxonomic descriptors adhere to standard controlled vocabularies and domain ontologies.",
+      "status": "partial",
+      "evidence": "Taxonomy is standardized to a consistent 7-rank Linnean structure via TaxonoPy, but categorical/taxonomic terms are not explicitly mapped to public URI-backed ontologies.",
+      "notes": "",
+      "recommendation": "Map the standardized taxonomy to URI-backed ontologies (e.g., GBIF backbone URIs).",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Peer Review and Expert Curation",
+      "requirement_definition": "Dataset metadata indicates whether the data payload and metadata have undergone formal peer review or expert editorial curation.",
+      "status": "partial",
+      "evidence": "The dataset is expert-curated and underpins the peer-reviewed BioCLIP 2 work, but a dataset-specific peer-review/curation-audit record (with review DOI) is not indicated.",
+      "notes": "",
+      "recommendation": "Record any formal dataset peer-review/curation-audit status with a citation.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Update Frequency and Cadence",
+      "requirement_definition": "Dataset metadata explicitly declares the maintenance policy, versioning schedule, and expected frequency of future data releases or additions.",
+      "status": "partial",
+      "evidence": "Versioning is evident (this version \"completes the dataset cleaning process\"; last modified 2026-05-29), but a formal maintenance schedule/update cadence is not declared.",
+      "notes": "",
+      "recommendation": "Declare a maintenance policy/update cadence (or an explicit static-status statement).",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Dataset Integrity Checksums",
+      "requirement_definition": "Dataset metadata provides cryptographic checksums (e.g., SHA-256, MD5) for all downloadable data files and media archives.",
+      "status": "partial",
+      "evidence": "MD5 and PDQ hashes are computed and used internally for dedup/leakage control, and Hugging Face/LFS stores per-file hashes, but a published per-file integrity checksum manifest is not surfaced in the metadata.",
+      "notes": "",
+      "recommendation": "Publish per-file SHA-256 checksums for integrity verification.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Source Data Producer Attribution",
+      "requirement_definition": "Derived or compiled datasets explicitly attribute all upstream data collector institutions, observatories, and producers.",
+      "status": "meets",
+      "evidence": "Upstream producers are explicitly attributed with per-provider statistics: GBIF (569,225 taxa / 222.6M images), EOL (48,508 / 5.2M), BIOSCAN-5M (3,042 / 5.2M), FathomNet (251 / 37.9K), plus named publisher institutions.",
+      "notes": "",
+      "recommendation": "None; upstream producers are attributed.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Upstream Source Attribution and DOIs",
+      "requirement_definition": "Derived or compiled datasets explicitly enumerate and cite all constituent source datasets using formal bibliographic references and persistent identifiers (DOIs/PIDs).",
+      "status": "meets",
+      "evidence": "All four constituent sources (GBIF, EOL, BIOSCAN-5M, FathomNet) are enumerated and cited, and each record carries a resolvable source_url/source_id linking back to the originating provider.",
+      "notes": "",
+      "recommendation": "Ensure each constituent source dataset is cited with a resolvable DOI/PID.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Source Data Cryptographic Checksums",
+      "requirement_definition": "Derived datasets provide cryptographic checksums (e.g., SHA-256) of raw source archives to verify provenance integrity.",
+      "status": "partial",
+      "evidence": "MD5 (and perceptual PDQ) hashes of source images are computed for dedup/leakage control, but a provenance-integrity checksum record for upstream source archives is not explicitly provided.",
+      "notes": "",
+      "recommendation": "Record cryptographic checksums of the upstream source archives for provenance verification.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Data Provenance Traceability",
+      "requirement_definition": "Dataset documentation tracks complete provenance history and data processing transformation graphs.",
+      "status": "partial",
+      "evidence": "Per-record provenance is strong (data_source, publisher, basis_of_record, source_url) and transformations are described (TaxonoPy, filtering), but a formal PROV-O/W3C provenance graph is not provided.",
+      "notes": "",
+      "recommendation": "Publish a machine-actionable PROV-O provenance trace of the processing pipeline.",
+      "fair_category": "Reusable | Findable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Processing Environment and Software",
+      "requirement_definition": "Dataset documentation specifies exact software environments, library versions, and processing platforms used to prepare data.",
+      "status": "partial",
+      "evidence": "Processing software is named (TaxonoPy, MegaDetector, MTCNN, museum-specimen classifier, MD5/PDQ hashing), but exact versions, container tags, and environment manifests are not fully documented.",
+      "notes": "",
+      "recommendation": "Document exact software versions/containers used in processing.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Source Lineage Traceability",
+      "requirement_definition": "Dataset metadata establishes an unbroken, machine-actionable provenance graph linking derived data products to raw inputs through recorded transformation steps.",
+      "status": "meets",
+      "evidence": "Croissant cr:source linkages plus per-record source fields (data_source, source_id, source_url) provide machine-actionable lineage from each derived record back to its originating provider, with the transformation (TaxonoPy standardization) described.",
+      "notes": "",
+      "recommendation": "None; machine-actionable source lineage is provided (a full entity-activity-agent graph would strengthen it further).",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Data Custody and Storage Provenance",
+      "requirement_definition": "Dataset metadata documents the origin storage point of the generated data, its custodial history, its movement across systems or repositories, and its current jurisdictional/cloud storage locations.",
+      "status": "partial",
+      "evidence": "The custody path (source providers -> Imageomics curation -> Hugging Face hosting, ~119.9 GB) is described, but full custodial history and storage jurisdictions are not documented.",
+      "notes": "",
+      "recommendation": "Document the custody chain and storage jurisdictions.",
+      "fair_category": "Reusable | Accessible",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Documented Task Readiness",
+      "requirement_definition": "Dataset documentation explicitly enumerates the specific computational, analytical, or machine learning tasks (e.g., Species Distribution Modeling, object detection, bioacoustic classification) for which the dataset is structured, formatted, and verified, mapped to standard ML task taxonomies where applicable.",
+      "status": "meets",
+      "evidence": "Concrete tasks are declared and mapped to Hugging Face task types (image-classification, zero-shot-classification), with clear input (images) and target (taxonomic labels) and the stated purpose of training BioCLIP 2/2.5.",
+      "notes": "",
+      "recommendation": "None; task readiness is explicitly documented.",
+      "fair_category": "Interoperable | Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Baseline Model Benchmarks",
+      "requirement_definition": "Dataset documentation reports baseline machine learning model performance metrics, standardized evaluation protocols, and reproducible benchmark scores for the documented tasks.",
+      "status": "partial",
+      "evidence": "Baseline models trained on the dataset are identified (BioCLIP 2 and BioCLIP 2.5 Huge), but exact benchmark metric values and evaluation code are cited via the external paper rather than provided in the dataset metadata.",
+      "notes": "",
+      "recommendation": "Report baseline metric values (and link evaluation code) in the dataset documentation.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Recommended Use Guidelines",
+      "requirement_definition": "Dataset documentation provides prescriptive recommendations and best practices for optimal model training and ecological inference.",
+      "status": "partial",
+      "evidence": "Intended use is clear and precomputed BioCLIP text embeddings are provided to aid reuse, but prescriptive preprocessing/training guidelines are limited.",
+      "notes": "",
+      "recommendation": "Add prescriptive preprocessing/training recommendations for downstream reuse.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Example Code",
+      "requirement_definition": "Dataset provides runnable code snippets or quickstart instructions demonstrating programmatic data access, loading, and batch processing.",
+      "status": "meets",
+      "evidence": "The dataset is loadable via a standard Hugging Face load_dataset workflow and lists compatible libraries (Datasets, pandas, Polars), providing runnable programmatic access.",
+      "notes": "",
+      "recommendation": "None; standard runnable loading is available (a dataset-specific quickstart snippet would help).",
+      "fair_category": "Reusable | Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Known Dataset Biases",
+      "requirement_definition": "Dataset documentation provides an explicit analysis of known sampling, taxonomic, spatial, temporal, or detection biases.",
+      "status": "partial",
+      "evidence": "Biases are surfaced via statistics — strong provider imbalance (GBIF 222.6M vs FathomNet 37.9K images), ~89.74% label completeness, and ~70.38% threatened-species representation — but a formal, structured bias analysis is not provided.",
+      "notes": "",
+      "recommendation": "Provide a structured bias analysis (taxonomic/geographic/provider imbalance) with bounds.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Model Reuse Risks",
+      "requirement_definition": "Dataset documentation identifies specific risks and failure modes associated with downstream model deployment.",
+      "status": "does not meet",
+      "evidence": "Despite risk-relevant curation (face removal, leakage elimination), no explicit discussion of downstream model-reuse risks or failure modes (e.g., shortcut learning, domain shift, background correlations) is documented.",
+      "notes": "",
+      "recommendation": "Document downstream model-training risks and failure modes.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Dataset Limitations",
+      "requirement_definition": "Dataset documentation specifies operational, environmental, and analytical boundaries beyond which data are invalid.",
+      "status": "partial",
+      "evidence": "Limitations are implied through statistics and license caveats (10% missing labels, provider imbalance, heterogeneous per-image licenses), but not presented as a structured limitations statement.",
+      "notes": "",
+      "recommendation": "Provide a structured limitations statement (analytical/operational boundaries).",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "AI Model Heritage and Precedent",
+      "requirement_definition": "Dataset metadata tracks prior AI architectures, foundation models, or pre-training pipelines that have utilized the data.",
+      "status": "meets",
+      "evidence": "Prior model usage is documented: the dataset was used to train BioCLIP 2 and BioCLIP 2.5 Huge, with the models referenced/linked from the dataset.",
+      "notes": "",
+      "recommendation": "None; prior AI model usage is documented.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Out-of-Scope Applications",
+      "requirement_definition": "Dataset documentation explicitly defines prohibited, out-of-scope, or scientifically inappropriate AI applications.",
+      "status": "does not meet",
+      "evidence": "No explicit out-of-scope, prohibited, or scientifically inappropriate application guidance is provided.",
+      "notes": "",
+      "recommendation": "Document out-of-scope/inappropriate applications and misuse warnings.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Companion and Peer Dataset Linkages",
+      "requirement_definition": "Dataset metadata provides persistent links to complementary sibling datasets, multimodal companion packages, or spatial/temporal extensions within the same study (i.e., related datasets).",
+      "status": "partial",
+      "evidence": "Companion resources are referenced (BioCLIP 2/2.5 models, the TreeOfLife-10M predecessor, and the four source datasets), but not consistently via typed relationship PIDs (isPartOf/isSupplementTo).",
+      "notes": "",
+      "recommendation": "Link companion/sibling datasets and models via typed relationship identifiers.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Downstream Literature Citations",
+      "requirement_definition": "Dataset metadata or landing page tracks downstream publications that utilize, benchmark, or cite the dataset.",
+      "status": "partial",
+      "evidence": "Downstream linkage is partially available via Hugging Face (models trained on the dataset and the BioCLIP 2 publication), but comprehensive structured IsCitedBy tracking is not provided.",
+      "notes": "",
+      "recommendation": "Track downstream citations via machine-readable links (e.g., DataCite IsCitedBy).",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Issue Reporting Channel",
+      "requirement_definition": "Dataset provides an actionable communication channel or issue tracker for reporting data errors, label noise, or bugs.",
+      "status": "meets",
+      "evidence": "Actionable reporting channels exist: the Hugging Face Community/Discussions tab for the dataset and the associated processing toolbox's issue tracker.",
+      "notes": "",
+      "recommendation": "None; an issue-reporting channel is available.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "Explicitly ML-ready structural readiness: Croissant 1.1-conformant open Parquet, a machine-readable data dictionary/RecordSet, direct programmatic download and a documented HF API, declared tasks (image/zero-shot classification), and a clear CC0-1.0 SPDX license.",
+      "Strong, well-documented curation and provenance: TaxonoPy 7-rank taxonomic standardization, multi-stage quality filtering (MegaDetector, museum-specimen classifier, similarity checks), MTCNN face removal, MD5/PDQ dedup, and per-record lineage (data_source/source_url) back to four named providers (GBIF, EOL, BIOSCAN-5M, FathomNet).",
+      "Clear AI-task context: intended use (training BioCLIP 2 / 2.5 Huge) with documented model heritage, precomputed text embeddings, and quantified coverage (233M images, 933,798 taxa, ~89.74% fully labeled)."
+    ],
+    "gaps": [
+      "CARE/governance is thin: no collection permits, authorizing agencies, or Indigenous/community stewardship for the aggregated records, and sensitive-locality obfuscation for threatened taxa (~70% of imagery) is not documented (only face removal is).",
+      "Temporal and per-instrument metadata are absent: no observation temporal extent or per-observation timestamps, and no resolution/instrument metadata for the heterogeneous imagery.",
+      "AI-reuse guidance is incomplete: no explicit ML train/val/test split logic (single 'train' split), no in-metadata baseline metric values, no model-reuse risk or out-of-scope-use documentation."
+    ],
+    "overall_assessment": "TreeOfLife-200M is a purpose-built, ML-ready corpus that scores strongly on structural and task-readiness dimensions — Croissant-conformant open Parquet, a machine-readable schema, declared tasks, CC0 licensing, and rich, machine-actionable provenance to four named biodiversity providers. Its remaining gaps are concentrated in governance/CARE (permits, stewardship, sensitive-locality handling), temporal/instrument metadata, and downstream-reuse guidance (formal splits, in-metadata benchmarks, risk and out-of-scope documentation). Relative to a traditional observational dataset it inverts the usual pattern — its AI-oriented structural readiness is a headline strength — while still showing that FAIR/ML-ready packaging does not by itself close the governance and reuse-guidance gaps the checklist targets.",
+    "fair4ai_scores": {
+      "traditional_fair": {
+        "findable": 0.725,
+        "accessible": 0.812,
+        "interoperable": 0.781,
+        "reusable": 0.591,
+        "overall": 0.727,
+        "details": {
+          "findable": {
+            "n_scored": 20,
+            "meets": 12,
+            "partial": 5,
+            "does_not_meet": 3,
+            "na": 0
+          },
+          "accessible": {
+            "n_scored": 16,
+            "meets": 10,
+            "partial": 6,
+            "does_not_meet": 0,
+            "na": 2
+          },
+          "interoperable": {
+            "n_scored": 16,
+            "meets": 9,
+            "partial": 7,
+            "does_not_meet": 0,
+            "na": 1
+          },
+          "reusable": {
+            "n_scored": 55,
+            "meets": 20,
+            "partial": 25,
+            "does_not_meet": 10,
+            "na": 7
+          }
+        }
+      },
+      "ai_fair": {
+        "ml_ready": 0.731,
+        "ai_ready_for_task": 0.665,
+        "traceable": 0.685,
+        "care_compliance": 0.312,
+        "overall": 0.598,
+        "components": {
+          "structural": {
+            "score": 0.731,
+            "n_scored": 39,
+            "meets": 19,
+            "partial": 19,
+            "does_not_meet": 1,
+            "na": 4
+          },
+          "scientific": {
+            "score": 0.6,
+            "n_scored": 35,
+            "meets": 13,
+            "partial": 16,
+            "does_not_meet": 6,
+            "na": 8
+          },
+          "provenance": {
+            "score": 0.64,
+            "n_scored": 43,
+            "meets": 19,
+            "partial": 17,
+            "does_not_meet": 7,
+            "na": 3
+          },
+          "governance": {
+            "score": 0.312,
+            "n_scored": 8,
+            "meets": 1,
+            "partial": 3,
+            "does_not_meet": 4,
+            "na": 3
+          }
+        }
+      }
+    }
+  }
+}

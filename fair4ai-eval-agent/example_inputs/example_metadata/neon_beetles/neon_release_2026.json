@@ -1,0 +1,36 @@
+{
+  "product_code": "DP1.10022.001",
+  "long_code": "NEON.DOM.SITE.DP1.10022.001",
+  "name": "Ground beetles sampled from pitfall traps",
+  "status": "ACTIVE",
+  "category": "Level 1 Data Product",
+  "science_team": "Terrestrial Observation System (TOS)",
+  "release": {
+    "name": "RELEASE-2026",
+    "generation_date": "2026-01-23T00:07:49Z",
+    "release_url": "https://data.neonscience.org/api/v0/releases/RELEASE-2026",
+    "doi": "10.48443/q9ne-6b77",
+    "doi_url": "https://doi.org/10.48443/q9ne-6b77",
+    "doi_generation_date": "2026-01-23T01:10:15Z"
+  },
+  "data_availability_sample": {
+    "ABBY": "2016-09 through 2023-09",
+    "BARR": "2017-07 through 2023-08",
+    "BART": "2014-06 through 2023-09",
+    "BLAN": "2015-05 through 2023-10",
+    "note": "Additional sites (BONA, CLBJ, CPER, DCFS, DEJU, DELA, DSNY, GRSM, GUAN, HARV, HEAL, and more) were listed but content was truncated"
+  },
+  "latency_days": {
+    "bet_fielddata": 75,
+    "bet_sorting": 330,
+    "bet_parataxonomistID": 330,
+    "bet_archivepooling": 330,
+    "bet_expertTaxonomistIDProcessed": 600,
+    "bet_expertTaxonomistIDRaw": 600,
+    "bet_identificationHistory": 7
+  },
+  "notable_release_notes": [
+    "DELA site (2026-01-29): NEON operations ended at Dead Lake, AL; OS data collection discontinued Dec 31, 2025. Data will remain available on the NEON Data Portal and Biorepository Data Portal for the lifetime of NEON."
+  ],
+  "note": "No pre-formatted citation text field was present in the API response. Citation should reference the DOI: 10.48443/q9ne-6b77"
+}

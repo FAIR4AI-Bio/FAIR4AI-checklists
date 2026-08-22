@@ -27,7 +27,7 @@ Type `/evaluate-dataset` in Claude Code chat. The agent will prompt for:
 
 1. **Dataset source** *(required)* — URL to a landing page, or a local path to a directory of metadata files
 2. **Checklist file** *(optional)* — defaults to `CHECKLIST.csv`
-3. **Template file** *(optional)* — defaults to `example_outputs/FAIR4AI_eval_neon_beetles_2026-08-03_102743.json` (the current-schema example)
+3. **Template file** *(optional)* — defaults to `example_outputs/FAIR4AI_eval_neon_beetles_2026-08-21_120000.json` (the current-schema example)
 4. **Output directory** *(optional)* — the workspace root; defaults to current working directory
 5. **Output filename** *(optional)* — defaults to `FAIR4AI_eval_<short_name>_<YYYY-MM-DD_HHMMSS>.json` (timestamp to the second, so re-runs never collide)
 6. **Rerun existing evaluation?** *(optional)* — defaults to **No**; when a prior evaluation of the dataset exists in the Output directory it is **skipped** (with a warning + a note in `evaluate_progress.md`) unless this is Yes or the request says "rerun"/"re-evaluate"

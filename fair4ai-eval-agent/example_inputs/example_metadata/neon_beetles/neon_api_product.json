@@ -1,0 +1,65 @@
+{
+  "product_code": "DP1.10022.001",
+  "long_code": "NEON.DOM.SITE.DP1.10022.001",
+  "presentation": "NEON.DP1.10022",
+  "name": "Ground beetles sampled from pitfall traps",
+  "status": "ACTIVE",
+  "category": "Level 1 Data Product",
+  "has_expanded_package": true,
+  "science_team": "Terrestrial Observation System (TOS)",
+  "publication_format": "TOS Data Product Type",
+  "themes": ["Organisms, Populations, and Communities"],
+  "abstract": "The product contains quality-controlled beetle sampling data. Beetles are pitfall-trapped at core and relocatable sites, sorted, and identified to species/morphospecies. A subset is pinned; others are archived in 95% ethanol. Up to 467 pinned beetles per site per year are sent to an expert taxonomist for secondary ID to estimate parataxonomist uncertainty.",
+  "design": "Uses 16 oz deli containers filled with 150 or 250 mL of propylene glycol. Trap counts changed over time: 40 traps/site (2013-2017), 30 traps/site (2018+), reduced to 18 samples/site/bout starting 2023.",
+  "study_area": "All NEON terrestrial sites",
+  "data_table_latency_days": {
+    "bet_archivepooling": 330,
+    "bet_expertTaxonomistIDProcessed": 600,
+    "bet_expertTaxonomistIDRaw": 600,
+    "bet_fielddata": 75,
+    "bet_parataxonomistID": 330,
+    "bet_sorting": 330,
+    "bet_identificationHistory": 7
+  },
+  "keywords": [
+    "diversity", "taxonomy", "community composition", "species composition", "population",
+    "invertebrates", "abundance", "beetles", "Carabidae", "insects", "DNA sequences",
+    "COI", "DNA barcoding", "ground beetles", "pitfall traps", "material samples",
+    "archived samples", "bet", "introduced species", "invasive species", "native species",
+    "biodiversity"
+  ],
+  "change_log_highlights": [
+    "2015-11-23: Consolidated taxonomy into bet_sorting table",
+    "2017-08-15: Reprocessed data using generic codebase",
+    "2018: Sampling reduced to 30 traps/site (budget)",
+    "2020-03-10: Added samplingImpractical quality flag",
+    "2020-2022: COVID-19 reduced sampling (incl. TOOL quarantine)",
+    "2022: YELL/BLDE flooding halted collection; eventID format updated to trap setDate",
+    "2021-2023: State-level taxa obfuscation adjustments (D01, D20 exceptions)",
+    "2023: Sampling reduced to 6 plots/site; date-exchange bug fixed",
+    "2024: Identification history tracking added; taxonomic updates",
+    "2026-01-29: Operations ending at DELA site (fall 2025)"
+  ],
+  "documentation": [
+    "NEON.DOC.014050vN - TOS Protocol: Ground Beetle Sampling",
+    "NEON.DOC.000909vC - TOS Science Design",
+    "NEON_beetle_userGuide_vG - User Guide",
+    "NEON.QSG.DP1.10022.001v2 - Quick Start Guide",
+    "NEON.DOC.005424vA - OS Data Quality Control ATBD",
+    "CMNH & ESSIG SOPs (specimen processing/ID)"
+  ],
+  "biorepository_collections": [
+    "Carabid collections (Archive Pooling, DNA Extracts, Pinned Vouchers, Trap Sorting)",
+    "Invertebrate/herptile/mammal bycatch collections",
+    "Pinned carabid repositories at CMNH, Essig Museum (UC Berkeley), ASU, Bishop Museum, and NEON Domain Offices"
+  ],
+  "releases_with_dois": {
+    "RELEASE-2021": "10.48443/tx5f-dy17",
+    "RELEASE-2022": "10.48443/xgea-hw23",
+    "RELEASE-2023": "10.48443/3v35-v852",
+    "RELEASE-2024": "10.48443/rcxn-t544",
+    "RELEASE-2025": "10.48443/cd21-q875",
+    "RELEASE-2026": "10.48443/q9ne-6b77"
+  },
+  "note": "Site codes listing was truncated in the API response. Visible sites include ABBY, BARR, BART, BLAN, BONA, CLBJ, CPER, DCFS, DEJU, DELA, DSNY, GRSM, GUAN, HARV and more."
+}
