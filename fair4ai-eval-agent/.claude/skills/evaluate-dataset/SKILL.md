@@ -48,21 +48,24 @@ directly by a person, you will be given all parameters up front in your prompt. 
   output directory. Then run Steps 3–7 exactly as written, including computing scores with
   `compute_fair4ai_scores.py`.
 - **File-hygiene rule (critical in batch mode):** use the **absolute paths** the coordinator gives
-  you — the checklist, the template, and the **output directory**. Do **not** rely on the current
-  working directory: never read `CHECKLIST.csv` by a bare relative name, and never `cd` into the
-  agent source tree. Your only writes are **inside the run folder**: retrieved metadata under
-  `retrieved_metadata/<short_name>/` and **exactly one evaluation JSON** in the supplied output
-  directory. Do **not** create helper/generator `.py` scripts, intermediate or renamed JSON, or
-  scratch notes anywhere, and **never** write into the agent source tree (`fair4ai-eval-agent/` —
-  where `CHECKLIST.csv`, the skills, and `scripts/` live). Build the JSON directly with the Write
-  tool rather than authoring a script that emits it.
+  you — the checklist and the **output directory**. Do **not** rely on the current working
+  directory: never read `CHECKLIST.csv` by a bare relative name, and never `cd` into the agent
+  source tree. Your only writes are **inside the run folder**: retrieved metadata under
+  `retrieved_metadata/<short_name>/`, the **evaluation JSON** in the supplied output directory, and
+  the small per-section **ratings/session/summary batch files** you feed to the helper scripts
+  (keep those under `<output dir>/_ratings/`). You **may invoke** the committed helper scripts in
+  `scripts/` by absolute path — `build_response_scaffold.py`, `merge_ratings.py`, and
+  `compute_fair4ai_scores.py` — that is how the JSON is produced. You may **not author your own**
+  `.py` scripts, create renamed/duplicate evaluation JSONs or scratch notes, or **ever** write into
+  the agent source tree (`fair4ai-eval-agent/` — where `CHECKLIST.csv`, the skills, and `scripts/`
+  live).
 - **Interpreter rule:** run all Python via the `python` command exactly as written. Do **not**
   call `python3`, `pip`, `py -m pip`, or `python -m venv`, and never trigger any Python installer
   — the scripts are stdlib-only and need no install. If `python` is unavailable, use `py -3`,
   never `python3` (on Windows `python3` may resolve to the Microsoft Store redirector and open the
   install manager).
 - **End your turn by returning the structured result** below as your final message (in addition to
-  writing the JSON file) — the coordinator parses this instead of re-opening your file:
+  producing the JSON file via Steps 3–7) — the coordinator parses this instead of re-opening your file:
 
   ```json
   {
@@ -113,22 +116,29 @@ done this — skip straight to Step 3.)*
 - <TS> — <short_name> — SKIPPED (already evaluated: <existing file(s)>); pass Rerun=Yes to re-evaluate
 ```
 
-## Step 3: Load the checklist
+## Step 3: Build the response scaffold and load the rating guide
 
-Read the checklist CSV file (`CHECKLIST.csv`, 89 items). Each row with a non-blank `Item` is a checklist item. Key columns:
+**Do not read the whole `CHECKLIST.csv` into context or hand-write the 89 response objects.**
+Instead run the blessed helper `build_response_scaffold.py`. It (a) writes a **scaffold**
+evaluation JSON with all 89 responses pre-filled — `item`, `requirement_definition`,
+`fair_category`, and `ai_fair_criteria` copied **verbatim** from the checklist, with
+`status`/`evidence`/`notes`/`recommendation` empty — and (b) prints a **compact, per-section
+rating guide** (only the rating-relevant columns) that you rate from:
 
-| CSV column | Maps to JSON field / use |
-|---|---|
-| `Item` | copied **verbatim** into each response's `item` |
-| `Requirement Definition` | copied **verbatim** into each response's `requirement_definition` (the criterion being assessed) |
-| `Scoring: Meets` / `Scoring: Partial` / `Scoring: Does Not Meet` | the **authoritative per-item rubric** for choosing `meets` / `partial` / `does not meet` (see Step 5) |
-| `Scoring: NA` | the **authoritative per-item N/A trigger** (see Step 5) |
-| `FAIR category` | copied verbatim into each response's `fair_category` |
-| `AI FAIR Criteria: Structural \| Scientific \| Provenance \| Governance` | copied verbatim into each response's `ai_fair_criteria` (a `Governance` token routes CARE scoring) |
-| `Note` | extra context to interpret the criterion (not emitted) |
-| `Broad categories` / `Sub category` | grouping context only — **not** emitted in the output |
+```bash
+python scripts/build_response_scaffold.py \
+  --checklist <checklist path> \
+  --out <run folder>/evaluation_results/<output filename> \
+  --emit-guide
+```
 
-Skip only rows where `Item` is blank. Copy the `Item` and `Requirement Definition` values verbatim — do **not** paraphrase them.
+Read the guide from the command's **stdout**. It groups all 89 items into their **9 `Broad
+categories` sections** and, per item, shows the `Requirement`, the four
+`Meets`/`Partial`/`Does Not Meet`/`NA` rubric cells, the `AI FAIR Criteria`, the `FAIR category`,
+and any `Note`. This guide is your rating surface — you do **not** re-read the raw CSV, and you
+**never** edit the four verbatim fields (the scaffold owns them, which keeps them exactly correct).
+Your job in Steps 4–5 is only to produce `status`, `evidence`, `notes`, and `recommendation` for
+each item.
 
 ## Step 4: Obtain the dataset metadata (look for downloaded data first)
 
@@ -154,9 +164,43 @@ accessed in `session.evaluation_method`. If metadata is incomplete or retrieval 
 for some sources, note this in `session.evaluator.evaluation_description` and proceed
 with what is available.
 
-## Step 5: Evaluate each checklist item
+**Read the metadata once and keep it in your working context for the whole evaluation.** All 9
+sections in Step 5 are rated against the same metadata — do **not** re-read the raw files per
+section. Reading it once and reusing it across sections is what keeps token cost flat as the
+number of rated items grows.
 
-**Each checklist row carries its own rating guidance** in the `Scoring: Meets`, `Scoring: Partial`, `Scoring: Does Not Meet`, and `Scoring: NA` columns — these are the **authoritative, per-item** definitions. Apply the matching cell to choose the status. `RATING_RUBRIC.md` is the **general framework** (the four levels, the evidence rule, the AI-FAIR facet meanings, and the scoring math); read it and apply it where the per-item cell needs interpretation. When the two seem to conflict, the **per-item cell wins**. For every checklist item, assess the dataset metadata and fill in the fields below:
+## Step 5: Rate the checklist, one section at a time, merging as you go
+
+Rate the guide **section by section** (the 9 `Broad categories` groups). After finishing each
+section, **write that section's ratings to the scaffold immediately** with `merge_ratings.py`, then
+move to the next section. This makes progress visible in the file, caps each write to ~10 items
+(so a dropped turn loses only one section), and makes the run resumable. Do **not** accumulate all
+89 ratings and write once at the end.
+
+For each section:
+
+1. For every item in the section, decide `status` and write `evidence` / `notes` / `recommendation`
+   (guidance below). You do **not** touch `item`, `requirement_definition`, `fair_category`, or
+   `ai_fair_criteria` — the scaffold already holds them verbatim.
+2. Emit that section's ratings as a small JSON array to a batch file under
+   `<output dir>/_ratings/<section>.json`, each entry `{"item", "status", "evidence", "notes",
+   "recommendation"}` (the `item` must match the checklist item name **exactly** — `merge_ratings.py`
+   rejects unknown names, which catches drift).
+3. Merge it:
+   ```bash
+   python scripts/merge_ratings.py \
+     --scaffold <run folder>/evaluation_results/<output filename> \
+     --ratings <output dir>/_ratings/<section>.json
+   ```
+   It prints `N/89 items now rated` so you can track progress. **Resume:** if a run is interrupted,
+   re-read the scaffold, find responses whose `status` is still empty, and rate only those sections.
+
+**Each checklist row carries its own rating guidance** in its `Meets`, `Partial`, `Does Not Meet`,
+and `NA` cells (shown in the guide) — these are the **authoritative, per-item** definitions. Apply
+the matching cell to choose the status. `RATING_RUBRIC.md` is the **general framework** (the four
+levels, the evidence rule, the AI-FAIR facet meanings, and the scoring math); apply it where the
+per-item cell needs interpretation. When the two seem to conflict, the **per-item cell wins**. Fill
+in the fields below:
 
 - **`status`**: one of exactly four values — choose it by matching the dataset against the item's own `Scoring:` cells (rubric §2 gives the general meaning):
   - `"meets"` — the condition in the item's `Scoring: Meets` cell is satisfied and evidence-locatable in the metadata
@@ -181,17 +225,69 @@ with what is available.
 
 - **`recommendation`**: if status is `"partial"` or `"does not meet"`, provide specific and actionable guidance — name the field, standard, or format the dataset should adopt, and briefly explain why it matters for AI/ML reuse. Leave as `""` if status is `"meets"` or `"N/A"`.
 
-- **`fair_category`**: copy the item's `FAIR category` value **verbatim** from the checklist (a pipe-separated subset of `Findable | Accessible | Interoperable | Reusable`, or blank for AI-FAIR-only / context-only items). Drives the **Traditional FAIR** assessment in Step 6 — do not omit it.
-
-- **`ai_fair_criteria`**: copy the item's `AI FAIR Criteria: Structural | Scientific | Provenance | Governance` value **verbatim** from the checklist (one or more of `Structural | Scientific | Provenance | Governance`, e.g. `Structural | Scientific` or `Provenance | Governance`, or blank). Drives the **AI-FAIR** assessment in Step 6 — a `Governance` token routes the item to CARE scoring. This is what makes AI-readiness measurable — do not omit it.
-
-- **`item`**: copy the item's `Item` value **verbatim** from the checklist. **`requirement_definition`**: copy the item's `Requirement Definition` value **verbatim** from the checklist (do not paraphrase or rewrite as a question).
+(You do **not** write `item`, `requirement_definition`, `fair_category`, or `ai_fair_criteria` — the scaffold already carries them verbatim from the checklist. `fair_category` drives Traditional FAIR and `ai_fair_criteria` drives AI-FAIR in Step 6, but they are fixed; your ratings are what feed the scores. The guide still shows each item's `AI FAIR Criteria` so you can apply the blended-criteria "take the lower" rule.)
 
 When evidence is ambiguous, assign `"partial"` rather than guessing in either direction, and explain the ambiguity in `notes`.
 
-## Step 6: Build the output JSON
+## Step 6: Fill the `session` block and `summary` narrative
 
-Construct the full evaluation document using the structure below. Do not omit any top-level key. Use `null` for unknown values in the `session` block rather than leaving fields empty.
+The scaffold `build_response_scaffold.py` wrote in Step 3 **already has the full document shape** —
+the `session`/`responses`/`summary` keys, all 89 `responses[]` objects (verbatim fields + the ratings
+Step 5 merged in), and `summary.fair4ai_scores: {}`. You are **not** rebuilding it. This step fills
+the two remaining hand-authored pieces: the `session` block (dataset identity + evaluator + method)
+and the `summary` narrative (`strengths`, `gaps`, `overall_assessment`). Leave `fair4ai_scores` empty
+— Step 7 computes it.
+
+Set both by handing `merge_ratings.py` small JSON files (do **not** re-Write the whole document):
+
+```bash
+python scripts/merge_ratings.py \
+  --scaffold <run folder>/evaluation_results/<output filename> \
+  --session-json <output dir>/_ratings/session.json \
+  --summary-json <output dir>/_ratings/summary.json
+```
+
+`--session-json` replaces the top-level `session` block; `--summary-json` sets
+`summary.strengths`/`gaps`/`overall_assessment` (it never touches `fair4ai_scores`). Use `null` for
+unknown values in `session` rather than leaving fields empty. The two files carry exactly these
+shapes (the same structure the finished document uses below):
+
+```json
+// session.json
+{
+  "evaluation_date": "<today YYYY-MM-DD>",
+  "ai_model": "Claude (Anthropic)",
+  "evaluation_method": "<one sentence describing how metadata was accessed>",
+  "source_files": ["<URL or file path 1>", "..."],
+  "dataset": {
+    "title": "<dataset title>",
+    "product_id": "<product or accession ID, or null>",
+    "repository_url": "<repository root URL, or null>",
+    "landing_page_url": "<dataset landing page URL, or null>",
+    "citation": "<full preferred citation, or null>"
+  },
+  "evaluator": {
+    "name": "<user-provided name, or 'Automated FAIR4AI Evaluation'>",
+    "affiliation": "<user affiliation, or null>",
+    "email": "<user email, or null>",
+    "relationship_to_dataset": "<Data Provider/Producer | Processor | Host | Data User/Developer | Catalog Curator>",
+    "evaluation_purpose": "<publishing for others | open-ended use | use in a specific project>",
+    "evaluation_description": "<brief description of what sources were used and any retrieval limitations>"
+  }
+}
+```
+
+```json
+// summary.json
+{
+  "strengths": ["<notable strength>", "..."],
+  "gaps": ["<notable gap>", "..."],
+  "overall_assessment": "<2-3 sentence narrative summary>"
+}
+```
+
+For reference, the finished document the scaffold + these merges + Step 7's scoring produce has this
+structure (do not omit any top-level key):
 
 ```json
 {
@@ -237,7 +333,9 @@ Construct the full evaluation document using the structure below. Do not omit an
 }
 ```
 
-Do **not** estimate the FAIR4AI scores yourself. Instead, build `responses[]` (each with its `status` and `fair_category`) and the rest of the `summary`, write the file (Step 7), then invoke the **`fair4ai-scoring`** skill:
+Do **not** estimate the FAIR4AI scores yourself. `responses[]` were filled per section in Step 5 and
+the `session`/`summary` narrative in Step 6; in Step 7 you compute `summary.fair4ai_scores`
+deterministically by invoking the **`fair4ai-scoring`** skill:
 
 ```bash
 python scripts/compute_fair4ai_scores.py <output.json>
@@ -267,11 +365,20 @@ It writes this block back into the file:
 
 (Two checklist columns drive the two assessments. `FAIR category` → Traditional FAIR: Findable = PID/DOI, rich metadata, keywords, landing page; Accessible = download/API/open formats/license/access conditions; Interoperable = standards (EML, DwC, schema.org, ENVO), machine-readable formats, controlled vocab; Reusable = attribution, provenance, methods docs, license clarity, checksums. `AI FAIR Criteria` → AI-FAIR: Structural = machine-ingestable format/schema; Scientific = fitness for a scientific/ML task; Provenance = traceability of sources and processing; Governance = the CARE/ethical items carrying the `Governance` criteria token.)
 
-## Step 7: Write the output, compute scores, and report to the user
+## Step 7: Compute scores and report to the user
 
-1. Use the output filename `FAIR4AI_eval_<short_name>_<TS>.json` (the `<TS>` from Step 2; if a custom Output filename was supplied, use it but keep a to-the-second timestamp so re-runs never collide).
-2. Write the JSON file into this run's `evaluation_results/` folder (`<run folder>/evaluation_results/`), with `fair4ai_scores` as an empty object for now, using the Write tool directly. This is the **only** evaluation file you create — do not emit a generator script, an intermediate/renamed JSON, or any scratch file, and never write into the agent source tree (`fair4ai-eval-agent/`). (Retrieved metadata already lives under `retrieved_metadata/<short_name>/` from Step 4.)
-3. Compute the scores reproducibly by invoking the **`fair4ai-scoring`** skill on the file just written:
+1. The evaluation file already exists — it is the scaffold `build_response_scaffold.py` wrote in
+   Step 3 at `<run folder>/evaluation_results/<output filename>` (`FAIR4AI_eval_<short_name>_<TS>.json`,
+   or the custom Output filename if one was supplied), progressively filled by the Step 5 rating
+   merges and the Step 6 session/summary merge, with `fair4ai_scores` still `{}`. This is the **only**
+   evaluation file — the sole extra writes are the small batch files under `<output dir>/_ratings/`;
+   do not emit a generator script, an intermediate/renamed JSON, or any other scratch file, and never
+   write into the agent source tree (`fair4ai-eval-agent/`). (Retrieved metadata already lives under
+   `retrieved_metadata/<short_name>/` from Step 4.)
+2. Confirm the file is complete before scoring: all 89 `responses[]` have a non-empty `status` (re-run
+   `merge_ratings.py` on any section still pending — see the Step 5 resume note), and `session` /
+   `summary` are filled from Step 6.
+3. Compute the scores reproducibly by invoking the **`fair4ai-scoring`** skill on the file:
    ```bash
    python scripts/compute_fair4ai_scores.py <output.json>
    ```

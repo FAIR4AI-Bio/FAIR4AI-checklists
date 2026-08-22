@@ -8,9 +8,17 @@ Two kinds of things are pinned down here:
    metadata retrieved once (via the `retrieve-metadata` skill) for each example dataset, plus a
    `retrieval_manifest.json`. Committing these makes evaluations reproducible **without re-fetching
    from the network** — the evaluation reads from disk.
-2. **A deterministic validation suite** — `test_example_outputs.py` checks that the committed
-   example outputs in `example_outputs/` are structurally valid for the current **89-item**
-   `CHECKLIST.csv` and that the scorer reproduces their stored scores.
+2. **A deterministic validation suite** — two test modules, both stdlib-only:
+   - `test_example_outputs.py` checks that the committed example outputs in `example_outputs/` are
+     structurally valid for the current **89-item** `CHECKLIST.csv` and that the scorer reproduces
+     their stored scores.
+   - `test_scaffold_and_merge.py` checks the two blessed eval-workflow helpers
+     (`build_response_scaffold.py` + `merge_ratings.py`): the scaffold produces 89 responses with the
+     verbatim fields copied from the CSV and empty ratings, `--emit-guide` groups all items into 9
+     sections and drops the non-rating columns, `merge_ratings` validates/normalizes/is idempotent,
+     and — the strongest check — scaffold + merge(ratings extracted from each committed example)
+     reproduces that example's responses **exactly**, with the scorer yielding the stored scores and
+     no warnings.
 
 The evaluation itself is produced by an LLM (a **Sonnet** sub-agent), so it is *not*
 deterministic — the suite therefore asserts **invariants**, not exact statuses/scores. Regenerating
@@ -59,11 +67,15 @@ run the `retrieve-metadata` skill for each dataset in URL mode and save into
 
 **B. Regenerate the evaluation outputs** from the cached metadata (no network):
 run the `evaluate-dataset` skill in **local-path mode** with the dataset source pointed at
-`example_inputs/example_metadata/<short_name>/`, using a Sonnet sub-agent. It rates all 89 items in
-the current schema and writes `example_outputs/FAIR4AI_eval_<short_name>_<timestamp>.json`, then
-scores it via:
+`example_inputs/example_metadata/<short_name>/`, using a Sonnet sub-agent. Following its Steps 3–7,
+it (1) builds the scaffold and rating guide with `build_response_scaffold.py`, (2) rates the 89 items
+one `Broad categories` section at a time, merging each section into the on-disk scaffold with
+`merge_ratings.py` (per-section incremental writes), and (3) scores the finished file:
 
 ```bash
+python scripts/build_response_scaffold.py --checklist CHECKLIST.csv \
+  --out example_outputs/FAIR4AI_eval_<short_name>_<timestamp>.json --emit-guide
+# ...per-section merge_ratings.py calls fill responses[] + session/summary...
 python scripts/compute_fair4ai_scores.py example_outputs/FAIR4AI_eval_<short_name>_<timestamp>.json
 ```
 
@@ -76,5 +88,8 @@ holds.
 
 - The scorer's own math is unit-tested separately by `python scripts/compute_fair4ai_scores.py
   --selftest`; this suite tests the *committed example documents*, not the scoring formulas.
+- `build_response_scaffold.py` and `merge_ratings.py` each have a built-in `--selftest` too
+  (`python scripts/build_response_scaffold.py --selftest`, `python scripts/merge_ratings.py
+  --selftest`) for a quick check without the full suite.
 - If a test fails after a checklist edit, it usually means the outputs need regenerating (step B) so
   their `item` / `fair_category` / `ai_fair_criteria` values match the new `CHECKLIST.csv`.

@@ -48,6 +48,17 @@ in its **Batch / non-interactive mode**.
 
 ## Scripts & dependencies
 
+- `scripts/build_response_scaffold.py` — builds the evaluation **scaffold** JSON (stdlib-only): all
+  89 `responses[]` pre-filled with `item`/`requirement_definition`/`fair_category`/`ai_fair_criteria`
+  **verbatim** from `CHECKLIST.csv` and empty ratings, plus `--emit-guide` to print a compact
+  per-section rating guide to stdout. The `evaluate-dataset` skill runs this at Step 3 so the agent
+  rates from the guide instead of loading the whole CSV, and never hand-transcribes the verbatim
+  fields (they are correct-by-construction).
+- `scripts/merge_ratings.py` — merges a batch of `{item, status, evidence, notes, recommendation}`
+  ratings into the scaffold **in place** (stdlib-only); validates every item exists and the status is
+  legal, normalizes status spelling, is idempotent, and accepts partial batches. The skill calls it
+  once per `Broad categories` section (per-section incremental writes → visible progress + resumable
+  runs); `--session-json`/`--summary-json` set the `session` block and `summary` narrative.
 - `scripts/compute_fair4ai_scores.py` — scoring (stdlib-only); the scoring authority for every run.
 - `scripts/compile_fair4ai_results.py` — compiles a directory of evaluation JSONs → scores CSV +
   `AGG:{...}` aggregates (stdlib-only). `--source-csv` is optional (datasets are otherwise derived

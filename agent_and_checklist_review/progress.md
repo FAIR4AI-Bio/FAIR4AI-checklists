@@ -42,6 +42,7 @@ for the full gap/recommendation detail those iterations produced.)*
 | 7 | **CHECKLIST.csv** (this repo) | **Governance→Criteria + review scaffolding** (2026-08-07) | **(a)** Migrated the persona review into this folder. **(b)** Moved **Governance** into the `Criteria` column: renamed the header to `Criteria: Structural/Scientific/Provenance/Governance` and appended `/Governance` to the 5 governance rows (kept the `Governance` Broad-category section). **(c)** Rewired `compute_fair4ai_scores.py` so `care_compliance` reads governance from `Criteria` (union with the `Governance` section as a backward-compatible fallback); `--selftest` PASS; both example outputs re-score identically (AI-FAIR 0.746 / 0.603, care 0.5 / 0.3). **(d)** Updated `RATING_RUBRIC.md` (§4d + §6), `CLAUDE.md`, `CHECKLIST_OVERVIEW.md`, `README.md`, and both skills. **(e)** Logged the review proposals below (§3–§5). | ✅ applied + proposals logged |
 | 8 | **CHECKLIST.csv** 16→15 cols (this repo) | **Apply reviewed proposals 4a–4c + full scorer refactor** (2026-08-12) | **(A)** Reworded items 72/73 as conditional disclosure **statements** (good state = `meets`/`N/A`, never `does not meet` for a clean dataset); **(B)** added 72/73 as worked **N/A** examples in `evaluate-dataset/SKILL.md`. **(C)** Filled/re-tagged `Criteria`: 9 *Keywords/Tags*→`Structural/Scientific`, 17 *Related paper*→`Scientific/Provenance`, 47 *controlled vocabulary*→`Structural`, 42 *Labeling*→`Scientific/Provenance` (left 60 *Reporting Issues* as `Provenance`). **(D/P1)** Dropped the sparse `use case` column (folded 7 notes into `Note`), 16→15 cols. **(E/P3-P4)** Canonicalized every blended `Criteria` to **Structural<Scientific<Provenance<Governance**; `Data structure`→`Data Structure`. **(F/P5)** Filled the one blank `Required` (*Preparation*→`core`). **(G/P2)** Renamed column `FAIR4AI category`→`FAIR category`, removed the dead `AI-ready` token, audited all 96 FAIR mappings (21 carried `AI-ready`: 6 kept another dim, 11 retagged `Reusable`, 4 left blank as pure-ML). **Refactored the scorer**: renamed JSON field `fair4ai_category`→`fair_category`, removed legacy AI-ready code, hardened exception handling, updated `--selftest` (PASS). Synced all docs/skills/rubric. Example outputs pending regeneration (old field name superseded). | ✅ applied (examples pending regen) |
 | 9 | **CHECKLIST.csv** restructured into a true rating instrument, **96→89 items** (this repo) | **Eric's hand-edit (with Gemini) + agent/rubric/scorer/docs sync** (2026-08-21) | Eric rebuilt the CSV: consolidated overlapping items 96→89, renamed `Proposed definition`→`Requirement Definition`, **added four per-item rating columns** `Scoring: Meets / Partial / Does Not Meet / NA` (item-specific rubric text, previously only general in `RATING_RUBRIC.md`), renamed the criteria header to `AI FAIR Criteria: Structural \| Scientific \| Provenance \| Governance` with values now ` \| `-separated, and **removed** `Use-case scope (Condition)`, `Required (…)`, and `Applies-at-level`. **Agent sync:** made the per-item `Scoring:` cells the authoritative item-level rubric (RATING_RUBRIC.md → general framework), keyed the **N/A rule off `Scoring: NA`**, and changed the `responses[]` schema to `item, requirement_definition, status, evidence, notes, recommendation, fair_category, ai_fair_criteria` — **dropping `section`/`sub_section`/`question`**. Verified `care_compliance` survives dropping `section` (all governance items carry the `Governance` facet; scorer keeps a legacy `section` fallback). **Scorer:** reads `ai_fair_criteria` (falls back to legacy `criteria`); `--selftest` PASS (new + legacy schema). Synced `RATING_RUBRIC.md`, all five skills, `CLAUDE.md`, `README.md`, `QUICKSTART.md`, `make_fair4ai_figure.py`. **Regenerated both example outputs** (89 items, new schema) from **cached metadata fixtures** committed under `example_inputs/example_metadata/` and added a stdlib `unittest` validation suite (`tests/`, 10/10 green). | ✅ applied |
+| 10 | *(no CSV change — agent workflow)* | **Eval efficiency & sub-agent reliability** (2026-08-21) | Diagnosed why `/evaluate-dataset` sub-agents began failing (ECONNRESET/403 "at the write step") after the Iter-9 restructure — see §4f. Root causes: the four new `Scoring:` columns bloat the CSV to ~78 KB / ~20k tokens loaded per sub-agent; all 89 responses are emitted in **one giant Write**; the no-scripts hygiene rule forces ~4.3k tokens of pure verbatim transcription; no checkpointing. **Reworking the workflow** (approved with Eric): a blessed `build_response_scaffold.py` pre-fills the verbatim fields + emits a compact per-section rubric guide; the agent produces **ratings only**; `merge_ratings.py` writes them in **per `Broad categories` section** (incremental, resumable). Relaxes only the "no scripts" half of the hygiene rule to two committed absolute-path scripts (location discipline intact). Full plan: `PLAN_eval_efficiency_reliability.md`. **Implemented 2026-08-21** — both scripts written (each `--selftest` PASS), both skills reworked, docs synced, and `tests/test_scaffold_and_merge.py` added (23 tests green, incl. a reconstruction test proving the new pipeline reproduces both committed examples exactly). | ✅ |
 
 ---
 
@@ -210,6 +211,82 @@ a stdlib `unittest` suite — reproducible, no live re-fetch on each run. (3) Ne
 
 ---
 
+## 4f. Iteration 10 — eval efficiency & sub-agent reliability (implemented 2026-08-21)
+
+**Trigger:** after Iteration 9, `/evaluate-dataset` sub-agents (Sonnet/Haiku) began failing with
+ECONNRESET/403 **"at the write step"** — the same wall that forced the Iter-9 example outputs to be
+built inline instead of by sub-agents. Eric asked to diagnose the regression and rework the workflow
+for **fewer tokens, less wall-clock, and incremental (watchable, resumable) output**. Full design in
+**`PLAN_eval_efficiency_reliability.md`**; summary here.
+
+**Diagnosis (root causes, evidence-backed):**
+1. **Context bloat from the new `Scoring:` columns.** The pre-restructure checklist
+   (`git show da71e5d^`) had **no** `Scoring:` columns — rating guidance lived only in
+   `RATING_RUBRIC.md`. The restructured CSV adds `Scoring: Meets/Partial/Does Not Meet/NA` =
+   **~35.5 KB (~9k tokens)**; the whole CSV is now **~78 KB (~20k tokens)**, loaded into every
+   sub-agent at Step 3.
+2. **Monolithic single Write of all 89 responses** (Step 6–7) — one oversized `tool_use` payload
+   over one long turn is exactly what trips ECONNRESET/timeout/403; hence "at the write step."
+3. **Verbatim-transcription tax + the "no scripts" rule** (`evaluate-dataset/SKILL.md:55-58,273`)
+   force the model to hand-copy four verbatim fields for all 89 items (~4.3k output tokens, zero
+   reasoning value).
+4. **No checkpointing** — a dead turn loses the whole run; retries restart from zero.
+
+**On the hygiene rule (commit `ad18c4d`):** it bundles **(1) location discipline** (never write
+outside the run folder / into the source tree — the genuine intent, prompted by ad-hoc generators
+that used relative paths + a bad cwd) and **(2) a blanket "no scripts"** (only the enforcement
+mechanism). We relax **only (2)**, and only for committed, stdlib, absolute-path scripts — the
+opposite of the ad-hoc generators the rule targeted; the skill already invokes one such script
+(`compute_fair4ai_scores.py`).
+
+**Granularity analysis (why per-section, not per-item):** the expensive shared input is the
+metadata + instructions, paid **once per context**. One-item-at-a-time in the same context is
+token-equivalent but too granular (89 turns/merges); **a sub-agent per item is the worst** (re-pays
+the fixed cost ~89×). Per-section keeps one context per dataset (metadata read once, reused) and
+uses the section boundary only to decide **when to write to disk** (merges are non-LLM). ⇒ at the
+token optimum **and** checkpointed.
+
+**Approved rework (decisions via AskUserQuestion):**
+- **Scaffold + rating-only merge.** `scripts/build_response_scaffold.py` writes an 89-response
+  scaffold with `item` / `requirement_definition` / `fair_category` / `ai_fair_criteria`
+  **verbatim from the CSV** (correct-by-construction → `tests/` passes automatically) and empty
+  ratings, and emits a **compact per-section rubric guide** so the 78 KB CSV never enters reasoning
+  context. The agent produces **only** `status`/`evidence`/`notes`/`recommendation`.
+- **Per-section incremental writes.** `scripts/merge_ratings.py` merges each `Broad categories`
+  section's ratings into the on-disk scaffold as it completes (validates item existence + status;
+  idempotent; supports partial batches). File grows section-by-section; a reset loses one section;
+  runs become resumable.
+- **Hygiene rule reworded** in `evaluate-dataset` + `batch-evaluate-datasets` to permit invoking the
+  three committed scripts by absolute path while keeping all location discipline.
+- **Tests:** new `tests/test_scaffold_and_merge.py`; both cached fixtures re-run through the new
+  scaffold→section-merge→score flow to confirm scores hold; existing 10 tests stay green.
+
+**Expected wins:** ~4.3k output tokens/dataset (no transcription) + ~3k input tokens/dataset (compact
+guide vs full CSV) saved; largest turn drops from 89 items to ~10 (the reliability fix); per-section
+checkpointing for visibility + resume.
+
+**Implementation status (2026-08-21, complete):**
+- `scripts/build_response_scaffold.py` and `scripts/merge_ratings.py` written, committed to
+  `scripts/`, stdlib-only, absolute-path args, each with a `--selftest` (both PASS).
+- `evaluate-dataset/SKILL.md` reworked end-to-end: Step 3 = build scaffold + read compact guide (no
+  raw CSV in context); Step 4 = read metadata once, reuse across sections; Step 5 = rate one `Broad
+  categories` section at a time and merge immediately (per-section incremental writes, resume note);
+  Step 6 = fill `session`/`summary` via `merge_ratings.py --session-json/--summary-json` (scaffold
+  already owns the schema + verbatim fields); Step 7 = confirm all 89 rated, then score & report.
+  File-hygiene rule reworded (batch + interactive) to permit the three committed scripts by absolute
+  path and per-section batch files under `<output dir>/_ratings/`, keeping all location discipline.
+- `batch-evaluate-datasets/SKILL.md` hygiene rule + sub-agent contract updated to match.
+- `tests/test_scaffold_and_merge.py` added (**23 tests total, green**), including a **reconstruction
+  test**: scaffold + merge(ratings extracted from each committed example) + that example's own
+  session/summary reproduces its `responses[]` **exactly** and the scorer yields the committed scores
+  with zero warnings — proving the new pipeline is output-equivalent to the Iter-9 examples without a
+  live re-run.
+- Docs synced: `CLAUDE.md` (Scripts section + both new scripts), `QUICKSTART.md` (Files-involved +
+  "updating fields" note), `tests/README.md` (regeneration step B = scaffold → per-section merge →
+  score; new test module described).
+
+---
+
 ## 5. Planned next steps
 
 1. **Confirm the Iteration-8 flagged mappings** (§4d) — Eric to accept/override the ~20 judgment-call
@@ -247,7 +324,7 @@ evidence of how the current instrument behaves. To be run in a later session.
 ---
 ---
 
-Where things stand (through Iteration 9, 2026-08-21):
+Where things stand (through Iteration 10, complete 2026-08-21):
 
   - Checklist matured from metadata template → evaluation instrument, then (Iter 9) into a true
     **rating instrument**: 96 → **89 items**, each row now carrying its own `Scoring: Meets / Partial /
@@ -279,14 +356,20 @@ Where things stand (through Iteration 9, 2026-08-21):
       regenerate from disk with **no live fetch**. A stdlib `unittest` suite (`tests/`) validates the
       committed outputs against the 89-item checklist (count, exact 8-field schema, valid statuses,
       `fair_category`/`ai_fair_criteria` verbatim from the CSV, scorer reproduces stored scores with no
-      warnings) — **10/10 green**. The two stale `2026-08-03` outputs were replaced.
+      warnings) — **10/10 green** at Iter 9 (now **23/23** after Iter 10 added the scaffold/merge tests).
+The two stale `2026-08-03` outputs were replaced.
 
   Next steps (from §5 + §4d)
 
   1. Eric confirms the ~20 flagged FAIR category judgment calls in §4d (e.g. whether Is machine ready stays Interoperable, whether Splits/Supported ML Tasks/Benchmark results stay blank, whether governance/CARE items should also count toward Reusable), plus the Preparation → core tier. *(Carried over from Iter 8; note the item-name references predate the 96→89 consolidation.)*
   2. ✅ Example outputs regenerated (Iter 9) — now on the 89-item checklist and new schema; unblocks the archetype review.
-  3. Run the scaffolded archetype-driven review round (A1–A7 in personas_and_archetypes.md): map archetypes → score categories, read the regenerated outputs through each lens, do a per-archetype gap pass, and emit proposals as the next iteration.
-  4. Sync the checklist into the Google Sheet mirror.
-  5. Deferred/future: revisit FD-1 (controlled ML-task vocabularies); scope P1 gaps R6–R9 (sensor block, taxonomic backbone, sampling design, record-level annotation provenance) as new rated criteria.
+  3. ✅ **Iteration 10 — eval efficiency & sub-agent reliability** (§4f): `build_response_scaffold.py` + `merge_ratings.py` implemented, `evaluate-dataset`/`batch-evaluate-datasets` reworked to scaffold + rate-only + per-section incremental merge, hygiene rule reworded, `tests/test_scaffold_and_merge.py` added (23 tests green, incl. reconstruction test confirming both committed examples reproduce exactly — no live re-run needed), docs synced. Plan: `PLAN_eval_efficiency_reliability.md`.
+  4. Run the scaffolded archetype-driven review round (A1–A7 in personas_and_archetypes.md): map archetypes → score categories, read the regenerated outputs through each lens, do a per-archetype gap pass, and emit proposals as the next iteration.
+  5. Sync the checklist into the Google Sheet mirror.
+  6. Deferred/future: revisit FD-1 (controlled ML-task vocabularies); scope P1 gaps R6–R9 (sensor block, taxonomic backbone, sampling design, record-level annotation provenance) as new rated criteria.
 
-  The immediate follow-up is the archetype-driven review round (#3), now unblocked by the regenerated example outputs. Eric's §4d sign-off (#1) can proceed in parallel.
+  With the Iteration 10 eval-workflow rework complete (#3), the immediate follow-up is the
+  archetype-driven review round (#4), unblocked by the regenerated example outputs. Eric's §4d
+  sign-off (#1) can proceed in parallel. Iteration 10 still wants a **live end-to-end confirmation
+  run** (one dataset through the reworked `/evaluate-dataset` from a real fetch) to verify the
+  reliability fix in practice — the reconstruction test already proves output-equivalence offline.

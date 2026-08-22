@@ -203,8 +203,8 @@ The dataset list is derived from the JSONs, so a source CSV is optional.
 
 ## Updating the checklist or template
 
-- **New checklist items**: add rows to the checklist CSV following the existing column structure. The agent reads the CSV fresh each run.
-- **New output fields**: edit the template JSON. The agent uses it as a structural reference, not a data source.
+- **New checklist items**: add rows to the checklist CSV following the existing column structure. `build_response_scaffold.py` reads the CSV fresh each run, so new rows flow into the scaffold (and the rating guide) automatically.
+- **New output fields**: edit `scripts/build_response_scaffold.py` (`RESPONSE_FIELDS` and the field-fill logic), which owns the `responses[]` schema, and keep `scripts/merge_ratings.py`/`compute_fair4ai_scores.py` and `tests/test_scaffold_and_merge.py` in sync. The template JSON is now just a human-readable structural reference.
 - **Changing defaults**: update the checklist filename or template filename in `.claude/skills/evaluate-dataset/SKILL.md` under the "Gather parameters" step.
 
 ---
@@ -218,6 +218,8 @@ The dataset list is derived from the JSONs, so a source CSV is optional.
 | `.claude/skills/fair4ai-scoring/SKILL.md` | The `/fair4ai-scoring` skill (deterministic 0–1 scoring) |
 | `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` coordinator skill (parallel per-dataset evals → hands off to `summarize-outputs`) |
 | `.claude/skills/summarize-outputs/SKILL.md` | The `/summarize-outputs` skill (compile any results dir → CSV + figure + report, dedups reruns) |
+| `scripts/build_response_scaffold.py` | Builds the scaffold JSON (89 responses, verbatim fields pre-filled) and emits the compact per-section rating guide; run at Step 3 of an evaluation |
+| `scripts/merge_ratings.py` | Merges a section's `{item, status, evidence, notes, recommendation}` ratings into the scaffold in place (one call per section → incremental, resumable writes) |
 | `scripts/compute_fair4ai_scores.py` | Scoring tool the fair4ai-scoring skill runs |
 | `scripts/compile_fair4ai_results.py` | Compiles a directory of evaluation JSONs into a scores CSV + aggregates (source CSV optional; dedups reruns) |
 | `scripts/make_fair4ai_figure.py` | Renders the summary figure (needs numpy + matplotlib) |

@@ -123,9 +123,10 @@ Each sub-agent uses the **chosen model** and gets a prompt that:
    - Tell the sub-agent the run folder already exists: it must **not** create a new run folder
      or run the interactive skip check — just save retrieved metadata to the Metadata save
      location and write the evaluation JSON into the Output directory.
-3. Requires the sub-agent to end by (a) writing the JSON, (b) running
-   `python scripts/compute_fair4ai_scores.py <that file>` to populate scores, and (c) returning
-   the **Structured result contract** (below) as its final message.
+3. Requires the sub-agent to end by (a) producing the evaluation JSON via the blessed helper scripts
+   (`build_response_scaffold.py` → per-section `merge_ratings.py`, per `evaluate-dataset` Steps 3–6),
+   (b) running `python scripts/compute_fair4ai_scores.py <that file>` to populate scores, and (c)
+   returning the **Structured result contract** (below) as its final message.
 4. States the **Interpreter rule**: *"Run all Python via the `python` command exactly as
    written. Do **not** call `python3`, `pip`, `py -m pip`, or `python -m venv`, and never trigger
    any Python installer — the scripts are stdlib-only and need no install. If `python` is
@@ -133,14 +134,18 @@ Each sub-agent uses the **chosen model** and gets a prompt that:
    Microsoft Store App-Installer redirector and pops the "Python install manager".)
 5. States the **File-hygiene rule**: *"Use the absolute paths given above. Do not rely on the
    current working directory, do not read `CHECKLIST.csv` by a bare relative name, and do not `cd`
-   into the agent source tree. Your only writes are inside the run folder: retrieved metadata under
-   the **Metadata save location** (`retrieved_metadata/<short_name>/`) and **exactly one evaluation
-   JSON** into the supplied **Output directory** (`evaluation_results/`), using the Write tool
-   directly (build the JSON yourself; do not author a generator script that emits it). Do **not**
-   create any helper `.py` script, intermediate/renamed JSON, or scratch file, and **never** write
-   into the agent source tree (`fair4ai-eval-agent/`, where `CHECKLIST.csv`, the skills, and
-   `scripts/` live)."* (Real runs left stray `eval_*.py` / `*_evaluation.json` files in the agent
-   repo — this rule prevents that.)
+   into the agent source tree. You **may invoke** the committed helper scripts in `scripts/` by
+   absolute path — `build_response_scaffold.py`, `merge_ratings.py`, and `compute_fair4ai_scores.py`
+   — that is how the evaluation JSON is produced; you may **not author your own** `.py` scripts. Your
+   only writes are inside the run folder: retrieved metadata under the **Metadata save location**
+   (`retrieved_metadata/<short_name>/`), **exactly one evaluation JSON** in the supplied **Output
+   directory** (`evaluation_results/`, produced by the scaffold + merge scripts), and the small
+   per-section **ratings/session/summary batch files** you feed the scripts (keep those under
+   `<output dir>/_ratings/`). Do **not** create renamed/duplicate evaluation JSONs or scratch notes,
+   and **never** write into the agent source tree (`fair4ai-eval-agent/`, where `CHECKLIST.csv`, the
+   skills, and `scripts/` live)."* (Real runs left stray `eval_*.py` / `*_evaluation.json` files in
+   the agent repo — the location discipline here prevents that; the blessed scripts are committed,
+   stdlib, absolute-path tools, the opposite of those ad-hoc generators.)
 
 After each wave completes, update `batch_evaluate_progress.md` (✅ / ⚠️ / ⛔ per dataset) so
 progress survives a lost session.
