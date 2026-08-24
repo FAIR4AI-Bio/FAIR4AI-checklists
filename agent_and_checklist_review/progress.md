@@ -355,8 +355,9 @@ NEON Ground Beetles FAIR 0.596 / AI-FAIR 0.535 — unchanged from Iter 9).
 
 **Verification (end-to-end, all clean):** scaffold = 89 `meets` + empty recs; guide = 9 sections /
 89 items / no removed cells / Requirement + N/A present; scorer `--selftest` PASS; both examples
-`--dry-run` no warnings; full suite **27/27**. A **live `/evaluate-dataset` run on neon_beetles** is
-the final in-practice sanity check (result recorded in "Where things stand" once it completes).
+`--dry-run` no warnings; full suite **27/27**. A **live `/evaluate-dataset` run on neon_beetles**
+(from the cached fixture, through the reworked scaffold → per-section merge → score flow) passed as
+the in-practice sanity check — see "Where things stand" for the run result.
 
 ---
 
@@ -440,6 +441,22 @@ The two stale `2026-08-03` outputs were replaced.
   4. Run the scaffolded archetype-driven review round (A1–A7 in personas_and_archetypes.md): map archetypes → score categories, read the regenerated outputs through each lens, do a per-archetype gap pass, and emit proposals as the next iteration.
   5. Sync the checklist into the Google Sheet mirror.
   6. Deferred/future: revisit FD-1 (controlled ML-task vocabularies); scope P1 gaps R6–R9 (sensor block, taxonomic backbone, sampling design, record-level annotation provenance) as new rated criteria.
+
+  Iteration 11 live sanity run (2026-08-24). One dataset (NEON Ground Beetles) taken end-to-end
+  through the reworked **section-guided, exception-based** `/evaluate-dataset` flow, from the cached
+  metadata fixture: build scaffold (89 items default `meets`) → rate 9 sections emitting deviations
+  only → per-section merge → session/summary → score. All 9 sections reviewed (deviations: General
+  Information 12, Provenance 11, Data Access 8, Governance 4, Guidance 9, Source Data 4, Data
+  Structure 3, Data Processing 4, Data Quality 2 = **57 deviations, 32 items left at `meets`**). Final
+  status mix: **meets 32 / partial 26 / does not meet 11 / N/A 20**; scorer ran clean (no warnings).
+  Scores: **Overall FAIR 0.684** (F 0.706 / A 0.767 / I 0.700 / R 0.565), **Overall AI-FAIR 0.627**
+  (ml_ready 0.721, ai_ready_for_task 0.688, traceable 0.660, care_compliance 0.438) — same shape as
+  the committed Iter-9 example (FAIR 0.596 / AI-FAIR 0.535), a bit higher on this independent pass,
+  with care_compliance the weakest facet as expected. **N/A safeguard confirmed in practice:** all 20
+  N/A items carry a `notes` reason, none carries a `recommendation`, and all 20 are excluded from the
+  scoring denominators (e.g., reusable scored 46 of 62 items). Output validated: 89 responses, exact
+  8-field schema, every partial/does-not-meet has an actionable recommendation. (Run artifacts written
+  under the untracked `TEST_OUTPUT/`, outside the source tree.)
 
   With the Iteration 10 eval-workflow rework complete (#3), the immediate follow-up is the
   archetype-driven review round (#4), unblocked by the regenerated example outputs. Eric's §4d
