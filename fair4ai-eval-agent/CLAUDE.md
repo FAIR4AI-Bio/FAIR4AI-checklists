@@ -58,9 +58,12 @@ in its **Batch / non-interactive mode**.
   hand-transcribes the verbatim fields (they are correct-by-construction).
 - `scripts/merge_ratings.py` — merges a batch of `{item, status, evidence, notes, recommendation}`
   ratings into the scaffold **in place** (stdlib-only); validates every item exists and the status is
-  legal, normalizes status spelling, is idempotent, and accepts partial batches. The skill calls it
-  once per `Broad categories` section (per-section incremental writes → visible progress + resumable
-  runs); `--session-json`/`--summary-json` set the `session` block and `summary` narrative.
+  legal, normalizes status spelling, is idempotent, and accepts partial batches. With `--checklist`
+  (which the skill always passes) it also enforces the **"Never NA" guard**: an `N/A` rating on any
+  item whose `Scoring: NA` cell reads "Never NA …" is a merge error, so mandatory items can't be
+  silently dropped from scoring (mirror of the scorer's "N/A never awards credit" rule). The skill
+  calls it once per `Broad categories` section (per-section incremental writes → visible progress +
+  resumable runs); `--session-json`/`--summary-json` set the `session` block and `summary` narrative.
 - `scripts/compute_fair4ai_scores.py` — scoring (stdlib-only); the scoring authority for every run.
 - `scripts/compile_fair4ai_results.py` — compiles a directory of evaluation JSONs → scores CSV +
   `AGG:{...}` aggregates (stdlib-only). `--source-csv` is optional (datasets are otherwise derived

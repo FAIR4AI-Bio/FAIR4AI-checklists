@@ -337,6 +337,21 @@ increments `na` only, never `sum`/`n_scored`); `_score()` returns `None` when `n
 all-N/A dimension/facet resolves to `null` and is dropped from the `overall` mean. Three new tests
 lock this in (below).
 
+**Inverse safeguard — "Never NA" items can't be rated N/A (added 2026-08-24):** the previous
+safeguard guarantees an N/A rating never *scores*; this one guarantees a *mandatory* item never
+*becomes* N/A in the first place. Items whose `Scoring: NA` cell reads "Never NA …" (25 of the 89)
+are mandatory for every dataset — rating one `N/A` would silently drop it from scoring. Previously
+this was prompt/rubric guidance only (RATING_RUBRIC.md §3, SKILL.md) with **no code enforcement**;
+Eric flagged the gap. Now enforced at the merge boundary: `merge_ratings.py` gained
+`load_never_na_items(checklist)` + a `never_na_items` param to `merge()`, and a new optional
+`--checklist` flag on `main()`. When passed (the `evaluate-dataset` SKILL.md now always passes
+`--checklist CHECKLIST.csv`), an `N/A` on any mandatory item is a merge error collected into the same
+fail-loudly/no-mutation `errors` list as the existing item-existence/legal-status checks. Absent the
+flag the guard is off (backward-compatible). `--selftest` updated; four new `NeverNAGuardTest` tests
+(27 → **31 green**); end-to-end CLI confirmed (N/A on `Comprehensive Dataset Abstract` fails with
+`--checklist`, passes without). Mirror of the "N/A never scores" rule — the two N/A safeguards are
+now symmetric.
+
 **Example outputs regenerated** — for every `meets`/`N/A` response, `recommendation` set to `""`
 (shortfalls keep theirs). Recommendations don't affect scores, so `summary.fair4ai_scores` is
 **identical**; both re-score clean with no warnings (TreeOfLife-200M FAIR 0.727 / AI-FAIR 0.598;

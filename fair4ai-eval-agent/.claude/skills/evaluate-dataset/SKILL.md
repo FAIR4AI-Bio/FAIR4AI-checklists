@@ -198,13 +198,16 @@ For each section:
    "recommendation"}` (the `item` must match the checklist item name **exactly** — `merge_ratings.py`
    rejects unknown names, which catches drift). If a section has no deviations, record that in your
    tally and skip the merge for it.
-3. Merge it:
+3. Merge it (always pass `--checklist` so the "Never NA" guard is active):
    ```bash
    python scripts/merge_ratings.py \
      --scaffold <run folder>/evaluation_results/<output filename> \
-     --ratings <output dir>/_ratings/<section>.json
+     --ratings <output dir>/_ratings/<section>.json \
+     --checklist CHECKLIST.csv
    ```
-   It prints how many items now carry a non-`meets` status so you can track deviations. **Resume:** if
+   With `--checklist`, the merge **rejects** an `N/A` rating on any item whose `N/A when` cell reads
+   "Never NA …" (mandatory for all datasets) — the enforcement behind the N/A rule below. It also
+   prints how many items now carry a non-`meets` status so you can track deviations. **Resume:** if
    a run is interrupted, the presence of a `_ratings/<section>.json` file marks a section as already
    reviewed; resume with the sections that have no batch file yet.
 

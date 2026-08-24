@@ -25,8 +25,14 @@ in the scaffold (catches transcription drift / stale item names), and every stat
 must be one of meets | partial | does not meet | N/A (case/spacing-normalized to the
 canonical spelling). Re-merging the same batch is idempotent.
 
+When `--checklist` is given, the merge ALSO enforces the "Never NA" rule: items whose
+checklist `Scoring: NA` cell reads "Never NA …" (mandatory for all datasets) can never
+be rated `N/A`, since an `N/A` rating drops the item from scoring entirely. Trying to do
+so is a merge error (mirror of the scorer's "N/A never awards credit" safeguard). The
+`evaluate-dataset` skill always passes `--checklist`, so the guard is on for real runs.
+
 Stdlib only. Usage:
-    python scripts/merge_ratings.py --scaffold /abs/scaffold.json --ratings /abs/section.json
+    python scripts/merge_ratings.py --scaffold /abs/scaffold.json --ratings /abs/section.json --checklist /abs/CHECKLIST.csv
     python scripts/merge_ratings.py --scaffold /abs/scaffold.json --ratings -   # read stdin
     # --summary-json also sets summary.strengths/gaps/overall_assessment;
     # --session-json replaces the top-level `session` block:
@@ -34,6 +40,7 @@ Stdlib only. Usage:
     python scripts/merge_ratings.py --selftest
 """
 import argparse
+import csv
 import json
 import sys
 
@@ -47,9 +54,36 @@ _STATUS_CANON = {
     "na": "N/A",
 }
 
+# A checklist `Scoring: NA` cell that starts with this (case-insensitive) marks an item
+# as mandatory for all datasets: it can never be rated N/A.
+NEVER_NA_PREFIX = "never na"
+
 
 def _norm_status(s):
     return "".join(ch for ch in str(s).lower() if ch.isalnum())
+
+
+def load_never_na_items(checklist_path):
+    """Return the set of `Item` names whose `Scoring: NA` cell reads 'Never NA …'.
+
+    These items are mandatory for every dataset and must never be rated N/A. Reads the
+    same CSV build_response_scaffold.py uses; tolerant of a missing column (returns an
+    empty set, so the guard simply does nothing rather than failing the merge).
+    """
+    with open(checklist_path, encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        fieldnames = reader.fieldnames or []
+        item_col = next((h for h in fieldnames if h and h.strip() == "Item"), None)
+        na_col = next((h for h in fieldnames if h and h.strip() == "Scoring: NA"), None)
+        if not item_col or not na_col:
+            return set()
+        never = set()
+        for row in reader:
+            item = (row.get(item_col) or "").strip()
+            cell = (row.get(na_col) or "").strip().lower()
+            if item and cell.startswith(NEVER_NA_PREFIX):
+                never.add(item)
+    return never
 
 
 def canonical_status(raw):
@@ -76,11 +110,16 @@ def normalize_ratings(ratings):
     return out
 
 
-def merge(doc, ratings):
+def merge(doc, ratings, never_na_items=None):
     """Apply ratings to doc['responses'] in place. Returns (n_merged, n_rated_total).
 
     Raises ValueError (with ALL problems collected) before mutating anything.
+
+    `never_na_items`, when provided, is a set of item names that must never be rated
+    `N/A` (their checklist `Scoring: NA` cell reads "Never NA …"); an `N/A` rating for
+    any of them is collected as an error alongside the existence/status checks.
     """
+    never_na_items = never_na_items or set()
     responses = doc.get("responses")
     if not isinstance(responses, list):
         raise ValueError("scaffold has no 'responses' list")
@@ -109,6 +148,11 @@ def merge(doc, ratings):
         if canon is None:
             errors.append(f"rating[{i}] ({item!r}): invalid status {entry['status']!r} "
                           f"(must be one of {VALID_STATUSES})")
+            continue
+        if canon == "N/A" and item in never_na_items:
+            errors.append(f"rating[{i}] ({item!r}): status 'N/A' is not allowed - this "
+                          f"item is mandatory for all datasets ('Never NA'); rate it "
+                          f"meets / partial / does not meet")
             continue
         updates = {"status": canon}
         for field in RATING_FIELDS:
@@ -217,6 +261,20 @@ def _selftest():
     except ValueError as e:
         assert "missing 'status'" in str(e)
 
+    # "Never NA" guard: N/A on a mandatory item -> error, nothing mutated
+    d = copy.deepcopy(scaffold)
+    try:
+        merge(d, [{"item": "A", "status": "N/A"}], never_na_items={"A"})
+        assert False, "N/A on a Never-NA item must raise"
+    except ValueError as e:
+        assert "not allowed" in str(e) and "Never NA" in str(e)
+    assert d == scaffold, "no mutation when a Never-NA item is rated N/A"
+    # ...but a non-N/A status on the same item, and N/A on a non-mandatory item, are fine
+    d = copy.deepcopy(scaffold)
+    n, _ = merge(d, [{"item": "A", "status": "meets"}, {"item": "B", "status": "N/A"}],
+                 never_na_items={"A"})
+    assert n == 2 and d["responses"][0]["status"] == "meets" and d["responses"][1]["status"] == "N/A"
+
     # summary passthrough
     d = copy.deepcopy(scaffold)
     apply_summary(d, {"strengths": ["s1"], "gaps": ["g1"], "overall_assessment": "ok",
@@ -238,6 +296,8 @@ def main(argv=None):
     ap.add_argument("--ratings", help="path to the ratings JSON, or '-' for stdin")
     ap.add_argument("--summary-json", help="optional JSON file setting summary.strengths/gaps/overall_assessment")
     ap.add_argument("--session-json", help="optional JSON file that replaces the top-level `session` block")
+    ap.add_argument("--checklist", help="optional CHECKLIST.csv; enables the 'Never NA' guard "
+                                        "(mandatory items cannot be rated N/A)")
     ap.add_argument("--selftest", action="store_true", help="run internal checks and exit")
     args = ap.parse_args(argv)
 
@@ -259,6 +319,14 @@ def main(argv=None):
         print(f"ERROR: invalid JSON in scaffold {args.scaffold}: {e}", file=sys.stderr)
         return 1
 
+    never_na_items = set()
+    if args.checklist:
+        try:
+            never_na_items = load_never_na_items(args.checklist)
+        except (FileNotFoundError, OSError) as e:
+            print(f"ERROR: could not read --checklist: {e}", file=sys.stderr)
+            return 1
+
     n_merged = 0
     total = sum(1 for r in doc.get("responses", []) if isinstance(r, dict) and r.get("status"))
     if args.ratings:
@@ -268,7 +336,7 @@ def main(argv=None):
             print(f"ERROR: could not read --ratings: {e}", file=sys.stderr)
             return 1
         try:
-            n_merged, total = merge(doc, ratings)
+            n_merged, total = merge(doc, ratings, never_na_items=never_na_items)
         except ValueError as e:
             print(f"ERROR: {e}", file=sys.stderr)
             return 1

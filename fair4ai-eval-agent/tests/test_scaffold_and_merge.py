@@ -302,5 +302,54 @@ class ReconstructionTest(unittest.TestCase):
                 self.assertEqual(recomputed, example["summary"]["fair4ai_scores"])
 
 
+class NeverNAGuardTest(unittest.TestCase):
+    """merge_ratings.py rejects N/A on items whose CHECKLIST 'Scoring: NA' reads 'Never NA …'."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.never_na = merger.load_never_na_items(str(CHECKLIST))
+        cls.rows, cls.colmap = scaffold.load_rows(str(CHECKLIST))
+
+    def _fresh_doc(self):
+        return scaffold.build_document(self.rows, self.colmap, session=scaffold._blank_session())
+
+    def test_loads_mandatory_items_from_checklist(self):
+        # the real checklist marks a substantial set of items mandatory-for-all
+        self.assertGreater(len(self.never_na), 0, "expected some 'Never NA' items")
+        # every one is a real checklist item name
+        all_items = {r["item"] for r in self._fresh_doc()["responses"]}
+        self.assertTrue(self.never_na <= all_items)
+
+    def test_na_on_mandatory_item_is_rejected_with_no_mutation(self):
+        item = sorted(self.never_na)[0]  # a real mandatory item
+        doc = self._fresh_doc()
+        before = copy.deepcopy(doc)
+        with self.assertRaises(ValueError) as ctx:
+            merger.merge(doc, [{"item": item, "status": "N/A"}], never_na_items=self.never_na)
+        msg = str(ctx.exception)
+        self.assertIn("not allowed", msg)
+        self.assertIn("Never NA", msg)
+        self.assertEqual(doc, before, "no mutation when a Never-NA item is rated N/A")
+
+    def test_non_na_status_on_mandatory_item_is_allowed(self):
+        item = sorted(self.never_na)[0]
+        doc = self._fresh_doc()
+        n, _ = merger.merge(doc, [{"item": item, "status": "does not meet",
+                                   "recommendation": "add it"}],
+                            never_na_items=self.never_na)
+        self.assertEqual(n, 1)
+        rated = next(r for r in doc["responses"] if r["item"] == item)
+        self.assertEqual(rated["status"], "does not meet")
+
+    def test_guard_is_off_without_never_na_set(self):
+        # backward compatible: no set passed -> N/A accepted (old behaviour)
+        item = sorted(self.never_na)[0]
+        doc = self._fresh_doc()
+        n, _ = merger.merge(doc, [{"item": item, "status": "N/A"}])
+        self.assertEqual(n, 1)
+        rated = next(r for r in doc["responses"] if r["item"] == item)
+        self.assertEqual(rated["status"], "N/A")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
