@@ -9,10 +9,13 @@ script pre-fills them deterministically:
 
   - each response gets `item`, `requirement_definition`, `fair_category`, and
     `ai_fair_criteria` copied VERBATIM from the checklist row (so the tests/ verbatim
-    check passes by construction), and empty `status`/`evidence`/`notes`/
-    `recommendation` for the agent to fill;
-  - `--emit-guide` prints a COMPACT, per-section rating guide (only the columns that
-    matter for rating) so the agent never has to load the full ~78 KB CSV into context.
+    check passes by construction), a default `status` of `meets` (the exception-based
+    norm: the agent overrides only the items that fall short or are N/A), and empty
+    `evidence`/`notes`/`recommendation`;
+  - `--emit-guide` prints a COMPACT, per-section rating guide (requirement definition +
+    per-item NA guidance) so the agent never has to load the full CSV into context. The
+    agent judges meets/partial/does-not-meet against RATING_RUBRIC.md (§4), not per-item
+    cells.
 
 The agent then produces only its judgments and merges them in with merge_ratings.py.
 
@@ -53,9 +56,10 @@ VERBATIM_MAP = {
     # "AI FAIR Criteria: ..." is matched by prefix (long header) -> ai_fair_criteria
 }
 
-# Extra rating-relevant columns surfaced in the --emit-guide output (never emitted
-# into the scaffold JSON itself). These are the per-item rubric the agent rates from.
-GUIDE_SCORING_COLS = ["Scoring: Meets", "Scoring: Partial", "Scoring: Does Not Meet", "Scoring: NA"]
+# Item-specific rating cell surfaced in the --emit-guide output (never emitted into the
+# scaffold JSON itself). Only the N/A condition remains per-item; meets/partial/does-not-
+# meet judgment comes from RATING_RUBRIC.md (§4), not the CSV.
+GUIDE_SCORING_COLS = ["Scoring: NA"]
 
 
 def _find_col(fieldnames, name):
@@ -121,7 +125,7 @@ def build_responses(rows, colmap):
         resp = {
             "item": _cell(row, colmap["item"]),
             "requirement_definition": _cell(row, colmap["requirement_definition"]),
-            "status": "",
+            "status": "meets",
             "evidence": "",
             "notes": "",
             "recommendation": "",
@@ -188,12 +192,14 @@ def format_guide(rows, colmap):
     lines = []
     lines.append(f"# Rating guide — {len(rows)} items in {len(sections)} sections")
     lines.append("")
-    lines.append("Rate one section at a time. Use each item's own `Meets`/`Partial`/`Does Not Meet`")
-    lines.append("cells; an item is `N/A` only when its `NA` cell applies. For blended `AI FAIR")
-    lines.append("Criteria`, rate each facet and take the LOWER status. `item`,")
+    lines.append("Rate one section at a time. Judge each item against its Requirement and the")
+    lines.append("section-level guidance in RATING_RUBRIC.md (§4) to decide meets / partial / does")
+    lines.append("not meet; an item is `N/A` only when its `NA` condition below applies. For blended")
+    lines.append("`AI FAIR Criteria`, rate each facet and take the LOWER status. `item`,")
     lines.append("`requirement_definition`, `fair_category`, and `ai_fair_criteria` are already filled")
-    lines.append("in the scaffold — you produce only `status`, `evidence`, `notes`, `recommendation`.")
-    lines.append("Merge each section's ratings with merge_ratings.py before starting the next.")
+    lines.append("in the scaffold, and every item defaults to `meets` — you only emit ratings for")
+    lines.append("items that are `partial`, `does not meet`, or `N/A` (with a `recommendation` for")
+    lines.append("shortfalls). Merge each section's deviations with merge_ratings.py before the next.")
     lines.append("")
     lines.append("Sections: " + ", ".join(f"{name} ({len(rs)})" for name, rs in sections))
     lines.append("")
@@ -207,7 +213,7 @@ def format_guide(rows, colmap):
             for key in GUIDE_SCORING_COLS:
                 val = _cell(row, colmap[key])
                 if val:
-                    label = key.replace("Scoring: ", "")
+                    label = key.replace("Scoring: NA", "N/A when").replace("Scoring: ", "")
                     lines.append(f"- {label}: {val}")
             crit = _cell(row, colmap["ai_fair_criteria"])
             fair = _cell(row, colmap["fair_category"])
@@ -224,19 +230,16 @@ def _selftest():
     import os
 
     csv_text = (
-        "Item,Requirement Definition,Scoring: Meets,Scoring: Partial,"
-        "Scoring: Does Not Meet,Scoring: NA,FAIR category,"
+        "Item,Requirement Definition,Scoring: NA,FAIR category,"
         "AI FAIR Criteria: Structural | Scientific | Provenance | Governance,"
         "Broad categories,Sub category,mappedEML,Note\n"
-        "Descriptive Title,A clear title.,Has a clear title.,Title is vague.,"
-        "No title.,Never NA.,Findable,Provenance,General,Naming,eml:title,Some note.\n"
-        "Access License,A license is present.,License stated.,License unclear.,"
-        "No license.,Never NA.,Accessible | Reusable,Provenance | Governance,"
-        "Governance,Licensing,,\n"
+        "Descriptive Title,A clear title.,Never NA.,Findable,Provenance,"
+        "General,Naming,eml:title,Some note.\n"
+        "Access License,A license is present.,Never NA.,Accessible | Reusable,"
+        "Provenance | Governance,Governance,Licensing,,\n"
         # A second 'General' row AFTER 'Governance' — non-contiguous; must regroup.
-        "Keywords,Has keywords.,Keywords present.,Few keywords.,"
-        "No keywords.,Never NA.,Findable,Structural,General,Tags,eml:keyword,\n"
-        ",blank item should be skipped,,,,,,,,,,\n"
+        "Keywords,Has keywords.,Never NA.,Findable,Structural,General,Tags,eml:keyword,\n"
+        ",blank item should be skipped,,,,,,,\n"
     )
     with tempfile.TemporaryDirectory() as d:
         cpath = os.path.join(d, "CHECKLIST.csv")
@@ -255,9 +258,10 @@ def _selftest():
         assert resps[0]["item"] == "Descriptive Title"
         assert resps[0]["fair_category"] == "Findable"
         assert resps[1]["ai_fair_criteria"] == "Provenance | Governance"
-        # ratings start empty
+        # status defaults to meets (exception-based); other rating fields start empty
         for r in resps:
-            assert r["status"] == r["evidence"] == r["notes"] == r["recommendation"] == ""
+            assert r["status"] == "meets", r["status"]
+            assert r["evidence"] == r["notes"] == r["recommendation"] == ""
         # session/summary skeleton
         assert doc["summary"]["fair4ai_scores"] == {}
         assert doc["session"]["dataset"]["title"] is None
@@ -273,7 +277,9 @@ def _selftest():
         guide = format_guide(rows, colmap)
         assert guide.count("## Section:") == 2, "must be 2 sections, not one per row"
         assert "## Section: General" in guide and "## Section: Governance" in guide
-        assert "Meets: Has a clear title." in guide
+        assert "Requirement: A clear title." in guide
+        assert "N/A when: Never NA." in guide, "guide must surface the per-item NA condition"
+        assert "Meets:" not in guide, "removed per-item scoring cells must not appear"
         assert "eml:title" not in guide, "guide must omit non-rating columns"
     print("build_response_scaffold selftest: PASS")
 
@@ -325,8 +331,8 @@ def main(argv=None):
         with open(args.out, "w", encoding="utf-8") as f:
             json.dump(doc, f, indent=2, ensure_ascii=False)
             f.write("\n")
-        print(f"Wrote scaffold with {len(doc['responses'])} pending responses -> {args.out}",
-              file=sys.stderr)
+        print(f"Wrote scaffold with {len(doc['responses'])} responses "
+              f"(default status 'meets') -> {args.out}", file=sys.stderr)
     else:
         print(f"(no --out given; built {len(doc['responses'])} responses)", file=sys.stderr)
 

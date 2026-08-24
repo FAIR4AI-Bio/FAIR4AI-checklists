@@ -14,14 +14,16 @@ one assessable question about a target dataset. This rubric defines **how a revi
 the `fair4ai-eval-agent` decides which rating an item receives** — so ratings are
 consistent across items, datasets, and runs.
 
-**Where the guidance lives.** Each checklist row now carries **item-specific** rating
-guidance in four columns — `Scoring: Meets`, `Scoring: Partial`, `Scoring: Does Not Meet`,
-and `Scoring: NA`. Those cells are the **authoritative, per-item definition** of what each
-rating means for that item (including when it is `N/A`). This rubric is the **general
-framework** around them: the four rating levels (§2), the N/A rule (§3), the facet
-principles that shape the AI-FAIR score (§4), the evidence requirement, and the scoring
-math (§6). When the per-item `Scoring:` cell and this rubric's general guidance appear to
-differ, the **per-item cell wins**.
+**Where the guidance lives.** Judge each item against its `Requirement Definition` in the
+checklist (what the item asks the dataset to disclose), and use **this rubric as the
+authoritative, overarching framework** for deciding which rating that item earns: the four
+rating levels (§2), the N/A rule (§3), the facet-level guidance that says what "present /
+incomplete / absent" concretely look like for each kind of readiness (§4), the evidence
+requirement, and the scoring math (§6). There are no per-item `Scoring: Meets / Partial /
+Does Not Meet` cells — the rubric's section-level guidance is what makes ratings consistent
+across items, datasets, and runs. The one item-specific cell that remains is **`Scoring:
+NA`**, which is authoritative **for the `N/A` decision only** (§3): it states, per item, the
+condition under which that item does not apply.
 
 What it rates: the **Data** vertex of the Question–Data–Model triangle — whether a
 dataset *communicates* the information an AI/ML user would need. It rates **what the
@@ -95,10 +97,10 @@ which the item does not apply. Two recurring shapes of that condition:
 
 ## 4. Grouped guidance by criteria type
 
-The per-item `Scoring:` columns are the authoritative guidance for each item (see §1). This
-section is the **general framework** behind them — it explains what the AI-FAIR facets mean and
-how blended criteria roll up, so ratings stay consistent across items and the score is
-interpretable.
+This section is the **authoritative rating guidance** (see §1): it explains what the AI-FAIR
+facets mean and, for each facet, what `meets` / `partial` / `does not meet` concretely look
+like, so ratings stay consistent across items and the score is interpretable. Apply the facet
+guidance below together with the item's `Requirement Definition`.
 
 The `AI FAIR Criteria: Structural | Scientific | Provenance | Governance` column tags what *kind*
 of readiness each item probes, using canonical tokens (`Structural`, `Scientific`, `Provenance`,

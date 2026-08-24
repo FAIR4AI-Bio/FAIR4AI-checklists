@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working in this
 
 ## What this agent does
 
-Evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the FAIR4AI-Bio checklist. Reads a dataset landing page or local metadata files, rates 89 checklist items (`meets | partial | does not meet | N/A`, per each item's per-row `Scoring:` guidance and the general framework in `RATING_RUBRIC.md`), and produces a structured JSON report with **two reproducible assessments** — **Traditional FAIR** (Findable, Accessible, Interoperable, Reusable + overall) and **AI-FAIR** (ml_ready, ai_ready_for_task, traceable, care_compliance + overall) — each score in **0–1, where 1 is "most FAIR4AI"**. Scores are computed deterministically by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`), not estimated. Reporting the two side by side operationalizes the thesis that FAIR is necessary but not sufficient for AI-ready data.
+Evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the FAIR4AI-Bio checklist. Reads a dataset landing page or local metadata files, rates 89 checklist items (`meets | partial | does not meet | N/A`, judged against each item's `Requirement Definition` and the section-level guidance in `RATING_RUBRIC.md`), and produces a structured JSON report with **two reproducible assessments** — **Traditional FAIR** (Findable, Accessible, Interoperable, Reusable + overall) and **AI-FAIR** (ml_ready, ai_ready_for_task, traceable, care_compliance + overall) — each score in **0–1, where 1 is "most FAIR4AI"**. Scores are computed deterministically by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`), not estimated. Reporting the two side by side operationalizes the thesis that FAIR is necessary but not sufficient for AI-ready data.
 
 ## Skills
 
@@ -50,10 +50,12 @@ in its **Batch / non-interactive mode**.
 
 - `scripts/build_response_scaffold.py` — builds the evaluation **scaffold** JSON (stdlib-only): all
   89 `responses[]` pre-filled with `item`/`requirement_definition`/`fair_category`/`ai_fair_criteria`
-  **verbatim** from `CHECKLIST.csv` and empty ratings, plus `--emit-guide` to print a compact
-  per-section rating guide to stdout. The `evaluate-dataset` skill runs this at Step 3 so the agent
-  rates from the guide instead of loading the whole CSV, and never hand-transcribes the verbatim
-  fields (they are correct-by-construction).
+  **verbatim** from `CHECKLIST.csv`, `status` defaulting to **`meets`** (the exception-based norm),
+  and empty `evidence`/`notes`/`recommendation`, plus `--emit-guide` to print a compact per-section
+  rating guide (requirement + per-item `N/A when` condition) to stdout. The `evaluate-dataset` skill
+  runs this at Step 3 so the agent rates from the guide (plus `RATING_RUBRIC.md` §4) instead of
+  loading the whole CSV, only overrides the items that deviate from `meets`, and never
+  hand-transcribes the verbatim fields (they are correct-by-construction).
 - `scripts/merge_ratings.py` — merges a batch of `{item, status, evidence, notes, recommendation}`
   ratings into the scaffold **in place** (stdlib-only); validates every item exists and the status is
   legal, normalizes status spelling, is idempotent, and accepts partial batches. The skill calls it
@@ -77,7 +79,7 @@ unavailable, use `py -3`, never `python3`.
 
 ## Checklist structure
 
-`CHECKLIST.csv` has 9 sections (`Broad categories` column, including **Governance**) and 89 items. Key columns: `Item`, `Requirement Definition`, four per-item rating-guidance columns `Scoring: Meets`, `Scoring: Partial`, `Scoring: Does Not Meet`, `Scoring: NA` (the **authoritative item-level rubric** — each cell tells you exactly what qualifies for that status on that item), `FAIR category` (the FAIR dimension(s) each item counts toward; drives Traditional FAIR), `AI FAIR Criteria: Structural | Scientific | Provenance | Governance` (canonical tokens `Structural`/`Scientific`/`Provenance`/`Governance` and their ` | `-joined blends; drives AI-FAIR), `Broad categories`, `Sub category`, `Note`, `mappedEML`, `mappedDataCite`, `mappedSOSO`, `mappedCroissant`, and `Croissant scope`. Governance items carry `Governance` in their `AI FAIR Criteria` column, which drives the AI-FAIR `care_compliance` score (the scorer also accepts a `Governance` `section` as a backward-compatible fallback for older evaluation files).
+`CHECKLIST.csv` has 9 sections (`Broad categories` column, including **Governance**) and 89 items. Key columns: `Item`, `Requirement Definition` (what the item asks the dataset to disclose — the thing you rate against), `Scoring: NA` (the one item-specific rating cell that remains — it states the condition under which the item is `N/A`), `FAIR category` (the FAIR dimension(s) each item counts toward; drives Traditional FAIR), `AI FAIR Criteria: Structural | Scientific | Provenance | Governance` (canonical tokens `Structural`/`Scientific`/`Provenance`/`Governance` and their ` | `-joined blends; drives AI-FAIR), `Broad categories`, `Sub category`, `Note`, `mappedEML`, `mappedDataCite`, `mappedSOSO`, `mappedCroissant`, and `Croissant scope`. The `meets`/`partial`/`does not meet` judgment is made against the **section-level facet guidance in `RATING_RUBRIC.md` §4** (Structural / Scientific / Provenance / Governance), not per-item cells. Governance items carry `Governance` in their `AI FAIR Criteria` column, which drives the AI-FAIR `care_compliance` score (the scorer also accepts a `Governance` `section` as a backward-compatible fallback for older evaluation files).
 
 Skip only rows where `Item` is blank. The per-item `Scoring: NA` cell governs the `N/A` decision (see `RATING_RUBRIC.md` §3 for the general framework).
 

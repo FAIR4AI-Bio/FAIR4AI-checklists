@@ -34,7 +34,7 @@
       "status": "meets",
       "evidence": "\"TreeOfLife-200M\" is a human-readable, meaningful title (Tree of Life, ~200M images) and the dataset card provides a descriptive overview subtitle rather than a bare file path.",
       "notes": "",
-      "recommendation": "None; the title is descriptive.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Provenance"
     },
@@ -44,7 +44,7 @@
       "status": "meets",
       "evidence": "The card gives a comprehensive description: scale (233M images, 933,798 taxa), four source providers, purpose (foundation-model training), curation pipeline, and coverage statistics.",
       "notes": "",
-      "recommendation": "None; abstract is comprehensive.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Scientific"
     },
@@ -54,7 +54,7 @@
       "status": "meets",
       "evidence": "Purpose is explicit: training biology foundation models (BioCLIP 2 and BioCLIP 2.5 Huge) for computer vision, with defined scope (933,798 taxa across four biodiversity providers).",
       "notes": "",
-      "recommendation": "None; purpose and scope are documented.",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Scientific"
     },
@@ -64,7 +64,7 @@
       "status": "meets",
       "evidence": "A registered, resolvable DOI is assigned: 10.57967/hf/8980 (doi:10.57967/hf/8980).",
       "notes": "",
-      "recommendation": "None; a resolvable DOI is present.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -84,7 +84,7 @@
       "status": "meets",
       "evidence": "The dataset is hosted by the HDR Imageomics Institute with a maintained Hugging Face dataset page and associated Imageomics project presence.",
       "notes": "",
-      "recommendation": "None; a maintained project/landing page is provided.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -94,7 +94,7 @@
       "status": "meets",
       "evidence": "Curation code is identified as named, resolvable tooling (the TaxonoPy package for taxonomic standardization and the TreeOfLife processing toolbox), plus standard detectors (MegaDetector, MTCNN).",
       "notes": "",
-      "recommendation": "Ensure each named tool (TaxonoPy, toolbox) carries a direct URL/PID in structured metadata.",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -104,7 +104,7 @@
       "status": "meets",
       "evidence": "The canonical publication is cited: \"BioCLIP 2: Emergent Properties from Scaling Hierarchical Contrastive Learning\", which describes the dataset and models.",
       "notes": "",
-      "recommendation": "None; a canonical descriptor publication is cited.",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -114,7 +114,7 @@
       "status": "meets",
       "evidence": "Publisher is the HDR Imageomics Institute and the host/distribution platform is Hugging Face, both documented with URL and DOI.",
       "notes": "",
-      "recommendation": "None; publisher and host are identified.",
+      "recommendation": "",
       "fair_category": "Findable | Accessible",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -124,7 +124,7 @@
       "status": "meets",
       "evidence": "Hugging Face provides a formatted citation (with the DOI 10.57967/hf/8980 and the associated BioCLIP 2 reference) usable for attribution.",
       "notes": "",
-      "recommendation": "None; a pre-formatted citation with DOI is available.",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Provenance"
     },
@@ -224,7 +224,7 @@
       "status": "meets",
       "evidence": "The compilation is explicitly dedicated to the public domain under CC0-1.0; the card also notes that individual images carry varied upstream licenses.",
       "notes": "",
-      "recommendation": "None; a clear license is declared (with helpful per-source caveats).",
+      "recommendation": "",
       "fair_category": "Accessible | Reusable",
       "ai_fair_criteria": "Provenance | Governance"
     },
@@ -234,7 +234,7 @@
       "status": "meets",
       "evidence": "The license is expressed with the standard SPDX identifier CC0-1.0 (machine-readable).",
       "notes": "",
-      "recommendation": "None; a standard SPDX license identifier is used.",
+      "recommendation": "",
       "fair_category": "Accessible | Reusable",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -284,7 +284,7 @@
       "status": "N/A",
       "evidence": "The dataset is fully open (CC0, public Hugging Face download) with no gated or restricted tiers.",
       "notes": "N/A trigger: fully open access, no gated tiers.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Accessible",
       "ai_fair_criteria": "Scientific | Provenance | Governance"
     },
@@ -294,7 +294,7 @@
       "status": "N/A",
       "evidence": "Completely open access, so a secure-access application pathway does not apply.",
       "notes": "N/A trigger: fully open access, no restricted tiers.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Accessible",
       "ai_fair_criteria": "Scientific | Provenance | Governance"
     },
@@ -304,7 +304,7 @@
       "status": "meets",
       "evidence": "Parquet files are directly and programmatically downloadable from Hugging Face (via the datasets library, pandas, Polars, and huggingface_hub) without interactive forms.",
       "notes": "",
-      "recommendation": "None; direct programmatic download is available.",
+      "recommendation": "",
       "fair_category": "Accessible",
       "ai_fair_criteria": "Structural"
     },
@@ -324,7 +324,7 @@
       "status": "meets",
       "evidence": "The Hugging Face Hub/Datasets API supports programmatic and streaming access (used to retrieve this metadata), including subset/streaming queries.",
       "notes": "",
-      "recommendation": "None; a working programmatic API is available.",
+      "recommendation": "",
       "fair_category": "Accessible",
       "ai_fair_criteria": "Structural"
     },
@@ -344,7 +344,7 @@
       "status": "meets",
       "evidence": "The Hugging Face Datasets library and Hub API are comprehensively documented with parameters and query examples, and the dataset lists compatible libraries (Datasets, pandas, Polars).",
       "notes": "",
-      "recommendation": "None; comprehensive API/library documentation is available.",
+      "recommendation": "",
       "fair_category": "Accessible | Interoperable",
       "ai_fair_criteria": "Structural"
     },
@@ -364,7 +364,7 @@
       "status": "meets",
       "evidence": "Data are distributed as open, non-proprietary Parquet files.",
       "notes": "",
-      "recommendation": "None; open formats are used.",
+      "recommendation": "",
       "fair_category": "Accessible | Interoperable",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -384,7 +384,7 @@
       "status": "meets",
       "evidence": "All data are serialized as machine-readable Parquet.",
       "notes": "",
-      "recommendation": "None; data are machine-readable.",
+      "recommendation": "",
       "fair_category": "Interoperable | Accessible",
       "ai_fair_criteria": "Structural"
     },
@@ -394,7 +394,7 @@
       "status": "meets",
       "evidence": "The dataset is a compilation of observational biodiversity records, with a basis_of_record field classifying origins (HUMAN_OBSERVATION, PRESERVED_SPECIMEN, MACHINE_OBSERVATION).",
       "notes": "",
-      "recommendation": "None; the observational origin typology is documented.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific"
     },
@@ -404,7 +404,7 @@
       "status": "N/A",
       "evidence": "The dataset is an observational aggregation, not a manipulative experiment, so treatment/control/replication design does not apply.",
       "notes": "N/A trigger: observational (non-manipulative) data.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific"
     },
@@ -414,7 +414,7 @@
       "status": "meets",
       "evidence": "Modalities (Image, Text) and origin types are explicit: a data_source field, publisher field, and basis_of_record distinguishing human/preserved/machine observation.",
       "notes": "",
-      "recommendation": "None; modality and origin type are classified.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -444,7 +444,7 @@
       "status": "N/A",
       "evidence": "The dataset is an aggregated image corpus of passive, single-instant records with no intermediate operational actions to log.",
       "notes": "N/A trigger: passive single-instant records; no operational event stream.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Provenance | Governance"
     },
@@ -454,7 +454,7 @@
       "status": "N/A",
       "evidence": "Imagery is aggregated from heterogeneous citizen-science, museum, and provider sources; per-sensor calibration/hardware metadata is not applicable to this compilation.",
       "notes": "N/A trigger: heterogeneous aggregated imagery; per-instrument calibration metadata not applicable.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -474,7 +474,7 @@
       "status": "N/A",
       "evidence": "This is an aggregation of digital imagery and metadata; physical specimen preparation is the domain of the upstream providers and is not part of this compilation.",
       "notes": "N/A trigger: digital-image aggregation, no physical sample processing performed here.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific"
     },
@@ -494,7 +494,7 @@
       "status": "meets",
       "evidence": "The dataset is part of the HDR Imageomics Institute's TreeOfLife dataset series (successor to TreeOfLife-10M), an identifiable program membership.",
       "notes": "",
-      "recommendation": "None; parent program/series membership is documented.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -504,7 +504,7 @@
       "status": "meets",
       "evidence": "Files use standard Parquet with the encoding format declared in the Croissant metadata.",
       "notes": "",
-      "recommendation": "None; standardized formats with declared encoding are used.",
+      "recommendation": "",
       "fair_category": "Interoperable | Accessible",
       "ai_fair_criteria": "Structural"
     },
@@ -544,7 +544,7 @@
       "status": "meets",
       "evidence": "A machine-readable Croissant RecordSet defines every field (uuid, taxonomic ranks, scientific_name, common, data_source, publisher, basis_of_record, img_type, source_id, path fields).",
       "notes": "",
-      "recommendation": "None; a machine-readable data dictionary is provided.",
+      "recommendation": "",
       "fair_category": "Interoperable | Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -554,7 +554,7 @@
       "status": "meets",
       "evidence": "All feature attributes/columns are specified in the Croissant record set and the dataset card (taxonomy, names, source metadata, image-type, path fields).",
       "notes": "",
-      "recommendation": "None; feature attributes are specified.",
+      "recommendation": "",
       "fair_category": "Interoperable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -564,7 +564,7 @@
       "status": "N/A",
       "evidence": "Fields are categorical/textual (taxonomy, names, sources, paths) with no physical measurement variables requiring units.",
       "notes": "N/A trigger: purely categorical/textual features; no physical measurements.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Interoperable | Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -574,7 +574,7 @@
       "status": "meets",
       "evidence": "Languages are declared with standard codes: English (en) and Latin (la).",
       "notes": "",
-      "recommendation": "None; language is declared with standard codes.",
+      "recommendation": "",
       "fair_category": "Interoperable",
       "ai_fair_criteria": "Structural"
     },
@@ -594,7 +594,7 @@
       "status": "meets",
       "evidence": "The dataset is Croissant 1.1 conformant Parquet, explicitly \"ML-ready\", and loads via the datasets library/pandas/Polars without custom engineering.",
       "notes": "",
-      "recommendation": "None; the dataset conforms to a machine-actionable data contract.",
+      "recommendation": "",
       "fair_category": "Interoperable",
       "ai_fair_criteria": "Structural"
     },
@@ -604,7 +604,7 @@
       "status": "meets",
       "evidence": "Curation is thoroughly documented: TaxonoPy taxonomic standardization to a 7-rank Linnean structure, image-quality filtering (museum specimen classifier, MegaDetector for camera traps, similarity checks for citizen science), human face removal (MTCNN), and duplication/leakage elimination via MD5 and PDQ hashes.",
       "notes": "",
-      "recommendation": "None; curation and filtering rationale are well documented.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -624,7 +624,7 @@
       "status": "N/A",
       "evidence": "This is an image corpus, not gridded raster data, so gridding/interpolation parameters do not apply.",
       "notes": "N/A trigger: non-gridded (image) data.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -634,7 +634,7 @@
       "status": "meets",
       "evidence": "Missingness is quantified and not imputed: ~89.74% of images have full taxonomic labels, with incomplete labels left as-is rather than filled.",
       "notes": "",
-      "recommendation": "None; missingness is quantified and undocumented imputation is absent.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -644,7 +644,7 @@
       "status": "N/A",
       "evidence": "No gap filling/imputation of missing values is performed; incomplete taxonomic labels are retained as gaps.",
       "notes": "N/A trigger: no gap filling/imputation performed.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -654,7 +654,7 @@
       "status": "meets",
       "evidence": "Labeling is protocol-driven: taxonomic labels standardized via TaxonoPy to a consistent 7-rank Linnean taxonomy, with documented source-label handling and quality control.",
       "notes": "",
-      "recommendation": "None; the annotation/labeling protocol is documented.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -684,7 +684,7 @@
       "status": "meets",
       "evidence": "The dataset reflects a mature, heavily curated QA pipeline (classifier-based filtering, detector-based screening, dedup/leakage control), documented as an ML-ready release.",
       "notes": "",
-      "recommendation": "State an explicit QA/QC maturity tier label to complement the documented pipeline.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural"
     },
@@ -734,7 +734,7 @@
       "status": "meets",
       "evidence": "Upstream producers are explicitly attributed with per-provider statistics: GBIF (569,225 taxa / 222.6M images), EOL (48,508 / 5.2M), BIOSCAN-5M (3,042 / 5.2M), FathomNet (251 / 37.9K), plus named publisher institutions.",
       "notes": "",
-      "recommendation": "None; upstream producers are attributed.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Provenance"
     },
@@ -744,7 +744,7 @@
       "status": "meets",
       "evidence": "All four constituent sources (GBIF, EOL, BIOSCAN-5M, FathomNet) are enumerated and cited, and each record carries a resolvable source_url/source_id linking back to the originating provider.",
       "notes": "",
-      "recommendation": "Ensure each constituent source dataset is cited with a resolvable DOI/PID.",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Provenance"
     },
@@ -784,7 +784,7 @@
       "status": "meets",
       "evidence": "Croissant cr:source linkages plus per-record source fields (data_source, source_id, source_url) provide machine-actionable lineage from each derived record back to its originating provider, with the transformation (TaxonoPy standardization) described.",
       "notes": "",
-      "recommendation": "None; machine-actionable source lineage is provided (a full entity-activity-agent graph would strengthen it further).",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Provenance"
     },
@@ -804,7 +804,7 @@
       "status": "meets",
       "evidence": "Concrete tasks are declared and mapped to Hugging Face task types (image-classification, zero-shot-classification), with clear input (images) and target (taxonomic labels) and the stated purpose of training BioCLIP 2/2.5.",
       "notes": "",
-      "recommendation": "None; task readiness is explicitly documented.",
+      "recommendation": "",
       "fair_category": "Interoperable | Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -834,7 +834,7 @@
       "status": "meets",
       "evidence": "The dataset is loadable via a standard Hugging Face load_dataset workflow and lists compatible libraries (Datasets, pandas, Polars), providing runnable programmatic access.",
       "notes": "",
-      "recommendation": "None; standard runnable loading is available (a dataset-specific quickstart snippet would help).",
+      "recommendation": "",
       "fair_category": "Reusable | Accessible",
       "ai_fair_criteria": "Structural"
     },
@@ -874,7 +874,7 @@
       "status": "meets",
       "evidence": "Prior model usage is documented: the dataset was used to train BioCLIP 2 and BioCLIP 2.5 Huge, with the models referenced/linked from the dataset.",
       "notes": "",
-      "recommendation": "None; prior AI model usage is documented.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -914,7 +914,7 @@
       "status": "meets",
       "evidence": "Actionable reporting channels exist: the Hugging Face Community/Discussions tab for the dataset and the associated processing toolbox's issue tracker.",
       "notes": "",
-      "recommendation": "None; an issue-reporting channel is available.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Provenance"
     }

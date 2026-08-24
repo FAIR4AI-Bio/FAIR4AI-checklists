@@ -43,6 +43,7 @@ for the full gap/recommendation detail those iterations produced.)*
 | 8 | **CHECKLIST.csv** 16→15 cols (this repo) | **Apply reviewed proposals 4a–4c + full scorer refactor** (2026-08-12) | **(A)** Reworded items 72/73 as conditional disclosure **statements** (good state = `meets`/`N/A`, never `does not meet` for a clean dataset); **(B)** added 72/73 as worked **N/A** examples in `evaluate-dataset/SKILL.md`. **(C)** Filled/re-tagged `Criteria`: 9 *Keywords/Tags*→`Structural/Scientific`, 17 *Related paper*→`Scientific/Provenance`, 47 *controlled vocabulary*→`Structural`, 42 *Labeling*→`Scientific/Provenance` (left 60 *Reporting Issues* as `Provenance`). **(D/P1)** Dropped the sparse `use case` column (folded 7 notes into `Note`), 16→15 cols. **(E/P3-P4)** Canonicalized every blended `Criteria` to **Structural<Scientific<Provenance<Governance**; `Data structure`→`Data Structure`. **(F/P5)** Filled the one blank `Required` (*Preparation*→`core`). **(G/P2)** Renamed column `FAIR4AI category`→`FAIR category`, removed the dead `AI-ready` token, audited all 96 FAIR mappings (21 carried `AI-ready`: 6 kept another dim, 11 retagged `Reusable`, 4 left blank as pure-ML). **Refactored the scorer**: renamed JSON field `fair4ai_category`→`fair_category`, removed legacy AI-ready code, hardened exception handling, updated `--selftest` (PASS). Synced all docs/skills/rubric. Example outputs pending regeneration (old field name superseded). | ✅ applied (examples pending regen) |
 | 9 | **CHECKLIST.csv** restructured into a true rating instrument, **96→89 items** (this repo) | **Eric's hand-edit (with Gemini) + agent/rubric/scorer/docs sync** (2026-08-21) | Eric rebuilt the CSV: consolidated overlapping items 96→89, renamed `Proposed definition`→`Requirement Definition`, **added four per-item rating columns** `Scoring: Meets / Partial / Does Not Meet / NA` (item-specific rubric text, previously only general in `RATING_RUBRIC.md`), renamed the criteria header to `AI FAIR Criteria: Structural \| Scientific \| Provenance \| Governance` with values now ` \| `-separated, and **removed** `Use-case scope (Condition)`, `Required (…)`, and `Applies-at-level`. **Agent sync:** made the per-item `Scoring:` cells the authoritative item-level rubric (RATING_RUBRIC.md → general framework), keyed the **N/A rule off `Scoring: NA`**, and changed the `responses[]` schema to `item, requirement_definition, status, evidence, notes, recommendation, fair_category, ai_fair_criteria` — **dropping `section`/`sub_section`/`question`**. Verified `care_compliance` survives dropping `section` (all governance items carry the `Governance` facet; scorer keeps a legacy `section` fallback). **Scorer:** reads `ai_fair_criteria` (falls back to legacy `criteria`); `--selftest` PASS (new + legacy schema). Synced `RATING_RUBRIC.md`, all five skills, `CLAUDE.md`, `README.md`, `QUICKSTART.md`, `make_fair4ai_figure.py`. **Regenerated both example outputs** (89 items, new schema) from **cached metadata fixtures** committed under `example_inputs/example_metadata/` and added a stdlib `unittest` validation suite (`tests/`, 10/10 green). | ✅ applied |
 | 10 | *(no CSV change — agent workflow)* | **Eval efficiency & sub-agent reliability** (2026-08-21) | Diagnosed why `/evaluate-dataset` sub-agents began failing (ECONNRESET/403 "at the write step") after the Iter-9 restructure — see §4f. Root causes: the four new `Scoring:` columns bloat the CSV to ~78 KB / ~20k tokens loaded per sub-agent; all 89 responses are emitted in **one giant Write**; the no-scripts hygiene rule forces ~4.3k tokens of pure verbatim transcription; no checkpointing. **Reworking the workflow** (approved with Eric): a blessed `build_response_scaffold.py` pre-fills the verbatim fields + emits a compact per-section rubric guide; the agent produces **ratings only**; `merge_ratings.py` writes them in **per `Broad categories` section** (incremental, resumable). Relaxes only the "no scripts" half of the hygiene rule to two committed absolute-path scripts (location discipline intact). Full plan: `PLAN_eval_efficiency_reliability.md`. **Implemented 2026-08-21** — both scripts written (each `--selftest` PASS), both skills reworked, docs synced, and `tests/test_scaffold_and_merge.py` added (23 tests green, incl. a reconstruction test proving the new pipeline reproduces both committed examples exactly). | ✅ |
+| 11 | **CHECKLIST.csv** 13 cols (this repo) | **Section-guided, exception-based output** (2026-08-24) | **Reverted the per-item scoring design back toward the hdr2026 rubric-driven norm** while keeping the scaffold/merge architecture and 89-item schema — see §4g. **(a)** Removed the three per-item scoring-criteria columns `Scoring: Meets / Partial / Does Not Meet` (16→13 cols; **kept `Scoring: NA`**, still 89 items). **(b)** Flipped `RATING_RUBRIC.md` authority: requirement definition + section-level facet guidance (§4a–§4d) are authoritative for `meets/partial/does not meet`; `Scoring: NA` authoritative for the N/A decision only. **(c)** Made output **exception-based** — `build_response_scaffold.py` defaults every item to `status: "meets"` with empty `recommendation`; `--emit-guide` now prints Requirement + `N/A when` per item; the agent emits **only deviations** (`partial`/`does not meet`/`N/A`), always with a recommendation on shortfalls and a `notes` reason on N/A. **(d)** Rewrote `evaluate-dataset/SKILL.md` rating flow + added a mandatory **9-section coverage check** and explicit N/A-must-not-default-score guidance. **(e)** N/A safeguard proven: N/A excluded from every numerator/denominator, all-N/A dim → `null`. Synced `CLAUDE.md`, `README.md`. **Regenerated both example outputs** (recommendations only on shortfalls; scores identical, no warnings). Tests: 2 updated + **4 added** (exception-based merge, N/A exclusion, N/A-vs-default, scaffold default) → **27/27 green**. | ✅ applied |
 
 ---
 
@@ -284,6 +285,78 @@ checkpointing for visibility + resume.
 - Docs synced: `CLAUDE.md` (Scripts section + both new scripts), `QUICKSTART.md` (Files-involved +
   "updating fields" note), `tests/README.md` (regeneration step B = scaffold → per-section merge →
   score; new test module described).
+
+---
+
+## 4g. Iteration 11 — section-guided, exception-based output (2026-08-24)
+
+**Trigger:** the per-item `Scoring: Meets/Partial/Does Not Meet` columns added in Iteration 9 are
+token-heavy (§4f identified them as ~9k of the ~20k-token CSV) and make scoring rigid. Eric asked to
+**shift scoring guidance from per-item CSV cells back to a section-level rubric** (the pre-Iter-9
+hdr2026 norm) while **keeping** the scaffold/merge architecture and the 89-item per-item JSON schema,
+and to make output **exception-based** for speed. The removed columns are preserved on the
+`post-hdr2026-per-item-scoring-archive` branch, so removal here is non-destructive. Plan:
+`~/.claude/plans/snuggly-rolling-dusk.md`.
+
+**Decisions confirmed with Eric (via AskUserQuestion):**
+- **Regenerate** the two committed example outputs to the new norm (empty `recommendation` on
+  `meets`/`N/A`; recommendations only on `partial`/`does not meet`).
+- **Add a 9-section coverage check** so unreviewed items are never silently left at the `meets`
+  default.
+- (After first plan) **Build explicit checks that an N/A item never scores**, and **expand tests**
+  to cover the new architecture.
+
+**What changed:**
+- **`CHECKLIST.csv`** — removed `Scoring: Meets`, `Scoring: Partial`, `Scoring: Does Not Meet`
+  (16→**13 cols**); **kept `Scoring: NA`**; item order + 89 rows untouched. CRLF record endings,
+  embedded LF newlines, and no-BOM preserved.
+- **`RATING_RUBRIC.md`** — §1 authority flipped: the **requirement definition + §4a–§4d facet
+  guidance** are the authoritative, overarching framework for `meets/partial/does not meet`; removed
+  the "per-item cell is authoritative / wins on conflict" language. `Scoring: NA` remains
+  authoritative **for the N/A decision only** (§3). §4a–§4d facet guidance already matched the
+  hdr2026 norms.
+- **`scripts/build_response_scaffold.py`** — `build_responses()` now defaults `status: "meets"`
+  (was `""`); `evidence`/`notes`/`recommendation` still `""`. `--emit-guide` drops the three removed
+  columns and prints per item **`Requirement:`** + **`N/A when:`**, grouped by the 9 sections.
+  `--selftest` updated + PASS. (Merge/scoring needed **no** code change — `merge_ratings.py` already
+  accepts sparse batches; `compute_fair4ai_scores.py` already maps `meets → 1.0` and excludes N/A.)
+- **`.claude/skills/evaluate-dataset/SKILL.md`** — rating flow rewritten to be rubric-driven
+  (RATING_RUBRIC.md §4 as overarching philosophy) + **exception-based** (emit only deviations; MUST
+  give an actionable `recommendation` on `partial`/`does not meet`, MUST name in `notes` why an item
+  is `N/A`). Added the **section-coverage check** (per-section "reviewed, N deviations" tally before
+  finalizing) and explicit text that N/A removes the item from scoring — so a should-be-N/A item is
+  flagged, not left at the `meets` default (which would wrongly award 1.0). Resume logic keyed off
+  presence of `_ratings/<section>.json`.
+- **`CLAUDE.md`, `README.md`** — wording aligned (rubric §4 authoritative; `Scoring: NA` the one
+  item-specific rating cell; scaffold default `meets`). `fair4ai-scoring` and `batch-evaluate-datasets`
+  skills carried no per-item-cell references (grep-verified) → no change.
+
+**Scoring-integrity safeguard — N/A must never score (verified in code + tests):**
+`compute_fair4ai_scores.py` routes `N/A`/blank to a `na` counter via `_add()` (value `None` →
+increments `na` only, never `sum`/`n_scored`); `_score()` returns `None` when `n_scored == 0`, so an
+all-N/A dimension/facet resolves to `null` and is dropped from the `overall` mean. Three new tests
+lock this in (below).
+
+**Example outputs regenerated** — for every `meets`/`N/A` response, `recommendation` set to `""`
+(shortfalls keep theirs). Recommendations don't affect scores, so `summary.fair4ai_scores` is
+**identical**; both re-score clean with no warnings (TreeOfLife-200M FAIR 0.727 / AI-FAIR 0.598;
+NEON Ground Beetles FAIR 0.596 / AI-FAIR 0.535 — unchanged from Iter 9).
+
+**Tests (`tests/test_scaffold_and_merge.py`) — 23 → 27 green:**
+- *Updated:* `test_status_defaults_meets_and_other_ratings_empty` (status now defaults `meets`);
+  guide test asserts the removed `Meets:/Partial:/Does Not Meet:` labels are gone and
+  `Requirement:`/`N/A when:` appear.
+- *Added:* (1) **exception-based merge → full doc** (sparse deviations on the all-`meets` scaffold →
+  only those items change, still 89 responses / 8-field schema); (2) **N/A excluded from
+  denominator** (na counted, not scored; doesn't inflate the mean, both FAIR + AI-FAIR sides); (3)
+  **N/A doesn't award credit** (lone N/A → `null` overall, vs. `meets` default → 1.0); (4) **all-N/A
+  dimension → `null`, dropped from overall**. `test_example_outputs.py` invariants unchanged and
+  still green.
+
+**Verification (end-to-end, all clean):** scaffold = 89 `meets` + empty recs; guide = 9 sections /
+89 items / no removed cells / Requirement + N/A present; scorer `--selftest` PASS; both examples
+`--dry-run` no warnings; full suite **27/27**. A **live `/evaluate-dataset` run on neon_beetles** is
+the final in-practice sanity check (result recorded in "Where things stand" once it completes).
 
 ---
 

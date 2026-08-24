@@ -34,7 +34,7 @@
       "status": "meets",
       "evidence": "A clear human-readable title, \"Ground beetles sampled from pitfall traps\", is provided and is distinct from the product code (DP1.10022.001).",
       "notes": "",
-      "recommendation": "None; title is descriptive and well-formed.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Provenance"
     },
@@ -44,7 +44,7 @@
       "status": "meets",
       "evidence": "The product abstract describes background, methods (pitfall trapping, sorting, species/morphospecies ID, expert taxonomist subset for uncertainty), scope, and preservation approach.",
       "notes": "",
-      "recommendation": "None; abstract is comprehensive.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Scientific"
     },
@@ -64,7 +64,7 @@
       "status": "meets",
       "evidence": "RELEASE-2026 is assigned a registered, resolvable DOI (10.48443/q9ne-6b77 -> https://doi.org/10.48443/q9ne-6b77); each annual release carries its own DOI.",
       "notes": "",
-      "recommendation": "None; a versioned, resolvable DOI is present.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -84,7 +84,7 @@
       "status": "meets",
       "evidence": "The dataset is served from the maintained NEON project site (neonscience.org) with a data-product landing page at https://data.neonscience.org/data-products/DP1.10022.001.",
       "notes": "",
-      "recommendation": "None; a maintained project/landing page is provided.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -114,7 +114,7 @@
       "status": "meets",
       "evidence": "The publishing entity (NEON, operated by Battelle) and hosting platforms (NEON Data Portal and Biorepository Data Portal) are documented.",
       "notes": "",
-      "recommendation": "None; publisher and host are clearly identified.",
+      "recommendation": "",
       "fair_category": "Findable | Accessible",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -144,7 +144,7 @@
       "status": "N/A",
       "evidence": "The dataset creator is an institutional body / automated observatory network (NEON), so per-author ORCID iDs do not apply.",
       "notes": "N/A trigger: creator is exclusively an institutional/observatory body with no human authors.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Provenance"
     },
@@ -284,7 +284,7 @@
       "status": "N/A",
       "evidence": "The ground-beetle data product is fully open-access with no gated or restricted download tiers.",
       "notes": "N/A trigger: dataset is fully open access with no gated tiers.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Accessible",
       "ai_fair_criteria": "Scientific | Provenance | Governance"
     },
@@ -294,7 +294,7 @@
       "status": "N/A",
       "evidence": "The dataset is completely open access with no restricted tiers, so a secure-access application pathway does not apply.",
       "notes": "N/A trigger: fully open access, no restricted tiers.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Accessible",
       "ai_fair_criteria": "Scientific | Provenance | Governance"
     },
@@ -304,7 +304,7 @@
       "status": "meets",
       "evidence": "Data are retrievable via direct, programmatic HTTPS endpoints on the NEON API (data.neonscience.org/api/v0/...), suitable for wget/curl-style automation.",
       "notes": "",
-      "recommendation": "None; direct programmatic download is available.",
+      "recommendation": "",
       "fair_category": "Accessible",
       "ai_fair_criteria": "Structural"
     },
@@ -324,7 +324,7 @@
       "status": "meets",
       "evidence": "A fully operational public REST API is available for querying products, releases, and downloads (used to retrieve this metadata).",
       "notes": "",
-      "recommendation": "None; a working public API is provided.",
+      "recommendation": "",
       "fair_category": "Accessible",
       "ai_fair_criteria": "Structural"
     },
@@ -364,7 +364,7 @@
       "status": "meets",
       "evidence": "Data are distributed as open, non-proprietary CSV tables (bet_* tables), readable without licensed commercial software.",
       "notes": "",
-      "recommendation": "None; open formats are used.",
+      "recommendation": "",
       "fair_category": "Accessible | Interoperable",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -384,7 +384,7 @@
       "status": "meets",
       "evidence": "Tabular data are serialized as machine-readable CSV rather than presentation-focused layouts.",
       "notes": "",
-      "recommendation": "None; data are machine-readable.",
+      "recommendation": "",
       "fair_category": "Interoperable | Accessible",
       "ai_fair_criteria": "Structural"
     },
@@ -394,7 +394,7 @@
       "status": "meets",
       "evidence": "The study is documented as a standardized observational monitoring design (pitfall-trap sampling) in the abstract and TOS Science Design, distinguishing it from manipulative experiments.",
       "notes": "",
-      "recommendation": "None; the observational design type is documented.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific"
     },
@@ -404,7 +404,7 @@
       "status": "N/A",
       "evidence": "The dataset originates from non-manipulative observational field surveys, so treatment/control/replication design does not apply.",
       "notes": "N/A trigger: observational (non-manipulative) survey.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific"
     },
@@ -424,7 +424,7 @@
       "status": "meets",
       "evidence": "Temporal coverage is provided per site with explicit date ranges (e.g., ABBY 2016-09 through 2023-09; BART 2014-06 through 2023-09) in machine-readable form.",
       "notes": "",
-      "recommendation": "None; temporal extent is documented.",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -454,7 +454,7 @@
       "status": "N/A",
       "evidence": "Beetles are collected by manual pitfall trapping and identified by human taxonomists; the product is not sensor-derived, so instrument calibration/firmware metadata does not apply.",
       "notes": "N/A trigger: non-sensor, human/manual collection.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -474,7 +474,7 @@
       "status": "meets",
       "evidence": "Preparation is detailed: propylene glycol trap fluid, 95% ethanol archiving, pinning of a subset, expert taxonomist secondary ID, and CMNH/Essig specimen-processing SOPs.",
       "notes": "",
-      "recommendation": "None; specimen preparation is well documented.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific"
     },
@@ -484,7 +484,7 @@
       "status": "meets",
       "evidence": "Physical vouchers (pinned carabids, DNA extracts, archive pooling, trap sorting) are deposited in recognized biorepositories (CMNH, Essig Museum/UC Berkeley, ASU, Bishop Museum, NEON Domain Offices) and are discoverable via the Biorepository/Darwin Core archive with catalog identifiers.",
       "notes": "",
-      "recommendation": "None; vouchers are deposited and linked to biorepositories.",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Provenance | Scientific"
     },
@@ -494,7 +494,7 @@
       "status": "meets",
       "evidence": "The product is explicitly part of NEON (National Ecological Observatory Network), Terrestrial Observation System, as a Level 1 Data Product within the observatory's standardized series.",
       "notes": "",
-      "recommendation": "None; parent observatory membership is documented.",
+      "recommendation": "",
       "fair_category": "Findable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -544,7 +544,7 @@
       "status": "meets",
       "evidence": "NEON ships a machine-readable variables/data-dictionary file for the product defining each field's name, type, units, and description, alongside the user guide.",
       "notes": "",
-      "recommendation": "None; a machine-readable data dictionary is provided.",
+      "recommendation": "",
       "fair_category": "Interoperable | Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -554,7 +554,7 @@
       "status": "meets",
       "evidence": "Individual attributes across the bet_* tables (taxonomy, counts, dates, site/plot, sample identifiers, quality flags) are defined in the NEON variables file.",
       "notes": "",
-      "recommendation": "None; feature attributes are specified.",
+      "recommendation": "",
       "fair_category": "Interoperable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -564,7 +564,7 @@
       "status": "meets",
       "evidence": "The NEON variables file assigns explicit units to quantitative attributes; categorical taxonomic fields are typed accordingly.",
       "notes": "",
-      "recommendation": "Map units to a standard registry (e.g., UCUM) where not already done.",
+      "recommendation": "",
       "fair_category": "Interoperable | Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -624,7 +624,7 @@
       "status": "N/A",
       "evidence": "The product is vector point/specimen tabular data, not a gridded raster, so gridding/interpolation parameters do not apply.",
       "notes": "N/A trigger: non-gridded (vector point/tabular) data.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -634,7 +634,7 @@
       "status": "meets",
       "evidence": "Missingness is explicitly declared and flagged (samplingImpractical quality flag and QC flags) rather than imputed; raw observations are retained.",
       "notes": "",
-      "recommendation": "None; missingness is declared and flagged, with no undocumented imputation.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -644,7 +644,7 @@
       "status": "N/A",
       "evidence": "No gap filling/imputation is performed; missing sampling is flagged and left as gaps.",
       "notes": "N/A trigger: no gap filling/imputation performed.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -654,7 +654,7 @@
       "status": "meets",
       "evidence": "Taxonomic labeling is protocol-driven: parataxonomist identification, a subset (up to 467 pinned/site/year) sent to expert taxonomists for secondary ID to estimate parataxonomist uncertainty, standardized taxonomy, and an identificationHistory table for QA.",
       "notes": "",
-      "recommendation": "None; the annotation/QA protocol is well documented.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific | Provenance"
     },
@@ -664,7 +664,7 @@
       "status": "N/A",
       "evidence": "The product is intended for descriptive/observational ecology, not a benchmarked supervised ML task, so pre-defined train/val/test splits do not apply.",
       "notes": "N/A trigger: not a benchmark ML dataset; no evaluation splits apply.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Interoperable | Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -684,7 +684,7 @@
       "status": "meets",
       "evidence": "The product is a quality-controlled Level 1 Data Product with a documented QA/QC framework (Data Quality Control ATBD, quality flags, expert-taxonomist verification).",
       "notes": "",
-      "recommendation": "None; QA/QC maturity is documented.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural"
     },
@@ -714,7 +714,7 @@
       "status": "meets",
       "evidence": "A regular annual RELEASE cadence is declared (RELEASE-2021 through RELEASE-2026, each DOI-versioned), with maintenance notes (e.g., DELA site operations ending 2025) documenting status changes.",
       "notes": "",
-      "recommendation": "None; the versioning/update cadence is declared.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -734,7 +734,7 @@
       "status": "N/A",
       "evidence": "This is primary data collected directly by NEON, not a derived/compiled product, so upstream producer attribution does not apply.",
       "notes": "N/A trigger: primary data collected by the producing team.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Provenance"
     },
@@ -744,7 +744,7 @@
       "status": "N/A",
       "evidence": "The product consists of primary raw observations collected directly by NEON, not derived from external source datasets.",
       "notes": "N/A trigger: primary raw observations, not derived/compiled.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Findable | Reusable",
       "ai_fair_criteria": "Provenance"
     },
@@ -754,7 +754,7 @@
       "status": "N/A",
       "evidence": "There are no upstream source archives to checksum; the product is primary data.",
       "notes": "N/A trigger: primary data, no upstream source archives.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Provenance"
     },
@@ -814,7 +814,7 @@
       "status": "N/A",
       "evidence": "This is a foundational observational data release, not a benchmark dataset, so baseline ML model performance metrics do not apply.",
       "notes": "N/A trigger: foundational data release without established ML baselines.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Structural | Scientific"
     },
@@ -874,7 +874,7 @@
       "status": "N/A",
       "evidence": "No prior AI/ML models trained on this dataset are documented; there is no recorded model lineage to enumerate.",
       "notes": "N/A trigger: no documented prior ML usage of the dataset.",
-      "recommendation": "N/A.",
+      "recommendation": "",
       "fair_category": "Reusable",
       "ai_fair_criteria": "Scientific | Provenance"
     },

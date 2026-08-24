@@ -121,9 +121,10 @@ done this — skip straight to Step 3.)*
 **Do not read the whole `CHECKLIST.csv` into context or hand-write the 89 response objects.**
 Instead run the blessed helper `build_response_scaffold.py`. It (a) writes a **scaffold**
 evaluation JSON with all 89 responses pre-filled — `item`, `requirement_definition`,
-`fair_category`, and `ai_fair_criteria` copied **verbatim** from the checklist, with
-`status`/`evidence`/`notes`/`recommendation` empty — and (b) prints a **compact, per-section
-rating guide** (only the rating-relevant columns) that you rate from:
+`fair_category`, and `ai_fair_criteria` copied **verbatim** from the checklist, **`status`
+defaulting to `meets`** (the exception-based norm), and `evidence`/`notes`/`recommendation`
+empty — and (b) prints a **compact, per-section rating guide** (requirement + per-item N/A
+condition) that you rate from:
 
 ```bash
 python scripts/build_response_scaffold.py \
@@ -133,12 +134,14 @@ python scripts/build_response_scaffold.py \
 ```
 
 Read the guide from the command's **stdout**. It groups all 89 items into their **9 `Broad
-categories` sections** and, per item, shows the `Requirement`, the four
-`Meets`/`Partial`/`Does Not Meet`/`NA` rubric cells, the `AI FAIR Criteria`, the `FAIR category`,
-and any `Note`. This guide is your rating surface — you do **not** re-read the raw CSV, and you
-**never** edit the four verbatim fields (the scaffold owns them, which keeps them exactly correct).
-Your job in Steps 4–5 is only to produce `status`, `evidence`, `notes`, and `recommendation` for
-each item.
+categories` sections** and, per item, shows the `Requirement`, the item's **`N/A when`** condition,
+the `AI FAIR Criteria`, the `FAIR category`, and any `Note`. Also read **`RATING_RUBRIC.md`** once —
+its §4 facet guidance (Structural / Scientific / Provenance / Governance) is your **authoritative
+philosophy** for deciding meets / partial / does not meet. This guide is your rating surface — you
+do **not** re-read the raw CSV, and you **never** edit the four verbatim fields (the scaffold owns
+them, which keeps them exactly correct). Because every item already defaults to `meets`, your job in
+Steps 4–5 is only to **override the exceptions** — the items that are `partial`, `does not meet`, or
+`N/A` — by producing their `status`, `evidence`, `notes`, and `recommendation`.
 
 ## Step 4: Obtain the dataset metadata (look for downloaded data first)
 
@@ -171,46 +174,61 @@ number of rated items grows.
 
 ## Step 5: Rate the checklist, one section at a time, merging as you go
 
-Rate the guide **section by section** (the 9 `Broad categories` groups). After finishing each
-section, **write that section's ratings to the scaffold immediately** with `merge_ratings.py`, then
-move to the next section. This makes progress visible in the file, caps each write to ~10 items
-(so a dropped turn loses only one section), and makes the run resumable. Do **not** accumulate all
-89 ratings and write once at the end.
+Work the guide **section by section** (the 9 `Broad categories` groups). The scaffold already scores
+every item `meets`, so this step is **exception-based**: for each section you review every item, but
+you only **emit ratings for the items that deviate** — those that are `partial`, `does not meet`, or
+`N/A`. Everything you leave alone stays `meets`. After reviewing each section, **write that section's
+deviations to the scaffold immediately** with `merge_ratings.py`, then move to the next section. This
+makes progress visible, keeps writes small, and makes the run resumable. Do **not** wait and write
+once at the end.
+
+**You must review all 9 sections.** Because unreviewed items silently stay `meets` (= full credit),
+skipping a section would inflate the score. Keep an explicit tally as you go and confirm at the end
+of the step that every one of the 9 sections was reviewed (see the coverage check below).
 
 For each section:
 
-1. For every item in the section, decide `status` and write `evidence` / `notes` / `recommendation`
-   (guidance below). You do **not** touch `item`, `requirement_definition`, `fair_category`, or
-   `ai_fair_criteria` — the scaffold already holds them verbatim.
-2. Emit that section's ratings as a small JSON array to a batch file under
+1. Review **every** item in the section against its `Requirement` and the `RATING_RUBRIC.md` §4 facet
+   guidance. Decide which items fall short or are out of scope. For each such item, set its `status`
+   and write `evidence` / `notes` / `recommendation` (guidance below). Items that clearly meet their
+   requirement need **no entry** — they keep the default. You do **not** touch `item`,
+   `requirement_definition`, `fair_category`, or `ai_fair_criteria` (the scaffold holds them verbatim).
+2. Emit that section's **deviations only** as a small JSON array to a batch file under
    `<output dir>/_ratings/<section>.json`, each entry `{"item", "status", "evidence", "notes",
    "recommendation"}` (the `item` must match the checklist item name **exactly** — `merge_ratings.py`
-   rejects unknown names, which catches drift).
+   rejects unknown names, which catches drift). If a section has no deviations, record that in your
+   tally and skip the merge for it.
 3. Merge it:
    ```bash
    python scripts/merge_ratings.py \
      --scaffold <run folder>/evaluation_results/<output filename> \
      --ratings <output dir>/_ratings/<section>.json
    ```
-   It prints `N/89 items now rated` so you can track progress. **Resume:** if a run is interrupted,
-   re-read the scaffold, find responses whose `status` is still empty, and rate only those sections.
+   It prints how many items now carry a non-`meets` status so you can track deviations. **Resume:** if
+   a run is interrupted, the presence of a `_ratings/<section>.json` file marks a section as already
+   reviewed; resume with the sections that have no batch file yet.
 
-**Each checklist row carries its own rating guidance** in its `Meets`, `Partial`, `Does Not Meet`,
-and `NA` cells (shown in the guide) — these are the **authoritative, per-item** definitions. Apply
-the matching cell to choose the status. `RATING_RUBRIC.md` is the **general framework** (the four
-levels, the evidence rule, the AI-FAIR facet meanings, and the scoring math); apply it where the
-per-item cell needs interpretation. When the two seem to conflict, the **per-item cell wins**. Fill
-in the fields below:
+**Section-coverage check (required before Step 6).** Confirm you reviewed all 9 sections — e.g. a
+short tally like `General Information: reviewed, 3 deviations; Data Access: reviewed, 0 deviations; …`
+for every section. Do not proceed until each of the 9 sections has been reviewed; a section left
+unreviewed would leave its items silently at the `meets` default.
 
-- **`status`**: one of exactly four values — choose it by matching the dataset against the item's own `Scoring:` cells (rubric §2 gives the general meaning):
-  - `"meets"` — the condition in the item's `Scoring: Meets` cell is satisfied and evidence-locatable in the metadata
-  - `"partial"` — the item's `Scoring: Partial` cell describes the state (present but incomplete, ambiguous, buried in free text, or not machine-locatable)
-  - `"does not meet"` — the item applies but its `Scoring: Does Not Meet` cell describes the state (absent or not findable; includes dangling links that do not resolve)
-  - `"N/A"` — the condition in the item's `Scoring: NA` cell holds for this dataset (see the N/A rule below)
+**`RATING_RUBRIC.md` is your authoritative rating framework.** Judge each item against its
+`Requirement` (what it asks the dataset to disclose) and use the rubric's §4 facet guidance
+(Structural / Scientific / Provenance / Governance — what "present / incomplete / absent" concretely
+look like) to decide whether a missing or weak element is `partial` or `does not meet`. The only
+item-specific cell is `Scoring: NA` (shown as `N/A when` in the guide), which governs the `N/A`
+decision. Fill in the fields below:
 
-  **Evidence is required for `meets` and `partial`** (rubric §2). If you cannot cite concrete evidence, the correct status is `does not meet`, not `meets`.
+- **`status`**: one of exactly four values (rubric §2 gives the general meaning; rubric §4 gives the per-facet detail):
+  - `"meets"` — the information the item asks for is clearly present and evidence-locatable in the metadata (this is the **default**; leave the item alone rather than emitting a redundant `meets` entry)
+  - `"partial"` — the information is present but incomplete, ambiguous, buried in free text, or not machine-locatable (rubric §4)
+  - `"does not meet"` — the item applies but the information is absent or not findable (includes dangling links that do not resolve)
+  - `"N/A"` — the condition in the item's `N/A when` (`Scoring: NA`) cell holds for this dataset (see the N/A rule below)
 
-  **N/A rule (rubric §3):** an item is `N/A` only when the condition in its **`Scoring: NA`** column applies to this dataset — typically a **scope mismatch** (e.g. derived-dataset-only items for a primary dataset; conditional-disclosure items whose condition is absent; experimental-design items for observational data) or a **modality mismatch** (e.g. language items for an image/tabular dataset; sensor/instrument or resolution items for a dataset with no such captures). Items whose `Scoring: NA` cell reads **"Never NA …"** are never `N/A`.
+  **Evidence is required for `partial`** (rubric §2) — cite what is present. For `does not meet`, state what is absent. (Items that `meet` keep the default and need no entry.)
+
+  **N/A rule (rubric §3):** an item is `N/A` only when the condition in its **`N/A when` (`Scoring: NA`)** cell applies to this dataset — typically a **scope mismatch** (e.g. derived-dataset-only items for a primary dataset; conditional-disclosure items whose condition is absent; experimental-design items for observational data) or a **modality mismatch** (e.g. language items for an image/tabular dataset; sensor/instrument or resolution items for a dataset with no such captures). Items whose `N/A when` cell reads **"Never NA …"** are never `N/A`. **A rating of `N/A` removes the item from scoring entirely — it is neither credit nor penalty — so use it whenever the item is out of scope rather than leaving it at the `meets` default (which would wrongly award full credit).**
 
   **Conditional-disclosure items must not be scored as gaps for a clean dataset.** Several items are phrased as conditional statements (document *when such content/restriction is present*), so a dataset that lacks the condition is `N/A` per its `Scoring: NA` cell, **never** `does not meet`:
   - *Sensitive Data Handling and Obfuscation*: a dataset with **no** PII or sensitive localities → **`N/A`** (name the absent dimension in `notes`). Rate `meets` only when such content is present *and* its handling is documented.
@@ -221,9 +239,9 @@ in the fields below:
 
 - **`evidence`**: quote or cite specific metadata fields, field names, or values that support the status. For `"does not meet"`, state explicitly what is absent.
 
-- **`notes`**: caveats, edge cases, or secondary observations not captured in evidence. For `"N/A"`, name the scope/modality that is absent.
+- **`notes`**: caveats, edge cases, or secondary observations not captured in evidence. For `"N/A"`, you **must** name in `notes` why the item is out of scope (the specific scope/modality that is absent, per its `N/A when` condition).
 
-- **`recommendation`**: if status is `"partial"` or `"does not meet"`, provide specific and actionable guidance — name the field, standard, or format the dataset should adopt, and briefly explain why it matters for AI/ML reuse. Leave as `""` if status is `"meets"` or `"N/A"`.
+- **`recommendation`**: for `"partial"` or `"does not meet"` you **must** provide a concise, actionable recommendation — name the field, standard, or format the dataset should adopt, and briefly explain why it matters for AI/ML reuse. Leave as `""` for `"meets"` and `"N/A"`.
 
 (You do **not** write `item`, `requirement_definition`, `fair_category`, or `ai_fair_criteria` — the scaffold already carries them verbatim from the checklist. `fair_category` drives Traditional FAIR and `ai_fair_criteria` drives AI-FAIR in Step 6, but they are fixed; your ratings are what feed the scores. The guide still shows each item's `AI FAIR Criteria` so you can apply the blended-criteria "take the lower" rule.)
 
@@ -375,9 +393,12 @@ It writes this block back into the file:
    do not emit a generator script, an intermediate/renamed JSON, or any other scratch file, and never
    write into the agent source tree (`fair4ai-eval-agent/`). (Retrieved metadata already lives under
    `retrieved_metadata/<short_name>/` from Step 4.)
-2. Confirm the file is complete before scoring: all 89 `responses[]` have a non-empty `status` (re-run
-   `merge_ratings.py` on any section still pending — see the Step 5 resume note), and `session` /
-   `summary` are filled from Step 6.
+2. Confirm the file is complete before scoring: all 89 `responses[]` are present with a valid
+   `status` (they default to `meets`, so what matters is the **section-coverage check** from Step 5 —
+   every one of the 9 sections was reviewed and its deviations merged), every `partial`/`does not
+   meet` item carries a `recommendation`, every `N/A` item explains itself in `notes`, and `session` /
+   `summary` are filled from Step 6. Re-run `merge_ratings.py` on any section whose deviations were not
+   yet merged.
 3. Compute the scores reproducibly by invoking the **`fair4ai-scoring`** skill on the file:
    ```bash
    python scripts/compute_fair4ai_scores.py <output.json>

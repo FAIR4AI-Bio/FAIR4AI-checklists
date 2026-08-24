@@ -88,9 +88,12 @@ class ScaffoldTest(unittest.TestCase):
                 self.assertEqual(r["fair_category"], exp["fair_category"])
                 self.assertEqual(r["ai_fair_criteria"], exp["ai_fair_criteria"])
 
-    def test_ratings_start_empty_and_scores_blank(self):
+    def test_status_defaults_meets_and_other_ratings_empty(self):
+        # Exception-based norm: every item defaults to `meets`; the agent overrides
+        # only the deviations. evidence/notes/recommendation start empty; scores blank.
         for r in self.doc["responses"]:
-            for field in RATING_FIELDS:
+            self.assertEqual(r["status"], "meets", "status should default to meets")
+            for field in ("evidence", "notes", "recommendation"):
                 self.assertEqual(r[field], "", f"{field} should start empty")
         self.assertEqual(self.doc["summary"]["fair4ai_scores"], {})
 
@@ -106,6 +109,11 @@ class ScaffoldTest(unittest.TestCase):
         # the mapped* / Croissant / Sub-category columns must not leak into the guide
         for noise in ("mappedEML", "mappedDataCite", "mappedSOSO", "mappedCroissant", "Croissant scope"):
             self.assertNotIn(noise, guide, f"guide should omit {noise}")
+        # the removed per-item scoring cells must NOT appear; requirement + N/A guidance MUST
+        for gone in ("Meets:", "Partial:", "Does Not Meet:"):
+            self.assertNotIn(gone, guide, f"guide must omit removed scoring cell {gone!r}")
+        self.assertIn("Requirement:", guide)
+        self.assertIn("N/A when:", guide)
 
     def test_session_passthrough(self):
         d = scaffold.build_document(self.rows, self.colmap, session={"evaluation_date": "2026-01-01"})
@@ -164,6 +172,98 @@ class MergeTest(unittest.TestCase):
         d2 = copy.deepcopy(d1)
         merger.merge(d2, [{"item": "A", "status": "meets", "evidence": "x"}])
         self.assertEqual(d1, d2)
+
+
+class ExceptionBasedMergeTest(unittest.TestCase):
+    """The exception-based flow: an all-`meets` scaffold + a sparse deviation batch
+    yields a complete 89-item document where only the listed items changed."""
+
+    def test_sparse_deviations_produce_full_document(self):
+        rows, colmap = scaffold.load_rows(str(CHECKLIST))
+        doc = scaffold.build_document(rows, colmap)
+        items = [r["item"] for r in doc["responses"]]
+        self.assertEqual(len(items), EXPECTED_ITEM_COUNT)
+
+        # a sparse batch: only three deviations, everything else left at the default
+        deviations = [
+            {"item": items[0], "status": "partial", "evidence": "e0",
+             "recommendation": "do x"},
+            {"item": items[5], "status": "does not meet", "evidence": "e5",
+             "recommendation": "add y"},
+            {"item": items[10], "status": "N/A", "notes": "out of scope"},
+        ]
+        merger.merge(doc, deviations)
+
+        changed = {items[0]: "partial", items[5]: "does not meet", items[10]: "N/A"}
+        for r in doc["responses"]:
+            expected = changed.get(r["item"], "meets")
+            self.assertEqual(r["status"], expected, f"{r['item']} status")
+            # schema stays intact: still exactly the 8 fields, still 89 items
+            self.assertEqual(list(r.keys()), RESPONSE_FIELDS)
+        self.assertEqual(len(doc["responses"]), EXPECTED_ITEM_COUNT)
+        # only the three deviations are non-meets
+        non_meets = [r["item"] for r in doc["responses"] if r["status"] != "meets"]
+        self.assertEqual(set(non_meets), set(changed))
+
+
+class NAExclusionTest(unittest.TestCase):
+    """N/A must NEVER score: excluded from every numerator and denominator, and an
+    all-N/A dimension/facet collapses to None (omitted from the overall mean)."""
+
+    def _doc(self, *statuses):
+        # two items, both Findable + Structural, so they land in one FAIR dim + one facet
+        return {
+            "responses": [
+                {"item": f"I{i}", "requirement_definition": "", "status": s,
+                 "evidence": "", "notes": "", "recommendation": "",
+                 "fair_category": "Findable", "ai_fair_criteria": "Structural"}
+                for i, s in enumerate(statuses)
+            ],
+            "summary": {},
+        }
+
+    def test_na_item_is_excluded_from_denominator(self):
+        scores, warnings = scorer.score_document(self._doc("meets", "N/A"))
+        self.assertEqual(warnings, [])
+        det = scores["traditional_fair"]["details"]["findable"]
+        # the N/A item is counted as na, NOT in n_scored, and does not inflate the score
+        self.assertEqual(det["n_scored"], 1)
+        self.assertEqual(det["na"], 1)
+        self.assertEqual(scores["traditional_fair"]["findable"], 1.0)
+        # same on the AI-FAIR side
+        comp = scores["ai_fair"]["components"]["structural"]
+        self.assertEqual((comp["n_scored"], comp["na"]), (1, 1))
+
+    def test_na_does_not_award_credit(self):
+        # a lone N/A item must NOT be scored 1.0 the way the `meets` default would be
+        na = scorer.score_document(self._doc("N/A"))[0]
+        self.assertIsNone(na["traditional_fair"]["findable"])
+        self.assertIsNone(na["traditional_fair"]["overall"])
+        self.assertIsNone(na["ai_fair"]["components"]["structural"]["score"])
+        self.assertIsNone(na["ai_fair"]["overall"])
+        # contrast: the same item left at the `meets` default DOES score 1.0
+        meets = scorer.score_document(self._doc("meets"))[0]
+        self.assertEqual(meets["traditional_fair"]["findable"], 1.0)
+
+    def test_all_na_dimension_is_null_and_dropped_from_overall(self):
+        # findable all-N/A -> None; a second scored dimension carries the overall
+        doc = {
+            "responses": [
+                {"item": "A", "requirement_definition": "", "status": "N/A",
+                 "evidence": "", "notes": "", "recommendation": "",
+                 "fair_category": "Findable", "ai_fair_criteria": "Structural"},
+                {"item": "B", "requirement_definition": "", "status": "meets",
+                 "evidence": "", "notes": "", "recommendation": "",
+                 "fair_category": "Reusable", "ai_fair_criteria": "Provenance"},
+            ],
+            "summary": {},
+        }
+        scores, warnings = scorer.score_document(doc)
+        self.assertEqual(warnings, [])
+        self.assertIsNone(scores["traditional_fair"]["findable"])
+        self.assertEqual(scores["traditional_fair"]["reusable"], 1.0)
+        # overall is the mean of the non-null dimensions only (here just reusable)
+        self.assertEqual(scores["traditional_fair"]["overall"], 1.0)
 
 
 class ReconstructionTest(unittest.TestCase):

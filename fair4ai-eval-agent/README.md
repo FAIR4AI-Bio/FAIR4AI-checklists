@@ -1,6 +1,6 @@
 # FAIR4AI Dataset Evaluation Agent
 
-An AI agent that evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the **FAIR4AI-Bio checklist**. The agent reads a dataset's landing page or local metadata files, rates each of the 89 checklist items as *meets / partial / does not meet / N/A* (per each item's per-row `Scoring:` guidance and the general framework in `RATING_RUBRIC.md`), and produces a structured JSON report with **two reproducible assessments** — **Traditional FAIR** (Findable, Accessible, Interoperable, Reusable + an overall) and **AI-FAIR** (ML-ready, AI-ready for task, Traceable, CARE compliance + an overall) — each score in **0–1, where 1 is "most FAIR4AI"**, computed by the `fair4ai-scoring` skill.
+An AI agent that evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the **FAIR4AI-Bio checklist**. The agent reads a dataset's landing page or local metadata files, rates each of the 89 checklist items as *meets / partial / does not meet / N/A* (judged against each item's `Requirement Definition` and the section-level guidance in `RATING_RUBRIC.md`), and produces a structured JSON report with **two reproducible assessments** — **Traditional FAIR** (Findable, Accessible, Interoperable, Reusable + an overall) and **AI-FAIR** (ML-ready, AI-ready for task, Traceable, CARE compliance + an overall) — each score in **0–1, where 1 is "most FAIR4AI"**, computed by the `fair4ai-scoring` skill.
 
 The core thesis: **FAIR compliance is necessary but not sufficient for AI-ready data.** Reporting FAIR and AI-FAIR side by side makes that gap measurable.
 
@@ -109,7 +109,7 @@ See `example_outputs/` for complete examples.
 | `scripts/make_fair4ai_figure.py` | Renders the 5×2 two-column (left = FAIR, right = AI-FAIR) score-distribution figure (needs numpy + matplotlib) |
 | `scripts/requirements-viz.txt` | Optional deps (numpy, matplotlib) for the figure only |
 | `example_inputs/` | Sample batch input lists (`.csv` and `.md`) for `/batch-evaluate-datasets` |
-| `CHECKLIST.csv` | 89-item FAIR4AI-Bio checklist (9 sections; each item carries per-row `Scoring:` rating guidance and is mapped to EML, DataCite, Schema.org, Croissant, its FAIR4AI dimension(s), and its Structural/Scientific/Provenance/Governance AI FAIR criteria) |
+| `CHECKLIST.csv` | 89-item FAIR4AI-Bio checklist (9 sections; each item carries a `Requirement Definition` and a per-item `Scoring: NA` condition, and is mapped to EML, DataCite, Schema.org, Croissant, its FAIR4AI dimension(s), and its Structural/Scientific/Provenance/Governance AI FAIR criteria). The meets/partial/does-not-meet judgment is guided by `RATING_RUBRIC.md` §4. |
 | `RATING_RUBRIC.md` | Authority for choosing each item's `meets / partial / does not meet / N/A` status |
 | `CHECKLIST_OVERVIEW.md` | Narrative description of all 9 checklist sections |
 | `QUICKSTART.md` | Step-by-step usage guide with example sessions |
