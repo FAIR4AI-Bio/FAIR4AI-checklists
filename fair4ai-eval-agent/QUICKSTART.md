@@ -219,7 +219,7 @@ The dataset list is derived from the JSONs, so a source CSV is optional.
 | `.claude/skills/batch-evaluate-datasets/SKILL.md` | The `/batch-evaluate-datasets` coordinator skill (parallel per-dataset evals → hands off to `summarize-outputs`) |
 | `.claude/skills/summarize-outputs/SKILL.md` | The `/summarize-outputs` skill (compile any results dir → CSV + figure + report, dedups reruns) |
 | `scripts/build_response_scaffold.py` | Builds the scaffold JSON (89 responses, verbatim fields pre-filled) and emits the compact per-section rating guide; run at Step 3 of an evaluation |
-| `scripts/merge_ratings.py` | Merges a section's `{item, status, evidence, notes, recommendation}` ratings into the scaffold in place (one call per section → incremental, resumable writes) |
+| `scripts/merge_ratings.py` | Merges a section's `{item, status, evidence, notes, recommendation}` ratings into the scaffold in place (one call per section → incremental, resumable writes); pass `--checklist CHECKLIST.csv` to enforce the "Never NA" guard (mandatory items can't be rated `N/A`) |
 | `scripts/compute_fair4ai_scores.py` | Scoring tool the fair4ai-scoring skill runs |
 | `scripts/compile_fair4ai_results.py` | Compiles a directory of evaluation JSONs into a scores CSV + aggregates (source CSV optional; dedups reruns) |
 | `scripts/make_fair4ai_figure.py` | Renders the summary figure (needs numpy + matplotlib) |

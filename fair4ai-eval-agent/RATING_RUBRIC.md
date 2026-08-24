@@ -86,7 +86,8 @@ which the item does not apply. Two recurring shapes of that condition:
 
 **What does NOT make an item `N/A`:**
 - Items whose `Scoring: NA` cell reads **"Never NA …"** are always rated `meets` /
-  `partial` / `does not meet`, never `N/A`.
+  `partial` / `does not meet`, never `N/A`. This is enforced: `merge_ratings.py`
+  (run with `--checklist`) rejects an `N/A` rating on any such item.
 - A conditional-disclosure item is `N/A` when the condition is **absent**, `meets` when the
   condition is present **and** documented — never `does not meet` for a clean dataset with
   nothing to disclose (that polarity error wrongly drags the score down).

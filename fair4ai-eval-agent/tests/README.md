@@ -15,8 +15,9 @@ Two kinds of things are pinned down here:
    - `test_scaffold_and_merge.py` checks the two blessed eval-workflow helpers
      (`build_response_scaffold.py` + `merge_ratings.py`): the scaffold produces 89 responses with the
      verbatim fields copied from the CSV and empty ratings, `--emit-guide` groups all items into 9
-     sections and drops the non-rating columns, `merge_ratings` validates/normalizes/is idempotent,
-     and — the strongest check — scaffold + merge(ratings extracted from each committed example)
+     sections and drops the non-rating columns, `merge_ratings` validates/normalizes/is idempotent
+     and enforces the "Never NA" guard (an `N/A` rating on a mandatory item is rejected when the
+     checklist is supplied), and — the strongest check — scaffold + merge(ratings extracted from each committed example)
      reproduces that example's responses **exactly**, with the scorer yielding the stored scores and
      no warnings.
 
