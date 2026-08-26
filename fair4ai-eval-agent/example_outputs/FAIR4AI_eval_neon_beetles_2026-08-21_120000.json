@@ -1,0 +1,1015 @@
+{
+  "session": {
+    "evaluation_date": "2026-08-21",
+    "ai_model": "claude-opus-4-8",
+    "evaluation_method": "FAIR4AI-Bio checklist (89 items) evaluated from cached metadata fixtures in example_inputs/example_metadata/neon_beetles/ (NEON API product + RELEASE-2026 records, landing notes); no live network fetch during rating.",
+    "source_files": [
+      "example_inputs/example_metadata/neon_beetles/neon_api_product.json",
+      "example_inputs/example_metadata/neon_beetles/neon_release_2026.json",
+      "example_inputs/example_metadata/neon_beetles/landing_notes.md",
+      "https://data.neonscience.org/api/v0/products/DP1.10022.001",
+      "https://data.neonscience.org/api/v0/products/DP1.10022.001/RELEASE-2026",
+      "https://data.neonscience.org/data-products/DP1.10022.001"
+    ],
+    "dataset": {
+      "title": "Ground beetles sampled from pitfall traps",
+      "product_id": "DP1.10022.001",
+      "repository_url": "https://data.neonscience.org/data-products/DP1.10022.001",
+      "landing_page_url": "https://data.neonscience.org/data-products/DP1.10022.001",
+      "citation": "NEON (National Ecological Observatory Network). Ground beetles sampled from pitfall traps (DP1.10022.001), RELEASE-2026. https://doi.org/10.48443/q9ne-6b77"
+    },
+    "evaluator": {
+      "name": "FAIR4AI Evaluation Agent",
+      "affiliation": "FAIR4AI-Bio",
+      "email": "",
+      "relationship_to_dataset": "third-party evaluator",
+      "evaluation_purpose": "Reproducible example evaluation for the FAIR4AI-Bio checklist agent (regression fixture).",
+      "evaluation_description": "Automated FAIR4AI-Bio evaluation of the NEON ground-beetle data product from cached metadata fixtures."
+    }
+  },
+  "responses": [
+    {
+      "item": "Descriptive Dataset Title",
+      "requirement_definition": "Dataset has a clear, human-readable, descriptive title distinct from repository slugs or file path names.",
+      "status": "meets",
+      "evidence": "A clear human-readable title, \"Ground beetles sampled from pitfall traps\", is provided and is distinct from the product code (DP1.10022.001).",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Comprehensive Dataset Abstract",
+      "requirement_definition": "Dataset metadata includes a scientific description, summary, or abstract describing background, methods, scope, and findings.",
+      "status": "meets",
+      "evidence": "The product abstract describes background, methods (pitfall trapping, sorting, species/morphospecies ID, expert taxonomist subset for uncertainty), scope, and preservation approach.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Dataset Purpose and Scope",
+      "requirement_definition": "Dataset documentation explicitly defines the primary scientific objectives, ecological research questions, target biological/environmental phenomena, and collection rationale.",
+      "status": "partial",
+      "evidence": "Focal taxa (Carabidae) and ecological context (community composition, biodiversity monitoring across all NEON terrestrial sites) are described in the abstract and TOS Science Design (NEON.DOC.000909), but explicit research objectives/hypotheses are not enumerated in structured metadata.",
+      "notes": "",
+      "recommendation": "Add a structured purpose/scope statement enumerating the specific monitoring objectives and intended domain applications (e.g., long-term biodiversity trend detection) in machine-readable metadata.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Dataset Persistent Identifier (DOI)",
+      "requirement_definition": "Dataset is assigned a globally unique, persistent, and resolvable Digital Object Identifier (DOI).",
+      "status": "meets",
+      "evidence": "RELEASE-2026 is assigned a registered, resolvable DOI (10.48443/q9ne-6b77 -> https://doi.org/10.48443/q9ne-6b77); each annual release carries its own DOI.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Descriptive Keywords and Tags",
+      "requirement_definition": "Dataset metadata includes thematic keywords and taxonomy tags to facilitate discoverability in search catalogs.",
+      "status": "partial",
+      "evidence": "An extensive keyword list is provided (e.g., Carabidae, pitfall traps, biodiversity, DNA barcoding, COI), but the terms are free-text and are not mapped to controlled vocabularies/ontologies (e.g., ENVO, Darwin Core URIs).",
+      "notes": "",
+      "recommendation": "Map keywords to standardized vocabularies/ontologies (Darwin Core, ENVO) with resolvable URIs to improve catalog discoverability.",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Project Homepage URL",
+      "requirement_definition": "Dataset metadata includes a resolvable URL pointing to the official project or resource landing page.",
+      "status": "meets",
+      "evidence": "The dataset is served from the maintained NEON project site (neonscience.org) with a data-product landing page at https://data.neonscience.org/data-products/DP1.10022.001.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Code Repository Link",
+      "requirement_definition": "Dataset metadata links to the version-controlled code repository used for dataset curation, preprocessing, or pipeline ingestion.",
+      "status": "partial",
+      "evidence": "The change log references reprocessing with a \"generic codebase\", but no resolvable URL/PID to the source-code repository is provided in the metadata.",
+      "notes": "",
+      "recommendation": "Link the NEON processing codebase (e.g., a GitHub/Zenodo PID) directly in the dataset metadata.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Canonical Descriptor Publication",
+      "requirement_definition": "Dataset metadata references the canonical peer-reviewed publication or data paper describing the dataset.",
+      "status": "does not meet",
+      "evidence": "The metadata references protocols, a user guide, a Quick Start Guide, and a Data Quality ATBD, but no canonical peer-reviewed data paper or preprint is cited via a resolvable DOI.",
+      "notes": "",
+      "recommendation": "Cite a canonical data paper/descriptor (with DOI) for the ground-beetle product in structured citation metadata.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Data Publisher and Host",
+      "requirement_definition": "Dataset metadata explicitly identifies the publishing organization, data center, or hosting repository platform.",
+      "status": "meets",
+      "evidence": "The publishing entity (NEON, operated by Battelle) and hosting platforms (NEON Data Portal and Biorepository Data Portal) are documented.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Findable | Accessible",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Formatted Data Citation",
+      "requirement_definition": "Dataset provides recommended, pre-formatted bibliographic citations in standard scientific styles (e.g., APA, BibTeX).",
+      "status": "partial",
+      "evidence": "A resolvable DOI is available to build a citation, but the API returned no pre-formatted bibliographic citation string (release note: \"No pre-formatted citation text field was present\").",
+      "notes": "",
+      "recommendation": "Expose a ready-to-use citation string (APA/BibTeX with DOI, release, and access date) in structured metadata.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Dataset Creators and Authors",
+      "requirement_definition": "Dataset metadata explicitly identifies all primary authors, scientific investigators, and creator organizations responsible for data generation and curation.",
+      "status": "partial",
+      "evidence": "Creation is attributed to NEON/Battelle and the Terrestrial Observation System (TOS) science team as an institutional creator; individual authors with affiliations and structured creator records are not enumerated in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Provide structured creator records (organization + any individual leads with affiliations) beyond the institutional attribution.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Author Persistent Identifiers",
+      "requirement_definition": "Dataset metadata provides persistent digital person identifiers (e.g., ORCID iDs) for all human authors and contributors to resolve identity ambiguities.",
+      "status": "N/A",
+      "evidence": "The dataset creator is an institutional body / automated observatory network (NEON), so per-author ORCID iDs do not apply.",
+      "notes": "N/A trigger: creator is exclusively an institutional/observatory body with no human authors.",
+      "recommendation": "",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Data Curator Attribution",
+      "requirement_definition": "Dataset metadata distinguishes and attributes data curators who organized, cleaned, or formatted the dataset, e.g., for AI readiness.",
+      "status": "partial",
+      "evidence": "Parataxonomists, expert taxonomists, and biorepositories (CMNH, Essig Museum, ASU, Bishop Museum) are named in the abstract/methods and specimen SOPs, but curators are not given formal metadata attribution with roles and ORCIDs.",
+      "notes": "",
+      "recommendation": "Attribute curation personnel (taxonomists/biorepository curators) formally with roles and persistent identifiers.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Dataset Card Authorship",
+      "requirement_definition": "Dataset metadata attributes the specific authors responsible for writing and maintaining the dataset card / documentation.",
+      "status": "partial",
+      "evidence": "Versioned documentation exists and is NEON-authored with document IDs (user guide NEON_beetle_userGuide_vG, protocol NEON.DOC.014050), but specific documentation authors are not explicitly designated.",
+      "notes": "",
+      "recommendation": "Name the authors/maintainers responsible for the product documentation and user guide.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Dataset Card Contact Point",
+      "requirement_definition": "Dataset documentation provides a monitored contact email or communication channel for documentation queries.",
+      "status": "partial",
+      "evidence": "NEON operates a general portal contact/helpdesk, but no contact is designated specifically for documentation inquiries in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Provide a monitored, documentation-specific contact endpoint in metadata.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Domain Expert Contact Point",
+      "requirement_definition": "Dataset metadata provides direct, monitored contact details for domain specialists qualified to resolve scientific, taxonomic, or ecological ambiguities during data reuse. Primary author or creator contact information may qualify if they represent the domain experts for the dataset.",
+      "status": "partial",
+      "evidence": "Expert taxonomist involvement is documented and a general NEON helpdesk exists, but no named domain/taxonomic expert contact is structured in the metadata.",
+      "notes": "",
+      "recommendation": "Structure direct contact details for a designated taxonomic/domain expert (or qualified curator) for resolving scientific ambiguities.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Funder Information",
+      "requirement_definition": "Dataset metadata explicitly identifies all funding entities and sponsoring organizations responsible for data creation.",
+      "status": "partial",
+      "evidence": "NEON is operated under NSF sponsorship (widely stated on the NEON program), but the retrieved product metadata contains no structured funder field with a persistent organizational identifier.",
+      "notes": "",
+      "recommendation": "Add a structured funder record (NSF) with a ROR/Crossref Funder ID in the dataset metadata.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Grant and Award Identifier",
+      "requirement_definition": "Dataset metadata specifies formal grant, award, or contract numbers associated with funding sources.",
+      "status": "does not meet",
+      "evidence": "No grant, cooperative-agreement, or award number is provided in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Include the NSF cooperative-agreement/award number(s) in dedicated funding metadata fields.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Contributor Acknowledgements",
+      "requirement_definition": "Dataset metadata acknowledges non-author contributors and specifies their roles in data collection, processing, or curation.",
+      "status": "partial",
+      "evidence": "Biorepositories and taxonomic partners are acknowledged in narrative/methods (CMNH, Essig, ASU, Bishop Museum, NEON Domain Offices) without structured CRediT roles or contributor tags.",
+      "notes": "",
+      "recommendation": "Record non-author contributors with structured roles (e.g., CRediT taxonomy).",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Dataset License Specification",
+      "requirement_definition": "Dataset metadata explicitly defines legal terms of use, redistribution rights, and licensing terms.",
+      "status": "partial",
+      "evidence": "NEON distributes data under its data-use/citation policy, but no standard formal license is declared in the retrieved metadata (license terms are effectively an informal policy statement).",
+      "notes": "",
+      "recommendation": "Declare an explicit, standard license (e.g., CC0 or CC-BY-4.0) in metadata.",
+      "fair_category": "Accessible | Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Standardized Machine-Readable License",
+      "requirement_definition": "Dataset license is expressed via standardized, machine-readable identifier schemes (e.g., SPDX identifier, Creative Commons URI).",
+      "status": "does not meet",
+      "evidence": "No SPDX identifier or canonical license URI is present; the data-use terms are a bespoke policy that automated license scrapers cannot parse.",
+      "notes": "",
+      "recommendation": "Encode the license with an official SPDX identifier / Creative Commons URI.",
+      "fair_category": "Accessible | Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Collection Permits and Legal Governance",
+      "requirement_definition": "Dataset metadata documents formal scientific collection permits, landowner permissions, and ethical research authorizations.",
+      "status": "does not meet",
+      "evidence": "Field collection of specimens occurs at managed sites (many requiring permits), but no permit numbers or granting bodies are documented in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Document collection permits with permit numbers and granting authorities.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Authorizing Agency Attribution",
+      "requirement_definition": "Dataset metadata explicitly identifies the governing agencies, Indigenous authorities, or institutions that granted collection permits.",
+      "status": "does not meet",
+      "evidence": "The governing agencies/authorities that granted site access or collection permits are not identified in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Identify the permitting agencies/authorities (with jurisdiction) for each collection context.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Indigenous and Community Stewardship",
+      "requirement_definition": "Dataset documentation identifies the Indigenous Peoples to whom the tangible object, material, or resource, or the intangible\nknowledges or information was generated, produced, or collected. Ref: IEEE CARE",
+      "status": "does not meet",
+      "evidence": "No Indigenous/community stewardship, land acknowledgement, or CARE governance information is documented, despite some NEON sites sitting on or near tribal/managed lands.",
+      "notes": "",
+      "recommendation": "Document any Indigenous/community stewardship ties and CARE governance (e.g., Biocultural Labels) where applicable.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Sensitive Data Handling and Obfuscation",
+      "requirement_definition": "Dataset documentation demonstrates compliance with privacy, human subject, and endangered species protections, detailing any obfuscation, spatial fuzzing, or redaction protocols applied to the payload.",
+      "status": "partial",
+      "evidence": "The change log documents state-level taxa obfuscation adjustments (with D01/D20 exceptions), indicating a locality-obfuscation protocol for sensitive taxa, but specific fuzzing radii/redaction criteria and any ethics references are not detailed.",
+      "notes": "",
+      "recommendation": "Publish the specific obfuscation rules (jitter radii, taxa criteria) and any governance/ethics references.",
+      "fair_category": "Accessible | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance | Governance"
+    },
+    {
+      "item": "Access Restriction Justification",
+      "requirement_definition": "Dataset metadata explicitly documents the conservation justifications, legal mandates, or policy criteria under which open public download is restricted or gated.",
+      "status": "N/A",
+      "evidence": "The ground-beetle data product is fully open-access with no gated or restricted download tiers.",
+      "notes": "N/A trigger: dataset is fully open access with no gated tiers.",
+      "recommendation": "",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Scientific | Provenance | Governance"
+    },
+    {
+      "item": "Secure Access Procedure",
+      "requirement_definition": "Dataset provides a formal, documented pathway for vetted researchers to apply for and obtain secure access to restricted data.",
+      "status": "N/A",
+      "evidence": "The dataset is completely open access with no restricted tiers, so a secure-access application pathway does not apply.",
+      "notes": "N/A trigger: fully open access, no restricted tiers.",
+      "recommendation": "",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Scientific | Provenance | Governance"
+    },
+    {
+      "item": "Direct Download Access",
+      "requirement_definition": "Dataset provides persistent, direct HTTP/HTTPS download endpoints bypassing interactive web forms or session cookies.",
+      "status": "meets",
+      "evidence": "Data are retrievable via direct, programmatic HTTPS endpoints on the NEON API (data.neonscience.org/api/v0/...), suitable for wget/curl-style automation.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Cloud-Native Storage Access",
+      "requirement_definition": "Dataset is hosted in cloud-native, object-based storage (e.g., AWS S3, Google Cloud Storage, Azure Blob) supporting direct read.",
+      "status": "partial",
+      "evidence": "Data are downloadable via the API and portal; NEON also mirrors data to Google Cloud Storage, but cloud-native object-store URIs / streaming (e.g., Zarr, COG) are not documented in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Document cloud-native access (GCS/S3 URIs, requester-pays terms) for direct cloud compute.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Programmatic API Availability",
+      "requirement_definition": "Dataset provides a dedicated Application Programming Interface (API) for automated, granular, or streaming queries.",
+      "status": "meets",
+      "evidence": "A fully operational public REST API is available for querying products, releases, and downloads (used to retrieve this metadata).",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "API Architecture Specification",
+      "requirement_definition": "Dataset documentation defines the architectural style and interface protocol of the API (e.g., REST, GraphQL, OGC WFS, STAC).",
+      "status": "partial",
+      "evidence": "The interface is a REST API, but its architectural style is not formally declared via an OpenAPI/STAC/OGC specification in the metadata.",
+      "notes": "",
+      "recommendation": "Publish a formal API specification (e.g., OpenAPI 3.0) declaring the architecture.",
+      "fair_category": "Accessible | Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "API Reference Documentation",
+      "requirement_definition": "Dataset provides comprehensive, interactive documentation (e.g., Swagger/OpenAPI, Postman collection) for its API.",
+      "status": "partial",
+      "evidence": "NEON publishes API documentation pages describing endpoints, but a complete interactive OpenAPI/Swagger spec with parameter definitions and query examples is not referenced in the metadata.",
+      "notes": "",
+      "recommendation": "Provide interactive OpenAPI/Swagger documentation with parameters and query examples.",
+      "fair_category": "Accessible | Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "API Rate Limiting Policy",
+      "requirement_definition": "Dataset API documentation explicitly specifies rate limits, concurrency quotas, and request burst allowances.",
+      "status": "partial",
+      "evidence": "The NEON API enforces rate limits (raised with an API token), but explicit numeric quotas and throttling headers are not stated in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Document exact rate limits, quotas, and Retry-After behavior in the API metadata.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Open and Non-Proprietary Formats",
+      "requirement_definition": "Dataset is distributed in open, non-proprietary formats that do not require licensed commercial software to read.",
+      "status": "meets",
+      "evidence": "Data are distributed as open, non-proprietary CSV tables (bet_* tables), readable without licensed commercial software.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Accessible | Interoperable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Multi-Format Distribution",
+      "requirement_definition": "Dataset provides alternative distribution formats optimized for diverse use cases (e.g., CSV for inspection, Parquet/Zarr for AI).",
+      "status": "partial",
+      "evidence": "Data are provided primarily as CSV (basic/expanded packages), with a Darwin Core archive available via the Biorepository; a single widely supported format dominates rather than complementary AI-optimized formats (e.g., Parquet).",
+      "notes": "",
+      "recommendation": "Offer an AI-optimized companion format (e.g., Parquet) alongside CSV.",
+      "fair_category": "Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Machine-Readable Serialization",
+      "requirement_definition": "Dataset is serialized in structured, machine-parseable data formats rather than presentation-focused layouts.",
+      "status": "meets",
+      "evidence": "Tabular data are serialized as machine-readable CSV rather than presentation-focused layouts.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Interoperable | Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Study Design Typology",
+      "requirement_definition": "Dataset metadata classifies the study design type, e.g., whether observations originate from manipulative experimental setups or observational field surveys, or some other study design type.",
+      "status": "meets",
+      "evidence": "The study is documented as a standardized observational monitoring design (pitfall-trap sampling) in the abstract and TOS Science Design, distinguishing it from manipulative experiments.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Experimental Factor Specification",
+      "requirement_definition": "Dataset documentation details experimental factors, treatment levels, control structures, and replication design.",
+      "status": "N/A",
+      "evidence": "The dataset originates from non-manipulative observational field surveys, so treatment/control/replication design does not apply.",
+      "notes": "N/A trigger: observational (non-manipulative) survey.",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Data Modality and Origin Type",
+      "requirement_definition": "Dataset metadata classifies the operational modality and collection origin (e.g., sensor telemetry, satellite, field survey, API).",
+      "status": "partial",
+      "evidence": "The origin (in-situ physical specimen collection via pitfall traps, with lab sorting/ID and DNA barcoding) is described in narrative methods but is not tagged with controlled-vocabulary modality terms.",
+      "notes": "",
+      "recommendation": "Classify the collection modality using controlled vocabulary terms in structured metadata.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Observation Temporal Extent",
+      "requirement_definition": "Dataset metadata specifies the precise date or date range during which field observations or raw measurements were collected.",
+      "status": "meets",
+      "evidence": "Temporal coverage is provided per site with explicit date ranges (e.g., ABBY 2016-09 through 2023-09; BART 2014-06 through 2023-09) in machine-readable form.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Observation Timestamp Precision",
+      "requirement_definition": "Dataset documents timestamps (including UTC offset) for every individual observation event.",
+      "status": "partial",
+      "evidence": "Sampling events carry collection dates (setDate/collectDate; eventID keyed to trap setDate), but per-observation timestamps with explicit UTC offsets are not provided (day-level precision).",
+      "notes": "",
+      "recommendation": "Where meaningful, record full ISO 8601 timestamps with UTC offset for collection events.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance | Governance"
+    },
+    {
+      "item": "Operational Event Logging and Context",
+      "requirement_definition": "Dataset captures messages, operations, actors, preferences, and context that led to a given data point (CARE provenance). Ref: IEEE CARE",
+      "status": "partial",
+      "evidence": "Sampling bouts, setDate/collectDate, the samplingImpractical quality flag, and an identificationHistory table capture operational context, but fine-grained per-event action logs are not fully recorded.",
+      "notes": "",
+      "recommendation": "Expand structured per-event operational logging (actor, action, timestamp) where feasible.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Sensor and Instrument Metadata",
+      "requirement_definition": "Dataset provides detailed instrument calibrations, hardware specifications, and sensor firmware metadata.",
+      "status": "N/A",
+      "evidence": "Beetles are collected by manual pitfall trapping and identified by human taxonomists; the product is not sensor-derived, so instrument calibration/firmware metadata does not apply.",
+      "notes": "N/A trigger: non-sensor, human/manual collection.",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Quantitative Resolution Metrics",
+      "requirement_definition": "Dataset specifies quantitative spatial, temporal, radiometric, or spectral resolutions (e.g., GSD, sampling rate).",
+      "status": "partial",
+      "evidence": "Sampling design quantities are documented (trap counts over time: 40 -> 30 -> 18/site; container volumes 150/250 mL; bout frequency), but these are not framed as standardized resolution metrics.",
+      "notes": "",
+      "recommendation": "Express sampling resolution (temporal bout interval, spatial trap layout) as explicit metrics with units.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Specimen and Sample Preparation",
+      "requirement_definition": "Dataset documents physical sample preparation, preservation techniques, or laboratory extraction protocols.",
+      "status": "meets",
+      "evidence": "Preparation is detailed: propylene glycol trap fluid, 95% ethanol archiving, pinning of a subset, expert taxonomist secondary ID, and CMNH/Essig specimen-processing SOPs.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Physical Voucher Deposition and Identifiers",
+      "requirement_definition": "For specimen-derived datasets, metadata links observation records to permanently curated physical vouchers in recognized biorepositories, museums, or herbaria using standardized catalog identifiers.",
+      "status": "meets",
+      "evidence": "Physical vouchers (pinned carabids, DNA extracts, archive pooling, trap sorting) are deposited in recognized biorepositories (CMNH, Essig Museum/UC Berkeley, ASU, Bishop Museum, NEON Domain Offices) and are discoverable via the Biorepository/Darwin Core archive with catalog identifiers.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance | Scientific"
+    },
+    {
+      "item": "Parent Observatory and Program Membership",
+      "requirement_definition": "Dataset metadata defines formal membership in an umbrella observatory network, long-term monitoring program, or standardized dataset series.",
+      "status": "meets",
+      "evidence": "The product is explicitly part of NEON (National Ecological Observatory Network), Terrestrial Observation System, as a Level 1 Data Product within the observatory's standardized series.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Findable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Standardized File Formats",
+      "requirement_definition": "Dataset files are distributed in standard, well-documented file formats with explicit MIME/media types specified in metadata.",
+      "status": "partial",
+      "evidence": "Files use standard CSV with recognizable extensions, but explicit MIME/media types are not declared in the distribution metadata.",
+      "notes": "",
+      "recommendation": "Declare explicit MIME types for each distributed file in metadata.",
+      "fair_category": "Interoperable | Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Dataset Directory Structure",
+      "requirement_definition": "Dataset provides documentation of its internal directory hierarchy, archive layout, and file organization.",
+      "status": "partial",
+      "evidence": "The product's table set is documented (bet_fielddata, bet_sorting, bet_parataxonomistID, bet_expertTaxonomistID*, bet_archivepooling, bet_identificationHistory), but a formal file-tree/layout schematic of a download package is not provided in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Publish a file-tree/layout diagram for the download package structure.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "File Instance Inventory",
+      "requirement_definition": "Dataset metadata includes an itemized inventory describing the contents, record counts, and roles of individual files or shards.",
+      "status": "partial",
+      "evidence": "The constituent data tables are enumerated with publication latencies, but per-file record counts and byte sizes are not itemized in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Provide an itemized inventory with record counts and sizes per table/file.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Relational Data Architecture",
+      "requirement_definition": "Dataset documentation defines relational schemas, primary/foreign keys, and linkages between multiple tables or modalities.",
+      "status": "partial",
+      "evidence": "The multiple bet_* tables are linked through shared keys (e.g., sampleID, eventID/setDate) described in the user guide, but formal primary/foreign-key schema documentation is not included in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Document the relational schema (keys and table linkages) formally/machine-actionably.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Data Dictionary and Codebook",
+      "requirement_definition": "Dataset provides a comprehensive data dictionary defining all variables, column headers, data types, valid ranges, and units.",
+      "status": "meets",
+      "evidence": "NEON ships a machine-readable variables/data-dictionary file for the product defining each field's name, type, units, and description, alongside the user guide.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Interoperable | Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Feature Attribute Specification",
+      "requirement_definition": "Dataset metadata specifies individual feature attributes, measurement variables, and target columns.",
+      "status": "meets",
+      "evidence": "Individual attributes across the bet_* tables (taxonomy, counts, dates, site/plot, sample identifiers, quality flags) are defined in the NEON variables file.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Standardized Measurement Units",
+      "requirement_definition": "All quantitative variables have explicitly defined, community-standardized measurement units (e.g., SI units, UCUM).",
+      "status": "meets",
+      "evidence": "The NEON variables file assigns explicit units to quantitative attributes; categorical taxonomic fields are typed accordingly.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Interoperable | Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Natural Language Specification",
+      "requirement_definition": "Dataset metadata specifies the natural language(s) of textual features and annotations using standard language tags.",
+      "status": "does not meet",
+      "evidence": "Free-text fields (remarks, identification notes) are in English, but no BCP 47 / ISO 639 language tag is declared in metadata.",
+      "notes": "",
+      "recommendation": "Declare the natural language of textual fields using standard language codes.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Technical and Storage Specifications",
+      "requirement_definition": "Dataset metadata details technical storage specifications, including total compressed archive size, uncompressed on-disk footprint, total file/record counts, and memory (RAM) requirements.",
+      "status": "partial",
+      "evidence": "Table structure and publication latencies are documented, but total compressed/uncompressed sizes, record counts, and memory requirements are not provided in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Publish byte sizes (compressed/uncompressed), record/file counts, and any memory requirements.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Machine Ingestion Readiness",
+      "requirement_definition": "Dataset structural packaging conforms to standardized specifications enabling automated programmatic ingestion.",
+      "status": "partial",
+      "evidence": "Data can be loaded programmatically (e.g., via the NEON API and neonUtilities stackByTable), but ingestion typically requires stacking/curation steps and the package does not declare conformance to a machine-actionable contract (Croissant/Frictionless).",
+      "notes": "",
+      "recommendation": "Provide a Croissant/Frictionless manifest so the product ingests without manual structural fixes.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Curation and Filtering Rationale",
+      "requirement_definition": "Dataset documentation describes the criteria, thresholds, and rationale used to curate, filter, or subsample the data.",
+      "status": "partial",
+      "evidence": "Processing/QC is described (reprocessing with a generic codebase, quality flags, samplingImpractical), and design changes are logged, but explicit filtering thresholds and inclusion/exclusion criteria are not fully enumerated.",
+      "notes": "",
+      "recommendation": "Document explicit curation/filtering thresholds and exclusion criteria.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Outlier Detection and Filtering",
+      "requirement_definition": "Dataset documents statistical criteria, automated algorithms, or manual rules used to detect and remove outliers.",
+      "status": "partial",
+      "evidence": "A Data Quality Control ATBD (NEON.DOC.005424) and quality flags govern QC, but specific outlier-detection thresholds and discarded-record counts are not enumerated in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "State the outlier-detection criteria and the volume of records flagged/removed.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Spatial Gridding and Interpolation",
+      "requirement_definition": "Dataset specifies spatial gridding algorithms, interpolation methods, coordinate projection, and cell dimension parameters.",
+      "status": "N/A",
+      "evidence": "The product is vector point/specimen tabular data, not a gridded raster, so gridding/interpolation parameters do not apply.",
+      "notes": "N/A trigger: non-gridded (vector point/tabular) data.",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Missing Data Imputation Status",
+      "requirement_definition": "Dataset metadata explicitly declares whether missing values, gaps, or dropouts have been imputed or left as nulls.",
+      "status": "meets",
+      "evidence": "Missingness is explicitly declared and flagged (samplingImpractical quality flag and QC flags) rather than imputed; raw observations are retained.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Gap-Filling Methodology",
+      "requirement_definition": "Dataset documentation describes the mathematical, statistical, or machine learning methodology used for gap imputation.",
+      "status": "N/A",
+      "evidence": "No gap filling/imputation is performed; missing sampling is flagged and left as gaps.",
+      "notes": "N/A trigger: no gap filling/imputation performed.",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Annotation and Labeling Protocol",
+      "requirement_definition": "Dataset documents target label taxonomy, annotation protocols, curator expertise, and quality control consensus methods.",
+      "status": "meets",
+      "evidence": "Taxonomic labeling is protocol-driven: parataxonomist identification, a subset (up to 467 pinned/site/year) sent to expert taxonomists for secondary ID to estimate parataxonomist uncertainty, standardized taxonomy, and an identificationHistory table for QA.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Machine Learning Data Splits",
+      "requirement_definition": "Dataset provides pre-partitioned train, validation, and test splits (or cross-validation folds) with explicit stratification protocols designed to prevent spatial, temporal, or taxonomic data leakage.",
+      "status": "N/A",
+      "evidence": "The product is intended for descriptive/observational ecology, not a benchmarked supervised ML task, so pre-defined train/val/test splits do not apply.",
+      "notes": "N/A trigger: not a benchmark ML dataset; no evaluation splits apply.",
+      "recommendation": "",
+      "fair_category": "Interoperable | Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Dataset Completeness Verification",
+      "requirement_definition": "Dataset documentation provides a quantitative audit verifying that all planned sampling events, observation records, spatial grids, and media files are accounted for, with any missing data explicitly quantified.",
+      "status": "partial",
+      "evidence": "Data gaps are acknowledged and flagged (COVID-19 reductions, YELL/BLDE flooding halts, samplingImpractical, per-site availability ranges), but a systematic planned-vs-actual completeness audit with quantified missing counts is not provided.",
+      "notes": "",
+      "recommendation": "Publish a completeness audit quantifying expected vs. present sampling events/records.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Quality Assurance Maturity Level",
+      "requirement_definition": "Dataset specifies its Quality Assurance / Quality Control (QA/QC) maturity level (e.g., raw, automated QA, expert curated).",
+      "status": "meets",
+      "evidence": "The product is a quality-controlled Level 1 Data Product with a documented QA/QC framework (Data Quality Control ATBD, quality flags, expert-taxonomist verification).",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Controlled Vocabulary Alignment",
+      "requirement_definition": "Categorical attributes and taxonomic descriptors adhere to standard controlled vocabularies and domain ontologies.",
+      "status": "partial",
+      "evidence": "Taxonomic fields follow a standardized NEON taxonomy backbone with scientificName/taxonID, but categorical terms are not mapped to public URI-backed ontologies (e.g., Darwin Core/ENVO URIs).",
+      "notes": "",
+      "recommendation": "Map categorical/taxonomic fields to URI-backed controlled ontologies.",
+      "fair_category": "Interoperable",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Peer Review and Expert Curation",
+      "requirement_definition": "Dataset metadata indicates whether the data payload and metadata have undergone formal peer review or expert editorial curation.",
+      "status": "partial",
+      "evidence": "Expert taxonomic curation (secondary expert ID) and repository QA are documented, but formal independent peer review of the dataset (with a review DOI/citation) is not indicated.",
+      "notes": "",
+      "recommendation": "Record any formal peer-review/curation-audit status with a citation where applicable.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Update Frequency and Cadence",
+      "requirement_definition": "Dataset metadata explicitly declares the maintenance policy, versioning schedule, and expected frequency of future data releases or additions.",
+      "status": "meets",
+      "evidence": "A regular annual RELEASE cadence is declared (RELEASE-2021 through RELEASE-2026, each DOI-versioned), with maintenance notes (e.g., DELA site operations ending 2025) documenting status changes.",
+      "notes": "",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Dataset Integrity Checksums",
+      "requirement_definition": "Dataset metadata provides cryptographic checksums (e.g., SHA-256, MD5) for all downloadable data files and media archives.",
+      "status": "partial",
+      "evidence": "NEON download packages provide per-file MD5 checksums in the download manifest, but cryptographic checksums (e.g., SHA-256) are not surfaced in the product/release metadata retrieved here.",
+      "notes": "",
+      "recommendation": "Expose SHA-256 checksums for each released file in structured metadata.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Source Data Producer Attribution",
+      "requirement_definition": "Derived or compiled datasets explicitly attribute all upstream data collector institutions, observatories, and producers.",
+      "status": "N/A",
+      "evidence": "This is primary data collected directly by NEON, not a derived/compiled product, so upstream producer attribution does not apply.",
+      "notes": "N/A trigger: primary data collected by the producing team.",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Upstream Source Attribution and DOIs",
+      "requirement_definition": "Derived or compiled datasets explicitly enumerate and cite all constituent source datasets using formal bibliographic references and persistent identifiers (DOIs/PIDs).",
+      "status": "N/A",
+      "evidence": "The product consists of primary raw observations collected directly by NEON, not derived from external source datasets.",
+      "notes": "N/A trigger: primary raw observations, not derived/compiled.",
+      "recommendation": "",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Source Data Cryptographic Checksums",
+      "requirement_definition": "Derived datasets provide cryptographic checksums (e.g., SHA-256) of raw source archives to verify provenance integrity.",
+      "status": "N/A",
+      "evidence": "There are no upstream source archives to checksum; the product is primary data.",
+      "notes": "N/A trigger: primary data, no upstream source archives.",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Data Provenance Traceability",
+      "requirement_definition": "Dataset documentation tracks complete provenance history and data processing transformation graphs.",
+      "status": "partial",
+      "evidence": "A processing narrative and change log (reprocessing events, taxonomy consolidation, identificationHistory tracking added 2024) document transformations, but a machine-actionable PROV-O/W3C provenance graph is not provided.",
+      "notes": "",
+      "recommendation": "Publish a structured provenance trace (inputs, software versions, transformations, timestamps).",
+      "fair_category": "Reusable | Findable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Processing Environment and Software",
+      "requirement_definition": "Dataset documentation specifies exact software environments, library versions, and processing platforms used to prepare data.",
+      "status": "partial",
+      "evidence": "The change log references reprocessing with a \"generic codebase\", but exact software/library versions, container tags, or environment manifests are not documented.",
+      "notes": "",
+      "recommendation": "Document the processing software environment (versions/containers) used to generate releases.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Provenance"
+    },
+    {
+      "item": "Source Lineage Traceability",
+      "requirement_definition": "Dataset metadata establishes an unbroken, machine-actionable provenance graph linking derived data products to raw inputs through recorded transformation steps.",
+      "status": "partial",
+      "evidence": "Processing steps are described narratively (sorting -> parataxonomist ID -> expert verification -> published tables; identificationHistory), but a machine-actionable entity-activity-agent lineage graph is absent.",
+      "notes": "",
+      "recommendation": "Provide a machine-actionable lineage (e.g., PROV-O / Croissant cr:source) linking inputs, scripts, and outputs.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Provenance"
+    },
+    {
+      "item": "Data Custody and Storage Provenance",
+      "requirement_definition": "Dataset metadata documents the origin storage point of the generated data, its custodial history, its movement across systems or repositories, and its current jurisdictional/cloud storage locations.",
+      "status": "partial",
+      "evidence": "Custodial elements are documented (field collection -> domain labs/biorepositories -> NEON Data Portal + Biorepository Data Portal; DELA data to remain available), but a complete chain-of-custody with prior custodians and sovereign storage jurisdictions is not fully recorded.",
+      "notes": "",
+      "recommendation": "Document the full custody chain and storage jurisdictions over time.",
+      "fair_category": "Reusable | Accessible",
+      "ai_fair_criteria": "Provenance | Governance"
+    },
+    {
+      "item": "Documented Task Readiness",
+      "requirement_definition": "Dataset documentation explicitly enumerates the specific computational, analytical, or machine learning tasks (e.g., Species Distribution Modeling, object detection, bioacoustic classification) for which the dataset is structured, formatted, and verified, mapped to standard ML task taxonomies where applicable.",
+      "status": "does not meet",
+      "evidence": "The product documents ecological use but does not enumerate specific computational/ML tasks with input-feature and target-output designations mapped to a task taxonomy.",
+      "notes": "",
+      "recommendation": "Declare concrete intended tasks (with input/target designation) mapped to a standard task taxonomy where the data support them.",
+      "fair_category": "Interoperable | Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Baseline Model Benchmarks",
+      "requirement_definition": "Dataset documentation reports baseline machine learning model performance metrics, standardized evaluation protocols, and reproducible benchmark scores for the documented tasks.",
+      "status": "N/A",
+      "evidence": "This is a foundational observational data release, not a benchmark dataset, so baseline ML model performance metrics do not apply.",
+      "notes": "N/A trigger: foundational data release without established ML baselines.",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Recommended Use Guidelines",
+      "requirement_definition": "Dataset documentation provides prescriptive recommendations and best practices for optimal model training and ecological inference.",
+      "status": "partial",
+      "evidence": "The user guide and Quick Start Guide offer general usage guidance and caveats, but prescriptive modeling/preprocessing recommendations are not provided.",
+      "notes": "",
+      "recommendation": "Add prescriptive analysis/preprocessing guidance (e.g., handling sampling-effort changes, taxa obfuscation) for reuse.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Structural | Scientific"
+    },
+    {
+      "item": "Example Code",
+      "requirement_definition": "Dataset provides runnable code snippets or quickstart instructions demonstrating programmatic data access, loading, and batch processing.",
+      "status": "partial",
+      "evidence": "NEON provides loading tooling and examples via neonUtilities and the Quick Start Guide, but runnable code is not embedded in the dataset's own metadata/card.",
+      "notes": "",
+      "recommendation": "Include a runnable quickstart snippet (e.g., neonUtilities load example) in the product documentation.",
+      "fair_category": "Reusable | Accessible",
+      "ai_fair_criteria": "Structural"
+    },
+    {
+      "item": "Known Dataset Biases",
+      "requirement_definition": "Dataset documentation provides an explicit analysis of known sampling, taxonomic, spatial, temporal, or detection biases.",
+      "status": "partial",
+      "evidence": "Sources of bias/uncertainty are surfaced (parataxonomist ID uncertainty estimated against expert IDs; sampling-effort reductions over time; COVID/flooding gaps; taxa obfuscation), but a structured, quantified bias enumeration is not provided.",
+      "notes": "",
+      "recommendation": "Provide a structured enumeration of sampling/taxonomic/temporal biases with bounds.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Model Reuse Risks",
+      "requirement_definition": "Dataset documentation identifies specific risks and failure modes associated with downstream model deployment.",
+      "status": "does not meet",
+      "evidence": "No discussion of downstream model risks or failure modes (e.g., shortcut learning, distribution shift from effort changes) is provided.",
+      "notes": "",
+      "recommendation": "Document model-training risks and failure modes relevant to reuse.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Dataset Limitations",
+      "requirement_definition": "Dataset documentation specifies operational, environmental, and analytical boundaries beyond which data are invalid.",
+      "status": "partial",
+      "evidence": "Limitations are implied through change-log entries (effort reductions, site quarantines/closures, obfuscation, parataxonomist uncertainty) rather than a structured statement of analytical boundaries.",
+      "notes": "",
+      "recommendation": "Provide a structured limitations statement (operational/analytical boundaries).",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "AI Model Heritage and Precedent",
+      "requirement_definition": "Dataset metadata tracks prior AI architectures, foundation models, or pre-training pipelines that have utilized the data.",
+      "status": "N/A",
+      "evidence": "No prior AI/ML models trained on this dataset are documented; there is no recorded model lineage to enumerate.",
+      "notes": "N/A trigger: no documented prior ML usage of the dataset.",
+      "recommendation": "",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Out-of-Scope Applications",
+      "requirement_definition": "Dataset documentation explicitly defines prohibited, out-of-scope, or scientifically inappropriate AI applications.",
+      "status": "does not meet",
+      "evidence": "No out-of-scope or prohibited-use guidance is documented for the product.",
+      "notes": "",
+      "recommendation": "Document out-of-scope/inappropriate applications and misuse warnings.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Scientific"
+    },
+    {
+      "item": "Companion and Peer Dataset Linkages",
+      "requirement_definition": "Dataset metadata provides persistent links to complementary sibling datasets, multimodal companion packages, or spatial/temporal extensions within the same study (i.e., related datasets).",
+      "status": "partial",
+      "evidence": "Related NEON products and resources are referenced (Biorepository collections, DNA barcoding/COI, other bet_* tables), but companion/sibling datasets are not linked via typed relationship PIDs (isPartOf/isSupplementTo).",
+      "notes": "",
+      "recommendation": "Link companion/sibling datasets via typed relationship identifiers.",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Downstream Literature Citations",
+      "requirement_definition": "Dataset metadata or landing page tracks downstream publications that utilize, benchmark, or cite the dataset.",
+      "status": "does not meet",
+      "evidence": "Downstream publications that cite/benchmark the dataset are not tracked via structured citation links in the retrieved metadata.",
+      "notes": "",
+      "recommendation": "Track downstream citations via machine-readable links (e.g., DataCite IsCitedBy).",
+      "fair_category": "Findable | Reusable",
+      "ai_fair_criteria": "Scientific | Provenance"
+    },
+    {
+      "item": "Issue Reporting Channel",
+      "requirement_definition": "Dataset provides an actionable communication channel or issue tracker for reporting data errors, label noise, or bugs.",
+      "status": "partial",
+      "evidence": "NEON provides a general portal contact/helpdesk for feedback, but a dedicated issue tracker for reporting data errors/label noise is not documented in the metadata.",
+      "notes": "",
+      "recommendation": "Provide a dedicated issue-reporting channel (e.g., issue tracker URL) for data-quality reports.",
+      "fair_category": "Reusable",
+      "ai_fair_criteria": "Provenance"
+    }
+  ],
+  "summary": {
+    "strengths": [
+      "Strong Findable/Accessible baseline: descriptive title, comprehensive abstract, versioned resolvable DOIs (annual RELEASEs), maintained project/landing page, open CSV formats, and a fully operational public REST API with direct programmatic download.",
+      "Rich scientific documentation: detailed specimen preparation, a protocol-driven taxonomic annotation workflow with expert-taxonomist verification and parataxonomist-uncertainty estimation, physical vouchers deposited in recognized biorepositories, and a machine-readable data dictionary with units.",
+      "Mature QA/QC and maintenance: quality-controlled Level 1 product with a Data Quality Control ATBD and quality flags, explicit missingness flagging (samplingImpractical), and a declared annual release cadence with change-log transparency."
+    ],
+    "gaps": [
+      "CARE/governance documentation is thin: no collection permits, authorizing agencies, Indigenous/community stewardship, or standard machine-readable license (SPDX) are documented.",
+      "AI-task readiness is largely absent: no documented ML tasks/targets, model-reuse risks, out-of-scope applications, ML data splits, or baseline benchmarks.",
+      "Provenance and structural metadata are partial: no formal machine-actionable provenance/lineage graph, no exposed SHA-256 checksums or storage-size/record-count specs, and no formal file-tree/relational-schema documentation in the retrieved metadata."
+    ],
+    "overall_assessment": "The NEON ground-beetle product is a strong traditional-FAIR dataset — well-identified, openly accessible via API and open formats, and scientifically well-documented with expert-curated taxonomy and biorepository vouchers. Its AI-FAIR profile lags: governance/CARE documentation (permits, stewardship, license identifiers) is sparse, machine-actionable provenance and structural contracts (checksums, sizes, schemas, Croissant/Frictionless conformance) are incomplete, and AI-task guidance (tasks, risks, splits, benchmarks) is essentially undocumented. This illustrates the checklist's core thesis: robust FAIR compliance does not by itself make the data turnkey-ready for AI reuse.",
+    "fair4ai_scores": {
+      "traditional_fair": {
+        "findable": 0.667,
+        "accessible": 0.625,
+        "interoperable": 0.594,
+        "reusable": 0.5,
+        "overall": 0.596,
+        "details": {
+          "findable": {
+            "n_scored": 18,
+            "meets": 8,
+            "partial": 8,
+            "does_not_meet": 2,
+            "na": 2
+          },
+          "accessible": {
+            "n_scored": 16,
+            "meets": 5,
+            "partial": 10,
+            "does_not_meet": 1,
+            "na": 2
+          },
+          "interoperable": {
+            "n_scored": 16,
+            "meets": 5,
+            "partial": 9,
+            "does_not_meet": 2,
+            "na": 1
+          },
+          "reusable": {
+            "n_scored": 51,
+            "meets": 10,
+            "partial": 31,
+            "does_not_meet": 10,
+            "na": 11
+          }
+        }
+      },
+      "ai_fair": {
+        "ml_ready": 0.622,
+        "ai_ready_for_task": 0.612,
+        "traceable": 0.574,
+        "care_compliance": 0.333,
+        "overall": 0.535,
+        "components": {
+          "structural": {
+            "score": 0.622,
+            "n_scored": 37,
+            "meets": 12,
+            "partial": 22,
+            "does_not_meet": 3,
+            "na": 6
+          },
+          "scientific": {
+            "score": 0.603,
+            "n_scored": 34,
+            "meets": 13,
+            "partial": 15,
+            "does_not_meet": 6,
+            "na": 9
+          },
+          "provenance": {
+            "score": 0.526,
+            "n_scored": 39,
+            "meets": 9,
+            "partial": 23,
+            "does_not_meet": 7,
+            "na": 7
+          },
+          "governance": {
+            "score": 0.333,
+            "n_scored": 9,
+            "meets": 0,
+            "partial": 6,
+            "does_not_meet": 3,
+            "na": 2
+          }
+        }
+      }
+    }
+  }
+}

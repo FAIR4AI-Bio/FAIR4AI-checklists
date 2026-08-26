@@ -1,6 +1,6 @@
 # FAIR4AI-Bio Checklist — Rating Rubric
 
-*Companion scoring guide for `DRAFT AI-ready checklist_v20260726.csv`.*
+*Companion scoring guide for `CHECKLIST.csv`.*
 
 **Started:** 2026-07-25 · **Maintainer:** Eric Sokol
 
@@ -9,10 +9,21 @@
 ## 1. Purpose & scope
 
 The checklist is an **evaluation instrument, not a metadata template** (see
-`PROGRESS.md` §1 and `NOTES_AND_FUTURE_DIRECTIONS.md` FD-1). Each of its 96 items poses
+`PROGRESS.md` §1 and `NOTES_AND_FUTURE_DIRECTIONS.md` FD-1). Each of its 89 items poses
 one assessable question about a target dataset. This rubric defines **how a reviewer or
 the `fair4ai-eval-agent` decides which rating an item receives** — so ratings are
 consistent across items, datasets, and runs.
+
+**Where the guidance lives.** Judge each item against its `Requirement Definition` in the
+checklist (what the item asks the dataset to disclose), and use **this rubric as the
+authoritative, overarching framework** for deciding which rating that item earns: the four
+rating levels (§2), the N/A rule (§3), the facet-level guidance that says what "present /
+incomplete / absent" concretely look like for each kind of readiness (§4), the evidence
+requirement, and the scoring math (§6). There are no per-item `Scoring: Meets / Partial /
+Does Not Meet` cells — the rubric's section-level guidance is what makes ratings consistent
+across items, datasets, and runs. The one item-specific cell that remains is **`Scoring:
+NA`**, which is authoritative **for the `N/A` decision only** (§3): it states, per item, the
+condition under which that item does not apply.
 
 What it rates: the **Data** vertex of the Question–Data–Model triangle — whether a
 dataset *communicates* the information an AI/ML user would need. It rates **what the
@@ -25,7 +36,7 @@ This rubric is also intended to be publishable as an interim community standard:
 publishers what would raise a dataset's AI-readiness score tomorrow, without mandating a
 schema today (FD-1, future direction 4).
 
-Read alongside: `CHECKLIST_OVERVIEW.md` (the 8 sections), `NOTES_workflow.md` (the Q–D–M
+Read alongside: `CHECKLIST_OVERVIEW.md` (the 9 sections), `NOTES_workflow.md` (the Q–D–M
 frame), and FD-1 (why vocabularies are deferred).
 
 ---
@@ -53,50 +64,54 @@ contract (§6).
 
 ## 3. The N/A rule (when an item is not applicable)
 
-An item is rated **`N/A`** when — and only when — its `Use-case scope (Condition)` (CSV
-col 8) does not apply to the target dataset. Two triggers:
+An item is rated **`N/A`** when — and only when — the condition in its **`Scoring: NA`**
+column applies to the target dataset. That cell states, per item, the specific situation in
+which the item does not apply. Two recurring shapes of that condition:
 
-1. **Scope mismatch** — the item is scoped to a use case the dataset is not an instance
-   of. Examples from the checklist:
-   - Items scoped `Derived/compiled datasets` (e.g. *Source data DOI*, *Provenance
-     Tracking*, *citation of subsumed datasets*) → **`N/A`** for a primary/original dataset.
-   - Items scoped `Human/sensitive data` or `Restricted/sensitive data` (e.g. *Data
-     Anonymization*, *Restricted Data Access*) → **`N/A`** for a dataset with no personal or
-     sensitive content.
-   - Items scoped `Experimental data` (*Is it experimental data* follow-up *design
-     description*) → **`N/A`** for a purely observational dataset.
-2. **Modality mismatch** — the item is scoped to a data modality the dataset does not
-   contain. Examples:
-   - *Language (for text data - IO)*, scoped `Text/NLP (textual data)` → **`N/A`** for an
-     image-only or tabular dataset.
-   - *Sensor Metadata (link)* / *resolution information*, scoped to sensor/instrument or
-     image/audio/video modalities → **`N/A`** for a dataset with no such captures.
+1. **Scope mismatch** — the item's `Scoring: NA` cell names a use case the dataset is not an
+   instance of. Examples from the checklist:
+   - Derived/compiled-only items (e.g. *Upstream Source Attribution and DOIs*, *Source Data
+     Cryptographic Checksums*) → **`N/A`** for a primary/original dataset.
+   - Conditional-disclosure items whose `Scoring: NA` cell describes the absence of the
+     condition (e.g. *Sensitive Data Handling and Obfuscation* → `N/A` when the dataset has
+     no PII or sensitive localities; *Access Restriction Justification* / *Secure Access
+     Procedure* → `N/A` when the dataset is fully open).
+   - Experimental-design items (*Experimental Factor Specification*) → **`N/A`** for a purely
+     observational dataset.
+2. **Modality mismatch** — the item's `Scoring: NA` cell names a data modality the dataset
+   does not contain. Examples:
+   - *Natural Language Specification* → **`N/A`** for a dataset with no textual features.
+   - *Sensor and Instrument Metadata* / *Quantitative Resolution Metrics* → **`N/A`** for a
+     dataset with no sensor/instrument captures or continuous resolution dimensions.
 
 **What does NOT make an item `N/A`:**
-- The `Required (core, auto, or recommended)` tier (col 7) never triggers `N/A`. A missing
-  *recommended* item that is in scope is `does not meet` (just lower-weight; see below),
-  not `N/A`.
-- Items scoped `All use cases` are **never `N/A`** — they are always rated `meets` /
-  `partial` / `does not meet`.
+- Items whose `Scoring: NA` cell reads **"Never NA …"** are always rated `meets` /
+  `partial` / `does not meet`, never `N/A`. This is enforced: `merge_ratings.py`
+  (run with `--checklist`) rejects an `N/A` rating on any such item.
+- A conditional-disclosure item is `N/A` when the condition is **absent**, `meets` when the
+  condition is present **and** documented — never `does not meet` for a clean dataset with
+  nothing to disclose (that polarity error wrongly drags the score down).
 
-**Required tier affects weight, not rating.** `core` items that are `does not meet` are
-the most consequential gaps; `recommended` items that are `does not meet` are minor gaps.
-The tier changes how a low rating rolls up into a score — it does not change which of the
-four ratings the item gets. (`auto` items are ones an agent/repository can infer rather
-than the publisher stating them; rate them on whether that inference is supportable from
-present metadata.)
+`N/A` removes the item from this dataset's denominator (§6); it is not a penalty.
 
 ---
 
 ## 4. Grouped guidance by criteria type
 
-The `Criteria: Structural/Scientific/Provenance` column (col 3) tags what *kind* of
-readiness each item probes. Many items carry a **blend** (e.g. `Structural/Scientific`,
-`Provenance/Scientific`, `scientific + structural`). When an item lists more than one
-facet, rate it against **each** applicable facet and take the **lower** rating as the
-item's rating (an item that is structurally fine but scientifically unusable is only
-`partial`). The definitions in §2 still govern; the guidance below says what
-"present / incomplete / absent" concretely look like for each facet.
+This section is the **authoritative rating guidance** (see §1): it explains what the AI-FAIR
+facets mean and, for each facet, what `meets` / `partial` / `does not meet` concretely look
+like, so ratings stay consistent across items and the score is interpretable. Apply the facet
+guidance below together with the item's `Requirement Definition`.
+
+The `AI FAIR Criteria: Structural | Scientific | Provenance | Governance` column tags what *kind*
+of readiness each item probes, using canonical tokens (`Structural`, `Scientific`, `Provenance`,
+`Governance`) and their ` | `-joined blends (e.g. `Structural | Scientific`, `Scientific |
+Provenance`, `Provenance | Governance`). This column drives the **AI-FAIR** assessment (see §6):
+the first three tokens are scoring facets; `Governance` routes the item to the `care_compliance`
+category. When an item lists more than one facet, rate it against **each** applicable facet and
+take the **lower** rating as the item's rating (an item that is structurally fine but
+scientifically unusable is only `partial`). The definitions in §2 still govern; the guidance below
+says what "present / incomplete / absent" concretely look like for each facet.
 
 ### 4a. Structural criteria
 *Machine-readability, formats, schema, organization, resolvable mappings.* Ask: **could a
@@ -139,6 +154,21 @@ rights, and responsibility be established and trusted?**
 - **`does not meet`** — origin, license, or responsible party cannot be established from the
   metadata.
 
+### 4d. Governance criteria (CARE)
+*Consent, permissions, stewardship, and responsible-party disclosure for governed / CARE /
+Indigenous or community data.* Ask: **are the ethical/CARE conditions for using these data
+disclosed and honorable?** (Based on the CARE Data Governance specification published with IEEE
+in 2025.) This facet feeds the `care_compliance` category (§6).
+
+- **`meets`** — the governance conditions the item asks for are disclosed: permission-to-collect,
+  the agent granting permission, the people/communities stewarding the observations, and the
+  actions/provenance that led to a data point are stated clearly enough to honor.
+- **`partial`** — governance is gestured at but incomplete (e.g. a community named without the
+  permission/stewardship terms; consent implied but not documented).
+- **`does not meet`** — a governance/CARE disclosure that is **in scope** (governed / CARE /
+  Indigenous or community data) is absent. Note: for data with no such governance dimension the
+  correct rating is `N/A` (scope mismatch, §3), **not** `does not meet`.
+
 ---
 
 ## 5. Worked examples
@@ -146,22 +176,26 @@ rights, and responsibility be established and trusted?**
 Grounded in a candidate pilot target (a NEON-style primary occurrence/image dataset such
 as *2018 NEON Ethanol-preserved Ground Beetles*). Ratings are illustrative.
 
-| Item (CSV) | Criteria | Scope | Illustrative `status` | Why (evidence) |
-|---|---|---|---|---|
-| **file format** | Structural | All use cases | **`meets`** | Formats declared (e.g. `image/jpeg`, `text/csv`) and mapped to `sc:encodingFormat` / `cr:FileObject` — machine-actionable. |
-| **Bias** | Scientific | All use cases | **`partial`** | Metadata acknowledges collection bias in one prose sentence but does not say which biases, where, or how severe — discernible intent, not actionable. (Note: enumerated-list phrasing in the definition is aspirational; prose that is specific enough still earns `meets`.) |
-| **License** | Provenance | All use cases | **`meets`** *(or `partial`)* | An SPDX-identified, machine-readable license (`sc:license`) → `meets`; a bespoke license stated only in prose → `partial` (see *Standardized/Machine-readable?*). |
-| **Language (for text data - IO)** | Structural | Text/NLP | **`N/A`** | Dataset contains images + occurrence tables, no textual data — modality mismatch (§3.2). |
-| **Source data DOI** | Provenance | Derived/compiled datasets | **`N/A`** | A primary NEON dataset is not derived from other datasets — scope mismatch (§3.1). |
+| Item (CSV) | Criteria | Illustrative `status` | Why (evidence) |
+|---|---|---|---|
+| **Standardized File Formats** | Structural | **`meets`** | Formats declared (e.g. `image/jpeg`, `text/csv`) and mapped to `sc:encodingFormat` / `cr:FileObject` — machine-actionable. |
+| **Known Dataset Biases** | Scientific | **`partial`** | Metadata acknowledges collection bias in one prose sentence but does not say which biases, where, or how severe — discernible intent, not actionable. (Note: enumerated-list phrasing in the definition is aspirational; prose that is specific enough still earns `meets`.) |
+| **Dataset License Specification** | Provenance \| Governance | **`meets`** *(or `partial`)* | An SPDX-identified, machine-readable license (`sc:license`) → `meets`; a bespoke license stated only in prose → `partial`. |
+| **Natural Language Specification** | Structural | **`N/A`** | Dataset contains images + occurrence tables, no textual data — its `Scoring: NA` cell (no textual features) applies (§3.2). |
+| **Upstream Source Attribution and DOIs** | Provenance | **`N/A`** | A primary NEON dataset is not derived from other datasets — its `Scoring: NA` cell (primary-only data) applies (§3.1). |
 
 ---
 
 ## 6. Relationship to the `fair4ai-eval-agent`
 
 The agent (`/evaluate-dataset`) answers each checklist item from a dataset's metadata and
-emits, per item, a `status` plus an `evidence` string, `notes`, and `recommendation`, then
-computes a `summary.fair4ai_scores` block. The four `status` values are exactly the rubric
-levels in §2 — `meets`, `partial`, `does not meet`, `N/A` — so nothing needs translating:
+emits, per item, the `item` label and `requirement_definition` copied from the checklist, a
+`status`, an `evidence` string, `notes`, `recommendation`, and the `fair_category` /
+`ai_fair_criteria` values copied verbatim from the checklist, then computes a
+`summary.fair4ai_scores` block. (Older evaluations used the field names `criteria` plus
+`section`/`sub_section`; the scorer still accepts them for backward compatibility.) The four
+`status` values are exactly the rubric levels in §2 — `meets`, `partial`, `does not meet`,
+`N/A` — so nothing needs translating:
 
 | `status` | Evidence expectation |
 |---|---|
@@ -170,11 +204,28 @@ levels in §2 — `meets`, `partial`, `does not meet`, `N/A` — so nothing need
 | `does not meet` | `notes` may say where it was expected |
 | `N/A` | `notes` should name the scope/modality that is absent |
 
-The scores in `summary.fair4ai_scores` are then computed deterministically from these four
-`status` values by the **`fair4ai-scoring`** skill (`scripts/compute_fair4ai_scores.py`):
-`meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A → excluded`, means taken per
-FAIR4AI dimension (from the checklist's `FAIR4AI category` column) and combined with equal
-weight into an overall score in 0–1.
+The scores are computed deterministically from these four `status` values by the
+**`fair4ai-scoring`** skill (`scripts/compute_fair4ai_scores.py`): `meets → 1`,
+`partial → 0.5`, `does not meet → 0`, `N/A`/blank → excluded. The script produces **two
+complementary assessments**, both in 0–1 (1 = most FAIR4AI):
+
+- **Traditional FAIR** — findable / accessible / interoperable / reusable, keyed off the
+  checklist's `FAIR category` column;
+  `overall` = equal-weight mean of the non-null dimensions.
+- **AI-FAIR** — four categories built from the `AI FAIR Criteria …` column (§4): `ml_ready`
+  (structural), `ai_ready_for_task` (structural + scientific), `traceable` (provenance +
+  structural), and `care_compliance` (the `Governance` facet — see below); `overall` =
+  equal-weight mean of the four.
+
+**Governance / CARE.** The governance items (based on the CARE Data Governance specification
+published with IEEE in 2025) carry a `Governance` token in their `AI FAIR Criteria …` column and
+are scored as their own `care_compliance` category. This is what makes ethical/CARE readiness a
+first-class, separately visible score rather than being absorbed into "reusable". Governance is
+now a criteria facet across **11 items**; **5 of those also sit in the Governance broad category**.
+The scorer detects governance from the item's `ai_fair_criteria` value (an older evaluation's
+`section = Governance` still works as a backward-compatible fallback). Rate these items with the
+same four levels and the §4d governance guidance; a missing permission/steward/consent disclosure
+that is in scope is `does not meet`, while data with no governance dimension at all is `N/A`.
 
 ---
 

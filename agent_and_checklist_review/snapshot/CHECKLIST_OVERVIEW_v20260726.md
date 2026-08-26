@@ -1,16 +1,15 @@
-# FAIR4AI-Bio Dataset Checklist Overview: Summary of main sections
+# FAIR4AI-Bio Dataset Checklist: Overview
 
-**Purpose:** This checklist evaluates biodiversity, ecology, and environmental science datasets for AI-enabled science. It extends the FAIR principles (Findable, Accessible, Interoperable, Reusable) with requirements specific to machine learning workflows — because FAIR is necessary but not sufficient for AI-ready data.  
+**Purpose:** This checklist evaluates biodiversity, ecology, and environmental science datasets for AI-enabled science. It extends the FAIR principles (Findable, Accessible, Interoperable, Reusable) with requirements specific to machine learning workflows — because FAIR is necessary but not sufficient for AI-ready data.
 
-The checklist is organized into nine sections, each targeting a distinct dimension of dataset quality. Each item is mapped to existing metadata standards (EML, DataCite, Schema.org, Croissant) to enable machine-readable compliance and partial automation.
+The checklist is organized into eight sections, each targeting a distinct dimension of dataset quality. Each item is mapped to existing metadata standards (EML, DataCite, Schema.org, Croissant) to enable machine-readable compliance and partial automation.
 
 ---
 
 ## 1. General Information
 *What the dataset is and how to find it.*
 
-Information for a first-pass.
-Standard bibliographic metadata: title, creators, publisher, date, abstract, keywords. Includes links to the dataset repository, associated paper(s), and related datasets. A data dictionary or codebook is expected to define all variables. The key AI-facing addition here is an explicit flag for machine-readiness — does the dataset conform to a structured, machine-actionable format?
+Standard bibliographic metadata: title, creators, publisher, date, abstract, keywords. Includes links to the dataset repository, associated paper(s), and related datasets. A data dictionary or codebook is expected to define all variables. The key AI-facing addition here is an explicit flag for **machine-readiness** — does the dataset conform to a structured, machine-actionable format?
 
 ---
 
@@ -24,14 +23,14 @@ Describes file formats, dataset organization (e.g., tabular, image directories, 
 ## 3. Source Data
 *Where the dataset came from and how it was collected.*
 
-Covers the data source type (field survey, remote sensing, eDNA, etc.), curation rationale, and whether the dataset is part of a larger collection. Critically for AI use: instrumentation and sensor metadata (make, model, placement, calibration) and sampling methods (design, effort, detectability, spatial/temporal resolution) must be documented. These "sampling semantics" determine whether a model trained on the data will generalize — a gap rarely addressed by standard FAIR metadata.
+Covers the data source type (field survey, remote sensing, eDNA, etc.), curation rationale, and whether the dataset is part of a larger collection. Critically for AI use: **instrumentation and sensor metadata** (make, model, placement, calibration) and **sampling methods** (design, effort, detectability, spatial/temporal resolution) must be documented. These "sampling semantics" determine whether a model trained on the data will generalize — a gap rarely addressed by standard FAIR metadata.
 
 ---
 
 ## 4. Data Processing
 *What was done to the dataset before it reached its current form.*
 
-Documents transformations applied after collection: unit standardization, spatial gridding, gap-filling (and the method used), data anonymization, outlier removal, and labeling/re-labeling. The most AI-critical item in this section is train/validation/test split definitions — splits must be documented to prevent data leakage and enable reproducible benchmarking. The method of labeling (human expert, crowd-sourced, model-assisted) must also be recorded as annotation provenance.
+Documents transformations applied after collection: unit standardization, spatial gridding, gap-filling (and the method used), data anonymization, outlier removal, and labeling/re-labeling. The most AI-critical item in this section is **train/validation/test split definitions** — splits must be documented to prevent data leakage and enable reproducible benchmarking. The method of labeling (human expert, crowd-sourced, model-assisted) must also be recorded as annotation provenance.
 
 ---
 
@@ -65,17 +64,9 @@ Covers delivery options (direct download, API, cloud access, rate limits), forma
 ## 8. Provenance
 *Where the dataset came from and who is responsible for it.*
 
-Records the full citation for the dataset itself (authors, ORCIDs, DOI, checksums) and, for derived datasets, the chain back to source data (source DOIs, source producers, checksums of constituent files). Documents the processing platform and software used.
+Records the full citation for the dataset itself (authors, ORCIDs, DOI, checksums) and, for derived datasets, the chain back to source data (source DOIs, source producers, checksums of constituent files). Documents the processing platform and software used. Includes **ethical and CARE governance** items: storage conditions, permission to collect observations, the agent who granted permission, and the Indigenous peoples or communities whose territories or knowledge are implicated. These governance fields are not optional add-ons — they determine legal and ethical reusability of the dataset.
 
 ---
-
-## 9. Data Governance
-*e.g., Ethical/CARE considerations*
-
-Based on the CARE Data Governance specification published with IEEE in 2025.
-Documents ethical and CARE governance items: storage conditions, permission to collect observations, the agent who granted permission, and the Indigenous peoples or communities whose territories or knowledge are implicated. These governance fields are not optional add-ons — they determine legal and ethical reusability of the dataset. The items in this section also carry a `Governance` token in the `Criteria` column, which drives the AI-FAIR `care_compliance` score.
-
----  
 
 ## Cross-cutting design principle
 

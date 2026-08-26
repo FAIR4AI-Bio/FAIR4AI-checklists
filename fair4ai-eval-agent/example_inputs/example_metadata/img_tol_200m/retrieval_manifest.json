@@ -1,0 +1,19 @@
+{
+  "short_name": "img_tol_200m",
+  "dataset_source": "https://huggingface.co/datasets/imageomics/TreeOfLife-200M",
+  "retrieved_at": "2026-08-21_210157",
+  "source_files": [
+    "https://huggingface.co/api/datasets/imageomics/TreeOfLife-200M",
+    "https://huggingface.co/datasets/imageomics/TreeOfLife-200M/raw/main/README.md",
+    "https://huggingface.co/datasets/imageomics/TreeOfLife-200M",
+    "https://huggingface.co/api/datasets/imageomics/TreeOfLife-200M/croissant"
+  ],
+  "saved_files": [
+    "hf_api_dataset.md",
+    "README.md",
+    "landing_page.md",
+    "croissant_metadata.md"
+  ],
+  "confidence": "high",
+  "note": "Retrieved HF API metadata, README, landing page, and Croissant metadata; all sources successfully fetched with comprehensive dataset information including DOI (10.57967/hf/8980), licensing (CC0-1.0), provenance from four biodiversity providers (GBIF, EOL, BIOSCAN-5M, FathomNet), taxonomy standardization via TaxonoPy, curation methods (MTCNN face removal, quality filtering), file formats (parquet), and citation (BioCLIP 2)."
+}

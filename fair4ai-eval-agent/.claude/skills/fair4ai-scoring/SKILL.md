@@ -12,7 +12,7 @@ computed by a deterministic Python script — never estimate them by hand.
 ## When to use
 
 - During `/evaluate-dataset`, after Step 4 (every response has a `status` and a
-  `fair4ai_category`) and before writing/reporting the file, to populate
+  `fair_category`) and before writing/reporting the file, to populate
   `summary.fair4ai_scores`.
 - Any time you need to (re)compute scores for an existing evaluation JSON.
 
@@ -30,47 +30,91 @@ Options:
 - `--dry-run` — print the scores without modifying the file.
 - `--selftest` — run the script's internal correctness checks (no input file needed).
 
-On Windows use `python` (not `python3`). The script is stdlib-only — no install step.
+On Windows use `python` (not `python3` — it may resolve to the Microsoft Store redirector and
+open the install manager). The script is stdlib-only, so never run `pip`, `py -m pip`, or any
+Python-installer probe — no install step is ever needed. If `python` is unavailable, use `py -3`.
 
 ## Input contract
 
 The script reads `responses[]` from the JSON. Each response must carry:
 
 - `status` — one of `meets`, `partial`, `does not meet`, `N/A` (case-insensitive).
-- `fair4ai_category` — copied verbatim from the checklist's `FAIR4AI category`
-  column: one or more of `Findable | Accessible | Interoperable | Reusable |
-  AI-ready`, pipe-separated. Blank for context-only (non-scored) items.
+- `fair_category` — copied verbatim from the checklist's `FAIR category`
+  column: one or more of `Findable | Accessible | Interoperable | Reusable`,
+  pipe-separated. Blank for AI-FAIR-only / context-only (non-scored) items. Drives the
+  **Traditional FAIR** assessment.
+- `ai_fair_criteria` — copied verbatim from the checklist's `AI FAIR Criteria:
+  Structural | Scientific | Provenance | Governance` column: one or more of `Structural`,
+  `Scientific`, `Provenance`, `Governance` (e.g. `Structural | Scientific`,
+  `Provenance | Governance`), or blank. Drives the **AI-FAIR** assessment; a
+  `Governance` token feeds the `care_compliance` category. (The scorer also reads a
+  legacy `criteria` field if `ai_fair_criteria` is absent.)
+- `section` — *legacy only.* Older evaluations carried the checklist **Broad category**
+  here; the scorer still reads it as a backward-compatible fallback for
+  `care_compliance` (an item also feeds it if its section is `Governance`), but current
+  evaluations no longer emit `section` — governance is fully detectable from
+  `ai_fair_criteria`.
 
-If a scoreable item is missing its `fair4ai_category`, the script excludes it and
-prints a warning — fix the response rather than ignoring the warning.
+If a scoreable item is missing its `fair_category`, the script excludes it from
+Traditional FAIR; the parser also warns on an unrecognized `ai_fair_criteria` value or a
+scoreable item that maps to nothing at all. Fix the response rather than ignoring
+the warning.
 
 ## Scoring rules (what the script does)
 
-- **Per item:** `meets → 1.0`, `partial → 0.5`, `does not meet → 0.0`.
-  `N/A` (and any item with a blank category) is **excluded** — it does not count.
-- **Multiple categories:** an item mapped to *k* dimensions contributes its score
-  to **each** of those *k* dimensions' means.
-- **Per-dimension score** = mean of contributing item scores in that dimension → 0–1.
-  A dimension with zero scored items (all N/A) is reported as `null` and **omitted**
-  from the overall so equal weighting is not skewed.
-- **Overall score** = **equal-weight** mean of the (up to five) per-dimension
-  scores → 0–1. Every dimension counts equally regardless of how many items it has.
-- All scores are in **0–1, where 1 is "most FAIR4AI"**, rounded to 3 decimals.
+Per item: `meets → 1.0`, `partial → 0.5`, `does not meet → 0.0`; `N/A` (and any
+blank facet) is **excluded**. A dimension/facet with zero scored items is `null` and
+**omitted** from every mean that would include it, so equal weighting is preserved.
+The script computes **two assessments**, both in **0–1 where 1 is "most FAIR4AI"**,
+rounded to 3 decimals.
+
+**Traditional FAIR** (from `fair_category`):
+
+- Per-dimension score (`findable`/`accessible`/`interoperable`/`reusable`) = mean of
+  contributing item scores; an item mapped to *k* dimensions counts in each.
+- `overall` = **equal-weight** mean of the (up to four) non-null dimension scores.
+
+**AI-FAIR** (from `ai_fair_criteria`, with the legacy Governance section as a fallback) —
+first four **facet base scores** (means of contributing items): `structural`, `scientific`,
+`provenance`, and `governance`, all read from `ai_fair_criteria` (an item feeds `governance`
+if its `ai_fair_criteria` includes `Governance`, or — for older evaluations — its `section`
+is Governance). Then the four categories are **equal-weight means of their non-null
+facet components**:
+
+- `ml_ready` = `structural`
+- `ai_ready_for_task` = mean(`structural`, `scientific`)
+- `traceable` = mean(`provenance`, `structural`)
+- `care_compliance` = `governance`
+- `overall` = equal-weight mean of the four non-null categories.
+
+Facets deliberately overlap (structural feeds three categories) — this encodes the
+hierarchy ML-ready ⊆ AI-ready-for-task. Categories combine by **averaging
+sub-scores**, not by pooling items.
 
 ## Output written to `summary.fair4ai_scores`
 
 ```json
 "fair4ai_scores": {
-  "findable": 0.83, "accessible": 0.75, "interoperable": 0.6,
-  "reusable": 0.7, "ai_ready": 0.33, "overall": 0.64,
-  "details": {
-    "findable": { "n_scored": 6, "meets": 4, "partial": 2, "does_not_meet": 0, "na": 1 }
-    // ... one per dimension ...
+  "traditional_fair": {
+    "findable": 0.82, "accessible": 0.83, "interoperable": 0.83, "reusable": 0.62,
+    "overall": 0.78,
+    "details": {
+      "findable": { "n_scored": 17, "meets": 14, "partial": 0, "does_not_meet": 3, "na": 3 }
+      // ... one per dimension ...
+    }
+  },
+  "ai_fair": {
+    "ml_ready": 0.73, "ai_ready_for_task": 0.71, "traceable": 0.67,
+    "care_compliance": 1.0, "overall": 0.78,
+    "components": {
+      "structural": { "score": 0.73, "n_scored": 41, "meets": 24, "partial": 12, "does_not_meet": 5, "na": 7 },
+      "scientific": { "...": "..." }, "provenance": { "...": "..." }, "governance": { "...": "..." }
+    }
   }
 }
 ```
 
-The `details` block records per-dimension counts so every score is auditable back
-to the items that produced it. When reporting to the user, cite the 0–1
-per-dimension scores and the overall score, and note that they are script-computed
-(reproducible), not estimated.
+The `details`/`components` blocks record per-dimension and per-facet counts so every
+score is auditable back to the items that produced it. When reporting to the user,
+cite both the **Overall FAIR** and **Overall AI-FAIR** scores (plus the four AI-FAIR
+categories), and note that they are script-computed (reproducible), not estimated.

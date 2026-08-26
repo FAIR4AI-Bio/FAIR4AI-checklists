@@ -4,7 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working in this
 
 ## What this agent does
 
-Evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the FAIR4AI-Bio checklist. Reads a dataset landing page or local metadata files, rates 96 checklist items (`meets | partial | does not meet | N/A`, per `RATING_RUBRIC.md`), and produces a structured JSON report with reproducible FAIR4AI scores across five dimensions (Findable, Accessible, Interoperable, Reusable, AI-ready) plus an overall score — each in **0–1, where 1 is "most FAIR4AI"**. Scores are computed deterministically by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`), not estimated.
+Evaluates biodiversity, ecology, and environmental science datasets for AI-readiness using the FAIR4AI-Bio checklist. Reads a dataset landing page or local metadata files, rates 89 checklist items (`meets | partial | does not meet | N/A`, judged against each item's `Requirement Definition` and the section-level guidance in `RATING_RUBRIC.md`), and produces a structured JSON report with **two reproducible assessments** — **Traditional FAIR** (Findable, Accessible, Interoperable, Reusable + overall) and **AI-FAIR** (ml_ready, ai_ready_for_task, traceable, care_compliance + overall) — each score in **0–1, where 1 is "most FAIR4AI"**. Scores are computed deterministically by the `fair4ai-scoring` skill (`scripts/compute_fair4ai_scores.py`), not estimated. Reporting the two side by side operationalizes the thesis that FAIR is necessary but not sufficient for AI-ready data.
+
+## Skills
+
+Five skills under `.claude/skills/` (one directory each), with clean handoffs:
+
+- **`retrieve-metadata`** — fetch a dataset's metadata (URL or local path) and, by default, save it
+  under `retrieved_metadata/<short_name>/` so it can be reused without re-fetching.
+- **`evaluate-dataset`** — the single-dataset evaluation. Establishes a run folder, skips datasets
+  already evaluated (unless a re-run is requested), reuses downloaded metadata before calling
+  `retrieve-metadata`, rates the 89 items, and scores via `fair4ai-scoring`.
+- **`fair4ai-scoring`** — deterministic 0–1 scoring (`scripts/compute_fair4ai_scores.py`).
+- **`batch-evaluate-datasets`** — the batch **coordinator**: orchestrates one `evaluate-dataset`
+  sub-agent per dataset, then hands off to `summarize-outputs`.
+- **`summarize-outputs`** — compiles a directory of evaluation JSONs into a scores CSV, a summary
+  figure, and a narrative report; by default keeps only the newest run of each dataset.
 
 ## Running an evaluation
 
@@ -12,35 +27,64 @@ Type `/evaluate-dataset` in Claude Code chat. The agent will prompt for:
 
 1. **Dataset source** *(required)* — URL to a landing page, or a local path to a directory of metadata files
 2. **Checklist file** *(optional)* — defaults to `CHECKLIST.csv`
-3. **Template file** *(optional)* — defaults to `example_outputs/FAIR4AI_eval_NEON_beetles_DP1.10022.001_2026-07-26.json` (the current-schema example)
-4. **Output directory** *(optional)* — defaults to current working directory
-5. **Output filename** *(optional)* — defaults to `FAIR4AI_eval_<dataset-name>_<YYYY-MM-DD>.json`
+3. **Template file** *(optional)* — defaults to `example_outputs/FAIR4AI_eval_neon_beetles_2026-08-21_120000.json` (the current-schema example)
+4. **Output directory** *(optional)* — the workspace root; defaults to current working directory
+5. **Output filename** *(optional)* — defaults to `FAIR4AI_eval_<short_name>_<YYYY-MM-DD_HHMMSS>.json` (timestamp to the second, so re-runs never collide)
+6. **Rerun existing evaluation?** *(optional)* — defaults to **No**; when a prior evaluation of the dataset exists in the Output directory it is **skipped** (with a warning + a note in `evaluate_progress.md`) unless this is Yes or the request says "rerun"/"re-evaluate"
 
-For detailed usage examples, see `QUICKSTART.md`.
+Each run creates a run folder `<output dir>/fair4ai_run_<TS>/` with `retrieved_metadata/` (cached
+metadata) and `evaluation_results/` (the evaluation JSON). The skill looks for already-downloaded
+data before fetching. For detailed usage examples, see `QUICKSTART.md`.
 
 ## Running a batch
 
 Type `/batch-evaluate-datasets` to evaluate a whole list of datasets at once. It reads a flexible
 input list (`.txt`/`.csv`/`.md`), normalizes it to a standard CSV, coordinates one sub-agent per
 dataset in parallel (waves of 5; default model **Claude Haiku 4.5**, `claude-haiku-4-5-20251001` —
-it asks), then writes all evaluation JSONs plus a compiled scores CSV, a summary figure, and a
-narrative report into one self-contained, resumable **run folder** (`batch_run_<date>/`). Sub-agents
-run `evaluate-dataset` in its **Batch / non-interactive mode**.
+it asks) into one self-contained, resumable **run folder** (`batch_run_<date>/` with
+`evaluation_results/` + `retrieved_metadata/`), then **hands off to the `summarize-outputs` skill**
+for the compiled scores CSV, summary figure, and narrative report. Sub-agents run `evaluate-dataset`
+in its **Batch / non-interactive mode**.
 
-## Batch scripts & dependencies
+## Scripts & dependencies
 
+- `scripts/build_response_scaffold.py` — builds the evaluation **scaffold** JSON (stdlib-only): all
+  89 `responses[]` pre-filled with `item`/`requirement_definition`/`fair_category`/`ai_fair_criteria`
+  **verbatim** from `CHECKLIST.csv`, `status` defaulting to **`meets`** (the exception-based norm),
+  and empty `evidence`/`notes`/`recommendation`, plus `--emit-guide` to print a compact per-section
+  rating guide (requirement + per-item `N/A when` condition) to stdout. The `evaluate-dataset` skill
+  runs this at Step 3 so the agent rates from the guide (plus `RATING_RUBRIC.md` §4) instead of
+  loading the whole CSV, only overrides the items that deviate from `meets`, and never
+  hand-transcribes the verbatim fields (they are correct-by-construction).
+- `scripts/merge_ratings.py` — merges a batch of `{item, status, evidence, notes, recommendation}`
+  ratings into the scaffold **in place** (stdlib-only); validates every item exists and the status is
+  legal, normalizes status spelling, is idempotent, and accepts partial batches. With `--checklist`
+  (which the skill always passes) it also enforces the **"Never NA" guard**: an `N/A` rating on any
+  item whose `Scoring: NA` cell reads "Never NA …" is a merge error, so mandatory items can't be
+  silently dropped from scoring (mirror of the scorer's "N/A never awards credit" rule). The skill
+  calls it once per `Broad categories` section (per-section incremental writes → visible progress +
+  resumable runs); `--session-json`/`--summary-json` set the `session` block and `summary` narrative.
 - `scripts/compute_fair4ai_scores.py` — scoring (stdlib-only); the scoring authority for every run.
-- `scripts/compile_fair4ai_results.py` — compiles evaluation JSONs → scores CSV + `AGG:{...}`
-  aggregates (stdlib-only).
-- `scripts/make_fair4ai_figure.py` — 6-panel score-distribution figure. **Needs `numpy` +
-  `matplotlib`** (`scripts/requirements-viz.txt`); the figure step degrades gracefully if they're
-  absent, so scoring/compilation never depend on the plotting stack.
+- `scripts/compile_fair4ai_results.py` — compiles a directory of evaluation JSONs → scores CSV +
+  `AGG:{...}` aggregates (stdlib-only). `--source-csv` is optional (datasets are otherwise derived
+  from the JSONs); `--dedup latest` (default) keeps only the newest run of each dataset, `--dedup all`
+  keeps every run.
+- `scripts/make_fair4ai_figure.py` — 5×2 two-column (col 1 = Traditional FAIR, col 2 = AI-FAIR)
+  score-distribution figure. **Needs `numpy` + `matplotlib`** (`scripts/requirements-viz.txt`); the
+  figure step degrades gracefully if they're absent, so scoring/compilation never depend on the
+  plotting stack.
+
+**Interpreter:** always invoke the scripts with the `python` command — on Windows `python3` may
+resolve to the Microsoft Store App-Installer redirector and pop the "Python install manager". The
+scripts are stdlib-only (only the figure needs numpy+matplotlib, installed once by the user), so a
+sub-agent must never run `pip`, `py -m pip`, `python -m venv`, or any installer. If `python` is
+unavailable, use `py -3`, never `python3`.
 
 ## Checklist structure
 
-`CHECKLIST.csv` has 8 sections (`Broad categories` column) and 96 items. Key columns: `Item`, `Proposed definition`, `Criteria: Structural/Scientific/Provenance`, `Broad categories`, `Sub category`, `Note`, `Required (core, auto, or recommended)`, `Use-case scope (Condition)`, `Applies-at-level`, `mappedEML`, `mappedDataCite`, `mappedSOSO`, `mappedCroissant`, `Croissant scope`, and `FAIR4AI category` (the dimension(s) each item counts toward for scoring).
+`CHECKLIST.csv` has 9 sections (`Broad categories` column, including **Governance**) and 89 items. Key columns: `Item`, `Requirement Definition` (what the item asks the dataset to disclose — the thing you rate against), `Scoring: NA` (the one item-specific rating cell that remains — it states the condition under which the item is `N/A`), `FAIR category` (the FAIR dimension(s) each item counts toward; drives Traditional FAIR), `AI FAIR Criteria: Structural | Scientific | Provenance | Governance` (canonical tokens `Structural`/`Scientific`/`Provenance`/`Governance` and their ` | `-joined blends; drives AI-FAIR), `Broad categories`, `Sub category`, `Note`, `mappedEML`, `mappedDataCite`, `mappedSOSO`, `mappedCroissant`, and `Croissant scope`. The `meets`/`partial`/`does not meet` judgment is made against the **section-level facet guidance in `RATING_RUBRIC.md` §4** (Structural / Scientific / Provenance / Governance), not per-item cells. Governance items carry `Governance` in their `AI FAIR Criteria` column, which drives the AI-FAIR `care_compliance` score (the scorer also accepts a `Governance` `section` as a backward-compatible fallback for older evaluation files).
 
-Skip only rows where `Item` is blank. `Use-case scope (Condition)` governs the `N/A` decision (see `RATING_RUBRIC.md` §3).
+Skip only rows where `Item` is blank. The per-item `Scoring: NA` cell governs the `N/A` decision (see `RATING_RUBRIC.md` §3 for the general framework).
 
 ## Output JSON schema
 
@@ -55,27 +99,36 @@ Skip only rows where `Item` is blank. `Use-case scope (Condition)` governs the `
     "evaluator": { "name": "...", "affiliation": "...", "email": "...", "relationship_to_dataset": "...", "evaluation_purpose": "...", "evaluation_description": "..." }
   },
   "responses": [
-    { "section": "...", "sub_section": "...", "question": "...", "status": "meets|partial|does not meet|N/A", "evidence": "...", "notes": "...", "recommendation": "...", "fair4ai_category": "Accessible | Reusable" }
+    { "item": "...", "requirement_definition": "...", "status": "meets|partial|does not meet|N/A", "evidence": "...", "notes": "...", "recommendation": "...", "fair_category": "Accessible | Reusable", "ai_fair_criteria": "Structural | Provenance" }
   ],
   "summary": {
     "strengths": ["..."],
     "gaps": ["..."],
     "overall_assessment": "...",
     "fair4ai_scores": {
-      "findable": 0.83, "accessible": 0.75, "interoperable": 0.6,
-      "reusable": 0.7, "ai_ready": 0.33, "overall": 0.64,
-      "details": { "findable": { "n_scored": 6, "meets": 4, "partial": 2, "does_not_meet": 0, "na": 1 } }
+      "traditional_fair": {
+        "findable": 0.82, "accessible": 0.83, "interoperable": 0.83, "reusable": 0.62,
+        "overall": 0.78,
+        "details": { "findable": { "n_scored": 17, "meets": 14, "partial": 0, "does_not_meet": 3, "na": 3 } }
+      },
+      "ai_fair": {
+        "ml_ready": 0.73, "ai_ready_for_task": 0.71, "traceable": 0.67,
+        "care_compliance": 1.0, "overall": 0.78,
+        "components": { "structural": { "score": 0.73, "n_scored": 41, "meets": 24, "partial": 12, "does_not_meet": 5, "na": 7 } }
+      }
     }
   }
 }
 ```
 
-`summary.fair4ai_scores` is computed by the **`fair4ai-scoring`** skill (`scripts/compute_fair4ai_scores.py`), not written by hand: `meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A → excluded`; per-dimension score = mean of contributing items (an item mapped to several dimensions counts in each); overall = equal-weight mean of scored dimensions; all in 0–1.
+`summary.fair4ai_scores` is computed by the **`fair4ai-scoring`** skill (`scripts/compute_fair4ai_scores.py`), not written by hand. Per item: `meets → 1`, `partial → 0.5`, `does not meet → 0`, `N/A`/blank → excluded; any all-N/A dimension/facet is `null` and omitted from means. Two assessments (both 0–1):
+- **Traditional FAIR** — per-dimension mean from `fair_category`; `overall` = equal-weight mean of the non-null dimensions.
+- **AI-FAIR** — facet base scores `structural`/`scientific`/`provenance` and `governance`, all from `ai_fair_criteria` (an item feeds `governance` if its `ai_fair_criteria` includes `Governance`, or — for older evaluations — its `section` is Governance); then `ml_ready` = structural, `ai_ready_for_task` = mean(structural, scientific), `traceable` = mean(provenance, structural), `care_compliance` = governance; `overall` = equal-weight mean of the four. Categories combine by averaging sub-scores.
 
 ## Expected score patterns
 
 From prior evaluations of primary observational biodiversity datasets:
-- FAIR dimensions (findable, accessible, interoperable, reusable): typically strong (≈0.7–0.9)
-- AI-ready: typically weak (≈0.3–0.4)
+- Traditional FAIR (findable, accessible, interoperable, reusable): typically strong (≈0.7–0.9), though `reusable` often drags lower.
+- AI-FAIR: usually lags Traditional FAIR; the `scientific` facet (fitness-for-task) and `care_compliance` are the common weak spots — the FAIR-vs-AI-FAIR overall gap is the headline finding.
 
-Universal gaps in most datasets: no ML split guidance, no class distribution statistics, no AI/ML usage history, no CARE Principles documentation.
+Universal gaps in most datasets: no ML split guidance, no class distribution statistics, no AI/ML usage history, and thin CARE/governance documentation (permission, stewards, consent).

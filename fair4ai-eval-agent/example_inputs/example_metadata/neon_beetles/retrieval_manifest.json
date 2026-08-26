@@ -1,0 +1,18 @@
+{
+  "short_name": "neon_beetles",
+  "dataset_source": "https://data.neonscience.org/data-products/DP1.10022.001",
+  "retrieved_at": "2026-08-21_210117",
+  "source_files": [
+    "https://data.neonscience.org/api/v0/products/DP1.10022.001",
+    "https://data.neonscience.org/api/v0/products/DP1.10022.001/RELEASE-2026",
+    "https://data.neonscience.org/data-products/DP1.10022.001"
+  ],
+  "saved_files": [
+    "neon_api_product.json",
+    "neon_release_2026.json",
+    "landing_notes.md",
+    "retrieval_manifest.json"
+  ],
+  "confidence": "high",
+  "note": "Rich metadata retrieved from NEON API endpoints (product and RELEASE-2026). Landing page is JavaScript-rendered and returned minimal content; however, API endpoints provided comprehensive metadata including DOI (10.48443/q9ne-6b77), abstract, keywords, science team, data package formats (bet_* tables), documentation references (protocols, user guides, ATBD), biorepository collections, and release history."
+}
