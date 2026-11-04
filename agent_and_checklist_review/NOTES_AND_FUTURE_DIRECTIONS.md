@@ -43,8 +43,8 @@ data ecosystem** our datasets come from.
   first-class object = dataset + target attribute + estimation procedure (e.g. 10-fold
   CV) + evaluation measure + fixed splits. BUT: only tabular
   classification/regression/clustering/learning-curve benchmarking.
-- **Papers with Code** — historically the richest task ontology + leaderboards, but
-  archived/sunset (~2025); treat as a reference taxonomy, not a live standard.
+- **Papers with Code** — historically the richest task ontology + leaderboards, now part
+  of Hugging Face (open source): [Papers with Code](https://paperswithcode.co/).
 
 **Where it is NOT done:**
 - **Croissant (core)** — no controlled ML-task vocabulary; describes *structure*
