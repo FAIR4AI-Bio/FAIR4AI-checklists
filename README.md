@@ -40,8 +40,4 @@ We are working from the idea that AI-Ready is meant as this data can be fed dire
 
 ## Dataset Evaluation Agent
 
-The evaluation agent as stored in this repository is archived from updates in Quarter 3 of 2026. Please see the [FAIR4AI-Bio/evaluator repository](https://github.com/FAIR4AI-Bio/evaluator) for the most up-to-date version of the evaluation agent.
-
-**[`fair4ai-eval-agent/`](fair4ai-eval-agent/)** — AI agent (v2, configured for use with Claude) that evaluates datasets for AI-readiness using the FAIR4AI-Bio checklist. See [`fair4ai-eval-agent/README.md`](fair4ai-eval-agent/README.md) for setup instructions.
-
-`archived/fair4ai-eval-agent-v1/` — Archived Python script agent (OpenAI/Azure/Anthropic). Superseded by v2.
+The evaluation agent previously stored in this repo ([2fbf9dc](https://github.com/FAIR4AI-Bio/AI-FAIR-checklist/tree/2fbf9dc832c7ec0252f49463a0787bcc7e80beaf)) has been moved to the [FAIR4AI-Bio/evaluator repository](https://github.com/FAIR4AI-Bio/evaluator) as of November 2026.
