@@ -6,7 +6,7 @@ AI-FAIR Working Group repo for organization, planning, and development.
 
 We are versioning the checklist in CSV form in this repo [checklist.csv](checklist.csv). The AI-FAIR metadata criteria and derived categories are defined in [definitions_AI-FAIR.md](definitions_AI-FAIR.md).
 
-## Current Resources
+## Other Resources
 
 - [_From FAIR to AI-FAIR Metadata-First Infrastructure for AI-Enabled Science_](https://arxiv.org/abs/2611.03327) by Elizabeth G. Campolongo, Eric R. Sokol, Marty Downs, Gina Glenne, Gregory E. Maurer, Sydne Record, Dustin R. Rubenstein, Matthew J. Thompson, Christine Laney, Hilmar Lapp, Max Tarjan, and Tanya Berger-Wolf <https://doi.org/10.48550/arXiv.2611.03327>
     - Introduces the AI-FAIR metadata criteria, placing AI-enabled science in the context of a bidirectional Question-Data-Model triangle, and the [agentic AI-FAIR evaluation workflow](https://github.com/FAIR4AI-Bio/evaluator).
@@ -15,9 +15,8 @@ We are versioning the checklist in CSV form in this repo [checklist.csv](checkli
 
 - [definitions_AI-FAIR.md](definitions_AI-FAIR.md)
     - Living document for defining AI-FAIR and AI-ready. 
-    - Established as resource to help distinguish elements of the [checklist](checklist.csv) that are sufficient for FAIR, AI-FAIR, and AI-ready. 
-    - This is meant to build on the [FAIR4AI Working Definitions from 0.5 Workshop](https://docs.google.com/document/d/1fLf9ZAhGEBTPgTCkOraE6H9G-2e2TDyBpPpXi2HoZ6k/edit?usp=sharing), which includes comments from Workshop 0.5 and notes for this group (see tabs on the sidebar).
-- [DRAFT AI-Ready Checklist](https://docs.google.com/spreadsheets/d/16WuJzLLMpovZs_iyWflq_eMhykMRaw9tNvGXOEmsabU/edit?usp=sharing)
+    - Established as resource to help distinguish elements of the [checklist](checklist.csv) that are sufficient for FAIR, AI-FAIR, and AI-ready.
+- [DRAFT AI-Ready Checklist (Google Sheet)](https://docs.google.com/spreadsheets/d/16WuJzLLMpovZs_iyWflq_eMhykMRaw9tNvGXOEmsabU/edit?usp=sharing)
     - Based on combining the Imageomics [Data Card](https://imageomics.github.io/Imageomics-guide/wiki-guide/Data-Checklist/) and [Metadata](https://imageomics.github.io/Imageomics-guide/wiki-guide/Metadata-Checklist/) checklists[^1] with the [ESIIP Checklist](https://esip.figshare.com/articles/online_resource/Checklist_to_Examine_AI-readiness_for_Open_Environmental_Datasets/19983722/1?file=35578457)[^2].
 - [AI-Readiness Defined Slides](https://docs.google.com/presentation/d/1FAXOJedUSOotnXn5984DOtGX62bLaR33PzgLOEDbUh4/edit?usp=sharing)
     - Presentation prepared for the 0.5 workshop to provide a common understanding/reference upon which to base our conversations.
@@ -36,7 +35,7 @@ We are versioning the checklist in CSV form in this repo [checklist.csv](checkli
 
 ### Potential Answers or Framing
 
-AI-FAIR is to the point that it can be fed into a pipeline to have an output ready to put into a model. This can be the "AI-enabled" step.
+AI-FAIR is to the point that it can be fed into a pipeline to have an output ready to put into a model. This can be the "AI-enabled" step. More detailed and revised descriptions are provided in [definitions_AI-FAIR.md](definitions_AI-FAIR.md) and our paper.
 
 We are working from the idea that AI-Ready is meant as this data can be fed directly into a model, so data need not be published in this format, just in a format that it is "reasonable" to get there. An example being the [TreeOfLife-200M dataset](https://huggingface.co/datasets/imageomics/TreeOfLife-200M) is not AI-Ready, but using existing pipelines (once all data is downloaded), it can be transformed into the webdataset format used to train [BioCLIP 2](https://huggingface.co/imageomics/bioclip-2). Under this definition, the constituent parts of TreeOfLife-200M are not AI-FAIR.
 
