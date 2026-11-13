@@ -1,8 +1,8 @@
-# Distinguishing FAIR4AI and AI-Ready from FAIR
+# Distinguishing AI-FAIR and AI-Ready from FAIR
 
-## FAIR4AI Working Definitions
+## AI-FAIR Working Definitions
 
-FAIR_4AI_ extends FAIR standards with AI specific requirements 
+AI-FAIR extends FAIR standards with AI specific requirements:
 
 1. Data/metadata can be queried _without_ downloading large files or specialized file types.  
 2. Ontology used can be queried with synonyms from other ontologies.  
@@ -14,7 +14,30 @@ FAIR_4AI_ extends FAIR standards with AI specific requirements
 
 **AI-enabled Data:** Data and/or metadata that has been augmented using AI, specifically for the purpose of being AI-ready.
 
-**FAIR4AI Data:** Data that are FAIR enough for AI to be used in making data fully “AI-Ready”.
+**AI-FAIR Data:** Data that are FAIR enough for AI to be used in making data fully “AI-Ready”.
+
+### AI-FAIR Metadata Criteria
+
+The four key criteria necessary for AI-FAIR data, which enable the Derived categories (defined [below](#ai-fair-derived-categories)). For more details, please see [our paper](https://arxiv.org/abs/2611.03327).
+
+1. **Structural:** Use, e.g., I need this info to be able to download and plug into a modeling pipeline (does NOT guarantee scientific validity of model).
+    - Required for **ML-ready**
+2. **Scientific:** Information about the data, context necessary to understand it and use it to draw scientifically valid conclusions.
+    - This + ML-ready = **AI-ready for task**
+3. **Provenance:** Information needed for appropriate citation, round-tripping, etc.
+    - Traceable requirement—this enables further building on what is provided, e.g., allowing for extension beyond the specified tasks (when scientific is filled), opening the door for round-tripping (bringing value back to original source), etc.
+    - Required for **traceable**
+4. **Governance:** Includes CARE/Governance requirements + occurrence date/date of observation (see strikethrough note in category).
+    - Required for **ethical/CARE compliant** standard
+
+#### AI-FAIR Derived Categories
+
+- **ML-ready:** All structural fields are filled in and then it is machine ready ***for the specified tasks***. Data can be ingested into a pipeline, does not guarantee scientific validity.
+- **AI-ready for task:** List of tasks for which dataset is machine-ready; what the dataset was engineered to do (e.g., train-test split for CV species ID model), could be used for something else, but that may require extra processing, this is ***what it’s designed for***. 
+- **Traceable:** Whether the dataset's origin can be followed back to its source(s) via persistent identifiers, forming an ***unbroken provenance chain***.
+- **Ethical CARE Compliance:** appropriately documented for allowed vs restricted uses, proper attribution.
+
+--
 
 ## AI-Ready Working Distinction
 
